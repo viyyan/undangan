@@ -4,7 +4,7 @@ module.exports = function (grunt) {
   var script_lib = [
     // JQuery
     './node_modules/jquery/dist/jquery.js',
-    // FontAwesome
+    // FontAwesome free
     './node_modules/@fortawesome/fontawesome-free/js/all.js',
   ];
 
