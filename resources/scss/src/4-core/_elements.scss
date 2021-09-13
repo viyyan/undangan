@@ -1,0 +1,22 @@
+//- 4-core/elements
+
+html {
+  font-size: 10px;
+}
+body {
+  font-family: $font-main;
+  background-color: $color-primary;
+  color: $color-white;
+}
+a {
+  outline: none;
+  color: $color-link;
+
+  &:hover {
+    color: darken($color-link, 10%);
+  }
+
+  &:visited {
+    color: lighten($color-link, 20%);
+  }
+}

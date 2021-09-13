@@ -11,26 +11,20 @@
 // B. Import main styles
 //
 
-// 1. Settings
+// 1. settings
 @import "1-settings/import";
 
-// 2. design tokens
-@import "2-design-tokens/import";
+// 2. tokens
+@import "2-tokens/import";
 
 // 3. tools
 @import "3-tools/import";
 
-// 4. generic
-@import "4-generic/import";
+// 4. core
+@import "4-core/import";
 
-// 5. elements
-@import "5-elements/import";
+// 5. components
+@import "5-components/import";
 
-// 6. skeletons
-@import "6-skeletons/import";
-
-// 7. components
-@import "7-components/import";
-
-// 8. utilities
-@import "8-utilities/import";
+// 6. pages
+@import "6-pages/import";

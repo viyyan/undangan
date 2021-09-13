@@ -1,0 +1,100 @@
+//- 2-tokens/color
+
+.text-- {
+  &black {
+    color: #{$color-black};
+  }
+  &white {
+    color: #{$color-white};
+  }
+  &primary {
+    color: #{$color-primary};
+  }
+  &success {
+    color: #{$color-success};
+  }
+  &warning {
+    color: #{$color-warning};
+  }
+  &danger {
+    color: #{$color-danger};
+  }
+  &info {
+    color: #{$color-info};
+  }
+}
+
+.bg-- {
+  &primary {
+    background-color: #{$color-primary};
+  }
+  &main-red {
+    background-color: #{$color-main-red};
+  }
+  &main-red-2 {
+    background-color: #{$color-main-red-2};
+  }
+  &main-red-3 {
+    background-color: #{$color-main-red-3};
+  }
+  &main-red-4 {
+    background-color: #{$color-main-red-4};
+  }
+  &main-red-5 {
+    background-color: #{$color-main-red-5};
+  }
+  &red {
+    background-color: #{$color-red};
+  }
+  &red-2 {
+    background-color: #{$color-red-2};
+  }
+  &red-3 {
+    background-color: #{$color-red-3};
+  }
+  &primary {
+    background-color: #{$color-primary};
+  }
+  &black {
+    background-color: #{$color-black};
+  }
+  &white {
+    background-color: #{$color-white};
+  }
+  &success {
+    background-color: #{$color-success};
+  }
+  &warning {
+    background-color: #{$color-warning};
+  }
+  &danger {
+    background-color: #{$color-danger};
+  }
+  &info {
+    background-color: #{$color-info};
+  }
+}
+
+.border-- {
+  &black {
+    border-color: #{$color-black};
+  }
+  &white {
+    border-color: #{$color-white};
+  }
+  &primary {
+    border-color: #{$color-primary};
+  }
+  &success {
+    border-color: #{$color-success};
+  }
+  &warning {
+    border-color: #{$color-warning};
+  }
+  &danger {
+    border-color: #{$color-danger};
+  }
+  &info {
+    border-color: #{$color-info};
+  }
+}
