@@ -5,16 +5,6 @@
 $space: 60px;
 $spaceMobile: 20px;
 $spaceFull: 40px;
-$spaceXl: 60px;
-$spaceLg: 80px;
-$spaceMd: 140px;
-$spaceSm: 240px;
-$spaceXs: 280px;
-$maxWidthXl: 1900px;
-$maxWidthLg: 1600px;
-$maxWidthMd: 1400px;
-$maxWidthSm: 1200px;
-$maxWidthXs: 990px;
 
 .container {
   margin: '0 auto';
@@ -77,16 +67,16 @@ $maxWidthXs: 990px;
   }
 }
 .gap--lg {
+  margin: 0 -15px;
+
+  > div {
+    padding: 0 15px;
+  }
+}
+.gap--xl {
   margin: 0 -20px;
 
   > div {
     padding: 0 20px;
-  }
-}
-.gap--xl {
-  margin: 0 -30px;
-
-  > div {
-    padding: 0 30px;
   }
 }
