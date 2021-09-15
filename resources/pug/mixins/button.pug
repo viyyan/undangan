@@ -1,18 +1,54 @@
 //-
 //- Button mixin
-mixin button__content( label, type, icon = 'arrow-right' )
+mixin button__content( label, type, icon = 'fas fa-arrow-right', iconPos = 'right' )
   span.button__content
-    span.button__label= label
-    if icon
-      span.button__icon
-        i(class="fas fa-"+icon)
+    if iconPos == 'left'
+      +button__icon(icon)
+    if label
+      span.button__label= label
+    if iconPos == 'right'
+      +button__icon(icon)
+      
+mixin button__icon( icon = 'fas fa-arrow-right' )
+  if icon
+    span.button__icon
+      i(class=icon)
 
 //- Button mixin
-mixin button( label, variant = 'white', icon = 'arrow-right' )
+mixin button( label, variant = 'white', size = 'md', icon = 'fas fa-arrow-right', iconPos = 'right' )
   button(type="button", class="button button--"+variant+" button--"+size)&attributes(attributes)
-    +button__content(label, type, icon)
+    +button__content(label, type, icon, iconPos)
 
 //- Button link mixin
-mixin button-link( label, link, variant = 'white', size = 'md', icon = 'arrow-right' )
+mixin button-link( label, link, variant = 'white', size = 'md', icon = 'fas fa-arrow-right', iconPos = 'right' )
   a(href=link, class="button button--"+variant+" button--"+size)&attributes(attributes)
-    +button__content(label, type, icon)
+    +button__content(label, type, icon, iconPos)
+
+//- Button linkedin mixin
+mixin button-linkedin(link)
+  +button-link('Linkedin Profile', link, 'white', 'md', 'fab fa-linkedin', 'left')
+
+//- Button line mixin
+mixin button-line(label, variant = 'white', size = 'md', icon = false, iconPos = 'right')
+  +button(label, 'line ' + 'button--'+variant, size, icon, iconPos)
+
+//- Button link line mixin
+mixin button-link-line(label, link, variant = 'white', size = 'md', icon = false, iconPos = 'right')
+  +button-link(label, link, 'line ' + 'button--'+variant, size, icon, iconPos)
+
+//- Button social mixin
+mixin button-social(type, link, size = 'md')
+  a(href=link, class="button button--line button--square button--primary button--"+size)&attributes(attributes)
+    span.button__content
+      +button__icon(type)
+
+//- Button pagin mixin
+mixin button-pagin(type, link, size = 'md')
+  a(href=link, class="button button--line button--square button--white button--"+size)&attributes(attributes)
+    span.button__content
+      if type == 'next'
+        +button__icon('fas fa-arrow-right')
+      else if type == 'prev'
+        +button__icon('fas fa-arrow-left')
+      else
+        span.button__label= type

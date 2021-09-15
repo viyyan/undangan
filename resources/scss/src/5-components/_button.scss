@@ -17,12 +17,11 @@
   border: none;
   display: inline-block;
   transition: all 0.4s;
-  color: #000000;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 20px;
   padding-right: 24px;
-  background-color: #ffffff;
+  background-color: $color-white;
   color: $color-primary;
   height: 52px;
   display: inline-flex;
@@ -31,6 +30,14 @@
 
   &:hover {
     text-decoration: none;
+  }
+
+  &:visited {
+    color: $color-primary;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
   }
 
   &__content {
@@ -51,13 +58,14 @@
   &__icon {
     font-size: $text-md;
     color: $color-primary;
+    transition: all 0.4s;
 
     + .button__label {
-      margin-left: 20px;
+      margin-left: 12px;
     }
   }
 
-  &:disabled, &.button--disabled, &.disabled {
+  &:disabled, &[disabled], &.disabled {
     cursor: not-allowed;
     opacity: 0.95;
   }
@@ -74,8 +82,131 @@
     background-color: #{$color-main-red-5};
     color: $color-white;
 
+    &:visited {
+      color: $color-white;
+    }
+
+    .button__icon {
+      color: $color-white;
+    }
+
     &:hover {
-      background-color: darken($color-main-red-5, 12);
+      background-color: darken($color-main-red-5, 6);
+      color: $color-white;
+
+      &:disabled, &[disabled], &.disabled {
+        background-color: #{$color-main-red-5};
+        color: $color-white;
+      }
+    }
+  }
+
+  //
+  // Line
+  &--line {
+    background-color: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+
+    &:visited {
+      color: $color-white;
+    }
+
+    &:hover {
+      background-color: $color-main-red-5;
+      border-color: $color-main-red-5;
+      color: $color-white;
+
+      &:disabled, &[disabled], &.disabled {
+        background-color: transparent;
+        border-color: $color-white;
+      }
+    }
+
+    .button__icon {
+      color: $color-white;
+    }
+
+    &.button--dark {
+      border-color: $color-main-red-5;
+      color: $color-main-red-5;
+
+      &:hover {
+        color: $color-white;
+
+        &:disabled, &[disabled], &.disabled {
+          border-color: $color-main-red-5;
+          color: $color-main-red-5;
+        }
+
+        .button__icon {
+          color: $color-white;
+        }
+      }
+    }
+
+    &.button--primary {
+      border-color: $color-primary;
+      color: $color-primary;
+
+      .button__icon {
+        color: $color-primary;
+      }
+
+      &:hover {
+        color: $color-white;
+        background-color: $color-primary;
+
+        &:disabled, &[disabled], &.disabled {
+          background-color: transparent;
+          border-color: $color-primary;
+          color: $color-primary;
+
+          .button__icon {
+            color: $color-primary;
+          }
+        }
+
+        .button__icon {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  //
+  // square
+  &--square {
+    padding: 0;
+    width: 52px;
+    text-align: center;
+
+    .button__content {
+      width: 100%;
+    }
+
+    .button__icon {
+      font-size: 28px;
+    }
+
+    &.button--sm {
+      width: 44px;
+
+      .button__icon {
+        font-size: 24px;
+      }
+    }
+  }
+
+  //
+  // group
+  &__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > .button--line:not(:last-child) {
+      border-right: 0;
     }
   }
 
@@ -85,6 +216,24 @@
     cursor: not-allowed;
     .spinner {
       --sk-color: #ffffff;
+    }
+  }
+
+  //
+  // Pagination
+  &__pagination {
+    .button .button__icon {
+      font-size: 15px;
+    }
+    .button--white:not([disabled]) {
+      &:hover {
+        background-color: $color-white;
+        color: $color-primary;
+        
+        .button__icon {
+          color: $color-primary;
+        }
+      }
     }
   }
 }

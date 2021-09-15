@@ -1528,7 +1528,6 @@ p {
   border: none;
   display: inline-block;
   transition: all 0.4s;
-  color: #000000;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 20px;
@@ -1541,6 +1540,10 @@ p {
   align-items: center; }
   .button:hover {
     text-decoration: none; }
+  .button:visited {
+    color: #a81c1b; }
+  .button[disabled] {
+    cursor: not-allowed; }
   .button__content {
     display: flex;
     flex-direction: row;
@@ -1553,10 +1556,11 @@ p {
       margin-left: 20px; }
   .button__icon {
     font-size: 16px;
-    color: #a81c1b; }
+    color: #a81c1b;
+    transition: all 0.4s; }
     .button__icon + .button__label {
-      margin-left: 20px; }
-  .button:disabled, .button.button--disabled, .button.disabled {
+      margin-left: 12px; }
+  .button:disabled, .button[disabled], .button.disabled {
     cursor: not-allowed;
     opacity: 0.95; }
   .button--sm {
@@ -1564,12 +1568,86 @@ p {
   .button--dark {
     background-color: #53090a;
     color: #ffffff; }
+    .button--dark:visited {
+      color: #ffffff; }
+    .button--dark .button__icon {
+      color: #ffffff; }
     .button--dark:hover {
-      background-color: #1c0303; }
+      background-color: #370607;
+      color: #ffffff; }
+      .button--dark:hover:disabled, .button--dark:hover[disabled], .button--dark:hover.disabled {
+        background-color: #53090a;
+        color: #ffffff; }
+  .button--line {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff; }
+    .button--line:visited {
+      color: #ffffff; }
+    .button--line:hover {
+      background-color: #53090a;
+      border-color: #53090a;
+      color: #ffffff; }
+      .button--line:hover:disabled, .button--line:hover[disabled], .button--line:hover.disabled {
+        background-color: transparent;
+        border-color: #ffffff; }
+    .button--line .button__icon {
+      color: #ffffff; }
+    .button--line.button--dark {
+      border-color: #53090a;
+      color: #53090a; }
+      .button--line.button--dark:hover {
+        color: #ffffff; }
+        .button--line.button--dark:hover:disabled, .button--line.button--dark:hover[disabled], .button--line.button--dark:hover.disabled {
+          border-color: #53090a;
+          color: #53090a; }
+        .button--line.button--dark:hover .button__icon {
+          color: #ffffff; }
+    .button--line.button--primary {
+      border-color: #a81c1b;
+      color: #a81c1b; }
+      .button--line.button--primary .button__icon {
+        color: #a81c1b; }
+      .button--line.button--primary:hover {
+        color: #ffffff;
+        background-color: #a81c1b; }
+        .button--line.button--primary:hover:disabled, .button--line.button--primary:hover[disabled], .button--line.button--primary:hover.disabled {
+          background-color: transparent;
+          border-color: #a81c1b;
+          color: #a81c1b; }
+          .button--line.button--primary:hover:disabled .button__icon, .button--line.button--primary:hover[disabled] .button__icon, .button--line.button--primary:hover.disabled .button__icon {
+            color: #a81c1b; }
+        .button--line.button--primary:hover .button__icon {
+          color: #ffffff; }
+  .button--square {
+    padding: 0;
+    width: 52px;
+    text-align: center; }
+    .button--square .button__content {
+      width: 100%; }
+    .button--square .button__icon {
+      font-size: 28px; }
+    .button--square.button--sm {
+      width: 44px; }
+      .button--square.button--sm .button__icon {
+        font-size: 24px; }
+  .button__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .button__group > .button--line:not(:last-child) {
+      border-right: 0; }
   .button__loader {
     cursor: not-allowed; }
     .button__loader .spinner {
       --sk-color: #ffffff; }
+  .button__pagination .button .button__icon {
+    font-size: 15px; }
+  .button__pagination .button--white:not([disabled]):hover {
+    background-color: #ffffff;
+    color: #a81c1b; }
+    .button__pagination .button--white:not([disabled]):hover .button__icon {
+      color: #a81c1b; }
 
 .card {
   margin-bottom: 3.5rem;
