@@ -20,3 +20,7 @@ a {
     color: lighten($color-link, 20%);
   }
 }
+p {
+  font-size: $text-md;
+  line-height: $line-height-md;
+}

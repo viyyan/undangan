@@ -1,0 +1,57 @@
+//- 5-components/section.scss
+
+.section {
+  position: relative;
+  padding-bottom: 68px;
+
+  &--space-md {
+    padding-top: 74px;
+  }
+
+  &--space-lg {
+    padding-top: 168px;
+  }
+
+  &--space-none {
+    padding: 0;
+  }
+
+  &--space-top {
+    padding-bottom: 0;
+  }
+
+  &__main {
+    position: relative;
+  }
+
+  &__header {
+    margin-bottom: 68px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    &--center {
+      text-align: center;
+      justify-content: center;
+    }
+
+    &__widget {
+      padding-left: 80px;
+      margin-left: auto;
+    }
+  }
+
+  &__footer {
+    margin-top: 48px;
+    text-align: center;
+  }
+}

@@ -1,18 +1,18 @@
 //-
 //- Button mixin
-mixin button__content( label, type, icon )
-  span.button__inner
+mixin button__content( label, type, icon = 'arrow-right' )
+  span.button__content
     span.button__label= label
     if icon
       span.button__icon
-        i(class="fa fa-"+icon)
+        i(class="fas fa-"+icon)
 
 //- Button mixin
-mixin button( label, variant = 'primary', icon = false )
-  button(type="button", class="button button--"+variant)&attributes(attributes)
+mixin button( label, variant = 'white', icon = 'arrow-right' )
+  button(type="button", class="button button--"+variant+" button--"+size)&attributes(attributes)
     +button__content(label, type, icon)
 
 //- Button link mixin
-mixin button_link( label, link, variant = 'primary', icon = false )
-  a(href=link, class="button button--"+variant)&attributes(attributes)
+mixin button-link( label, link, variant = 'white', size = 'md', icon = 'arrow-right' )
+  a(href=link, class="button button--"+variant+" button--"+size)&attributes(attributes)
     +button__content(label, type, icon)

@@ -7,7 +7,7 @@ $spaceMobile: 20px;
 $spaceFull: 40px;
 
 .container {
-  margin: '0 auto';
+  margin: 0 auto;
   box-sizing: content-box;
   padding: 0 $space;
   max-width: #{$container-size-lg};
@@ -67,16 +67,23 @@ $spaceFull: 40px;
   }
 }
 .gap--lg {
-  margin: 0 -15px;
-
-  > div {
-    padding: 0 15px;
-  }
-}
-.gap--xl {
   margin: 0 -20px;
 
   > div {
     padding: 0 20px;
+  }
+}
+.gap--xl {
+  margin: 0 -30px;
+
+  > div {
+    padding: 0 30px;
+  }
+}
+.gap--2xl {
+  margin: 0 -50px;
+
+  > div {
+    padding: 0 50px;
   }
 }
