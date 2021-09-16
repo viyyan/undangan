@@ -9,3 +9,27 @@ block vars
   - var bodyClass     = 'test components';
 
 block main
+  .section.section--space-md.bg--main-red-3
+    .container
+      - var name = 'Aristo Labare'
+      - var pos = 'Managing Director'
+      - var img = '../images/profile--photo.jpg'
+      - var info = '15 years experience in Marketing Research both Quantitative and Qualitative.'
+
+      .grid.gap--md
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
+        .column--25
+          +profile(name, img, pos, info, '#')
