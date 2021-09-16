@@ -49,6 +49,10 @@ $spaceFull: 40px;
   flex-direction: row;
   align-items: inherit;
   flex-wrap: wrap;
+
+  &--center {
+    justify-content: center;
+  }
 }
 .column--50 {
   width: 50%;
