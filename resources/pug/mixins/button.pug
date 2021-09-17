@@ -37,14 +37,14 @@ mixin button-link-line(label, link, variant = 'white', size = 'md', icon = false
   +button-link(label, link, 'line ' + 'button--'+variant, size, icon, iconPos)
 
 //- Button social mixin
-mixin button-social(type, link, size = 'md')
-  a(href=link, class="button button--line button--square button--primary button--"+size)&attributes(attributes)
+mixin button-social(icon, url, size = 'md')
+  a(href=url, class="button button--line button--square button--primary button--"+size)&attributes(attributes)
     span.button__content
-      +button__icon(type)
+      +button__icon(icon)
 
 //- Button pagin mixin
-mixin button-pagin(type, link, size = 'md')
-  a(href=link, class="button button--line button--square button--white button--"+size)&attributes(attributes)
+mixin button-pagin(type, url, size = 'md')
+  a(href=url, class="button button--line button--square button--white button--"+size)&attributes(attributes)
     span.button__content
       if type == 'next'
         +button__icon('fas fa-arrow-right')

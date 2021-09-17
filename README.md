@@ -79,3 +79,142 @@ Follow this step to install this project locally:
   </div>
 </div>
 ```
+
+## Pug Mixin
+
+### Button
+File: resources/pug/mixins/button.pug
+Example: resources/pug/src/components/button.pug
+
+```+button()```
+For build standard button
+
+Arguments:
+- label
+- variant = 'white' | 'black' | 'primary'
+- size = 'md' | 'sm'
+- icon = *use font awesome class name*, *set false if want hide icon*
+- iconPos = 'right' | 'left'
+
+```+button-line()```
+For build standard button with line
+
+Arguments: *see above*
+
+```+button-link()```
+For build button with link
+
+Arguments:
+- label
+- url
+- variant = 'white' | 'black' | 'primary'
+- size = 'md' | 'sm'
+- icon = *use font awesome class name*, *set false if want hide icon*
+- iconPos = 'right' | 'left'
+
+```+button-link-line()```
+For build link button with line
+
+Arguments: *see above*
+
+```+button-linkedin()```
+For build linkedin button 
+
+Arguments:
+- url
+
+```+button-social()```
+For build social button 
+
+Arguments:
+- icon = *use font awesome class name*
+- url
+- size = 'md' | 'sm'
+
+```+button-pagin()```
+For build pagination button 
+
+Arguments:
+- type = 'next' | 'prev' | numbers
+- url
+- size = 'md' | 'sm'
+
+### Card
+File: resources/pug/mixins/card.pug
+Example: resources/pug/src/components/card.pug
+
+```+card()```
+For build standard card and thumbnail card
+
+Arguments:
+- title
+- info
+- image
+- url
+- category
+- tag
+- icon 
+- infoPos => 'inside' | 'bottom'
+- tagColor => *see color tokens*
+
+```+card-menu()```
+For build menu card
+
+Arguments:
+- label
+- image
+- url
+
+### Call To Action
+File: resources/pug/mixins/cta.pug
+Example: resources/pug/src/components/cta.pug
+
+```+cta()```
+For build call to action component.
+
+>  Warning: To simplify, you can set title, info and image with this mixin.
+
+Arguments:
+- subtitle
+- button => *(button label, set false if want to hide button)*
+- infoAlign = 'middle' | 'top' => *(info vertical alignment)*
+- textAlign = 'left' | 'right'
+- imagePos = 'left' | 'right'
+
+```+cta-section()```
+For build call to action component with section.
+
+Arguments:
+- subtitle
+- button => *(button label, set false if want to hide button)*
+- space = 'md' | 'lg' | 'top' | 'none'
+- bgColor =  *see color tokens*
+- container = 'lg' | 'md' | 'sm' | 'xs'
+- infoAlign = 'middle' | 'top' => *(info vertical alignment)*
+- textAlign = 'left' | 'right'
+- imagePos = 'left' | 'right'
+
+### Feature
+File: resources/pug/mixins/feature.pug
+Example: resources/pug/src/components/feature.pug
+
+```+feature()```
+For build features list
+
+Arguments:
+- title
+- image
+
+### Profile
+File: resources/pug/mixins/profile.pug
+Example: resources/pug/src/components/profile.pug
+
+```+profile()```
+For build profile card
+
+Arguments:
+- name
+- photo
+- position
+- info
+- linkedinUrl
