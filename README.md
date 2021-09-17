@@ -83,10 +83,13 @@ Follow this step to install this project locally:
 ## Pug Mixin
 
 ### Button
+
 File: resources/pug/mixins/button.pug
+
 Example: resources/pug/src/components/button.pug
 
 ```+button()```
+
 For build standard button
 
 Arguments:
@@ -97,11 +100,13 @@ Arguments:
 - iconPos = 'right' | 'left'
 
 ```+button-line()```
+
 For build standard button with line
 
 Arguments: *see above*
 
 ```+button-link()```
+
 For build button with link
 
 Arguments:
@@ -113,17 +118,20 @@ Arguments:
 - iconPos = 'right' | 'left'
 
 ```+button-link-line()```
+
 For build link button with line
 
 Arguments: *see above*
 
 ```+button-linkedin()```
+
 For build linkedin button 
 
 Arguments:
 - url
 
 ```+button-social()```
+
 For build social button 
 
 Arguments:
@@ -132,6 +140,7 @@ Arguments:
 - size = 'md' | 'sm'
 
 ```+button-pagin()```
+
 For build pagination button 
 
 Arguments:
@@ -140,10 +149,13 @@ Arguments:
 - size = 'md' | 'sm'
 
 ### Card
+
 File: resources/pug/mixins/card.pug
+
 Example: resources/pug/src/components/card.pug
 
 ```+card()```
+
 For build standard card and thumbnail card
 
 Arguments:
@@ -158,6 +170,7 @@ Arguments:
 - tagColor => *see color tokens*
 
 ```+card-menu()```
+
 For build menu card
 
 Arguments:
@@ -166,10 +179,13 @@ Arguments:
 - url
 
 ### Call To Action
+
 File: resources/pug/mixins/cta.pug
+
 Example: resources/pug/src/components/cta.pug
 
 ```+cta()```
+
 For build call to action component.
 
 >  Warning: To simplify, you can set title, info and image with this mixin.
@@ -182,6 +198,7 @@ Arguments:
 - imagePos = 'left' | 'right'
 
 ```+cta-section()```
+
 For build call to action component with section.
 
 Arguments:
@@ -199,6 +216,7 @@ File: resources/pug/mixins/feature.pug
 Example: resources/pug/src/components/feature.pug
 
 ```+feature()```
+
 For build features list
 
 Arguments:
@@ -206,10 +224,13 @@ Arguments:
 - image
 
 ### Profile
+
 File: resources/pug/mixins/profile.pug
+
 Example: resources/pug/src/components/profile.pug
 
 ```+profile()```
+
 For build profile card
 
 Arguments:
