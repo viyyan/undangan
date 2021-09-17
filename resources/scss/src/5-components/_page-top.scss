@@ -1,0 +1,57 @@
+//- 5-components/page-top
+
+.page-top {
+  padding-top: 60px;
+  padding-bottom: 70px;
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &__breadcrumb {
+    padding-top: 10px;
+
+    a {
+      color: $color-white;
+      font-weight: 700;
+    }
+
+    .category__main {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__sep {
+      margin: 0 10px;
+    }
+  }
+
+  &__info {
+    margin-left: auto;
+    text-align: right;
+
+    h1, h2 {
+      margin-top: 0;
+      max-width: 620px;
+    }
+
+    p {
+      max-width: 480px;
+    }
+  }
+
+  &--space-lg {
+    padding-bottom: 120px;
+  }
+
+  &--fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+}

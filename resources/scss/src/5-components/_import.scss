@@ -1,5 +1,13 @@
 //- 5-components/import
 
+@import "alert";
+@import "modal";
+@import "modal-alert";
+@import "loader";
+@import "spinner";
+@import "content";
+@import "nav";
+
 @import "section";
 @import "title";
 @import "button";
@@ -10,14 +18,8 @@
 @import "cta";
 @import "feature";
 @import "profile";
-
-@import "alert";
-@import "modal";
-@import "modal-alert";
-@import "loader";
-@import "spinner";
-@import "content";
-@import "nav";
+@import "chat";
+@import "page-top";
 
 @import "header";
 @import "footer";
