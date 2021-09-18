@@ -1,0 +1,80 @@
+//-
+//- Supported
+//-
+$circle-size: 115px;
+
+.home__supported {
+
+  .section {
+    padding-bottom: 140px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+
+    li {
+      padding: 0 12px;
+      margin-bottom: 30px;
+    }
+
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: $circle-size;
+      height: $circle-size;
+      border-radius: 100%;
+      background-color: $color-white;
+
+      img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+}
+
+//-
+//- Testimony
+//-
+.home__testimony {
+  .section {
+    height: 780px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  blockquote {
+    position: relative;
+
+    &:before {
+      content: '';
+      background: url('../images/quote.png') no-repeat 0 0;
+      background-size: contain;
+      width: 124px;
+      height: 104px;
+      position: absolute;
+      top: -48px;
+      left: 100px;
+    }
+
+    strong {
+      background-color: $color-primary;
+      font-weight: normal;
+    }
+  }
+}
