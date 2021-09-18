@@ -24,8 +24,8 @@ $spaceFull: 40px;
 
   &--full {
     width: 100%;
-    padding: 0 $spaceFull;
-    max-width: auto;
+    padding: 0;
+    max-width: none;
   }
 
   &--md {
