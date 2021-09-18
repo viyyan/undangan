@@ -1,0 +1,89 @@
+//- 5-components/footer
+
+$header-height: 98px;
+
+.footer {
+  background-color: $color-footer;
+
+  p {
+    font-size: $text-sm;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__primary {
+    margin-right: 40px;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    margin-bottom: 36px;
+
+    img {
+      height: 40px;
+    }
+  }
+
+  &__social {
+    margin-bottom: 24px;
+
+    a {
+      font-size: 24px;
+      color: $color-white;
+      margin-right: 20px;
+    }
+  }
+
+  &__nav {
+    p {
+      margin: 0;
+    }
+    a {
+      color: $color-white;
+    }
+    span {
+      margin: 0 10px;
+    }
+  }
+
+  &__secondary {
+    margin-left: auto;
+    padding-right: 260px;
+  }
+
+  &__address {
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__copy {
+    margin-top: auto;
+    p {
+      margin: 0;
+    }
+  }
+
+  &__chat {
+    width: 220px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+}

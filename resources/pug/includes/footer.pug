@@ -2,4 +2,43 @@
 //- Footer view
 //-
 footer.footer
-  .footer--inner
+  .container
+    .footer__inner
+      .footer__primary
+        .footer__logo
+          a(href="index.html" title="")
+            img(src="images/logo--main.svg" alt="Clove")
+
+        .footer__social
+          a(href="#" title="")
+            i.fab.fa-instagram
+          
+          a(href="#" title="")
+            i.fab.fa-linkedin
+        
+        .footer__nav
+          p
+            a(href="#") Privacy Policy
+            |
+            span |
+            |
+            a(href="#") Terms & Condition
+            |
+            span |
+            |
+            a(href="#") Contact Us
+      
+      .footer__secondary
+        .footer__content
+          .footer__address
+            p 
+              strong CLOVE INDONESIA
+            p Jl. Mampang Prapatan X, RT.6/RW.1, Tegal Parang, Kec. Mampang Prpt., <br />Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12790
+
+          .footer__copy
+            p &copy; 2021 - CLOVE Research & Marketing Analytics |  All Rights Reserved.
+
+      if showFooterChat
+        .footer__chat
+          a(href="#")
+            img(src="images/quiz--bottom.png" alt="")
