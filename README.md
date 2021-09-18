@@ -80,13 +80,17 @@ Follow this step to install this project locally:
 </div>
 ```
 
-## Pug Mixin
+## Components
 
 ### Button
 
-File: resources/pug/mixins/button.pug
+Sass: resources/scss/src/5-components/button.scss
+
+Pug Mixin: resources/pug/mixins/button.pug
 
 Example: resources/pug/src/components/button.pug
+
+##### Pug Mixins
 
 ```+button()```
 
@@ -148,11 +152,16 @@ Arguments:
 - url
 - size = 'md' | 'sm'
 
+
 ### Card
 
-File: resources/pug/mixins/card.pug
+Sass: resources/scss/src/5-components/card.scss
+
+Pug Mixin: resources/pug/mixins/card.pug
 
 Example: resources/pug/src/components/card.pug
+
+##### Pug Mixins
 
 ```+card()```
 
@@ -180,9 +189,13 @@ Arguments:
 
 ### Call To Action
 
-File: resources/pug/mixins/cta.pug
+Sass: resources/scss/src/5-components/cta.scss
+
+Pug Mixin: resources/pug/mixins/cta.pug
 
 Example: resources/pug/src/components/cta.pug
+
+##### Pug Mixins
 
 ```+cta()```
 
@@ -212,8 +225,14 @@ Arguments:
 - imagePos = 'left' | 'right'
 
 ### Feature
-File: resources/pug/mixins/feature.pug
+
+Sass: resources/scss/src/5-components/feature.scss
+
+Pug Mixin: resources/pug/mixins/feature.pug
+
 Example: resources/pug/src/components/feature.pug
+
+##### Pug Mixins
 
 ```+feature()```
 
@@ -225,9 +244,13 @@ Arguments:
 
 ### Profile
 
-File: resources/pug/mixins/profile.pug
+Sass: resources/scss/src/5-components/profile.scss
+
+Pug Mixin: resources/pug/mixins/profile.pug
 
 Example: resources/pug/src/components/profile.pug
+
+##### Pug Mixins
 
 ```+profile()```
 
@@ -239,3 +262,21 @@ Arguments:
 - position
 - info
 - linkedinUrl
+
+### Section
+
+Sass: resources/scss/src/5-components/section.scss
+
+Example: resources/pug/src/components/section.pug
+
+### Form
+
+Sass: resources/scss/src/5-components/form.scss
+
+Example: resources/pug/src/components/form.pug
+
+### Page Top
+
+Sass: resources/scss/src/5-components/page-top.scss
+
+Example: resources/pug/src/components/page-top.pug
