@@ -6,6 +6,45 @@ extends ../layouts/master
 block vars
   - var pageTitle     = 'Our Tools - Clove';
   - var pageName      = 'our-tools';
-  - var bodyClass     = 'about';
+  - var bodyClass     = 'about bg--main-red-4';
 
 block main
+
+  .page-top
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              a(href="") What We Do
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              span.page-top__breadcrumb_current Our Tools
+
+        .page-top__info
+          h1.text--3xl Tools that are exclusively <br />made by CLOVE
+          p Monitor the survey progress and reports live and engage with the research data and insights.
+
+  .section.bg--main-red-4
+    .container
+      .section__main
+        .section__body  
+          .grid.grid--center.gap--md
+            - var title2 = 'Live Achievement Dashboard'
+            - var date2 = 'Showing the achievement in real time basis'
+            - var img2 = '../images/card--thumbnail.png'
+            - var icon = '../images/card--icon.svg'
+            .column--33
+              +card(title2, date2, img2, '#', false, 'Registered PowerBI or Tableau', icon, 'bottom')
+            .column--33
+              +card(title2, date2, img2, '#', false, 'Registered PowerBI or Tableau', icon, 'bottom')
+            .column--33
+              +card(title2, date2, img2, '#', false, 'Closer (made by Clove)', icon, 'bottom', 'main-red-4')
+            .column--33
+              +card(title2, date2, img2, '#', false, 'MyPer (made by Clove)', icon, 'bottom', 'black')
+            .column--33
+              +card(title2, date2, img2, '#', false, 'Registered PowerBI or Tableau', icon, 'bottom', 'main-red-4')
+
+        .section__footer
+          p ..and more coming soon

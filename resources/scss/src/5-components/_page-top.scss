@@ -12,10 +12,12 @@
 
   &__breadcrumb {
     padding-top: .625rem;
+    text-transform: uppercase;
 
     a {
       color: $color-white;
       font-weight: 700;
+      text-decoration: none;
     }
 
     .category__main {
@@ -40,6 +42,7 @@
 
     p {
       max-width: 30rem;
+      margin-left: auto;
     }
   }
 
@@ -53,5 +56,6 @@
     left: 0;
     right: 0;
     z-index: 2;
+    padding-bottom: 0;
   }
 }

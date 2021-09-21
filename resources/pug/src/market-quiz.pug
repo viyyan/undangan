@@ -9,3 +9,13 @@ block vars
   - var bodyClass     = 'quiz';
 
 block main
+
+  .page-top.page-top--fixed
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              span.page-top__breadcrumb_current MARKET RESEARCH CHECK-UP
+
+  +cta-section(false, "Let's Go!", 'md', 'primary', 'lg', 'middle', 'left', 'right')

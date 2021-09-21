@@ -9,3 +9,60 @@ block vars
   - var bodyClass     = 'blog';
 
 block main
+  //- Slider here
+
+  .section.section--space-md.bg--main-red-5
+    .section__inner
+      .container
+        .section__main
+          .section__header
+            .section__header__main
+              h2.text--xl What we think recently..
+
+          .section__body
+            .grid.gap--md
+              .column--50
+                include ../components/posts/post-1
+              .column--50
+                include ../components/posts/post-2
+
+
+  .section.section--space-md.bg--main-red-5
+    .section__inner
+      .container
+        .section__main
+          .section__header
+            .section__header__main
+              h2.text--3xl All of the thinking
+            .section__header__widget
+              include ../components/form-search
+
+          .section__body
+            .grid.gap--md
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+
+          .section__footer
+            include ../components/pagination

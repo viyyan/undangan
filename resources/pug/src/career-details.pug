@@ -6,6 +6,42 @@ extends ../layouts/master
 block vars
   - var pageTitle     = 'Career Details - Clove';
   - var pageName      = 'career-details';
-  - var bodyClass     = 'career career__detail';
+  - var bodyClass     = 'career career__detail bg--main-red-4';
 
 block main
+
+  .page-top
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              a(href="") Who We Are
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              a(href="") WANT TO JOIN US?
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              span.page-top__breadcrumb_current LISTING DETAILS
+
+        .page-top__info
+          h1.text--3xl Quantitative Research <br />Manager
+          p Full Time Position
+
+  .career__detail__main
+    .grid
+      .column--50
+        .career__detail__content.bg--content.text--black.content__entry
+          h2 Requirements 
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.
+
+          br
+          br
+          h2 Responsibilites
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.
+      
+      .column--50
+        .career__detail__form.bg--primary
+          include ../components/form

@@ -1,11 +1,10 @@
 //- components/pagination.pug
 
-.button__pagination
-  .button__group
-    +button-pagin('prev', '#')
-    +button-pagin('1', '#')
-    +button-pagin('2', '#')
-    +button-pagin('...', '#')(disabled="disabled")
-    +button-pagin('11', '#')
-    +button-pagin('12', '#')
-    +button-pagin('next', '#')
+.button__group.button__pagination
+  +button-pagin('prev', '#')
+  +button-pagin('1', '#')
+  +button-pagin('2', '#')
+  +button-pagin('...', '#')(disabled="disabled")
+  +button-pagin('11', '#')
+  +button-pagin('12', '#')
+  +button-pagin('next', '#')

@@ -6,6 +6,74 @@ extends ../layouts/master
 block vars
   - var pageTitle     = 'Our People - Clove';
   - var pageName      = 'our-people';
-  - var bodyClass     = 'about';
+  - var bodyClass     = 'about bg--main-red-4';
 
 block main
+
+  .page-top.page-top--fixed
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              a(href="") Who We Are
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              span.page-top__breadcrumb_current OUR People
+
+  +cta-section(false, false, 'lg', 'main-red-4')
+
+  .section.section--space-md.bg--main-red-3
+    .section__inner
+      .container
+        .section__main
+          .section__header.section__header--center
+            .section__header__main
+              h2.text--3xl Meet the leaders
+          .section__body
+            - var name = 'Aristo Labare'
+            - var pos = 'Managing Director'
+            - var img = '../images/profile--photo.jpg'
+            - var info = '15 years experience in Marketing Research both Quantitative and Qualitative.'
+
+            .grid.gap--md
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+
+  .section.section--space-md.bg--main-red-5
+    .section__inner
+      .container
+        .section__main
+          .section__header.section__header--center
+            .section__header__main
+              h2.text--3xl Our team members
+          .section__body
+            - var name = 'Aristo Labare'
+            - var pos = 'Managing Director'
+            - var img = '../images/profile--photo.jpg'
+            - var info = '15 years experience in Marketing Research both Quantitative and Qualitative.'
+
+            .grid.gap--md
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')
+              .column--25
+                +profile(name, img, pos, info, '#')

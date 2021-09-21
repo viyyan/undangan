@@ -9,3 +9,21 @@ block vars
   - var bodyClass     = 'about';
 
 block main
+  .page-top.page-top--fixed
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              span.page-top__breadcrumb_current Who We Are
+
+  +cta-section(false, false, 'md', 'primary', 'lg', 'middle', 'left', 'right')
+  +cta-section(false, false, 'md', 'main-red-2')
+
+  .section.section--space-md.bg--main-red-2
+    .container
+      .grid.gap--md
+        .column--50
+          +card-menu('Our 4 Pillars', '../images/card-menu--thumbnail.png', '#')
+        .column--50
+          +card-menu('Our People', '../images/card-menu--thumbnail.png', '#')

@@ -6,6 +6,62 @@ extends ../layouts/master
 block vars
   - var pageTitle     = 'Our Case Study - Clove';
   - var pageName      = 'our-case-study';
-  - var bodyClass     = 'case-study';
+  - var bodyClass     = 'case-study bg--main-red-4';
 
 block main
+
+  .page-top
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              a(href="") What We Do
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              span.page-top__breadcrumb_current Case Studies
+
+        .page-top__info
+          h1.text--3xl Our case studies
+          p Combining digital approach to get deeper and impactful insight.
+
+  
+  .section.section--space-md.bg--main-red-5
+    .section__inner
+      .container
+        .section__main
+          .section__header
+            .section__header__main
+              h2.text--3xl All case studies
+            .section__header__widget
+              h2.text--xl Filter here
+          .section__body
+            .grid.gap--md
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+
+          .section__footer
+            include ../components/pagination
