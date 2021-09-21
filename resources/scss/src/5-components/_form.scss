@@ -1,6 +1,6 @@
 //- 5-components/form
 
-$input-height: 72px;
+$input-height: 4.5rem;
 
 form {
   input, textarea {
@@ -47,8 +47,8 @@ form {
     height: $input-height;
     line-height: $input-height;
     font-size: $text-md;
-    padding-left: 30px;
-    padding-right: 20px;
+    padding-left: 1.875rem;
+    padding-right: 1.25rem;
     position: relative;
     border-bottom: 1px solid $color-white;
     display: flex;
@@ -72,8 +72,8 @@ form {
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 12px;
-      height: 12px;
+      width: .75rem;
+      height: .75rem;
       background-color: $color-white;
       border-radius: 100px 0 0 0;
       z-index: 2;
@@ -86,12 +86,12 @@ form {
   }
 
   &__icon {
-    width: 20px;
-    margin-right: 22px;
+    width: 1.25rem;
+    margin-right: 1.25rem;
     text-align: center;
 
     img {
-      height: 18px;
+      height: 1.125rem;
     }
   }
 
@@ -101,7 +101,7 @@ form {
 
   // Upload 
   &__upload {
-    padding-right: 50px;
+    padding-right: 3rem;
 
     .form__main {
       display: flex;
@@ -110,12 +110,12 @@ form {
     }
 
     .form__label {
-      margin-right: 10px;
+      margin-right: .625rem;
     }
 
     .form__icon {
       img {
-        height: 24px;
+        height: 1.5rem;
       }
     }
 
@@ -128,7 +128,7 @@ form {
 
     &__control {
       position: relative;
-      margin-left: 12px;
+      margin-left: .75rem;
 
       input {
         position: absolute;
@@ -144,9 +144,9 @@ form {
 
   // Message
   &__field__message {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    height: 180px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    height: 11.25rem;
     line-height: $line-height-md;
     align-items: flex-start;
     border-bottom: 0;
@@ -162,15 +162,15 @@ form {
 
   // SUbmit
   &__submit {
-    padding-left: 30px;
-    margin-top: 10px;
+    padding-left: 2rem;
+    margin-top: .625rem;
   }
 }
 
 .form__error {
-  margin-top: 8px;
+  margin-top: .5rem;
   color: #{$color-danger};
-  font-size: 11px;
+  font-size: .75rem;
 }
 
 //
@@ -182,20 +182,20 @@ form {
   align-items: center;
 
   &__main {
-    width: 370px;
-    height: 52px;
+    width: 23rem;
+    height: 3.25rem;
     border: 1px solid $color-white;
     border-right: 0;
 
     input {
-      padding-left: 16px;
-      padding-right: 16px;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 
   .button {
     .button__icon {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
 
     &:hover {

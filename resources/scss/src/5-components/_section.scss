@@ -2,14 +2,14 @@
 
 .section {
   position: relative;
-  padding-bottom: 68px;
+  padding-bottom: 4rem;
 
   &--space-md {
-    padding-top: 74px;
+    padding-top: 4.75rem;
   }
 
   &--space-lg {
-    padding-top: 168px;
+    padding-top: 10rem;
   }
 
   &--space-none {
@@ -25,7 +25,7 @@
   }
 
   &__header {
-    margin-bottom: 68px;
+    margin-bottom: 4rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -35,7 +35,7 @@
     }
 
     p {
-      margin-top: 20px;
+      margin-top: 1.25rem;
       margin-bottom: 0;
     }
 
@@ -45,13 +45,13 @@
     }
 
     &__widget {
-      padding-left: 80px;
+      padding-left: 5rem;
       margin-left: auto;
     }
   }
 
   &__footer {
-    margin-top: 40px;
+    margin-top: 3rem;
     text-align: center;
   }
 

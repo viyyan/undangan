@@ -5,19 +5,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: -12px;
+  margin-left: -0.75rem;
 
   &:before {
     content: "";
-    width: 48px;
-    height: 48px;
-    border-radius: 100px;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
     background: linear-gradient(180deg, $color-gradient-category 0%, transparent 100%);
   }
 
   &:after {
     content: "";
-    width: 68px;
+    width: 4.25rem;
     height: 1px;
     background-color: $color-white;
   }
@@ -26,7 +26,7 @@
     color: $color-white;
     font-size: $text-md;
     line-height: $text-md;
-    margin-left: -34px;
-    margin-right: 15px;
+    margin-left: 2rem;
+    margin-right: 1rem;
   }
 }

@@ -8,17 +8,17 @@
   }
 }
 .content__intro {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 
   p {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 20px;
+    font-size: $text-lg;
+    line-height: $line-height-lg;
+    margin-bottom: 2rem;
     // < 340px
-    @media (max-width: 340px) {
-      font-size: 18px;
-      line-height: 26px;
-    }
+    // @media (max-width: 340px) {
+    //   font-size: 18px;
+    //   line-height: 26px;
+    // }
 
     &:last-child {
       margin-bottom: 0;

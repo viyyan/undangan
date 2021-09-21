@@ -1,12 +1,12 @@
 //-
 //- Supported
 //-
-$circle-size: 115px;
+$circle-size: 6.75rem;
 
 .home__supported {
 
   .section {
-    padding-bottom: 140px;
+    padding-bottom: 8.75rem;
   }
 
   &__list {
@@ -18,11 +18,11 @@ $circle-size: 115px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 -12px;
+    margin: 0 -0.625rem;
 
     li {
-      padding: 0 12px;
-      margin-bottom: 30px;
+      padding: 0 .625rem;
+      margin-bottom: 2rem;
     }
 
     span {
@@ -50,7 +50,7 @@ $circle-size: 115px;
 //-
 .home__testimony {
   .section {
-    height: 780px;
+    height: 48.75rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -65,11 +65,11 @@ $circle-size: 115px;
       content: '';
       background: url('../images/quote.png') no-repeat 0 0;
       background-size: contain;
-      width: 124px;
-      height: 104px;
+      width: 7.75rem;
+      height: 6.5rem;
       position: absolute;
-      top: -48px;
-      left: 100px;
+      top: -3rem;
+      left: 6.25rem;
     }
 
     strong {

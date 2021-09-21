@@ -1,6 +1,6 @@
 //- 5-components/feature
 
-$thumb-deco-height: 180px;
+$thumb-deco-height: 11.25rem;
 
 .feature {
   position: relative;
@@ -11,8 +11,8 @@ $thumb-deco-height: 180px;
   &__thumb {
     position: relative;
     text-align: center;
-    width: 220px;
-    height: 210px;
+    width: 13.75rem;
+    height: 13.125rem;
 
     &:before {
       content: "";
@@ -37,7 +37,7 @@ $thumb-deco-height: 180px;
   }
 
   &__title {
-    margin-top: 24px;
+    margin-top: 1.5rem;
     text-align: center;
   }
 }

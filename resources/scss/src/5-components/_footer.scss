@@ -1,7 +1,4 @@
 //- 5-components/footer
-
-$header-height: 98px;
-
 .footer {
   background-color: $color-footer;
 
@@ -14,12 +11,12 @@ $header-height: 98px;
     display: flex;
     flex-direction: row;
     align-items: inherit;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   &__primary {
-    margin-right: 40px;
+    margin-right: 2.5rem;
   }
 
   &__content {
@@ -29,20 +26,20 @@ $header-height: 98px;
   }
 
   &__logo {
-    margin-bottom: 36px;
+    margin-bottom: 2.25rem;
 
     img {
-      height: 40px;
+      height: 2.5rem;
     }
   }
 
   &__social {
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 
     a {
-      font-size: 24px;
+      font-size: 1.5rem;
       color: $color-white;
-      margin-right: 20px;
+      margin-right: 1.25rem;
     }
   }
 
@@ -54,13 +51,13 @@ $header-height: 98px;
       color: $color-white;
     }
     span {
-      margin: 0 10px;
+      margin: 0 .625rem;
     }
   }
 
   &__secondary {
     margin-left: auto;
-    padding-right: 260px;
+    padding-right: 16.25rem;
   }
 
   &__address {
@@ -77,7 +74,7 @@ $header-height: 98px;
   }
 
   &__chat {
-    width: 220px;
+    width: 13.75rem;
     position: absolute;
     bottom: 0;
     right: 0;

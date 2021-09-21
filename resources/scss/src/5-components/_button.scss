@@ -19,11 +19,11 @@
   transition: all 0.4s;
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 20px;
-  padding-right: 24px;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
   background-color: $color-white;
   color: $color-primary;
-  height: 52px;
+  height: 3.25rem;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -51,17 +51,17 @@
     font-size: $text-md;
     line-height: $text-md;
     + .button__icon {
-      margin-left: 20px;
+      margin-left: 1rem;
     }
   }
 
   &__icon {
-    font-size: $text-md;
+    font-size: 1em;
     color: $color-primary;
     transition: all 0.4s;
 
     + .button__label {
-      margin-left: 12px;
+      margin-left: 1rem;
     }
   }
 
@@ -178,7 +178,7 @@
   // square
   &--square {
     padding: 0;
-    width: 52px;
+    width: 3.25rem;
     text-align: center;
 
     .button__content {
@@ -186,14 +186,14 @@
     }
 
     .button__icon {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
 
     &.button--sm {
-      width: 44px;
+      width: 2.75rem;
 
       .button__icon {
-        font-size: 24px;
+        font-size: 1.5rem;
       }
     }
   }
@@ -223,7 +223,7 @@
   // Pagination
   &__pagination {
     .button .button__icon {
-      font-size: 15px;
+      font-size: 1rem;
     }
     .button--white:not([disabled]) {
       &:hover {

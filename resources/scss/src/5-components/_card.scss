@@ -1,7 +1,7 @@
 //- 5-components/card
 
 .card {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   position: relative;
   overflow: hidden;
 
@@ -12,10 +12,10 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 22px;
-    height: 22px;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: $color-white;
-    border-radius: 100px 0 0 0;
+    border-radius: 100% 0 0 0;
     z-index: 2;
     transition: all 0.4s;
     display: flex;
@@ -24,14 +24,14 @@
     justify-content: center;
     
     &__icon {
-      width: 31px;
-      height: 15px;
+      width: 2rem;
+      height: 1rem;
       background: url('../images/arrow-long-right.svg') no-repeat 0 0;
       background-size: contain;
-      margin-top: 10px;
-      margin-left: 10px;
+      margin-top: 0.6rem;
+      margin-left: 0.6rem;
       opacity: 0;
-      transform: translateX(-10px);
+      transform: translateX(-0.6rem);
       transition: all 0.4s;
       // transition-delay: 0.4s;
     }
@@ -39,8 +39,8 @@
 
   &:hover {
     .card__deco {
-      width: 60px;
-      height: 60px;
+      width: 3.75rem;
+      height: 3.75rem;
       transform-origin: right bottom;
 
       &__icon {
@@ -65,7 +65,7 @@
   //
   // Info
   &__info {
-    padding: 30px;
+    padding: 2rem;
 
     &__inner {
       height: 100%;
@@ -86,13 +86,8 @@
     p {
       margin: 0;
       text-transform: uppercase;
-      font-size: 1.6rem;
-      line-height: 1em;
-      letter-spacing: 0.2em;
-
-      @media (max-width: 768px) {
-        font-size: 1.4rem;
-      }
+      font-size: $text-md;
+      line-height: $line-height-md;
     }
   }
 
@@ -117,7 +112,7 @@
   //
   // Desc
   &__desc {
-    margin-top: 12px;
+    margin-top: .75rem;
     p {
       margin: 0;
     }
@@ -126,12 +121,12 @@
   //
   // Tag
   &__tag {
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: .5rem .75rem;
+    border-radius: .5rem;
     // background-color: $color-main-red;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: .625rem;
+    left: .625rem;
     z-index: 1;
   }
 
@@ -139,7 +134,7 @@
   // Action
   &__action {
     position: relative;
-    padding-top: 2rem;
+    padding-top: 1rem;
     margin-top: auto;
   }
 
@@ -172,29 +167,34 @@
           opacity: 0;
           transition: all 0.4s;
         }
+
+        img {
+          display: block;
+          width: 100%;
+        }
       }
         
       &__title {
-        margin-top: 20px;
+        margin-top: 1.25rem;
         a {
           color: #{$color-white};
         }
       }
 
       &__desc {
-        max-width: 220px;
-        margin: 12px auto 0;
+        max-width: 13.75rem;
+        margin: .75rem auto 0;
         p {
           margin: 0;
         }
       }
 
       &__icon {
-        width: 100px;
-        height: 100px;
+        width: 6.25rem;
+        height: 6.25rem;
         border-radius: 100%;
         background-color: $color-white;
-        margin: -80px auto 0;
+        margin: -5rem auto 0;
         position: relative;
         z-index: 2;
         display: flex;
@@ -204,17 +204,17 @@
         transition: all 0.4s;
 
         img {
-          width: 48px;
+          width: 3rem;
         }
       }
     }
 
     &:hover {
       .card__icon {
-        transform: translateY(-100px);
+        transform: translateY(-6.25rem);
       }
       .card__info__main {
-        transform: translateY(-30px);
+        transform: translateY(-2rem);
       }
       .card__thumb:after {
         opacity: 0.5;
@@ -265,7 +265,7 @@
         right: 0;
         bottom: 0;
         z-index: 2;
-        padding: 30px;
+        padding: 2rem;
         display: flex;
         flex-direction: row;
         align-items: flex-end;
@@ -310,7 +310,7 @@
         }
       }
       .card__info__main {
-        transform: translateY(-30px);
+        transform: translateY(-2rem);
       }
     }
   }
@@ -320,7 +320,7 @@
 // Card Menu
 //
 .card__menu {
-  height: 360px;
+  height: 22.5rem;
   background-color: $color-main-red-5;
 
   a {
@@ -332,8 +332,8 @@
 
   .card {
     &__inner {
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: 2rem;
+      padding-right: 2rem;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -342,13 +342,13 @@
 
     &__thumb {
       text-align: center;
-      width: 285px;
-      height: 285px;
+      width: 16rem;
+      height: 16rem;
 
       &:before {
         content: "";
-        width: 285px;
-        height: 285px;
+        width: 16rem;
+        height: 16rem;
         border-radius: 100%;
         background: linear-gradient(180deg, #A81D1D 26.67%, transparent 80%);
         position: absolute;

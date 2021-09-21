@@ -2,13 +2,13 @@
 
 // Container
 
-$space: 60px;
-$spaceMobile: 20px;
-$spaceFull: 40px;
+$space: 3.5rem;
+$spaceMobile: 1rem;
+$spaceFull: 2.5rem;
 
 .container {
   margin: 0 auto;
-  box-sizing: content-box;
+  // box-sizing: content-box;
   padding: 0 $space;
   max-width: #{$container-size-lg};
 
@@ -70,30 +70,30 @@ $spaceFull: 40px;
   width: 25%;
 }
 .gap--md {
-  margin: 0 -10px;
+  margin: 0 -0.625rem;
 
   > div {
-    padding: 0 10px;
+    padding: 0 .625rem;
   }
 }
 .gap--lg {
-  margin: 0 -20px;
+  margin: 0 -1.5rem;
 
   > div {
-    padding: 0 20px;
+    padding: 0 1.5rem;
   }
 }
 .gap--xl {
-  margin: 0 -30px;
+  margin: 0 -1.8rem;
 
   > div {
-    padding: 0 30px;
+    padding: 0 1.8rem;
   }
 }
 .gap--2xl {
-  margin: 0 -50px;
+  margin: 0 -3.5rem;
 
   > div {
-    padding: 0 50px;
+    padding: 0 3.5rem;
   }
 }

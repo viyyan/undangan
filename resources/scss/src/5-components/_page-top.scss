@@ -1,8 +1,8 @@
 //- 5-components/page-top
 
 .page-top {
-  padding-top: 60px;
-  padding-bottom: 70px;
+  padding-top: 3.75rem;
+  padding-bottom: 4.25rem;
 
   &__main {
     display: flex;
@@ -11,7 +11,7 @@
   }
 
   &__breadcrumb {
-    padding-top: 10px;
+    padding-top: .625rem;
 
     a {
       color: $color-white;
@@ -25,7 +25,7 @@
     }
 
     &__sep {
-      margin: 0 10px;
+      margin: 0 .625rem;
     }
   }
 
@@ -35,16 +35,16 @@
 
     h1, h2 {
       margin-top: 0;
-      max-width: 620px;
+      max-width: 38rem;
     }
 
     p {
-      max-width: 480px;
+      max-width: 30rem;
     }
   }
 
   &--space-lg {
-    padding-bottom: 120px;
+    padding-bottom: 7.5rem;
   }
 
   &--fixed {
