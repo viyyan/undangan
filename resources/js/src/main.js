@@ -1,13 +1,12 @@
 //
 // Main JS
 //
-import HomeLib from './includes/Home';
+import SelectLib from './components/Select';
 
-(function ($) {
+(function() {
   'use strict';
 
-  $(document).ready(function () {
-    //Home script
-    new HomeLib().init();
-  });
-})(jQuery);
+  //Home script
+  new SelectLib().init();
+})();
+ 

@@ -1,0 +1,41 @@
+//-
+//- Filter
+//-
+.case-study__filter {
+  position: relative;
+
+  .section__header__widget {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .select__selected button {
+    border-left: 0;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1.25rem;
+  }
+
+  &__icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 3.25rem;
+    width: 3.25rem;
+    border: 1px solid $color-white;
+    background-color: $color-primary;
+    color: $color-white;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: $color-white;
+    }
+  }
+}

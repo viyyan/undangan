@@ -195,7 +195,9 @@ form {
 
   .button {
     .button__icon {
-      font-size: 1.125rem;
+      svg {
+        fill: $color-white;
+      }
     }
 
     &:hover {
@@ -203,7 +205,9 @@ form {
       border-color: $color-white;
 
       .button__icon {
-        color: $color-primary;
+        svg {
+          fill: $color-primary;
+        }
       }
     }
   }

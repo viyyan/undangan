@@ -3,9 +3,9 @@ module.exports = function (grunt) {
 
   var script_lib = [
     // JQuery
-    './node_modules/jquery/dist/jquery.js',
+    // './node_modules/jquery/dist/jquery.js',
     // FontAwesome free
-    './node_modules/@fortawesome/fontawesome-free/js/all.js',
+    // './node_modules/@fortawesome/fontawesome-free/js/all.js',
   ];
 
   var style_lib = [

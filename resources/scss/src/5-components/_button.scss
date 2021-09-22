@@ -57,8 +57,25 @@
 
   &__icon {
     font-size: 1em;
-    color: $color-primary;
     transition: all 0.4s;
+
+    i {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      fill: $color-primary;
+      transition: all 0.4s;
+    }
+
+    .icon__arrow svg {
+      fill: none;
+      stroke: $color-primary;
+    }
 
     + .button__label {
       margin-left: 1rem;
@@ -87,7 +104,14 @@
     }
 
     .button__icon {
-      color: $color-white;
+      svg {
+        fill: $color-white;
+      }
+  
+      .icon__arrow svg {
+        fill: none;
+        stroke: $color-white;
+      }
     }
 
     &:hover {
@@ -108,8 +132,19 @@
     border: 1px solid $color-white;
     color: $color-white;
 
+    .button__icon {
+      svg {
+        fill: $color-primary;
+      }
+  
+      .icon__arrow svg {
+        fill: none;
+        stroke: $color-primary;
+      }
+    }
+
     &:visited {
-      color: $color-white;
+      color: $color-primary;
     }
 
     &:hover {
@@ -121,10 +156,17 @@
         background-color: transparent;
         border-color: $color-white;
       }
-    }
 
-    .button__icon {
-      color: $color-white;
+      .button__icon {
+        svg {
+          fill: $color-white;
+        }
+    
+        .icon__arrow svg {
+          fill: none;
+          stroke: $color-white;
+        }
+      }
     }
 
     &.button--dark {
@@ -140,7 +182,14 @@
         }
 
         .button__icon {
-          color: $color-white;
+          svg {
+            fill: $color-white;
+          }
+      
+          .icon__arrow svg {
+            fill: none;
+            stroke: $color-white;
+          }
         }
       }
     }
@@ -223,8 +272,11 @@
   // Pagination
   &__pagination {
     justify-content: center;
-    .button .button__icon {
-      font-size: 1rem;
+    .button .button__icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: none;
+      stroke: $color-white;
     }
     .button--white:not([disabled]) {
       &:hover {
@@ -232,7 +284,9 @@
         color: $color-primary;
         
         .button__icon {
-          color: $color-primary;
+          svg {
+            stroke: $color-primary;
+          }
         }
       }
     }
