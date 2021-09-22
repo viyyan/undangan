@@ -9,17 +9,19 @@ block vars
   - var bodyClass     = 'case-study case-study__detail';
 
 block main
-  .cover
-    .cover__image
-      img(src="" alt="")
-    
-    .cover__content
-      .cover__content__main
-        .category
-          .category__main
-            span Retail Census
 
-        h1.text--2xl Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace
+  .blog__detail__cover
+    .card.card--info-inside
+      .card__thumb
+        .card__thumb__image
+          img(src="../images/cover.jpg" alt="")
+      .card__info
+        .card__info__inner
+          .card__category.category
+            span.category__main Retail Census
+
+          .card__title 
+            h3.card__title__main.text--2xl Consumer behavior in the Covid recovery: Polarizing “moving-on mindsets” within retail
 
   .blog__detail__main.bg--content.text--black
     .container.container--lg

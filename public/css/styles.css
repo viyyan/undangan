@@ -2564,3 +2564,34 @@ form ::placeholder {
 
 .career__detail__form .form__field:first-child {
   border-top: 0; }
+
+.blog__detail__cover .card {
+  margin-bottom: 0; }
+  .blog__detail__cover .card:hover .card__thumb img {
+    transform: scale(1); }
+  .blog__detail__cover .card:hover .card__info__main {
+    transform: translateY(0); }
+
+.blog__detail__cover .card__deco {
+  display: none; }
+
+.blog__detail__cover .card__thumb__image {
+  height: 32.5rem; }
+
+.blog__detail__cover .card__info {
+  text-align: center;
+  max-width: 54rem;
+  margin: 0 auto;
+  padding-bottom: 4rem; }
+
+.blog__detail__cover .card__desc {
+  margin-top: 1.5rem; }
+
+.blog__detail__cover .card__category {
+  justify-content: center;
+  margin-left: 0;
+  margin-bottom: 1rem; }
+
+.blog__detail__main {
+  padding-top: 5rem;
+  padding-bottom: 5rem; }
