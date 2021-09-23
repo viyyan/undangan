@@ -32,7 +32,6 @@
   }
   &xl {
     font-size: $text-xl;
-    font-size: clamp($text-xl, calc($text-xl + .2vw), 3rem);
     line-height: $line-height-xl;
   }
   &2xl {

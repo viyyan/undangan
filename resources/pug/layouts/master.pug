@@ -5,6 +5,7 @@ block vars
   - var pageTitle     = 'Clove';
   - var pageName      = 'home';
   - var bodyClass     = 'home';
+  - var jsFile        = false;
 
 doctype html
 html(lang="en")
@@ -57,7 +58,8 @@ html(lang="en")
     //- Additional sctips
     block footer_scripts
 
-    script(src='js/scripts.js')
+    if jsFile
+      script(src='js/'+jsFile+'.js')
 
     //- Additional sctips
     block last_scripts

@@ -9,8 +9,8 @@
       .case-study__filter__icon
         +icon__filter()
         
-      .case-study__filter__item(data-name="industries")
-        .select(data-state="close")
+      .case-study__filter__item
+        .select(data-state="close" data-filter="industries" data-value="")
           .select__selected(data-placeholder="Industries")
             button(type="button") 
               span.select__selected__label Industries
@@ -23,7 +23,7 @@
           .select__options
             ul
               li
-                button(type="button" data-value="1")
+                button(type="button" data-value="all")
                   span All
               li
                 button(type="button" data-value="2")
@@ -32,8 +32,8 @@
                 button(type="button" data-value="3")
                   span Event Evaluation
       
-      .case-study__filter__item(data-name="type_of_research")
-        .select(data-state="close")
+      .case-study__filter__item
+        .select(data-state="close" data-filter="type_of_research" data-value="")
           .select__selected(data-placeholder="Type of research")
             button(type="button") 
               span.select__selected__label Type of research
@@ -46,7 +46,7 @@
           .select__options
             ul
               li
-                button(type="button" data-value="1")
+                button(type="button" data-value="all")
                   span All
               li
                 button(type="button" data-value="2")
@@ -59,8 +59,8 @@
       .case-study__filter__icon
         +icon__arrow-down()
 
-      .case-study__filter__item(data-name="order")
-        .select(data-state="close")
+      .case-study__filter__item
+        .select(data-state="close" data-filter="order" data-value="")
           .select__selected(data-placeholder="Order")
             button(type="button") 
               span.select__selected__label Latest
