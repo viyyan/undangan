@@ -5,6 +5,7 @@ block vars
   - var pageTitle     = 'Clove';
   - var pageName      = 'home';
   - var bodyClass     = 'home';
+  - var cssFile      = false;
   - var jsFile        = false;
 
 doctype html
@@ -25,7 +26,8 @@ html(lang="en")
     //- Additional styles
     block styles
 
-    link(rel="stylesheet", href="css/styles.css")
+    if cssFile
+      link(rel="stylesheet", href="css/"+cssFile+".css")
 
     //- Additional scripts
     block head_scripts

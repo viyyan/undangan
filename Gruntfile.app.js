@@ -1,13 +1,6 @@
 module.exports = function (grunt) {
   'use strict';
 
-  var script_lib = [
-    // JQuery
-    // './node_modules/jquery/dist/jquery.js',
-    // FontAwesome free
-    // './node_modules/@fortawesome/fontawesome-free/js/all.js',
-  ];
-
   var style_lib = [
     // spinkit
     './node_modules/spinkit/spinkit.css',
@@ -93,9 +86,9 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= meta.styles %>src',
+            cwd: '<%= meta.styles %>',
             src: ['*.sass', '*.scss'],
-            dest: '<%= meta.styles %>_dist',
+            dest: '<%= meta.public %>css',
             ext: '.css',
           },
         ],
@@ -103,11 +96,7 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      css_libs: {
-        src: style_lib,
-        dest: '<%= meta.styles %>_dist/libs.css',
-      },
-      css_general: {
+      sample: {
         src: [
           '<%= meta.styles %>_dist/libs.css',
           '<%= meta.styles %>vendors/*.css',
@@ -145,7 +134,7 @@ module.exports = function (grunt) {
       },
       style: {
         files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
-        tasks: ['sass', 'concat:css_libs', 'concat:css_general'],
+        tasks: ['sass'],
       },
       script: {
         files: ['<%= meta.scripts %>/**/*.js'],
@@ -202,8 +191,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dev',
     'sass',
-    'concat:css_libs',
-    'concat:css_general',
     'postcss',
     'pug',
     'browserify',
