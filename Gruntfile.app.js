@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= meta.scripts %>src',
+            cwd: '<%= meta.scripts %>',
             src: ['*.js'],
             dest: '<%= meta.public %>js',
             ext: '.js',
