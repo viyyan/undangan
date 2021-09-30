@@ -28,28 +28,28 @@
   &__main {
     position: relative;
     z-index: 2;
-    min-width: 42rem;
-    max-width: 78rem;
-    padding: 3rem;
-    border-radius: 15px;
+    min-width: 26rem;
+    max-width: 48rem;
+    padding: 2rem;
+    border-radius: 1rem;
     background-color: #ffffff;
     transition: all 0.4s;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-10rem);
+    transform: translateY(-6.25rem);
   }
 
   &__close {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
 
     button {
       border: 0;
       outline: none;
       padding: 0;
       background-color: transparent;
-      font-size: 1.8rem;
+      font-size: 1.125rem;
     }
   }
 
@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 15px;
+    gap: 1rem;
   }
 
   // State
@@ -80,6 +80,99 @@
   &[data-state="close"] {
     .modal__overlay {
       transition-delay: 0.2s;
+    }
+  }
+}
+
+//-
+//- Modal Alert
+//-
+.modal__alert {
+  .modal {
+    &__main {
+      min-width: 36rem;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    &__icon {
+      margin-bottom: 1rem;
+
+      svg {
+        width: 5rem;
+        height: 5rem;
+        fill: #{$color-black};
+      }
+    }
+    &__title {
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #{$color-black};
+        margin-top: 0;
+        margin-bottom: .75rem;
+      }
+    }
+    &__info {
+      font-size: 1rem;
+      color: #666666;
+
+      p {
+        margin: 0;
+      }
+    }
+    &__action {
+      margin-top: 1.875rem;
+    }
+  }
+
+  //
+  // Coloring
+  //
+  &--primary {
+    .modal__icon svg,
+    .modal__title h2 {
+      color: #{$color-primary};
+    }
+  }
+  &--success {
+    .modal__title h2 {
+      color: #{$color-success};
+    }
+    .modal__icon svg {
+      fill: #{$color-success};
+      color: #{$color-success};
+    }
+  }
+  &--danger {
+    .modal__title h2 {
+      color: #{$color-danger};
+    }
+    .modal__icon svg {
+      fill: #{$color-danger};
+      color: #{$color-danger};
+    }
+  }
+  &--warning {
+    .modal__title h2 {
+      color: #{$color-warning};
+    }
+    .modal__icon svg {
+      color: #{$color-warning};
+      fill: #{$color-warning};
+    }
+  }
+  &--info {
+    .modal__title h2 {
+      color: #{$color-info};
+    }
+    .modal__title svg {
+      color: #{$color-info};
+      fill: #{$color-info};
     }
   }
 }

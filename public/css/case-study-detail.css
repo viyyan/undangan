@@ -727,7 +727,8 @@ p {
             opacity: 1; }
           .header__nav__main > ul > li:hover .header__nav__subs {
             opacity: 1;
-            transform: translateY(0); }
+            transform: translateY(0);
+            visibility: visible; }
           .header__nav__main > ul > li > a {
             color: #ffffff;
             height: 100%;
@@ -744,7 +745,8 @@ p {
       transition: all 0.4s;
       opacity: 0;
       transform: translateY(1rem);
-      z-index: 4; }
+      z-index: 4;
+      visibility: hidden; }
       .header__nav__subs > ul {
         list-style: none;
         margin: 0;
@@ -987,7 +989,7 @@ p {
       margin-left: 1rem; }
   .button:disabled, .button[disabled], .button.disabled {
     cursor: not-allowed;
-    opacity: 0.95; }
+    opacity: 0.5; }
   .button--sm {
     height: 44px; }
   .button--dark {
@@ -1000,10 +1002,10 @@ p {
     .button--dark .button__icon .icon__arrow svg {
       fill: none;
       stroke: #ffffff; }
-    .button--dark:hover {
+    .button--dark:hover, .button--dark[data-state="active"] {
       background-color: #370607;
       color: #ffffff; }
-      .button--dark:hover:disabled, .button--dark:hover[disabled], .button--dark:hover.disabled {
+      .button--dark:hover:disabled, .button--dark:hover[disabled], .button--dark:hover.disabled, .button--dark[data-state="active"]:disabled, .button--dark[data-state="active"][disabled], .button--dark[data-state="active"].disabled {
         background-color: #53090a;
         color: #ffffff; }
   .button--line {
@@ -1017,29 +1019,29 @@ p {
       stroke: #a81c1b; }
     .button--line:visited {
       color: #a81c1b; }
-    .button--line:hover {
+    .button--line:hover, .button--line[data-state="active"] {
       background-color: #53090a;
       border-color: #53090a;
       color: #ffffff; }
-      .button--line:hover:disabled, .button--line:hover[disabled], .button--line:hover.disabled {
+      .button--line:hover:disabled, .button--line:hover[disabled], .button--line:hover.disabled, .button--line[data-state="active"]:disabled, .button--line[data-state="active"][disabled], .button--line[data-state="active"].disabled {
         background-color: transparent;
         border-color: #ffffff; }
-      .button--line:hover .button__icon svg {
+      .button--line:hover .button__icon svg, .button--line[data-state="active"] .button__icon svg {
         fill: #ffffff; }
-      .button--line:hover .button__icon .icon__arrow svg {
+      .button--line:hover .button__icon .icon__arrow svg, .button--line[data-state="active"] .button__icon .icon__arrow svg {
         fill: none;
         stroke: #ffffff; }
     .button--line.button--dark {
       border-color: #53090a;
       color: #53090a; }
-      .button--line.button--dark:hover {
+      .button--line.button--dark:hover, .button--line.button--dark[data-state="active"] {
         color: #ffffff; }
-        .button--line.button--dark:hover:disabled, .button--line.button--dark:hover[disabled], .button--line.button--dark:hover.disabled {
+        .button--line.button--dark:hover:disabled, .button--line.button--dark:hover[disabled], .button--line.button--dark:hover.disabled, .button--line.button--dark[data-state="active"]:disabled, .button--line.button--dark[data-state="active"][disabled], .button--line.button--dark[data-state="active"].disabled {
           border-color: #53090a;
           color: #53090a; }
-        .button--line.button--dark:hover .button__icon svg {
+        .button--line.button--dark:hover .button__icon svg, .button--line.button--dark[data-state="active"] .button__icon svg {
           fill: #ffffff; }
-        .button--line.button--dark:hover .button__icon .icon__arrow svg {
+        .button--line.button--dark:hover .button__icon .icon__arrow svg, .button--line.button--dark[data-state="active"] .button__icon .icon__arrow svg {
           fill: none;
           stroke: #ffffff; }
     .button--line.button--primary {
@@ -1047,16 +1049,16 @@ p {
       color: #a81c1b; }
       .button--line.button--primary .button__icon {
         color: #a81c1b; }
-      .button--line.button--primary:hover {
+      .button--line.button--primary:hover, .button--line.button--primary[data-state="active"] {
         color: #ffffff;
         background-color: #a81c1b; }
-        .button--line.button--primary:hover:disabled, .button--line.button--primary:hover[disabled], .button--line.button--primary:hover.disabled {
+        .button--line.button--primary:hover:disabled, .button--line.button--primary:hover[disabled], .button--line.button--primary:hover.disabled, .button--line.button--primary[data-state="active"]:disabled, .button--line.button--primary[data-state="active"][disabled], .button--line.button--primary[data-state="active"].disabled {
           background-color: transparent;
           border-color: #a81c1b;
           color: #a81c1b; }
-          .button--line.button--primary:hover:disabled .button__icon, .button--line.button--primary:hover[disabled] .button__icon, .button--line.button--primary:hover.disabled .button__icon {
+          .button--line.button--primary:hover:disabled .button__icon, .button--line.button--primary:hover[disabled] .button__icon, .button--line.button--primary:hover.disabled .button__icon, .button--line.button--primary[data-state="active"]:disabled .button__icon, .button--line.button--primary[data-state="active"][disabled] .button__icon, .button--line.button--primary[data-state="active"].disabled .button__icon {
             color: #a81c1b; }
-        .button--line.button--primary:hover .button__icon {
+        .button--line.button--primary:hover .button__icon, .button--line.button--primary[data-state="active"] .button__icon {
           color: #ffffff; }
   .button--square {
     padding: 0;
@@ -1070,6 +1072,13 @@ p {
       width: 2.75rem; }
       .button--square.button--sm .button__icon {
         font-size: 1.5rem; }
+  .button--modal {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 42px; }
+    .button--modal.button--danger {
+      background-color: #f14668;
+      color: #ffffff; }
   .button__group {
     display: flex;
     flex-direction: row;
@@ -1553,3 +1562,6 @@ form ::placeholder {
     color: #a81c1b;
     font-weight: normal;
     margin-right: 1rem; }
+
+.p-case-study-detail {
+  position: relative; }

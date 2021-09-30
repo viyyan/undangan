@@ -1,7 +1,7 @@
 //
-// Main JS
+// Case study JS
 //
-import Select from './components/Select';
+import Select from './src/components/Select';
 
 (function() {
   'use strict';

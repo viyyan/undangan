@@ -15,7 +15,10 @@ mixin button__icon( icon = 'arrow-right' )
       if icon == 'arrow-right'
         i.icon__arrow
           +icon__arrow-right()
-      if icon == 'arrow-circle-up'
+      else if icon == 'arrow-left'
+        i.icon__arrow
+          +icon__arrow-left()
+      else if icon == 'arrow-circle-up'
         i.icon__arrow
           +icon__arrow-circle-up()
       else if icon == 'linkedin'
@@ -24,6 +27,9 @@ mixin button__icon( icon = 'arrow-right' )
       else if icon == 'search'
         i.icon__search
           +icon__search()
+      else if icon == 'reset'
+        i.icon__arrow
+          +icon__reset()
 
 //- Button mixin
 mixin button( label, variant = 'white', size = 'md', icon = 'arrow-right', iconPos = 'right' )
