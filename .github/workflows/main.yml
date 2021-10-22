@@ -1,0 +1,28 @@
+name: Laravel Deploy Prod
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.0'
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Compress build
+        run: mkdir /tmp/build && tar -czf /tmp/build/new_build.tar.gz . && sudo chmod -R 776 /tmp/build/new_build.tar.gz
+      - name: Deploy zip
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: /tmp/build/
+          server-dir: ${{ secrets.WEB_DIR }}
+
+
