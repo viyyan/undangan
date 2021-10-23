@@ -2,13 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\Examples\ExampleCardsScreen;
-use App\Orchid\Screens\Examples\ExampleChartsScreen;
-use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
-use App\Orchid\Screens\Examples\ExampleFieldsScreen;
-use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
-use App\Orchid\Screens\Examples\ExampleScreen;
-use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -21,13 +14,6 @@ use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Banner\BannerListScreen;
 use App\Orchid\Screens\Banner\BannerEditScreen;
-use App\Orchid\Screens\Product\ProductListScreen;
-use App\Orchid\Screens\Product\ProductEditScreen;
-use App\Orchid\Screens\ProductVariant\VariantEditScreen;
-use App\Orchid\Screens\Tvc\TvcListScreen;
-use App\Orchid\Screens\Tvc\TvcEditScreen;
-use App\Orchid\Screens\Investor\InvestorListScreen;
-use App\Orchid\Screens\Investor\InvestorEditScreen;
 use App\Orchid\Screens\Career\CareerListScreen;
 use App\Orchid\Screens\Career\CareerEditScreen;
 use Illuminate\Support\Facades\Route;
@@ -96,63 +82,6 @@ Route::screen('category/{category?}', CategoryEditScreen::class)
     })
     ;
 
-// Platform > Product
-Route::screen('products', ProductListScreen::class)
-    ->name('platform.product.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Products'), route('platform.product.list'));
-    });
-
-Route::screen('product/{product?}', ProductEditScreen::class)
-    ->name('platform.product.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.product.list')
-            ->push(__('Product'));
-    });
-
-// Platform > Product > Variant
-Route::screen('variant/{variant?}', VariantEditScreen::class)
-    ->name('platform.variant.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.product.edit')
-            ->push(__('Product Variant'));
-    });
-
-// Platform > Product > Tvc
-Route::screen('tvcs', TvcListScreen::class)
-    ->name('platform.tvc.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('TVCs'), route('platform.tvc.list'));
-    });
-
-Route::screen('tvc/{tvc?}', TvcEditScreen::class)
-    ->name('platform.tvc.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.tvc.list')
-            ->push(__('TVC'));
-    });
-
-// Platform > Investor
-Route::screen('investors', InvestorListScreen::class)
-    ->name('platform.investor.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-        ->push(__('Investors'), route('platform.investor.list'));
-    });
-
-Route::screen('investor/{investor?}', InvestorEditScreen::class)
-    ->name('platform.investor.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-        ->parent('platform.investor.list')
-        ->push('Investor');
-            
-    });
 
 // Platform > Career
 Route::screen('careers', CareerListScreen::class)
@@ -227,20 +156,3 @@ Route::screen('roles', RoleListScreen::class)
             ->push(__('Roles'), route('platform.systems.roles'));
     });
 
-// Example...
-Route::screen('example', ExampleScreen::class)
-    ->name('platform.example')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.index')
-            ->push(__('Example screen'));
-    });
-
-Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
-Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
-Route::screen('example-charts', ExampleChartsScreen::class)->name('platform.example.charts');
-Route::screen('example-editors', ExampleTextEditorsScreen::class)->name('platform.example.editors');
-Route::screen('example-cards', ExampleCardsScreen::class)->name('platform.example.cards');
-Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
-
-//Route::screen('idea', 'Idea::class','platform.screens.idea');
