@@ -26,7 +26,7 @@
     </div>
     <div class="product-detail_info-images">
         <div class="product-detail_info-images_wrapper"> <img src="{{ $product->imageUrl() }}"></div>
-        <div class="halal-label"><img src="{{ frontImage('halal.png') }}"></div>
+        <div class="halal-label"><img src="{{ frontImages('halal.png') }}"></div>
     </div>
     </div>
 </div>

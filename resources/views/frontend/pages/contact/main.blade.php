@@ -6,7 +6,7 @@
 @extends('frontend.layouts.basic')
 @section('content')
 <div class="masthead_thumb">
-    <div class="masthead_thumb_images"><img src="{{ frontImage('contact-us.jpeg') }}" alt=""/></div>
+    <div class="masthead_thumb_images"><img src="{{ frontImages('contact-us.jpeg') }}" alt=""/></div>
     <div class="masthead_thumb_ornament"></div>
     <div class="masthead_thumb_gradient"></div>
     <div class="masthead_thumb_bottom-gradient"></div>
@@ -18,7 +18,7 @@
 <div class="main-container section--contact">
     <div class="section--contact_block office">
     <div class="section--contact_map">
-        <div id="officeAddress" style="height: 225px;" data-marker="{{ frontImage('marker-icon.png') }}" data-marker-retina="{{ frontImage('marker-icon-2x.png') }}">
+        <div id="officeAddress" style="height: 225px;" data-marker="{{ frontImages('marker-icon.png') }}" data-marker-retina="{{ frontImages('marker-icon-2x.png') }}">
         </div>
     </div>
     <div class="section--contact_address">
@@ -28,7 +28,7 @@
     </div>
     <div class="section--contact_block factory">
     <div class="section--contact_map">
-        <div id="factoryAddress" style="height: 225px;" data-marker="{{ frontImage('marker-icon.png') }}"></div>
+        <div id="factoryAddress" style="height: 225px;" data-marker="{{ frontImages('marker-icon.png') }}"></div>
     </div>
     <div class="section--contact_address">
         <h3 class="text--large factory-ico">Factory</h3>
@@ -36,7 +36,7 @@
     </div>
     </div>
     <div class="section--contact_block report">
-    <div class="section--contact_report-images"><img src="{{ frontImage('contact-report-images.png') }}"></div>
+    <div class="section--contact_report-images"><img src="{{ frontImages('contact-report-images.png') }}"></div>
     <div class="section--contact_report-text">
         <h4 class="title--main light-blue">Pharmacovigilance</h4><span class="text--medium white-color">Reports of product complaints and side effects to email :</span><a class="text--large" href="mailto:pvcenter@ma.taisho.co.id">pvcenter@ma.taisho.co.id</a>
     </div>

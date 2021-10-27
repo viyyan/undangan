@@ -12,7 +12,7 @@ function frontAssets($file) {
 /**
  * frontImage
  */
-function frontImage($image) {
+function frontImages($image) {
     return asset('assets/frontend/images/' . $image);
 }
 

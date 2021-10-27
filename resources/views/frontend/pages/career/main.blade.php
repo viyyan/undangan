@@ -6,7 +6,7 @@
 @extends('frontend.layouts.basic')
 @section('content')
 <div class="masthead_thumb">
-    <div class="masthead_thumb_images"><img src="{{ frontImage('career.jpeg') }}" alt=""/></div>
+    <div class="masthead_thumb_images"><img src="{{ frontImages('career.jpeg') }}" alt=""/></div>
     <div class="masthead_thumb_ornament"></div>
     <div class="masthead_thumb_gradient"></div>
     <div class="masthead_thumb_bottom-gradient"></div>

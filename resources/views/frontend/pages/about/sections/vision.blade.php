@@ -16,7 +16,7 @@
                     <h3 class="title--main">Our Mission</h3>
                     <p class="text--midle-range">The Company's mission is to contribute to society by creating and offering superior pharmaceuticals and health-related products as well as healthcare-related information and services in socially responsible ways that enrich people's lives by improving health and beauty.</p>
                 </div>
-                <div class="about_mission-images"><img src="{{ frontImage('about-mission.png') }}"></div>
+                <div class="about_mission-images"><img src="{{ frontImages('about-mission.png') }}"></div>
                 </div>
                 <div class="about_vision">
                 <h3 class="title--main">Our Vision</h3>
@@ -48,43 +48,43 @@
             <p class="text--medium">Based on the Company's Founding Spirit, the Company is working to share the following values internally as it conducts business activities:</p>
             <div class="about-value_block">
             <div class="about-value_list">
-                <div class="about-value_list-images"><img src="{{ frontImage('about-value_1.png') }}"></div>
+                <div class="about-value_list-images"><img src="{{ frontImages('about-value_1.png') }}"></div>
                 <div class="about-value_list-text">
                 <p>Compliance with laws, regulations and other rules</p>
                 </div>
             </div>
             <div class="about-value_list">
-                <div class="about-value_list-images"><img src="{{ frontImage('about-value_2.png') }}"></div>
+                <div class="about-value_list-images"><img src="{{ frontImages('about-value_2.png') }}"></div>
                 <div class="about-value_list-text">
                 <p>High ethical standards</p>
                 </div>
             </div>
             <div class="about-value_list">
-                <div class="about-value_list-images"><img src="{{ frontImage('about-value_3.png') }}"></div>
+                <div class="about-value_list-images"><img src="{{ frontImages('about-value_3.png') }}"></div>
                 <div class="about-value_list-text">
                 <p>Honesty, diligence, passion</p>
                 </div>
             </div>
             <div class="about-value_list">
-                <div class="about-value_list-images"><img src="{{ frontImage('about-value_4.png') }}"></div>
+                <div class="about-value_list-images"><img src="{{ frontImages('about-value_4.png') }}"></div>
                 <div class="about-value_list-text">
                 <p>Competitive viewpoint (Provide higher quality products at lower prices, and even better services)</p>
                 </div>
             </div>
             <div class="about-value_list">
-                <div class="about-value_list-images"><img src="{{ frontImage('about-value_5.png') }}"></div>
+                <div class="about-value_list-images"><img src="{{ frontImages('about-value_5.png') }}"></div>
                 <div class="about-value_list-text">
                 <p>Logical thinking</p>
                 </div>
             </div>
             <div class="about-value_list">
-                <div class="about-value_list-images"><img src="{{ frontImage('about-value_6.png') }}"></div>
+                <div class="about-value_list-images"><img src="{{ frontImages('about-value_6.png') }}"></div>
                 <div class="about-value_list-text">
                 <p>Value standards from a long-term perspective</p>
                 </div>
             </div>
             </div>
-            <div class="about-4c"><img src="{{ frontImage('about/4c.png') }}"></div>
+            <div class="about-4c"><img src="{{ frontImages('about/4c.png') }}"></div>
         </section>
     </div>
 </div>

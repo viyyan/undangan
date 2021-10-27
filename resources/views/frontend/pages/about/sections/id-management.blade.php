@@ -13,7 +13,7 @@
         <div class="about-wrapper">
             <h3 class="title--main">Management Taisho Pharmaceutical Indonesia</h3>
             <div class="about-management">
-            <div class="about-management_top"><img src="{{ frontImage('indonesia-management.jpeg?v=1') }}"></div>
+            <div class="about-management_top"><img src="{{ frontImages('indonesia-management.jpeg?v=1') }}"></div>
             <div class="about-management_role border-conect hidden-sm hidden-xs">
                 <div class="role_style">General Manager</div>
                 <div class="role_style center">Technical Operation</div>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="about-management_person-list">
                     <div class="about-management_person-images">
-                        <img src="{{ frontImage('about/toshiyuki-ishii.jpg') }}">
+                        <img src="{{ frontImages('about/toshiyuki-ishii.jpg') }}">
                     </div>
                     <div class="about-management_person-copy">
                         <h5 class="text--medium">Toshiyuki Ishii</h5>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="about-management_person-list">
                     <div class="about-management_person-images">
-                        <img src="{{ frontImage('about/budhy-herwindo.jpg') }}">
+                        <img src="{{ frontImages('about/budhy-herwindo.jpg') }}">
                     </div>
                     <div class="about-management_person-copy">
                         <h5 class="text--medium">Budhy Herwindo</h5>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="about-management_person-list">
                     <div class="about-management_person-images">
-                        <img src="{{ frontImage('about/sonny-adi-nugroho.jpg') }}">
+                        <img src="{{ frontImages('about/sonny-adi-nugroho.jpg') }}">
                     </div>
                     <div class="about-management_person-copy">
                         <h5 class="text--medium">Sonny Adi Nugroho</h5>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="about-management_person-list">
                     <div class="about-management_person-images">
-                        <img src="{{ frontImage('about/david-pranadjaja.jpg') }}">
+                        <img src="{{ frontImages('about/david-pranadjaja.jpg') }}">
                     </div>
                     <div class="about-management_person-copy">
                         <h5 class="text--medium">David Pranadjaja</h5>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="about-management_person-list">
                     <div class="about-management_person-images">
-                        <img src="{{ frontImage('about/yetty-tampubolon.jpg') }}">
+                        <img src="{{ frontImages('about/yetty-tampubolon.jpg') }}">
                     </div>
                     <div class="about-management_person-copy">
                         <h5 class="text--medium">Yetty Tampubolon</h5>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="about-management_person-list">
                     <div class="about-management_person-images">
-                        <img src="{{ frontImage('about/girinatha-wasito.jpg') }}">
+                        <img src="{{ frontImages('about/girinatha-wasito.jpg') }}">
                     </div>
                     <div class="about-management_person-copy">
                         <h5 class="text--medium">Girinatha Wasito</h5>

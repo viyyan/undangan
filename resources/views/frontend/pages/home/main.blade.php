@@ -5,197 +5,394 @@
 ?>
 @extends('frontend.layouts.basic')
 @section('content')
-<div class="home--slider dots-slider">
-    <div class="home--slider_hero anime--slider" id="main-slider">
-        @foreach($banners as $banner)
-        <div class="home--slider_content" style="background:url({{ $banner->heroUrl() }})">
 
-            <div class="home--slider_gradient"></div>
-            <div class="home--slider_patern"></div>
-            <div class="home--slider_bottom-gradient"></div>
-            <div class="home--slider_text">
-            <div class="home--slider_wrapper">
-
-                <h2 class="title--big_title" data-animation="animate__slideInUp" data-delay="0.1" data-color="#fff">
-                    @if(isset($banner->url))
-                        <a href="{{ $banner->url }}" style="text-decoration:none;color:white;outline: none;">
-                            {{ $banner->title }}
-                        </a>
-                    @else
-                        {{ $banner->title }}
-                    @endif
-                </h2>
-                <p class="text--medium" data-animation="animate__fadeInUp" data-delay="0.5s" data-color="#fff">{{ $banner->subtitle }}</p>
-            </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <div class="home--slider_dots"></div>
-</div>
-<div class="main-container">
-    <div class="home--about">
-    <div class="home--about_wrapper">
-        <h2 class="title--main">About the company</h2>
-        <div class="home--about_col">
-        <div class="home--about_col-item">
-            <div class="home--about_col-images">
-            <svg class="new-svg" width="259" height="237" viewbox="0 0 259 237" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M120.717 0.141662C161.036 -1.92189 198.939 18.743 224.535 50.1011C250.588 82.0177 267.668 124.845 254.39 163.903C242.1 200.052 200.619 212.28 164.921 225.453C134.99 236.498 103.733 242.325 74.1314 230.419C41.6466 217.354 11.7965 194.258 2.8657 160.276C-6.37189 125.125 7.85313 89.3239 29.3681 60.0897C52.1153 29.1811 82.4984 2.09765 120.717 0.141662Z" pathdata:id="M123.489 0.00410367C162.667 0.218626 201.955 10.6294 227.42 38.8773C253.923 68.2771 265.746 108.666 255.115 146.014C244.91 181.863 211.254 204.842 175.736 220.444C141.055 235.678 101.476 244.446 67.0997 228.602C32.8397 212.811 16.1162 177.824 7.09284 142.716C-2.14566 106.771 -5.823 66.9916 18.0421 37.7308C42.2286 8.07599 83.9672 -0.212299 123.489 0.00410367Z" fill="url(#paint0_linear)"></path>
-                <defs>
-                <lineargradient id="paint0_linear" x1="129.5" y1="0" x2="129.5" y2="237" gradientunits="userSpaceOnUse">
-                    <stop stop-color="#9AD2EA"></stop>
-                    <stop offset="1" stop-color="#4DB3DF"></stop>
-                </lineargradient>
-                </defs>
-            </svg>
-            <div class="home--about_col-absolute"><img src="{{ frontImage('home-vision.svg') }}"></div>
-            </div>
-            <div class="home--about_col-text">
-            <h3 class="title--sub">Vision</h3>
-            <p class="text--medium primary-color"> Always focused on our core businesses and continue to drive sustained growth in our business activities.</p>
-            </div>
-        </div>
-        <div class="home--about_col-item">
-            <div class="home--about_col-images">
-            <svg class="new-svg_second" width="259" height="237" viewbox="0 0 259 237" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M123.489 0.00410367C162.667 0.218626 201.955 10.6294 227.42 38.8773C253.923 68.2771 265.746 108.666 255.115 146.014C244.91 181.863 211.254 204.842 175.736 220.444C141.055 235.678 101.476 244.446 67.0997 228.602C32.8397 212.811 16.1162 177.824 7.09284 142.716C-2.14566 106.771 -5.823 66.9916 18.0421 37.7308C42.2286 8.07599 83.9672 -0.212299 123.489 0.00410367Z" pathdata:id="M120.717 0.141662C161.036 -1.92189 198.939 18.743 224.535 50.1011C250.588 82.0177 267.668 124.845 254.39 163.903C242.1 200.052 200.619 212.28 164.921 225.453C134.99 236.498 103.733 242.325 74.1314 230.419C41.6466 217.354 11.7965 194.258 2.8657 160.276C-6.37189 125.125 7.85313 89.3239 29.3681 60.0897C52.1153 29.1811 82.4984 2.09765 120.717 0.141662Z" fill="url(#paint0_linear)"></path>
-                <defs>
-                <lineargradient id="paint0_linear" x1="129.5" y1="0" x2="129.5" y2="237" gradientunits="userSpaceOnUse">
-                    <stop stop-color="#9AD2EA"></stop>
-                    <stop offset="1" stop-color="#4DB3DF"></stop>
-                </lineargradient>
-                </defs>
-            </svg>
-            <div class="home--about_col-absolute"><img src="{{ frontImage('home-startup.svg') }}"></div>
-            </div>
-            <div class="home--about_col-text">
-            <h3 class="title--sub">Mission</h3>
-            <p class="text--medium primary-color"> The Company's mission is to contribute to society by creating and offering superior pharmaceuticals and health-related products</p>
-            </div>
-        </div>
-        <div class="home--about_col-item">
-            <div class="home--about_col-images">
-            <svg class="new-svg_third" width="259" height="237" viewbox="0 0 259 237" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M155.623 0.743353C196.772 5.63571 217.44 43.3425 238.476 74.6003C254.726 98.7475 264.6 125.267 257.849 152.646C250.985 180.484 231.244 203.929 203.055 218.258C171.469 234.313 134.964 242.57 100.172 232.792C58.3706 221.045 16.7905 199.183 4.3571 162.417C-8.78265 123.562 9.28343 82.2184 38.6405 50.8414C67.5468 19.9463 110.344 -4.63992 155.623 0.743353Z" pathdata:id="M123.489 0.00410367C162.667 0.218626 201.955 10.6294 227.42 38.8773C253.923 68.2771 265.746 108.666 255.115 146.014C244.91 181.863 211.254 204.842 175.736 220.444C141.055 235.678 101.476 244.446 67.0997 228.602C32.8397 212.811 16.1162 177.824 7.09284 142.716C-2.14566 106.771 -5.823 66.9916 18.0421 37.7308C42.2286 8.07599 83.9672 -0.212299 123.489 0.00410367Z" fill="url(#paint0_linear)"></path>
-                <defs>
-                <lineargradient id="paint0_linear" x1="129.5" y1="0" x2="129.5" y2="237" gradientunits="userSpaceOnUse">
-                    <stop stop-color="#9AD2EA"></stop>
-                    <stop offset="1" stop-color="#4DB3DF"></stop>
-                </lineargradient>
-                </defs>
-            </svg>
-            <div class="home--about_col-absolute"><img src="{{ frontImage('home-growth.svg') }}"></div>
-            </div>
-            <div class="home--about_col-text">
-            <h3 class="title--sub">Values</h3>
-            <p class="text--medium primary-color"> Based on the Company's Founding Spirit, the Company is working to share all of our values internally.</p>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <div class="home--about_bod">
-    <div class="home--about_bod-images"><img src="{{ frontImage('home-about-bod.jpeg?v=1') }}"></div>
-    <div class="home--about_bod-copy">
-        <h4 class="title--main white-color" style="font-size: 15px; line-height: initial;">
-            {!! __('home.bod_message') !!}
-        </h4>
-    </div>
-    </div>
-</div>
-<div class="main-container">
-    <div class="home--product dots-slider">
-    <h2 class="title--main">Product highlight</h2>
-    <div class="home--product_slider anime--slider" id="product_slider">
-        @foreach($products as $product)
-        <div class="home--product_slider-content">
-            <div class="home--product_slider-wrapper">
-                <div class="home--product_text">
-                <h3 class="home--product_title">{{ $product->name }}</h3>
-                <p class="text--medium primary-color">{{ $product->desc }}</p>
-                <div class="home--product_button"><a class="button_simple" href="{{ route('product', $product->slug) }}">View product Page</a></div>
-                </div>
-                <div class="home--product_images" data-animation="animate__fadeInRight" data-delay="0.1"><img src="{{ $product->imageUrl() }}"></div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <div class="home--product_slider-nav blue-active_dots"></div>
-    </div>
-    <div class="home--product_direct-link">
-        <p>Wants to buy our product online?</p>
-        <a class="button_simple light-blue" href="{{ route('official-store') }}">Click Here</a>
-    </div>
-    <div class="home--product_halal">
-    <div class="home--product_halal-images"><img src="{{ frontImage('big-halal.png') }}"></div>
-    <div class="home--product_halal-copy">
-        <h4 class="text--large">Halal Certified Products</h4>
-        <p class="text--medium">{!! __('home.halal') !!}</p>
-    </div>
-    </div>
-</div>
-<div class="home--comercial">
-    <div class="masthead-container">
-    <div class="home--comercial_wrapper dots-slider">
-        <h2 class="title--main">Our TV Commercials</h2>
-        <div class="masthead_slider comercial_slider" id="comercial_slider">
-            @foreach($tvcs as $tvc)
-            <div class="masthead_slider-wrapper">
-                <div class="masthead_slider-block">
-                <div class="masthead_slider-featured">
-                    <div class="banner--video-bg">
-                    <div class="banner--media _media--video">
-                        <div class="video__youtube" data-video-id="{{ $tvc->youtube_id }}" data-autoplay="false"></div>
+<div class="home__intro">
+    <div class="section section--space-md bg--primary">
+    <div class="section__inner">
+        <div class="container container--lg">
+        <div class="section__main">
+            <div class="cta cta--thumb-left cta--align--middle">
+            <div class="cta__inner">
+                <div class="cta__main grid gap--2xl">
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__content column--50 cta__content--left">
+                    <div class="cta__header">
+                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    <h3 class="cta__subtitle text--xl">Creating loyalty and value</h3>
                     </div>
-                    <div class="video__youtube--cover">
-                        <div class="banner--bg _bg--image" style="background-image:url('{{ $tvc->youtubeThumbUrl }}');"> </div>
-                        <div class="banner--bg _bg--gradient"></div>
-                        <div class="banner--inner">
-                        <div class="banner--main">
-                            <div class="banner--content _text--white"></div><a class="video__youtube--play" href=""><i class="icon--play"></i></a>
+                    <div class="cta__body">
+                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    </div>
+                    <div class="cta__action"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Who we are</span><span class="button__icon"><i class="icon__arrow">
+                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="4" x2="20" y1="12" y2="12"></line>
+                                <polyline points="14 6 20 12 14 18"></polyline>
+                            </svg></i></span></span></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="home__services">
+    <div class="section section--space-lg bg--main-red-2">
+    <div class="container">
+        <div class="section__main">
+        <div class="section__header section__header--center">
+            <div class="section__header__main">
+            <h2 class="text--3xl">We always push to deliver</h2>
+            </div>
+        </div>
+        <div class="section__body">
+            <div class="grid gap--md">
+            <div class="column--25">
+                <div class="feature">
+                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__title">
+                    <h3 class="text--lg">High Quality & Transparent Data</h3>
+                </div>
+                </div>
+            </div>
+            <div class="column--25">
+                <div class="feature">
+                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__title">
+                    <h3 class="text--lg">Responsive & <br />Responsible</h3>
+                </div>
+                </div>
+            </div>
+            <div class="column--25">
+                <div class="feature">
+                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__title">
+                    <h3 class="text--lg">Deep Analysis & <br />Impactful Insight</h3>
+                </div>
+                </div>
+            </div>
+            <div class="column--25">
+                <div class="feature">
+                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__title">
+                    <h3 class="text--lg">Accessible Report Both Offline & Online</h3>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="section__footer"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Learn More</span><span class="button__icon"><i class="icon__arrow">
+                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <polyline points="14 6 20 12 14 18"></polyline>
+                    </svg></i></span></span></a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="home__projects">
+    <div class="section section--space-md bg--main-red-3">
+    <div class="section__inner">
+        <div class="container">
+        <div class="section__main">
+            <div class="section__header">
+            <div class="section__header__main">
+                <h2 class="text--3xl">What we’ve done</h2>
+                <p>We provide you with solutions for improvement to <br />help you business grow.</p>
+            </div>
+            <div class="section__header__widget">
+                <h2 class="text--xl">Header widget</h2>
+            </div>
+            </div>
+            <div class="section__body">
+            <div class="grid gap--md">
+                <div class="column--33">
+                <div class="card card--info-inside">
+                    <div class="card__inner">
+                    <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
+                    </div>
+                    <div class="card__info">
+                        <div class="card__info__inner">
+                        <div class="card__info__main">
+                            <div class="card__category category"><span class="category__main">Retail Census</span></div>
+                            <div class="card__title">
+                            <h3 class="card__title__main text--lg"><a href="#">3 steps to streamline assortment and merchandising solutions</a></h3>
+                            </div>
                         </div>
                         </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
                     </div>
                     </div>
                 </div>
-                <div class="masthead_slider-text">
-                    <h2 class="title--sub">{{ $tvc->subtitle }}</sup></h2>
-                    <h3 class="title--main light-blue">{{ $tvc->title }}</h3>
-                    <p class="text--medium">{{ $tvc->desc }}</p>
+                </div>
+                <div class="column--33">
+                <div class="card card--info-inside">
+                    <div class="card__inner">
+                    <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
+                    </div>
+                    <div class="card__info">
+                        <div class="card__info__inner">
+                        <div class="card__info__main">
+                            <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
+                            <div class="card__title">
+                            <h3 class="card__title__main text--lg"><a href="#">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="column--33">
+                <div class="card card--info-inside">
+                    <div class="card__inner">
+                    <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
+                    </div>
+                    <div class="card__info">
+                        <div class="card__info__inner">
+                        <div class="card__info__main">
+                            <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
+                            <div class="card__title">
+                            <h3 class="card__title__main text--lg"><a href="#">Improving a New Product for Commercial Acceleration</a></h3>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
+                    </div>
+                    </div>
                 </div>
                 </div>
             </div>
-            @endforeach
+            </div>
+            <div class="section__footer"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
+                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <polyline points="14 6 20 12 14 18"></polyline>
+                    </svg></i></span></span></a>
+            </div>
         </div>
-        <div class="masthead_slider-nav blue-active_dots"></div>
+        </div>
     </div>
     </div>
 </div>
-<div class="home--news">
-    <div class="home--news_ornament"></div>
-    <div class="main-container">
-    <div class="home--news_title">
-        <h3 class="title--main white-color">News updates</h3><a class="button_white" href="{{ route( 'articles') }}">View all news updates</a>
-    </div>
-    <div class="home--news_content">
-        <div class="card-news_wrapper">
-        @foreach ($recommends as $recommend)
-            <div class="card-news">
-                <div class="card-news_content">
-                <div class="card-news_text">
-                    <a class="text--large semi-bold white-color" href="{{ route( 'article', [ 'slug' => $recommend->slug ] ) }}">
-                        {{ $recommend->title }}
-                    </a>
-                    <span class="date">{{ $recommend->created_at->format('d F Y') }}</span>
+<div class="home__market">
+    <div class="section section--space-lg bg--main-red-4">
+    <div class="section__inner">
+        <div class="container container--lg">
+        <div class="section__main">
+            <div class="cta cta--thumb-left cta--align--middle">
+            <div class="cta__inner">
+                <div class="cta__main grid gap--2xl">
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__content column--50 cta__content--left">
+                    <div class="cta__header">
+                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    </div>
+                    <div class="cta__body">
+                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    </div>
+                    <div class="cta__action"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Let’s go!</span><span class="button__icon"><i class="icon__arrow">
+                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="4" x2="20" y1="12" y2="12"></line>
+                                <polyline points="14 6 20 12 14 18"></polyline>
+                            </svg></i></span></span></a>
+                    </div>
                 </div>
                 </div>
-                <div class="card-news_images">
-                    <img src="{{ $recommend->heroThumbUrl() }}">
-                </div>
-                <div class="card-news_gradient"></div>
             </div>
-        @endforeach
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="home__posts">
+    <div class="section section--space-lg bg--main-red-3">
+    <div class="section__inner">
+        <div class="container">
+        <div class="section__main">
+            <div class="section__header">
+            <div class="section__header__main">
+                <h2 class="text--3xl">Here are some of our recent thoughts</h2>
+            </div>
+            </div>
+            <div class="section__body">
+            <div class="grid gap--md">
+                <div class="column--50">
+                <div class="card card--info-inside">
+                    <div class="card__inner">
+                    <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
+                    </div>
+                    <div class="card__info">
+                        <div class="card__info__inner">
+                        <div class="card__info__main">
+                            <div class="card__category category"><span class="category__main">Retail Census</span></div>
+                            <div class="card__title">
+                            <h3 class="card__title__main text--lg"><a href="#">3 steps to streamline assortment and merchandising solutions</a></h3>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="column--50">
+                <div class="card card--info-inside">
+                    <div class="card__inner">
+                    <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
+                    </div>
+                    <div class="card__info">
+                        <div class="card__info__inner">
+                        <div class="card__info__main">
+                            <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
+                            <div class="card__title">
+                            <h3 class="card__title__main text--lg"><a href="#">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="section__footer"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
+                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <polyline points="14 6 20 12 14 18"></polyline>
+                    </svg></i></span></span></a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="home__supported">
+    <div class="section section--space-lg bg--main-red-2">
+    <div class="container container--sm">
+        <div class="section__main">
+        <div class="section__header section__header--center">
+            <div class="section__header__main">
+            <h2 class="text--3xl">We have supported</h2>
+            </div>
+        </div>
+        <div class="section__body">
+            <ul class="home__supported__list">
+            <li><span><img src="{{ frontImages('logo--belfoods.png') }}" alt="Belfoods"></span></li>
+            <li><span><img src="{{ frontImages('logo--bintang-toedjoe.png') }}" alt="Bintang Toedjoe"></span></li>
+            <li><span><img src="{{ frontImages('logo--savoria.png') }}" alt="Savoria"></span></li>
+            <li><span><img src="{{ frontImages('logo--universal-music.png') }}" alt="Universal Music Indonesia"></span></li>
+            <li><span><img src="{{ frontImages('logo--unza.png') }}" alt="UNZA"></span></li>
+            <li><span><img src="{{ frontImages('logo--blue-scope.png') }}" alt="Blue Scope"></span></li>
+            <li><span><img src="{{ frontImages('logo--danone.png') }}" alt="Danone"></span></li>
+            <li><span><img src="{{ frontImages('logo--h-three.png') }}" alt="H Three"></span></li>
+            <li><span><img src="{{ frontImages('logo--pharos.png') }}" alt="Pharos"></span></li>
+            <li><span><img src="{{ frontImages('logo--kfc.png') }}" alt="KFC"></span></li>
+            <li><span><img src="{{ frontImages('logo--mitsubishi.png') }}" alt="Mitsubishi Motors"></span></li>
+            <li><span><img src="{{ frontImages('logo--uj.png') }}" alt="Ultra Jaya"></span></li>
+            <li><span><img src="{{ frontImages('logo--godrej.png') }}" alt="Godrej"></span></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="home__testimony">
+    <div class="section section--space--lg bg--main-red-2">
+    <div class="section__bg" style="background-image: url({{ frontImages('home__testimony--bg.jpeg') }})"></div>
+    <div class="container">
+        <div class="section__main">
+        <div class="section__body">
+            <div class="home__testimony__main">
+            <blockquote class="text--3xl">We believe research agencies should focus on the marketing concern and answering the objective. <strong>Although we have the capabilities, but your concern is the most important for us.</strong></blockquote>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="chat">
+    <div class="chat__inner">
+    <div class="grid">
+        <div class="column--50">
+        <div class="chat__info">
+            <div class="chat__info__inner">
+            <div class="chat__info__thumb"><img src="{{ frontImages('chat--thumbnail.png') }}" alt=""></div>
+            <div class="chat__info__main">
+                <h2 class="text--3xl">So, let’s have a chat!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="column--50">
+        <div class="chat__form">
+            <form class="form" method="post" action="" enctype="multipart/form-data">
+            <div class="form__field">
+                <div class="form__icon"><img src="{{ frontImages('icon--user--white.svg') }}" alt=""></div>
+                <div class="form__main">
+                <div class="form__control">
+                    <input type="text" name="name" placeholder="Name *">
+                </div>
+                </div>
+            </div>
+            <div class="form__field">
+                <div class="form__icon"><img src="{{ frontImages('icon--email--white.svg') }}" alt=""></div>
+                <div class="form__main">
+                <div class="form__control">
+                    <input type="text" name="email" placeholder="E-mail *">
+                </div>
+                </div>
+            </div>
+            <div class="form__field form__upload">
+                <div class="form__icon"><img src="{{ frontImages('icon--notes--white.svg') }}" alt=""></div>
+                <div class="form__main">
+                <div class="form__label">Already have the brief?</div>
+                <div class="form__upload__main">
+                    <div class="form__upload__info">(PDF, PPT or Word)</div>
+                    <div class="form__upload__control">
+                    <input type="file" name="doc" accept="application/pdf,application/vnd.ms-powerpoint,application/msword">
+                    <div class="form__upload__button">
+                        <button class="button button--dark button--sm" type="button"><span class="button__content"><span class="button__icon"><i class="icon__arrow">
+                                <svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="16 12 12 8 8 12"></polyline>
+                                <line x1="12" x2="12" y1="16" y2="8"></line>
+                                </svg></i></span><span class="button__label">Upload here</span></span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="form__field form__field__message">
+                <div class="form__main">
+                <div class="form__control">
+                    <textarea name="message" placeholder="What do you wanna say?"></textarea>
+                </div>
+                </div>
+            </div>
+            <div class="form__submit">
+                <button class="button button--white button--md" type="button"><span class="button__content"><span class="button__label">Submit</span><span class="button__icon"><i class="icon__arrow">
+                        <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <polyline points="14 6 20 12 14 18"></polyline>
+                        </svg></i></span></span>
+                </button>
+            </div>
+            </form>
+        </div>
         </div>
     </div>
     </div>

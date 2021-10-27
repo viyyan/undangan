@@ -6,7 +6,7 @@
 @extends('frontend.layouts.basic')
 @section('content')
 <div class="masthead_thumb">
-    <div class="masthead_thumb_images"><img src="{{ frontImage('official-store.jpeg') }}" alt=""/></div>
+    <div class="masthead_thumb_images"><img src="{{ frontImages('official-store.jpeg') }}" alt=""/></div>
     <div class="masthead_thumb_ornament"></div>
     <div class="masthead_thumb_gradient"></div>
     <div class="masthead_thumb_bottom-gradient"></div>
@@ -25,11 +25,11 @@
         <div class="section--store_block">
         </div>
         <div class="section--store_block">
-        <div class="section--store_images"><img src="{{ frontImage('shoope.png') }}" width="62"></div>
+        <div class="section--store_images"><img src="{{ frontImages('shoope.png') }}" width="62"></div>
         <div class="section--store_button"><a class="button_blue" href="https://shopee.co.id/taishoofficialshop" target="_blank">Check here</a></div>
         </div>
         <div class="section--store_block">
-        <div class="section--store_images"><img src="{{ frontImage('store-bukalapak.png') }}" width="200"></div>
+        <div class="section--store_images"><img src="{{ frontImages('store-bukalapak.png') }}" width="200"></div>
         <div class="section--store_button"><a class="button_blue" href="https://www.bukalapak.com/taisho-official" target="_blank">Check here</a></div>
         </div>
         <div class="section--store_block">

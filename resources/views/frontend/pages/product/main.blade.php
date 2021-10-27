@@ -9,7 +9,7 @@
     <div class="main-container">
     <div class="product-masthead_wrapper">
         <h2 class="title--big_title white-color">Our products</h2>
-        <div class="product-masthead_images"><img src="{{ frontImage('product-hero.png') }}"></div>
+        <div class="product-masthead_images"><img src="{{ frontImages('product-hero.png') }}"></div>
         <div class="product-masthead_copy">
         <h3 class="title--main light-blue">Our expansive product line supports healthy lifestyles around the world</h3>
         <p class="text--medium white-color">With over a century of history, Taisho Pharmaceutical Holdings has the largest share of Japan’s over-the-counter pharmaceutical market and a strong presence in health food, cosmetics, and other fields. Our overseas expansion began in 1963 with exports of Lipovitan D to Taiwan. Today, our brands are popular with consumers in every part of Asia. In Europe, we are expanding based on 80 years of tradition and brand recognition built across the continent by French pharmaceutical manufacturer UPSA SAS.</p>
@@ -71,7 +71,7 @@
             <div class="product-block">
                 <div class="product_images"><img src="{{ $product->imageUrl() }}"/>
                 @if($product->is_halal)
-                <div class="product_images-halal"><img src="{{ frontImage('halal.png') }}"/></div>
+                <div class="product_images-halal"><img src="{{ frontImages('halal.png') }}"/></div>
                 @endif
                 </div>
                 <div class="product_content">

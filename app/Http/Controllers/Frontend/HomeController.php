@@ -19,32 +19,18 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $banners = Banner::where("status", 1)
-        ->orderBy("order", "asc")->get();
+        // $banners = Banner::where("status", 1)
+        // ->orderBy("order", "asc")->get();
 
-        $recommends = Post::where("status", 1)
-        ->orderBy("created_at", "desc")
-        ->take(3)
-        ->get();
-
-        $products = Product::where("status", 1)
-        ->where("highlight", "!=", null)
-        ->orderBy("highlight", "asc")
-        ->take(3)
-        ->get();
-
-        $tvcs = Tvc::where("status", 1)
-        ->where("highlight", "!=", null)
-        ->orderBy("highlight", "asc")
-        ->take(4)
-        ->get();
+        // $recommends = Post::where("status", 1)
+        // ->orderBy("created_at", "desc")
+        // ->take(3)
+        // ->get();
 
         $data = array(
-            "classBody" => "home",
-            "banners" => $banners,
-            "recommends" => $recommends,
-            "products" => $products,
-            "tvcs" => $tvcs,
+            "cssName" => "home",
+            // "banners" => $banners,
+            // "recommends" => $recommends,
         );
         return view('frontend.pages.home.main', $data);
     }

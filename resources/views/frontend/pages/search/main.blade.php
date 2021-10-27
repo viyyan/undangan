@@ -53,14 +53,14 @@
             </div>
         </li>
         <li class="result-with-images">
-            <div class="images_result"> <img src="{{ frontImage('dummy/annual-report/annual1.png') }}"></div>
+            <div class="images_result"> <img src="{{ frontImages('dummy/annual-report/annual1.png') }}"></div>
             <div class="content-result">
             <h3 class="text--large"> <span class="search--result_title">2020 Annual Report</span></h3>
             <p>Our release of this Tablet, an antibiotic easily meeting these international standards,</p><a href="#">https://www.taisho.co.id/investor/2020-annual-report.pdf</a>
             </div>
         </li>
         <li class="result-with-images">
-            <div class="images_result"> <img src="{{ frontImage('dummy/annual-report/placeholder.png') }}"></div>
+            <div class="images_result"> <img src="{{ frontImages('dummy/annual-report/placeholder.png') }}"></div>
             <div class="content-result">
             <h3 class="text--large"> <span class="search--result_title">2020 Annual Report</span></h3>
             <p>Our release of this Tablet, an antibiotic easily meeting these international standards,</p><a href="#">https://www.taisho.co.id/investor/2020-annual-report.pdf</a>
@@ -85,7 +85,7 @@
             </div>
         </li>
         <li class="result-with-images">
-            <div class="images_result"> <img src="{{ frontImage('dummy/annual-report/placeholder.png') }}"></div>
+            <div class="images_result"> <img src="{{ frontImages('dummy/annual-report/placeholder.png') }}"></div>
             <div class="content-result">
             <h3 class="text--large"> <span class="search--result_title">2020 Annual Report</span></h3>
             <p>Our release of this Tablet, an antibiotic easily meeting these international standards,</p><a href="#">https://www.taisho.co.id/who_we_are/visionmission.html</a>

@@ -28,7 +28,7 @@
         <div class="product-detail_info-images_wrapper"> <img src="{{ $product->imageUrl() }}"></div>
         <div class="halal-label">
             @if($product->is_halal)
-            <img src="{{ frontImage('halal.png') }}">
+            <img src="{{ frontImages('halal.png') }}">
             @endif
         </div>
     </div>
