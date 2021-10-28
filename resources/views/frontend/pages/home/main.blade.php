@@ -5,7 +5,6 @@
 ?>
 @extends('frontend.layouts.basic')
 @section('content')
-
 <div class="home__intro">
     <div class="section section--space-md bg--primary">
     <div class="section__inner">
@@ -110,7 +109,7 @@
             <div class="section__body">
             <div class="grid gap--md">
                 <div class="column--33">
-                <div class="card card--info-inside">
+                <article class="card card--info-inside">
                     <div class="card__inner">
                     <div class="card__thumb">
                         <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
@@ -127,10 +126,10 @@
                         <div class="card__deco"><span class="card__deco__icon"></span></div>
                     </div>
                     </div>
-                </div>
+                </article>
                 </div>
                 <div class="column--33">
-                <div class="card card--info-inside">
+                <article class="card card--info-inside">
                     <div class="card__inner">
                     <div class="card__thumb">
                         <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
@@ -147,10 +146,10 @@
                         <div class="card__deco"><span class="card__deco__icon"></span></div>
                     </div>
                     </div>
-                </div>
+                </article>
                 </div>
                 <div class="column--33">
-                <div class="card card--info-inside">
+                <article class="card card--info-inside">
                     <div class="card__inner">
                     <div class="card__thumb">
                         <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
@@ -167,7 +166,7 @@
                         <div class="card__deco"><span class="card__deco__icon"></span></div>
                     </div>
                     </div>
-                </div>
+                </article>
                 </div>
             </div>
             </div>
@@ -226,7 +225,7 @@
             <div class="section__body">
             <div class="grid gap--md">
                 <div class="column--50">
-                <div class="card card--info-inside">
+                <article class="card card--info-inside">
                     <div class="card__inner">
                     <div class="card__thumb">
                         <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
@@ -243,10 +242,10 @@
                         <div class="card__deco"><span class="card__deco__icon"></span></div>
                     </div>
                     </div>
-                </div>
+                </article>
                 </div>
                 <div class="column--50">
-                <div class="card card--info-inside">
+                <article class="card card--info-inside">
                     <div class="card__inner">
                     <div class="card__thumb">
                         <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
@@ -263,7 +262,7 @@
                         <div class="card__deco"><span class="card__deco__icon"></span></div>
                     </div>
                     </div>
-                </div>
+                </article>
                 </div>
             </div>
             </div>

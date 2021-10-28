@@ -454,7 +454,8 @@ html {
  * general class
  */
 .main {
-  position: relative; }
+  position: relative;
+  padding-top: 3.625rem; }
 
 body {
   font-family: "DM Sans", sans-serif;
@@ -645,16 +646,15 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    height: 8rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     animation: sticky-anim 0.4s ease-out forwards;
     animation-delay: 0.2s;
+    background-color: #a81c1b;
     transform: translateY(-8rem);
-    background-color: #ffffff;
     z-index: 999;
-    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.05); }
+    border-bottom: 1px solid #ffffff; }
     .header--fixed .header__sticky > div {
       flex: 1; }
   .header__inner {

@@ -27,4 +27,4 @@
         <div class="footer__chat"><a href="#"><img src="{{ frontImages('quiz--bottom.png') }}" alt=""></a></div>
         </div>
     </div>
-</footer>
+    </footer>

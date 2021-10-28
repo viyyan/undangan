@@ -5,18 +5,20 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class ContactController extends Controller
 {
     /**
-     * Contact page
+     * index
      *
      * @return void
      */
     public function index(Request $request)
     {
-        $data = [
-            "classBody" => "contact"
-        ];
-        return view('frontend.pages.contact.main', $data);
+        $data = array(
+            "cssFileName" => "contact",
+            "classBody" => "p-contact"
+        );
+        return view('frontend.pages.contact-us.main', $data);
     }
 }

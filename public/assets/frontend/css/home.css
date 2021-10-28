@@ -454,7 +454,8 @@ html {
  * general class
  */
 .main {
-  position: relative; }
+  position: relative;
+  padding-top: 3.625rem; }
 
 body {
   font-family: "DM Sans", sans-serif;
@@ -645,16 +646,15 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    height: 8rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     animation: sticky-anim 0.4s ease-out forwards;
     animation-delay: 0.2s;
+    background-color: #a81c1b;
     transform: translateY(-8rem);
-    background-color: #ffffff;
     z-index: 999;
-    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.05); }
+    border-bottom: 1px solid #ffffff; }
     .header--fixed .header__sticky > div {
       flex: 1; }
   .header__inner {
@@ -1552,10 +1552,10 @@ form ::placeholder {
   padding-bottom: 2.25rem;
   border-left: 1px solid #ffffff; }
 
-.p-home__supported .section {
+.home__supported .section {
   padding-bottom: 8.75rem; }
 
-.p-home__supported__list {
+.home__supported__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1565,10 +1565,10 @@ form ::placeholder {
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 -0.625rem; }
-  .p-home__supported__list li {
+  .home__supported__list li {
     padding: 0 .625rem;
     margin-bottom: 2rem; }
-  .p-home__supported__list span {
+  .home__supported__list span {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1577,13 +1577,13 @@ form ::placeholder {
     height: 6.75rem;
     border-radius: 100%;
     background-color: #ffffff; }
-    .p-home__supported__list span img {
+    .home__supported__list span img {
       width: 60%;
       height: 60%;
       object-fit: contain;
       object-position: center; }
 
-.p-home__testimony .section {
+.home__testimony .section {
   height: 48.75rem;
   display: flex;
   flex-direction: row;
@@ -1591,9 +1591,9 @@ form ::placeholder {
   justify-content: center;
   text-align: center; }
 
-.p-home__testimony blockquote {
+.home__testimony blockquote {
   position: relative; }
-  .p-home__testimony blockquote:before {
+  .home__testimony blockquote:before {
     content: '';
     background: url("../images/quote.png") no-repeat 0 0;
     background-size: contain;
@@ -1602,6 +1602,6 @@ form ::placeholder {
     position: absolute;
     top: -3rem;
     left: 6.25rem; }
-  .p-home__testimony blockquote strong {
+  .home__testimony blockquote strong {
     background-color: #a81c1b;
     font-weight: normal; }

@@ -15,13 +15,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
-    @if (isset($cssName))
-        <link rel="stylesheet" href="{{ frontAssets('css/'.$cssName.'.css') }}">
+    @if (isset($cssFileName))
+        <link rel="stylesheet" href="{{ frontAssets('css/'.$cssFileName.'.css') }}">
     @else
         <link rel="stylesheet" href="{{ frontAssets('css/home.css') }}">
     @endif
   </head>
-  <body class="home">
+  <body class="{{ !empty($classBody) ? $classBody : '' }}">
     <div class="site">
     @include('frontend.includes.header')
       <main class="main">
@@ -29,5 +29,8 @@
       </main>
     @include('frontend.includes.footer')
     </div>
+    @if (isset($jsFileName))
+        <script src="{{ frontAssets('js/'.$jsFileName.'.js') }}"></script>
+    @endif
   </body>
 </html>
