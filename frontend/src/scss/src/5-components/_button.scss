@@ -1,0 +1,307 @@
+//- 5-components/button
+
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return darken($color, 50);
+  }
+  @else {
+    @return lighten($color, 60);
+  }
+}
+
+.button {
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  transition: all 0.4s;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  background-color: $color-white;
+  color: $color-primary;
+  height: 3.25rem;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: $color-primary;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    font-size: $text-md;
+    line-height: $text-md;
+    + .button__icon {
+      margin-left: 1rem;
+    }
+  }
+
+  &__icon {
+    font-size: 1em;
+    transition: all 0.4s;
+
+    i {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      fill: $color-primary;
+      transition: all 0.4s;
+    }
+
+    .icon__arrow svg {
+      fill: none;
+      stroke: $color-primary;
+    }
+
+    + .button__label {
+      margin-left: 1rem;
+    }
+  }
+
+  &:disabled, &[disabled], &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  //
+  // Size
+  &--sm {
+    height: 44px
+  }
+
+  //
+  // Coloring
+  &--dark {
+    background-color: #{$color-main-red-5};
+    color: $color-white;
+
+    &:visited {
+      color: $color-white;
+    }
+
+    .button__icon {
+      svg {
+        fill: $color-white;
+      }
+  
+      .icon__arrow svg {
+        fill: none;
+        stroke: $color-white;
+      }
+    }
+
+    &:hover, &[data-state="active"] {
+      background-color: darken($color-main-red-5, 6);
+      color: $color-white;
+
+      &:disabled, &[disabled], &.disabled {
+        background-color: #{$color-main-red-5};
+        color: $color-white;
+      }
+    }
+  }
+
+  //
+  // Line
+  &--line {
+    background-color: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+
+    .button__icon {
+      svg {
+        fill: $color-primary;
+      }
+  
+      .icon__arrow svg {
+        fill: none;
+        stroke: $color-primary;
+      }
+    }
+
+    &:visited {
+      color: $color-primary;
+    }
+
+    &:hover, &[data-state="active"] {
+      background-color: $color-main-red-5;
+      border-color: $color-main-red-5;
+      color: $color-white;
+
+      &:disabled, &[disabled], &.disabled {
+        background-color: transparent;
+        border-color: $color-white;
+      }
+
+      .button__icon {
+        svg {
+          fill: $color-white;
+        }
+    
+        .icon__arrow svg {
+          fill: none;
+          stroke: $color-white;
+        }
+      }
+    }
+
+    &.button--dark {
+      border-color: $color-main-red-5;
+      color: $color-main-red-5;
+
+      &:hover, &[data-state="active"] {
+        color: $color-white;
+
+        &:disabled, &[disabled], &.disabled {
+          border-color: $color-main-red-5;
+          color: $color-main-red-5;
+        }
+
+        .button__icon {
+          svg {
+            fill: $color-white;
+          }
+      
+          .icon__arrow svg {
+            fill: none;
+            stroke: $color-white;
+          }
+        }
+      }
+    }
+
+    &.button--primary {
+      border-color: $color-primary;
+      color: $color-primary;
+
+      .button__icon {
+        color: $color-primary;
+      }
+
+      &:hover, &[data-state="active"] {
+        color: $color-white;
+        background-color: $color-primary;
+
+        &:disabled, &[disabled], &.disabled {
+          background-color: transparent;
+          border-color: $color-primary;
+          color: $color-primary;
+
+          .button__icon {
+            color: $color-primary;
+          }
+        }
+
+        .button__icon {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  //
+  // square
+  &--square {
+    padding: 0;
+    width: 3.25rem;
+    text-align: center;
+
+    .button__content {
+      width: 100%;
+    }
+
+    .button__icon {
+      font-size: 1.75rem;
+    }
+
+    &.button--sm {
+      width: 2.75rem;
+
+      .button__icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  //
+  // Modal
+  &--modal {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 42px;
+
+    &.button--danger {
+      background-color: $color-danger;
+      color: $color-white;
+    }
+  }
+
+  //
+  // group
+  &__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > .button--line:not(:last-child) {
+      border-right: 0;
+    }
+  }
+
+  //
+  // Loader
+  &__loader {
+    cursor: not-allowed;
+    .spinner {
+      --sk-color: #ffffff;
+    }
+  }
+
+  //
+  // Pagination
+  &__pagination {
+    justify-content: center;
+    .button .button__icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: none;
+      stroke: $color-white;
+    }
+    .button--white:not([disabled]) {
+      &:hover {
+        background-color: $color-white;
+        color: $color-primary;
+        
+        .button__icon {
+          svg {
+            stroke: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}

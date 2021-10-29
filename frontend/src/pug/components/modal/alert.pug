@@ -1,0 +1,25 @@
+//- components/modal/alert.pug
+
+block vars
+  - var variant = 'default';
+  - var title = false;
+  - var rootClass = '';
+  - var status = 'close';
+  - var buttonLabel = 'Ok';
+
+div(class="modal modal__alert modal__alert--"+variant+" "+rootClass, data-state=status)
+  .modal__overlay
+  .modal__main
+    .modal__content
+      block icon
+
+      if title
+        .modal__title
+          h2= title
+
+      .modal__info
+        block info
+
+      .modal__actions
+        .modal__action
+          button(class="modal__trigger__close button button--modal button--"+variant, type="button")= buttonLabel

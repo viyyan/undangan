@@ -1,0 +1,9 @@
+//- components/form-search.pug
+
+form.form__search(method="post" action="")
+  .form__search__main
+    input(type="text" name="keyword" placeholder="You can type your search here..")
+  .form__search__submit
+    button.button.button--line.button--square.button--white(type="submit")
+      span.button__content
+        +button__icon('search')

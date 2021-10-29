@@ -1,0 +1,25 @@
+//-
+//- components/form
+//-
+extends ../../layouts/component
+
+block vars
+  - var pageTitle     = 'Components form';
+  - var pageName      = 'components';
+  - var bodyClass     = 'test components';
+
+block main
+  .section.section--space-md
+    .container
+      .grid.gap--md
+        .column--50
+          include ../../components/form.pug
+
+  .section.section--space-lg.bg--main-red-2
+    .container
+      include ../../components/form-search.pug
+
+      <br />
+      <br />
+      <br />
+

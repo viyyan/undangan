@@ -1,0 +1,25 @@
+//-
+//- components/feature
+//-
+extends ../../layouts/component
+
+block vars
+  - var pageTitle     = 'Components feature';
+  - var pageName      = 'components';
+  - var bodyClass     = 'test components';
+
+block main
+  .section.section--space-md
+    .container
+      - var title = 'High Quality & Transparent Data'
+      - var img = '../images/card-menu--thumbnail.png'
+
+      .grid.gap--md
+        .column--25
+          +feature(title, img)
+        .column--25
+          +feature(title, img)
+        .column--25
+          +feature(title, img)
+        .column--25
+          +feature(title, img)

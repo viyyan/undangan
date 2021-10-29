@@ -1,0 +1,9 @@
+//-
+//- Feature mixin
+mixin feature(title, image)
+  .feature
+    .feature__thumb
+      img(src=image alt="")
+    
+    .feature__title
+      h3.text--lg!= title

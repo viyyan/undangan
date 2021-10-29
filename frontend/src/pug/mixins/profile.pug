@@ -1,0 +1,17 @@
+//-
+//- Profile mixin
+mixin profile(name, photo, position, info, linkedinUrl)
+  .profile
+    .profile__photo
+      img(src=photo alt=name)
+    
+    .profile__info
+      .profile__info__top
+        h3.profile__info__meta=name
+        p.profile__info__meta=position
+
+      .profile__info__main
+        p= info
+
+      .profile__info__link
+        +button-linkedin(linkedinUrl)

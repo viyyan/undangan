@@ -1,0 +1,18 @@
+//- components/chat.pug
+
+.chat
+  .chat__inner
+    .grid
+      .column--50
+        .chat__info
+          .chat__info__inner
+            .chat__info__thumb
+              img(src="../images/chat--thumbnail.png" alt="")
+
+            .chat__info__main
+              h2.text--3xl So, let’s have a chat!
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+      .column--50
+        .chat__form
+          include form

@@ -1,0 +1,69 @@
+//-
+//- Our Case Study
+//-
+extends ../layouts/master
+
+block vars
+  - var pageTitle     = 'Our Case Study - Clove';
+  - var pageName      = 'our-case-study';
+  - var bodyClass     = 'p-case-study bg--main-red-4';
+  - var cssFile       = 'case-study';
+  - var jsFile        = 'case-study';
+
+block head_scripts
+  script.
+    var CASE_STUDY_PERMALINK = 'case-study.html';
+
+block main
+  .page-top
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              a(href="") What We Do
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              span.page-top__breadcrumb_current Case Studies
+
+        .page-top__info
+          h1.text--3xl Our case studies
+          p Combining digital approach to get deeper and impactful insight.
+
+  
+  .section.section--space-md.bg--main-red-5
+    .section__inner
+      .container
+        .section__main
+          include ../includes/case-study/header-filter
+
+          .section__body
+            .grid.gap--md
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+              .column--33
+                include ../components/posts/post-1
+              .column--33
+                include ../components/posts/post-2
+              .column--33
+                include ../components/posts/post-3
+
+          .section__footer
+            include ../components/pagination

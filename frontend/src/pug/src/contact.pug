@@ -1,0 +1,26 @@
+//-
+//- Contact
+//-
+extends ../layouts/master
+
+block vars
+  - var pageTitle     = 'Contact - Clove';
+  - var pageName      = 'contact';
+  - var bodyClass     = 'p-contact';
+  - var cssFile       = 'contact';
+
+block main
+
+  .page-top.page-top--fixed
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              span.page-top__breadcrumb_current Contact Us
+
+  +cta-section(false, false)
+
+  //- Map here
+
+  include ../components/chat

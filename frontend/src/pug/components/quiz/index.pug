@@ -1,0 +1,23 @@
+//- components/quiz/index.pug
+
+.quiz.sidebar.sidebar--no-space(data-step="1")
+  .quiz__inner.sidebar__inner
+    include top
+
+    .quiz__main.sidebar__content
+      .quiz__main__inner
+        .quiz__main__content
+
+        .quiz__action
+          .quiz__action__reset
+            +button('Restart', 'white', 'md', 'reset')(disabled)
+          
+          .quiz__action__dir
+            .quiz__action__prev
+              +button('Previous', 'white', 'md', 'arrow-left', 'left')(disabled)
+            .quiz__action__next
+              +button('Next Question')(data-label-submit="Submit" data-label-next="Next Question")
+      
+    //- include bottom
+
+include alert-error

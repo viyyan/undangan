@@ -1,0 +1,38 @@
+//-
+//- components/section
+//-
+extends ../../layouts/component
+
+block vars
+  - var pageTitle     = 'Components section';
+  - var pageName      = 'components';
+  - var bodyClass     = 'test components';
+
+block main
+  .section.section--space-md.bg--main-red-2
+    .section__inner
+      .container
+        .section__main
+          .section__header.section__header--center
+            .section__header__main
+              h2.text--3xl Our case studies
+              p Combining digital approach to get deeper and impactful insight.
+          .section__body
+            p Section body
+          .section__footer
+            p Section footer
+
+  .section.section--space-md.bg--main-red-3
+    .section__inner
+      .container
+        .section__main
+          .section__header
+            .section__header__main
+              h2.text--3xl What we’ve done
+              p We provide you with solutions for improvement to <br />help you business grow.
+            .section__header__widget
+              h2.text--xl Header widget
+          .section__body
+            p Section body
+          .section__footer
+            p Section footer

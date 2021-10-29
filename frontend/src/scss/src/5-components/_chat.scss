@@ -1,0 +1,34 @@
+//- 5-components/chat
+
+.chat {
+  &__info {
+    padding: 6.25rem 2rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &__inner {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &__main {
+      width: 18rem;
+      margin-left: -2.5rem;
+      margin-top: 5rem;
+      margin-bottom: 1.5rem;
+
+      h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  &__form {
+    padding-top: 6.25rem;
+    padding-bottom: 2.25rem;
+    border-left: 1px solid $color-white;
+  }
+}

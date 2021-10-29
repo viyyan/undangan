@@ -1,0 +1,45 @@
+//-
+//- Header view
+//-
+extends ../components/header/index
+
+block vars
+  include ../components/header/vars
+  - var siteTitle = 'Clove';
+
+block nav_items
+  li.header__nav__about
+    a(href="who-we-are.html")
+      span Who We Are
+
+    .header__nav__subs
+      ul
+        li
+          a(href="our-4-pillars.html") Our 4 Pillars
+        li
+          a(href="our-people.html") Our People
+        li
+          a(href="careers.html") Want to join us?
+
+  li.header__nav__service
+    a(href="what-we-do.html")
+      span What We Do
+
+    .header__nav__subs
+      ul
+        li
+          a(href="case-study.html") Case Studies
+        li
+          a(href="our-tools.html") Our Tools
+
+  li.header__nav__blog
+    a(href="our-thinking.html")
+      span Our Thinking
+
+  li.header__nav__quiz 
+    a(href="market-quiz.html")
+      span Market research <br />check-up
+
+  li.header__nav__contact
+    a(href="our-thinking.html")
+      span Contact Us

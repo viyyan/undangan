@@ -1,0 +1,74 @@
+//-
+//- components/card
+//-
+extends ../../layouts/component
+
+block vars
+  - var pageTitle     = 'Components Card';
+  - var pageName      = 'components';
+  - var bodyClass     = 'test components';
+
+block main
+  .section.section--space-md
+    .container
+      .grid.gap--md
+        - var title1 = '3 steps to streamline assortment and merchandising solutions'
+        - var date1 = '11 August 2021'
+        - var img1 = '../images/card--thumbnail.png'
+        .column--33
+          +card(title1, date1, img1, '#')
+        .column--33
+          +card(title1, date1, img1, '#')
+        .column--33
+          +card(title1, date1, img1, '#')
+
+  .section.section--space-md.bg--red-main-4
+    .container
+      .grid.gap--md
+        - var title1 = '3 steps to streamline assortment and merchandising solutions'
+        - var date1 = '11 August 2021'
+        - var img1 = '../images/card--thumbnail.png'
+        - var cat = 'Retail Census'
+        .column--33
+          +card(title1, false, img1, '#', cat)
+        .column--33
+          +card(title1, false, img1, '#', cat)
+        .column--33
+          +card(title1, false, img1, '#', cat)
+
+  .section.section--space-md.bg--red-main-2
+    .container
+      .grid.gap--md
+        - var title1 = '3 steps to streamline assortment and merchandising solutions'
+        - var date1 = '11 August 2021'
+        - var img1 = '../images/card--thumbnail.png'
+        .column--50
+          +card(title1, date1, img1, '#')
+        .column--50
+          +card(title1, date1, img1, '#')
+
+  .section.section--space-md.bg--red-main-3
+    .container
+      .grid.grid--center.gap--md
+        - var title2 = 'Live Achievement Dashboard'
+        - var date2 = 'Showing the achievement in real time basis'
+        - var img2 = '../images/card--thumbnail.png'
+        - var icon = '../images/card--icon.svg'
+        .column--33
+          +card(title2, date2, img2, '#', false, 'Registered PowerBI or Tableau', icon, 'bottom')
+        .column--33
+          +card(title2, date2, img2, '#', false, 'Registered PowerBI or Tableau', icon, 'bottom')
+        .column--33
+          +card(title2, date2, img2, '#', false, 'Closer (made by Clove)', icon, 'bottom', 'main-red-4')
+        .column--33
+          +card(title2, date2, img2, '#', false, 'MyPer (made by Clove)', icon, 'bottom', 'black')
+        .column--33
+          +card(title2, date2, img2, '#', false, 'Registered PowerBI or Tableau', icon, 'bottom', 'main-red-4')
+
+  .section.section--space-md.bg--red-main-4
+    .container
+      .grid.gap--md
+        .column--50
+          +card-menu('Our 4 Pillars', '../images/card-menu--thumbnail.png', '#')
+        .column--50
+          +card-menu('Our People', '../images/card-menu--thumbnail.png', '#')

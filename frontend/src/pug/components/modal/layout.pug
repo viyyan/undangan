@@ -1,0 +1,16 @@
+//- components/modal/layout.pug
+
+block vars
+  - var showClose = true;
+  - var rootClass = '';
+
+div(class="modal "+rootClass)
+  .modal__overlay
+  .modal__main
+    if showClose
+      .modal__close
+        button(type="button")
+          span x
+
+      .modal__content
+        block content

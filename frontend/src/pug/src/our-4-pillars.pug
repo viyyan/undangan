@@ -1,0 +1,44 @@
+//-
+//- Our 4 Pillars
+//-
+extends ../layouts/master
+
+block vars
+  - var pageTitle     = 'Our 4 Pillars - Clove';
+  - var pageName      = 'our-4-pillars';
+  - var bodyClass     = 'p-our-pillars bg--main-red-4';
+  - var cssFile       = 'our-pillars';
+
+block main
+  .page-top.page-top--fixed
+    .container
+      .page-top__main
+        .page-top__breadcrumb
+          .category
+            .category__main
+              a(href="") Who We Are
+              |
+              span.page-top__breadcrumb__sep /
+              |
+              span.page-top__breadcrumb_current OUR 4 PILLARS
+
+        .page-top__info
+          h1.text--3xl We always push to deliver
+
+  .section.section--space-lg
+    .container
+      - var title = 'High Quality & Transparent Data'
+      - var img = '../images/card-menu--thumbnail.png'
+
+      .grid.gap--md
+        .column--25
+          +feature(title, img)
+        .column--25
+          +feature(title, img)
+        .column--25
+          +feature(title, img)
+        .column--25
+          +feature(title, img)
+
+  .section.section--space-md.bg--main-red-5
+    .container

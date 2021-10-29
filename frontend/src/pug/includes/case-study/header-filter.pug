@@ -1,0 +1,80 @@
+//-
+//- Case study header
+//-
+.section__header.case-study__filter
+  .section__header__main
+    h2.text--xl.case-study__filter__label All case studies
+  .section__header__widget
+    .case-study__filter__group
+      .case-study__filter__icon
+        +icon__filter()
+        
+      .case-study__filter__item
+        .select(data-state="close" data-filter="industries" data-value="")
+          .select__selected(data-placeholder="Industries")
+            button(type="button") 
+              span.select__selected__label Industries
+              span.select__selected__icon
+                i.select__selected__icon__open
+                  +icon__sort-up()
+                i.select__selected__icon__close
+                  +icon__sort-down()
+
+          .select__options
+            ul
+              li
+                button(type="button" data-value="all")
+                  span All
+              li
+                button(type="button" data-value="2")
+                  span Retail Census
+              li
+                button(type="button" data-value="3")
+                  span Event Evaluation
+      
+      .case-study__filter__item
+        .select(data-state="close" data-filter="type_of_research" data-value="")
+          .select__selected(data-placeholder="Type of research")
+            button(type="button") 
+              span.select__selected__label Type of research
+              span.select__selected__icon
+                i.select__selected__icon__open
+                  +icon__sort-up()
+                i.select__selected__icon__close
+                  +icon__sort-down()
+
+          .select__options
+            ul
+              li
+                button(type="button" data-value="all")
+                  span All
+              li
+                button(type="button" data-value="2")
+                  span Electronic Products
+              li
+                button(type="button" data-value="3")
+                  span Vinyl & HPL
+
+    .case-study__filter__group
+      .case-study__filter__icon
+        +icon__arrow-down()
+
+      .case-study__filter__item
+        .select(data-state="close" data-filter="order" data-value="")
+          .select__selected(data-placeholder="Order")
+            button(type="button") 
+              span.select__selected__label Latest
+              span.select__selected__icon
+                i.select__selected__icon__open
+                  +icon__sort-up()
+                i.select__selected__icon__close
+                  +icon__sort-down()
+
+          .select__options
+            ul
+              li
+                button(type="button" data-value="1")
+                  span Latest
+              li
+                button(type="button" data-value="2")
+                  span Oldest
