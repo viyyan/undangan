@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       styles: 'src/scss/',
       scripts: 'src/js/',
       assets: 'src/',
-      public: '../public/assets/',
+      public: '../public/assets/frontend/',
       pug_cwd: 'src/pug/',
       pug_cwd_public: 'src/pug/src/',
       pug_files: '**/*.pug',

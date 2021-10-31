@@ -5,11 +5,43 @@ $circle-size: 6.75rem;
 
 .home {
   //-
+  //- Banner CTA
+  &__intro{
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      background: url('../images/home--ornament.png') no-repeat;
+      background-size: 100%;
+      right: 0;
+      top: 0;
+    }
+  }
+  //-
+  //- service section
+  //-
+  &__services{
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 28%;
+      height: 100%;
+      background: url('../images/home--second_section-ornament.png') no-repeat;
+      background-size: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  //-
+  //-
   //- Supported
   //-
   &__supported {
     .section {
-      padding-bottom: 8.75rem;
+      padding-bottom: 8.75rem; 
     }
 
     &__list {

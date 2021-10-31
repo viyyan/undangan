@@ -13,7 +13,7 @@
             <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
                 <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt="Hello We are Clove"/></div>
                 <div class="cta__content column--50 cta__content--left">
                     <div class="cta__header">
                     <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
@@ -50,7 +50,7 @@
             <div class="grid gap--md">
             <div class="column--25">
                 <div class="feature">
-                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt="High Quality & Transparent Data"/></div>
                 <div class="feature__title">
                     <h3 class="text--lg">High Quality & Transparent Data</h3>
                 </div>
