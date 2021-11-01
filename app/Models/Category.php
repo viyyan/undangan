@@ -60,45 +60,9 @@ class Category extends Model
      *
      * @return Builder
      */
-    public function scopePost(Builder $query)
+    public function scopeMember(Builder $query)
     {
-        return $query->where('type', 'post');
-    }
-
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeProduct(Builder $query)
-    {
-        return $query->where('type', 'product');
-    }
-
-
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeInvestor(Builder $query)
-    {
-        return $query->where('type', 'investor');
-    }
-
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeCareer(Builder $query)
-    {
-        return $query->where('type', 'career');
-    }
-
-    public function products()
-    {
-        return $this->hasMany(Product::class)->orderBy('order', 'asc');
+        return $query->where('type', 'member');
     }
 
 }

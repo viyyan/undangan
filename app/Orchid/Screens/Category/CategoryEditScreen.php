@@ -80,11 +80,6 @@ class CategoryEditScreen extends Screen
      */
     public function layout(): array
     {
-        $orders = [];
-        if ($this->type == 'investor') {
-            $orders = range(1, (Category::where('type', 'investor')
-                ->count() + 1));
-        }
         return [
             Layout::rows([
 
@@ -105,11 +100,12 @@ class CategoryEditScreen extends Screen
                         0  => 'Draft'
                     ])
                     ->required(),
-                Select::make('category.order')
+
+                Input::make('category.order')
                     ->title("Order")
-                    ->empty('No select')
-                    ->options($orders)
-                    ->canSee(($this->type == 'investor'))
+                    ->type("number")
+                    ->min(1)
+                    ->canSee(($this->type == 'member'))
             ])
         ];
     }

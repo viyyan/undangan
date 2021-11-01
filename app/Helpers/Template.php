@@ -35,3 +35,14 @@ function isCurrent($name, $path = NULL) {
 function excerptLimit($text, $max = 20) {
     return strlen($text) > $max ? substr($text, 0 ,$max)."..." : $text;
 }
+
+
+/**
+ * validate & complete url
+ */
+function validateUrl($url) {
+    if(filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+        $url = "https://".$url;
+    }
+    return $url;
+}

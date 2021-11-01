@@ -16,6 +16,8 @@ use App\Orchid\Screens\Banner\BannerListScreen;
 use App\Orchid\Screens\Banner\BannerEditScreen;
 use App\Orchid\Screens\Career\CareerListScreen;
 use App\Orchid\Screens\Career\CareerEditScreen;
+use App\Orchid\Screens\Member\MemberListScreen;
+use App\Orchid\Screens\Member\MemberEditScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -34,21 +36,6 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
-
-Route::screen('banners', BannerListScreen::class)
-    ->name('platform.banner.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Banners'), route('platform.banner.list'));
-    });
-
-Route::screen('banner/{banner?}', BannerEditScreen::class)
-    ->name('platform.banner.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.banner.list')
-            ->push(__('Banner'));
-    });
 
 // Platform > Post
 Route::screen('posts', PostListScreen::class)
@@ -82,6 +69,21 @@ Route::screen('category/{category?}', CategoryEditScreen::class)
     })
     ;
 
+// Platform > Member
+Route::screen('members', MemberListScreen::class)
+    ->name('platform.member.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Members'), route('platform.member.list'));
+    });
+
+Route::screen('member/{post?}', MemberEditScreen::class)
+    ->name('platform.member.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.member.list')
+            ->push(__('Member'));
+    });
 
 // Platform > Career
 Route::screen('careers', CareerListScreen::class)
@@ -125,7 +127,6 @@ Route::screen('users', UserListScreen::class)
     ->name('platform.systems.users')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
             ->push(__('Users'), route('platform.systems.users'));
     });
 
@@ -152,7 +153,6 @@ Route::screen('roles', RoleListScreen::class)
     ->name('platform.systems.roles')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
             ->push(__('Roles'), route('platform.systems.roles'));
     });
 

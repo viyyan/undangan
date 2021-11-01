@@ -22,7 +22,7 @@ class PlatformScreen extends Screen
      *
      * @var string
      */
-    public $description = 'Welcome to Taisho CMS.';
+    public $description = 'Welcome to Clove CMS.';
 
     /**
      * Query data.
