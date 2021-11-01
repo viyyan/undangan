@@ -29,6 +29,9 @@
       </main>
     @include('frontend.includes.footer')
     </div>
+    @if (isset($isQuiz))
+        @include('frontend.includes.quiz-result')
+    @endif
     @if (isset($jsFileName))
         <script src="{{ frontAssets('js/'.$jsFileName.'.js') }}"></script>
     @endif
