@@ -57,7 +57,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--main-red-5">
+<div class="section section--space-md bg--main-red-5 main--pilar">
     <div class="container">
         
             <div class="feature__desc feature--left mb--20">

@@ -1414,6 +1414,15 @@ p {
 .cta--align--top .cta__main {
   align-items: flex-start;
 }
+.cta__sign {
+  margin-top: 3.125rem;
+  padding-top: 0.675rem;
+  display: block;
+  background: url("../images/arrow--down.png") no-repeat right top;
+  padding-right: 3rem;
+  background-size: 2.5rem;
+  height: 2.5rem;
+}
 .cta__content--right {
   text-align: right;
 }
@@ -1425,8 +1434,14 @@ p {
   margin-bottom: 0;
   font-weight: 400;
 }
+.cta__header.right--align {
+  text-align: right;
+}
 .cta__body {
   margin-top: 2.5rem;
+}
+.cta__body.right-align {
+  text-align: right;
 }
 .cta__body p:first-child {
   margin-top: 0;

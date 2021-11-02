@@ -1414,6 +1414,15 @@ p {
 .cta--align--top .cta__main {
   align-items: flex-start;
 }
+.cta__sign {
+  margin-top: 3.125rem;
+  padding-top: 0.675rem;
+  display: block;
+  background: url("../images/arrow--down.png") no-repeat right top;
+  padding-right: 3rem;
+  background-size: 2.5rem;
+  height: 2.5rem;
+}
 .cta__content--right {
   text-align: right;
 }
@@ -1425,8 +1434,14 @@ p {
   margin-bottom: 0;
   font-weight: 400;
 }
+.cta__header.right--align {
+  text-align: right;
+}
 .cta__body {
   margin-top: 2.5rem;
+}
+.cta__body.right-align {
+  text-align: right;
 }
 .cta__body p:first-child {
   margin-top: 0;
@@ -1854,6 +1869,10 @@ p {
 .p-our-pillars {
   position: relative;
 }
+.p-our-pillars .container {
+  position: relative;
+  z-index: 1;
+}
 .p-our-pillars .section.top {
   position: relative;
 }
@@ -1866,4 +1885,17 @@ p {
   background-size: 100%;
   left: 0;
   top: 0;
+}
+.p-our-pillars .section.main--pilar {
+  position: relative;
+}
+.p-our-pillars .section.main--pilar::after {
+  content: "";
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background: url("../images/our--pilar--ornament.png") no-repeat bottom;
+  background-size: 100%;
+  right: 0;
+  bottom: 0;
 }
