@@ -3,16 +3,16 @@
  * Quiz result view
  */
 ?>
-<div class="quiz__result modal" data-state="open">
+<div class="quiz__result modal" data-state="close">
   <div class="modal__overlay"></div>
   <div class="quiz__result__inner modal__main">
     <div class="quiz__result__top">
       <div class="quiz__result__top__inner">
         <div class="quiz__result__top__main">
-          <h2>Congratulation</h2>
+          <h2 class="text--xl">Congratulation</h2>
           <p>You’ve finished the market research check up. Based on your answer, your suitable market research for you is :</p>
           <div class="quiz__result__tag">
-            Product Test
+            <span class="text--lg">Product Test</span>
           </div>
         </div>
       </div>
@@ -23,35 +23,41 @@
         <form method="post" action="">
           <div class="quiz__result__form__fields">
             <div class="quiz__result__form__field">
-              <div class="quiz__result__form__icon">
-                <img src="" alt="" />
-              </div>
-              <div class="quiz__result__form__input">
-                <input type="text" name="name" placeholder="Name *" />
+                <div class="quiz__result__form__field__inner">
+                <div class="quiz__result__form__icon">
+                  <img src="{{ frontImages('icon--user--dark.svg') }}" alt="" />
+                </div>
+                <div class="quiz__result__form__input">
+                  <input type="text" name="name" placeholder="Name *" />
+                </div>
               </div>
             </div>
             <div class="quiz__result__form__field">
-              <div class="quiz__result__form__icon">
-                <img src="" alt="" />
-              </div>
-              <div class="quiz__result__form__input">
-                <input type="text" name="company_name" placeholder="Company Name *" />
+              <div class="quiz__result__form__field__inner">
+                <div class="quiz__result__form__icon">
+                  <img src="{{ frontImages('icon--work--dark.svg') }}" alt="" />
+                </div>
+                <div class="quiz__result__form__input">
+                  <input type="text" name="company_name" placeholder="Company Name *" />
+                </div>
               </div>
             </div>
           </div>
           <div class="quiz__result__form__fields">
             <div class="quiz__result__form__field">
-              <div class="quiz__result__form__icon">
-                <img src="" alt="" />
-              </div>
-              <div class="quiz__result__form__input">
-                <input type="text" name="email" placeholder="E-mail address *" />
+              <div class="quiz__result__form__field__inner">
+                <div class="quiz__result__form__icon">
+                  <img src="{{ frontImages('icon--email--dark.svg') }}" alt="" />
+                </div>
+                <div class="quiz__result__form__input">
+                  <input type="text" name="email" placeholder="E-mail address *" />
+                </div>
               </div>
             </div>
           </div>
           <div class="quiz__result__actions">
             <div class="quiz__result__action">
-              <button class="button button--white button--md" type="button">
+              <button class="button button--white button--md quiz__result__action__reset" type="button">
                 <span class="button__content">
                   <span class="button__label">Restart</span>
                   <span class="button__icon">
@@ -65,7 +71,7 @@
               </button>
             </div>
             <div class="quiz__result__action">
-              <button class="button button--white button--md" type="button" disabled="disabled">
+              <button class="button button--red-dark button--md quiz__result__action__submit" type="button" disabled="disabled">
                 <span class="button__content">
                   <span class="button__label">See related case studies</span>
                   <span class="button__icon">

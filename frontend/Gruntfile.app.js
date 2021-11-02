@@ -104,6 +104,28 @@ module.exports = function (grunt) {
         ],
         dest: '<%= meta.public %>css/styles.css',
       },
+      quiz: {
+        src: [
+          './node_modules/spinkit/spinkit.css',
+          '<%= meta.public %>css/quiz.css',
+        ],
+        dest: '<%= meta.public %>css/quiz.css',
+      },
+      quiz_js: {
+        src: [
+          './node_modules/jquery/dist/jquery.slim.js',
+          './node_modules/jquery-validation/dist/jquery.validation.js',
+          '<%= meta.public %>js/quiz.js',
+        ],
+        dest: '<%= meta.public %>js/quiz.js',
+      },
+      our_thinking_js: {
+        src: [
+          './node_modules/jquery/dist/jquery.js',
+          '<%= meta.public %>js/our-thinking.js',
+        ],
+        dest: '<%= meta.public %>js/our-thinking.js',
+      },
     },
 
     pug: {
@@ -138,7 +160,11 @@ module.exports = function (grunt) {
       },
       script: {
         files: ['<%= meta.scripts %>/**/*.js'],
-        tasks: ['browserify'],
+        tasks: [
+          'browserify', 
+          'concat:quiz_js', 
+          'concat:our_thinking_js'
+        ],
       },
       // pug: {
       //   files: ['<%= meta.pug_cwd %>/**/*.pug'],
@@ -191,9 +217,12 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dev',
     'sass',
+    // 'concat:quiz',
     'postcss',
     // 'pug',
     'browserify',
+    'concat:quiz_js', 
+    'concat:our_thinking_js',
     'uglify',
   ]);
   grunt.registerTask('serve', ['connect:server', 'watch']);

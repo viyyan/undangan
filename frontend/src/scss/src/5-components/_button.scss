@@ -125,6 +125,36 @@
     }
   }
 
+  &--red-dark {
+    background-color: #{$color-main-red-4};
+    color: $color-white;
+
+    &:visited {
+      color: $color-white;
+    }
+
+    .button__icon {
+      svg {
+        fill: $color-white;
+      }
+  
+      .icon__arrow svg {
+        fill: none;
+        stroke: $color-white;
+      }
+    }
+
+    &:hover, &[data-state="active"] {
+      background-color: darken($color-main-red-4, 6);
+      color: $color-white;
+
+      &:disabled, &[disabled], &.disabled {
+        background-color: #{$color-main-red-4};
+        color: $color-white;
+      }
+    }
+  }
+
   //
   // Line
   &--line {

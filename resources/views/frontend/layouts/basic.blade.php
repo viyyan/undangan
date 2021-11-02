@@ -32,6 +32,7 @@
     @if (isset($isQuiz))
         @include('frontend.includes.quiz-result')
     @endif
+    @include('frontend.includes.loader')
     @if (isset($jsFileName))
         <script src="{{ frontAssets('js/'.$jsFileName.'.js') }}"></script>
     @endif
