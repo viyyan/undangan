@@ -18,6 +18,9 @@ use App\Orchid\Screens\Career\CareerListScreen;
 use App\Orchid\Screens\Career\CareerEditScreen;
 use App\Orchid\Screens\Member\MemberListScreen;
 use App\Orchid\Screens\Member\MemberEditScreen;
+use App\Orchid\Screens\Quiz\QuizListScreen;
+use App\Orchid\Screens\Quiz\QuizEditScreen;
+use App\Orchid\Screens\QuizOption\OptionEditScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -77,12 +80,37 @@ Route::screen('members', MemberListScreen::class)
             ->push(__('Members'), route('platform.member.list'));
     });
 
-Route::screen('member/{post?}', MemberEditScreen::class)
+Route::screen('member/{member?}', MemberEditScreen::class)
     ->name('platform.member.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.member.list')
             ->push(__('Member'));
+    });
+
+// Platform > Market Research / quiz
+Route::screen('quizzes', QuizListScreen::class)
+    ->name('platform.quiz.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Questions'), route('platform.quiz.list'));
+    });
+
+Route::screen('quiz/{quiz?}', QuizEditScreen::class)
+    ->name('platform.quiz.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.quiz.list')
+            ->push(__('Quiz'));
+    });
+
+// Platform > Quiz > Option
+Route::screen('option/{option?}', OptionEditScreen::class)
+    ->name('platform.quiz.option.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.quiz.edit')
+            ->push(__('Quiz Option'));
     });
 
 // Platform > Career

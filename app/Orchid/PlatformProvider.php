@@ -26,10 +26,6 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            // Menu::make('Banners')
-            //     ->icon('barcode')
-            //     ->route('platform.banner.list')
-            //     ->title('Content'),
 
             Menu::make('Our Thinking')
                 ->icon('book-open')
@@ -44,6 +40,12 @@ class PlatformProvider extends OrchidServiceProvider
                 ->list([
                     Menu::make('All Members')->route('platform.member.list'),
                     Menu::make('Level / Categories')->route('platform.category.list', ['type' => 'member']),
+                ]),
+
+            Menu::make('Market Research')
+                ->icon('magnifier-add')
+                ->list([
+                    Menu::make('All Question')->route('platform.quiz.list'),
                 ]),
 
             Menu::make('Job List')
