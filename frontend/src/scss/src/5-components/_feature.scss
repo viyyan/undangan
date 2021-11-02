@@ -1,6 +1,6 @@
 //- 5-components/feature
 
-$thumb-deco-height: 11.25rem;
+$thumb-deco-height: 10.25rem;
 
 .feature {
   position: relative;
@@ -39,5 +39,23 @@ $thumb-deco-height: 11.25rem;
   &__title {
     margin-top: 1.5rem;
     text-align: center;
+  }
+
+  &__count{
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 1px solid #fff;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: center;
+    &__block{
+      width: 33%;
+      border-right: 1px solid #fff;
+      padding: 1.5rem 1rem;
+      &:last-child{
+        border-right: none;
+      }
+    }
   }
 }
