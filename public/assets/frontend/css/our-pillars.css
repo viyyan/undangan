@@ -94,6 +94,9 @@
 .gradient--primary {
   background: linear-gradient(180deg, #730000 0%, #f8f0ee 100%);
 }
+.gradient--number {
+  background: linear-gradient(180deg, #FFFFFF 26.67%, rgba(255, 255, 255, 0) 100%);
+}
 
 .font--main {
   font-family: "DM Sans", sans-serif;
@@ -497,7 +500,7 @@ html {
  */
 .main {
   position: relative;
-  padding-top: 3.625rem;
+  padding-top: 4.625rem;
 }
 
 body {
@@ -552,6 +555,11 @@ p {
   max-width: 54rem;
 }
 
+.align-center {
+  align-items: center !important;
+  padding: 0.5rem 1rem;
+}
+
 .grid {
   display: flex;
   flex-direction: row;
@@ -562,12 +570,32 @@ p {
   justify-content: center;
 }
 
+.column--90 {
+  width: 90%;
+}
+
+.column--85 {
+  width: 85%;
+}
+
+.column--80 {
+  width: 80%;
+}
+
 .column--75 {
   width: 75%;
 }
 
 .column--66 {
   width: 66.666666%;
+}
+
+.column--60 {
+  width: 60%;
+}
+
+.column--40 {
+  width: 40%;
 }
 
 .column--50 {
@@ -608,6 +636,26 @@ p {
 }
 .gap--2xl > div {
   padding: 0 3.5rem;
+}
+
+.mb--20 {
+  margin-bottom: 4.5rem;
+}
+
+.mt--20 {
+  margin-bottom: 4.5rem;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.px--10 {
+  padding: 1.25rem 0;
+}
+
+.title--gap--10 {
+  margin: -1.25rem 0;
 }
 
 .content__section {
@@ -1061,7 +1109,7 @@ p {
 }
 
 .page-top {
-  padding-top: 3.75rem;
+  padding-top: 7.75rem;
   padding-bottom: 4.25rem;
 }
 .page-top__main {
@@ -1706,6 +1754,15 @@ p {
   margin-top: 1.5rem;
   text-align: center;
 }
+.feature__title-left {
+  text-align: left;
+}
+.feature__title-left.wd-85 {
+  width: 85%;
+}
+.feature__title-left.wd-90 {
+  width: 90%;
+}
 .feature__count {
   position: relative;
   display: flex;
@@ -1723,7 +1780,90 @@ p {
 .feature__count__block:last-child {
   border-right: none;
 }
+.feature_tableu.placeholder {
+  width: 100%;
+  min-height: 21rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.feature__desc {
+  display: flex;
+}
+.feature__desc span {
+  padding: 0.35rem 1rem;
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+.feature--right {
+  position: relative;
+  justify-content: end;
+}
+.feature--right.no-line::after {
+  display: none;
+}
+.feature--right::after {
+  content: "";
+  position: absolute;
+  background: url("../images/about--left-conector.png") no-repeat;
+  width: 8rem;
+  height: 14rem;
+  left: 5%;
+  top: 35%;
+  z-index: 1;
+  background-size: 100%;
+}
+.feature--right .absolute--number {
+  right: -2rem;
+  left: auto;
+}
+.feature--left {
+  position: relative;
+  justify-content: start;
+}
+.feature--left::after {
+  content: "";
+  position: absolute;
+  background: url("../images/about--right-conector.png") no-repeat;
+  width: 8rem;
+  height: 14rem;
+  right: 5%;
+  top: 35%;
+  z-index: 1;
+  background-size: 100%;
+}
+
+.absolute--number {
+  position: absolute;
+  width: 4rem;
+  left: -2rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A81D1D;
+  font-size: 1.5rem;
+  top: -2rem;
+  font-weight: 600;
+}
 
 .p-our-pillars {
   position: relative;
+}
+.p-our-pillars .section.top {
+  position: relative;
+}
+.p-our-pillars .section.top::after {
+  content: "";
+  position: absolute;
+  width: 34%;
+  height: 100%;
+  background: url("../images/about--our-pilar--ornament.png") no-repeat;
+  background-size: 100%;
+  left: 0;
+  top: 0;
 }

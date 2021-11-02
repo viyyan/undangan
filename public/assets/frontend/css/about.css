@@ -94,6 +94,9 @@
 .gradient--primary {
   background: linear-gradient(180deg, #730000 0%, #f8f0ee 100%);
 }
+.gradient--number {
+  background: linear-gradient(180deg, #FFFFFF 26.67%, rgba(255, 255, 255, 0) 100%);
+}
 
 .font--main {
   font-family: "DM Sans", sans-serif;
@@ -497,7 +500,7 @@ html {
  */
 .main {
   position: relative;
-  padding-top: 3.625rem;
+  padding-top: 4.625rem;
 }
 
 body {
@@ -552,6 +555,11 @@ p {
   max-width: 54rem;
 }
 
+.align-center {
+  align-items: center !important;
+  padding: 0.5rem 1rem;
+}
+
 .grid {
   display: flex;
   flex-direction: row;
@@ -562,12 +570,32 @@ p {
   justify-content: center;
 }
 
+.column--90 {
+  width: 90%;
+}
+
+.column--85 {
+  width: 85%;
+}
+
+.column--80 {
+  width: 80%;
+}
+
 .column--75 {
   width: 75%;
 }
 
 .column--66 {
   width: 66.666666%;
+}
+
+.column--60 {
+  width: 60%;
+}
+
+.column--40 {
+  width: 40%;
 }
 
 .column--50 {
@@ -608,6 +636,26 @@ p {
 }
 .gap--2xl > div {
   padding: 0 3.5rem;
+}
+
+.mb--20 {
+  margin-bottom: 4.5rem;
+}
+
+.mt--20 {
+  margin-bottom: 4.5rem;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.px--10 {
+  padding: 1.25rem 0;
+}
+
+.title--gap--10 {
+  margin: -1.25rem 0;
 }
 
 .content__section {
@@ -1061,7 +1109,7 @@ p {
 }
 
 .page-top {
-  padding-top: 3.75rem;
+  padding-top: 7.75rem;
   padding-bottom: 4.25rem;
 }
 .page-top__main {
@@ -1673,4 +1721,14 @@ p {
 
 .p-about {
   position: relative;
+}
+.p-about .main::after {
+  content: "";
+  position: absolute;
+  width: 45%;
+  height: 100%;
+  background: url("../images/about--ornament.png") no-repeat;
+  background-size: 100%;
+  right: 0;
+  top: 0;
 }
