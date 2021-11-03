@@ -3,7 +3,7 @@
  * Quiz result view
  */
 ?>
-<div class="quiz__result modal" data-state="open">
+<div class="quiz__result modal" data-state="close">
   <div class="modal__overlay"></div>
   <div class="quiz__result__inner modal__main">
     <div class="quiz__result__top">
