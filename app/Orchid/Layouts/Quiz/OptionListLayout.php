@@ -7,6 +7,7 @@ use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
+use App\Orchid\Layouts\Quiz\SubOptionListLayout;
 use Orchid\Screen\Actions\ModalToggle;
 
 
@@ -38,7 +39,7 @@ class OptionListLayout extends Table
 
             TD::make('sub_options', 'Sub Options')
                 ->render(function (QuizOption $quizoption) {
-                    return strval($quizoption->sub_options);
+                    return json_encode($quizoption->sub_options);
                 }),
 
             TD::make('status', 'Status')

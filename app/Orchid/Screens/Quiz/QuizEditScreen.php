@@ -84,6 +84,16 @@ class QuizEditScreen extends Screen
                     ->title('Question')
                     ->required(),
 
+                Select::make('quiz.type')
+                    ->title("Type")
+                    ->empty("No select")
+                    ->options([
+                        'tags' => 'Tags',
+                        'binary'  => 'Binary',
+                        'steps'  => 'Steps',
+                    ])
+                    ->required(),
+
                 Select::make('quiz.status')
                     ->title("Status")
                     ->empty('Publish', 1)

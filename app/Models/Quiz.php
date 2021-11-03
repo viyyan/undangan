@@ -20,6 +20,7 @@ class Quiz extends Model
         'question',
         'order',
         'status',
+        'type',
     ];
 
      /**
@@ -43,4 +44,5 @@ class Quiz extends Model
     {
         return $this->hasMany(QuizOption::class)->orderBy('code', 'asc');
     }
+
 }

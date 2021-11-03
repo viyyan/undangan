@@ -41,4 +41,5 @@ class QuizOption extends Model
         'updated_at'
     ];
 
+
 }

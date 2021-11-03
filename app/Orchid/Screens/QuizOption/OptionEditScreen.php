@@ -10,6 +10,9 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
 use Illuminate\Http\Request;
+use Orchid\Screen\Fields\Group;
+use App\Orchid\Layouts\Quiz\SubOptionListLayout;
+
 
 class OptionEditScreen extends Screen
 {
@@ -42,7 +45,8 @@ class OptionEditScreen extends Screen
         }
 
         return [
-            'quizoption' => $quizoption
+            'quizoption' => $quizoption,
+            'sub_options' => isset($quizoption->sub_options) ? $quizoption->sub_options : [],
         ];
     }
 
@@ -94,11 +98,6 @@ class OptionEditScreen extends Screen
                     ->type('number')
                     ->min(1)
                     ->required(),
-
-                Input::make('quizoption.sub_options')
-                    ->title('Sub Options')
-                    ->help('If the options refer from previous questions set with answer code combination ex. ["1.1.1", "1.2.1"] '),
-
                 Select::make('quizoption.status')
                     ->title("Status")
                     ->empty('Publish', 1)
@@ -107,7 +106,17 @@ class OptionEditScreen extends Screen
                         0  => 'Draft'
                     ])
                     ->required()
-            ])
+            ]),
+            Layout::rows([
+                Group::make([
+                    Input::make('subs')
+                    ->help('If the options refer from previous questions,<br> set with answer code combination ex. Q1: 1, Q2: 2, Q3: 1 write "1.2.1"'),
+                    Button::make('Add')
+                        ->method('addSubOption')
+                        ->class('btn btn-success'),
+                ]),
+            ])->title('Sub Options'),
+            SubOptionListLayout::class,
         ];
     }
 
@@ -119,9 +128,7 @@ class OptionEditScreen extends Screen
      */
     public function createOrUpdate(QuizOption $quizoption, Request $request)
     {
-        $quizoption->fill($request->get('quizoption'));
-        $quizoption->save();
-
+        $this->_save($quizoption, $request);
         Alert::info('You have successfully created an quiz option.');
 
         return redirect()->route('platform.quiz.edit', $quizoption->quiz_id);
@@ -140,5 +147,49 @@ class OptionEditScreen extends Screen
         Alert::info('You have successfully deleted the quiz option.');
 
         return redirect()->route('platform.quiz.edit', $quizoption->quiz_id);
+    }
+
+    /**
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function removeSub($sub, QuizOption $quizoption)
+    {
+        $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
+        $subs = array_diff($subs, [$sub]);
+        $quizoption->sub_options = $subs;
+        $quizoption->save();
+        Alert::info('You have successfully created an quiz option.');
+    }
+
+
+    /**
+     * @param QuizOption    $quizoption
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addSubOption(QuizOption $quizoption, Request $request)
+    {
+        $quizoption = $this->_save($quizoption, $request);
+        $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
+        if (!empty($request->get('subs'))) {
+            array_push($subs, $request->get('subs'));
+            $quizoption->sub_options = $subs;
+            $quizoption->save();
+            Alert::info('You have successfully created an quiz option.');
+        } else {
+            Alert::error('Sub options can\'t be empty text!');
+        }
+        return redirect()->route('platform.quiz.option.edit', $quizoption->id);
+    }
+
+
+    private function _save(QuizOption $quizoption, Request $request)
+    {
+        $quizoption->fill($request->get('quizoption'));
+        $quizoption->save();
+        return $quizoption;
     }
 }

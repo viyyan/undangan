@@ -44,23 +44,31 @@ class QuizController extends ApiController
 
         $quiz = Quiz::where('id', $next_id);
         $sub = $request->sub_options;
-        // if (isset($sub)) {
-        //     $quiz = $quiz->first();
-        //     $quiz->options = $quiz->options()->whereJsonContains('sub_options', 'like', '%'.$sub.'%')->get();
-        // } else {
+        if (isset($sub)) {
+            $quiz = $quiz->first();
+            $options = $quiz->options()->whereJsonContains('sub_options', $sub)->get();
+            $quiz->options = $options;
+        } else {
             $quiz = $quiz->with('options')->first();
-        // }
+        }
         $next_id = null;
+        $prev_id = null;
         if (isset($quiz)) {
             $next = Quiz::where('status', 1)
                 ->where('order', '>', $quiz->id)
                 ->orderBy('order','asc')
                 ->first();
             if (isset($next)) $next_id = $next->id;
+            $prev = Quiz::where('status', 1)
+                ->where('order', '<', $quiz->id)
+                ->orderBy('order','desc')
+                ->first();
+            if (isset($prev)) $prev_id = $prev->id;
         }
         return $this->response->array([
             "quiz" => $quiz,
-            "next_id" => $next_id
+            "next_id" => $next_id,
+            "prev_id" => $prev_id
         ]);
     }
 }
