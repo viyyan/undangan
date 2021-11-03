@@ -20,16 +20,19 @@
     <div class="section__inner">
     <div class="container container--lg">
         <div class="section__main">
-        <div class="cta cta--thumb-left cta--align--middle">
+        <div class="cta cta--thumb-right cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('careers--banner.png') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
                 <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    <h2 class="cta__title text--3xl">Be a part of our magnificent team</h2>
                 </div>
                 <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    <p>If people believe they share values with a company, they will stay loyal to the brand.
+                       <b> - Howard Schultz, Former Starbucks CEO</b>
+                       <span class="cta__sign left--sign">Scroll down to see the team</span>
+                    </p>
                 </div>
                 </div>
             </div>
@@ -49,6 +52,30 @@
             </div>
         </div>
         <div class="section__body"></div>
+            <div class="card__career bg--content ">
+                <div class="card__career__desc">
+                    <p class="text--black">Quantitative Research Manager</p>
+                </div>
+                <div class="card__button">
+                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
+                </div>
+            </div>
+            <div class="card__career bg--content ">
+                <div class="card__career__desc">
+                    <p class="text--black">Project Manager</p>
+                </div>
+                <div class="card__button">
+                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
+                </div>
+            </div>
+            <div class="card__career bg--content ">
+                <div class="card__career__desc">
+                    <p class="text--black">Account Director</p>
+                </div>
+                <div class="card__button">
+                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
+                </div>
+            </div>
         </div>
     </div>
     </div>

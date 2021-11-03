@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\CaseStudyController;
 use App\Http\Controllers\Frontend\OurThinkingController;
 use App\Http\Controllers\Frontend\MarketResearchController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\CareerController;
 
 
 /*
@@ -31,9 +32,12 @@ Route::prefix('who-we-are')->group(function () {
         ->name('our-pillars');
     Route::get('/our-people', [WhoWeAreController::class, 'ourPeople'])
         ->name('our-people');
-    Route::get('/want-to-join-us', [WhoWeAreController::class, 'careers'])
+    Route::get('/want-to-join-us', [CareerController::class, 'index'])
         ->name('careers');
 });
+
+Route::get('/career/{slug}', [CareerController::class, 'show'])
+        ->name('careers.details');
 
 
 Route::prefix('what-we-do')->group(function () {

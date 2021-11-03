@@ -23,14 +23,14 @@
         <div class="section__main">
         <div class="cta cta--thumb-right cta--align--middle">
             <div class="cta__inner">
-            <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
-                <div class="cta__content column--50 cta__content--left">
+            <div class="cta__main grid">
+                <div class="cta__thumbnail column--40"><img src="{{ frontImages('about--who-we-are.png') }}" alt=""/></div>
+                <div class="cta__content column--60 cta__content--left">
                 <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    <h2 class="cta__title text--3xl">Clove’s DNA is to engage and give the best solution to any marketing concern.</h2>
                 </div>
                 <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    <p>We are working like an antenna to detect all the symptoms in marketing and eagerly to breaking the mold with our business savvy and not only finding the “answer” but we give you how to get there as your solutions architects.</p>
                 </div>
                 </div>
             </div>
@@ -47,13 +47,13 @@
         <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('about--concern.png') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
                 <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    <h2 class="cta__title text--3xl">We focus on listening to your concern and providing impactful insights to advance your businesses. </h2>
                 </div>
                 <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    <p>Established in 2018, we assembled a team with background and experience of 15 years in the research industry. We believe a research agency should focus on marketing concern and answering the objectives. Therefore all research will be tailored to provide the best solution for your business objectives.</p>
                 </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
         <div class="card card__menu"><a href="#">
             <div class="card__inner">
                 <div class="card__thumb">
-                <div class="card__thumb__image"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="card__thumb__image"><img src="{{ frontImages('icon--our-people.png') }}" alt=""/></div>
                 </div>
                 <div class="card__info">
                 <p><strong class="text--xl">Our People</strong></p>

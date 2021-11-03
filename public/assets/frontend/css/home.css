@@ -94,6 +94,9 @@
 .gradient--primary {
   background: linear-gradient(180deg, #730000 0%, #f8f0ee 100%);
 }
+.gradient--number {
+  background: linear-gradient(180deg, #FFFFFF 26.67%, rgba(255, 255, 255, 0) 100%);
+}
 
 .font--main {
   font-family: "DM Sans", sans-serif;
@@ -497,7 +500,7 @@ html {
  */
 .main {
   position: relative;
-  padding-top: 3.625rem;
+  padding-top: 4.625rem;
 }
 
 body {
@@ -552,6 +555,11 @@ p {
   max-width: 54rem;
 }
 
+.align-center {
+  align-items: center !important;
+  padding: 0.5rem 1rem;
+}
+
 .grid {
   display: flex;
   flex-direction: row;
@@ -562,12 +570,32 @@ p {
   justify-content: center;
 }
 
+.column--90 {
+  width: 90%;
+}
+
+.column--85 {
+  width: 85%;
+}
+
+.column--80 {
+  width: 80%;
+}
+
 .column--75 {
   width: 75%;
 }
 
 .column--66 {
   width: 66.666666%;
+}
+
+.column--60 {
+  width: 60%;
+}
+
+.column--40 {
+  width: 40%;
 }
 
 .column--50 {
@@ -608,6 +636,26 @@ p {
 }
 .gap--2xl > div {
   padding: 0 3.5rem;
+}
+
+.mb--20 {
+  margin-bottom: 4.5rem;
+}
+
+.mt--20 {
+  margin-bottom: 4.5rem;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.px--10 {
+  padding: 1.25rem 0;
+}
+
+.title--gap--10 {
+  margin: -1.25rem 0;
 }
 
 .content__section {
@@ -1061,7 +1109,7 @@ p {
 }
 
 .page-top {
-  padding-top: 3.75rem;
+  padding-top: 7.75rem;
   padding-bottom: 4.25rem;
 }
 .page-top__main {
@@ -1124,7 +1172,7 @@ p {
   padding-right: 1.5rem;
   background-color: #ffffff;
   color: #a81c1b;
-  height: 3.25rem;
+  height: 3rem;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -1150,6 +1198,31 @@ p {
 }
 .button__label + .button__icon {
   margin-left: 1rem;
+}
+.button__arrow-right {
+  position: relative;
+  padding-right: 1.9rem;
+}
+.button__arrow-right::after {
+  content: "";
+  background: url("../images/arrow-right.svg") no-repeat;
+  width: 0.688rem;
+  height: 0.45rem;
+  background-size: cover;
+  position: absolute;
+  right: 0.8rem;
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.button__arrow-right:hover::after {
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  transform: translateX(4px);
 }
 .button__icon {
   font-size: 1em;
@@ -1200,6 +1273,28 @@ p {
 }
 .button--dark:hover:disabled, .button--dark:hover[disabled], .button--dark:hover.disabled, .button--dark[data-state=active]:disabled, .button--dark[data-state=active][disabled], .button--dark[data-state=active].disabled {
   background-color: #53090a;
+  color: #ffffff;
+}
+.button--red-dark {
+  background-color: #6d1313;
+  color: #ffffff;
+}
+.button--red-dark:visited {
+  color: #ffffff;
+}
+.button--red-dark .button__icon svg {
+  fill: #ffffff;
+}
+.button--red-dark .button__icon .icon__arrow svg {
+  fill: none;
+  stroke: #ffffff;
+}
+.button--red-dark:hover, .button--red-dark[data-state=active] {
+  background-color: #530e0e;
+  color: #ffffff;
+}
+.button--red-dark:hover:disabled, .button--red-dark:hover[disabled], .button--red-dark:hover.disabled, .button--red-dark[data-state=active]:disabled, .button--red-dark[data-state=active][disabled], .button--red-dark[data-state=active].disabled {
+  background-color: #6d1313;
   color: #ffffff;
 }
 .button--line {
@@ -1344,6 +1439,20 @@ p {
 .cta--align--top .cta__main {
   align-items: flex-start;
 }
+.cta__sign {
+  margin-top: 3.125rem;
+  padding-top: 0.675rem;
+  display: block;
+  background: url("../images/arrow--down.png") no-repeat right top;
+  padding-right: 3rem;
+  background-size: 2.5rem;
+  height: 2.5rem;
+}
+.cta__sign.left--sign {
+  background: url("../images/arrow--down.png") no-repeat left top;
+  padding-left: 3rem;
+  background-size: 2.5rem;
+}
 .cta__content--right {
   text-align: right;
 }
@@ -1355,8 +1464,14 @@ p {
   margin-bottom: 0;
   font-weight: 400;
 }
+.cta__header.right--align {
+  text-align: right;
+}
 .cta__body {
   margin-top: 2.5rem;
+}
+.cta__body.right-align {
+  text-align: right;
 }
 .cta__body p:first-child {
   margin-top: 0;
@@ -1649,6 +1764,27 @@ p {
   transform: scale(1.1);
 }
 
+.card__career {
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  position: relative;
+}
+.card__career__desc {
+  margin-top: 0;
+}
+.card__career__desc p {
+  margin: 0;
+  font-weight: 700;
+}
+.card__career__button {
+  margin-bottom: 0.5rem;
+}
+
 .feature {
   position: relative;
   display: flex;
@@ -1663,8 +1799,8 @@ p {
 }
 .feature__thumb:before {
   content: "";
-  width: 11.25rem;
-  height: 11.25rem;
+  width: 10.25rem;
+  height: 10.25rem;
   border-radius: 100%;
   background: linear-gradient(180deg, #53090a 26.67%, transparent 80%);
   position: absolute;
@@ -1683,6 +1819,102 @@ p {
 .feature__title {
   margin-top: 1.5rem;
   text-align: center;
+}
+.feature__title-left {
+  text-align: left;
+}
+.feature__title-left.wd-85 {
+  width: 85%;
+}
+.feature__title-left.wd-90 {
+  width: 90%;
+}
+.feature__count {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: 1px solid #fff;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: center;
+}
+.feature__count__block {
+  width: 33%;
+  border-right: 1px solid #fff;
+  padding: 1.5rem 1rem;
+}
+.feature__count__block:last-child {
+  border-right: none;
+}
+.feature_tableu.placeholder {
+  width: 100%;
+  min-height: 21rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.feature__desc {
+  display: flex;
+}
+.feature__desc span {
+  padding: 0.35rem 1rem;
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+.feature--right {
+  position: relative;
+  justify-content: end;
+}
+.feature--right.no-line::after {
+  display: none;
+}
+.feature--right::after {
+  content: "";
+  position: absolute;
+  background: url("../images/about--left-conector.png") no-repeat;
+  width: 8rem;
+  height: 14rem;
+  left: 5%;
+  top: 35%;
+  z-index: 1;
+  background-size: 100%;
+}
+.feature--right .absolute--number {
+  right: -2rem;
+  left: auto;
+}
+.feature--left {
+  position: relative;
+  justify-content: start;
+}
+.feature--left::after {
+  content: "";
+  position: absolute;
+  background: url("../images/about--right-conector.png") no-repeat;
+  width: 8rem;
+  height: 14rem;
+  right: 5%;
+  top: 35%;
+  z-index: 1;
+  background-size: 100%;
+}
+
+.absolute--number {
+  position: absolute;
+  width: 4rem;
+  left: -2rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A81D1D;
+  font-size: 1.5rem;
+  top: -2rem;
+  font-weight: 600;
 }
 
 form input, form textarea {
@@ -1902,6 +2134,61 @@ form ::placeholder {
   width: 28%;
   height: 100%;
   background: url("../images/home--second_section-ornament.png") no-repeat;
+  background-size: 100%;
+  left: 0;
+  top: 0;
+}
+.home__projects {
+  position: relative;
+}
+.home__projects::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: url("../images/home--project-ornament.png") no-repeat;
+  background-size: 100%;
+  right: 0;
+  top: 0;
+}
+.home__projects .section__header__widget {
+  width: 60%;
+}
+.home__market {
+  position: relative;
+}
+.home__market::after {
+  content: "";
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background: url("../images/home--ornament_market-research.png") no-repeat;
+  background-size: 100%;
+  left: 0;
+  top: 0;
+}
+.home__posts {
+  position: relative;
+}
+.home__posts::after {
+  content: "";
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background: url("../images/home--ornament_post.png") no-repeat;
+  background-size: 100%;
+  right: 0;
+  top: 0;
+}
+.home__supported {
+  position: relative;
+}
+.home__supported::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: url("../images/home--ornament_supported.png") no-repeat;
   background-size: 100%;
   left: 0;
   top: 0;
