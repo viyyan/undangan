@@ -37,7 +37,7 @@ Route::prefix('who-we-are')->group(function () {
 });
 
 Route::get('/career/{slug}', [CareerController::class, 'show'])
-        ->name('career');
+        ->name('careers.details');
 
 
 Route::prefix('what-we-do')->group(function () {

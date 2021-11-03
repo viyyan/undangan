@@ -57,7 +57,7 @@
                     <p class="text--black">Quantitative Research Manager</p>
                 </div>
                 <div class="card__button">
-                    <a href="" class="button button--red-dark button__arrow-right">See listing details</a>
+                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
                 </div>
             </div>
             <div class="card__career bg--content ">
@@ -65,7 +65,7 @@
                     <p class="text--black">Project Manager</p>
                 </div>
                 <div class="card__button">
-                    <a href="" class="button button--red-dark button__arrow-right">See listing details</a>
+                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
                 </div>
             </div>
             <div class="card__career bg--content ">
@@ -73,7 +73,7 @@
                     <p class="text--black">Account Director</p>
                 </div>
                 <div class="card__button">
-                    <a href="" class="button button--red-dark button__arrow-right">See listing details</a>
+                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
                 </div>
             </div>
         </div>
