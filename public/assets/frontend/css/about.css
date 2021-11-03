@@ -1172,7 +1172,7 @@ p {
   padding-right: 1.5rem;
   background-color: #ffffff;
   color: #a81c1b;
-  height: 3.25rem;
+  height: 3rem;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -1198,6 +1198,31 @@ p {
 }
 .button__label + .button__icon {
   margin-left: 1rem;
+}
+.button__arrow-right {
+  position: relative;
+  padding-right: 1.9rem;
+}
+.button__arrow-right::after {
+  content: "";
+  background: url("../images/arrow-right.svg") no-repeat;
+  width: 0.688rem;
+  height: 0.45rem;
+  background-size: cover;
+  position: absolute;
+  right: 0.8rem;
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.button__arrow-right:hover::after {
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  transform: translateX(4px);
 }
 .button__icon {
   font-size: 1em;
@@ -1422,6 +1447,11 @@ p {
   padding-right: 3rem;
   background-size: 2.5rem;
   height: 2.5rem;
+}
+.cta__sign.left--sign {
+  background: url("../images/arrow--down.png") no-repeat left top;
+  padding-left: 3rem;
+  background-size: 2.5rem;
 }
 .cta__content--right {
   text-align: right;
@@ -1732,6 +1762,27 @@ p {
 }
 .card__menu:hover .card__thumb img {
   transform: scale(1.1);
+}
+
+.card__career {
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  position: relative;
+}
+.card__career__desc {
+  margin-top: 0;
+}
+.card__career__desc p {
+  margin: 0;
+  font-weight: 700;
+}
+.card__career__button {
+  margin-bottom: 0.5rem;
 }
 
 .p-about {

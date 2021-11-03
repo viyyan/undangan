@@ -29,6 +29,11 @@
     padding-right: 3rem;
     background-size: 2.5rem;
     height: 2.5rem;
+    &.left--sign{
+      background: url('../images/arrow--down.png') no-repeat left top;
+      padding-left: 3rem;
+      background-size: 2.5rem;
+    }
   }
 
   &__content {
