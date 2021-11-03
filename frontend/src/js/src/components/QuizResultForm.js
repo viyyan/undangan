@@ -3,7 +3,7 @@
 //
 import _A from 'lodash/array';
 import Validator from '../../libs/Form/Validator';
-import { submitQuizUser } from './services/general';
+import { submitQuizUser } from '../services/general';
 // import { showLoader, hideLoader } from './helpers/loader';
 // import { showModal, showApiError } from './helpers/modal';
 
@@ -88,7 +88,7 @@ class QuizResultSubmit extends Validator {
       formData.append('email', email);
 
       // Call API
-      submitQuiz(formData)
+      submitQuizUser(formData)
         .then(response => {
           form.reset();
         })
@@ -154,4 +154,4 @@ class QuizResultSubmit extends Validator {
      */
     error(error, form ){}
 }
-export default Contact;
+export default QuizResultSubmit;
