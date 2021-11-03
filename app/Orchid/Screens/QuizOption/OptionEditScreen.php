@@ -86,21 +86,18 @@ class OptionEditScreen extends Screen
                     ->readonly(true),
 
                 Input::make('quizoption.name')
-                    ->title('Option Name')
-                    ->placeholder('Option / answer name')
+                    ->title('Option / Answer')
                     ->required(),
 
                 Input::make('quizoption.code')
                     ->title('Option Code')
-                    ->placeholder('1')
                     ->type('number')
                     ->min(1)
                     ->required(),
 
                 Input::make('quizoption.sub_options')
                     ->title('Sub Options')
-                    ->placeholder('1,2,1')
-                    ->help('Set previous answer combination, if the options refer from previous questions.'),
+                    ->help('If the options refer from previous questions set with answer code combination ex. ["1.1.1", "1.2.1"] '),
 
                 Select::make('quizoption.status')
                     ->title("Status")

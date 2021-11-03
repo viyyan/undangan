@@ -13,7 +13,7 @@ import ModalLib from './src/components/Modal';
     {
       id: 1,
       question: 'Which industry are you working in?',
-      type: 'tags',
+      type: 'tags', // 
       answers: [
         {
           id: 1,
@@ -78,4 +78,3 @@ import ModalLib from './src/components/Modal';
   // Modal
   new ModalLib().init();
 })();
- 

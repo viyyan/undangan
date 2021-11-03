@@ -76,14 +76,12 @@ class QuizEditScreen extends Screen
 
                 Input::make('quiz.order')
                     ->title('Question Number')
-                    ->placeholder('1')
                     ->type("number")
                     ->min(1)
                     ->required(),
 
                 Input::make('quiz.question')
                     ->title('Question')
-                    ->placeholder('What industry...?')
                     ->required(),
 
                 Select::make('quiz.status')

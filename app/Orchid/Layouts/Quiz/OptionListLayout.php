@@ -36,6 +36,11 @@ class OptionListLayout extends Table
                     return $quizoption->code;
                 }),
 
+            TD::make('sub_options', 'Sub Options')
+                ->render(function (QuizOption $quizoption) {
+                    return strval($quizoption->sub_options);
+                }),
+
             TD::make('status', 'Status')
                 ->render(function (QuizOption $quizoption) {
                     return ($quizoption->status == 1) ? "Publish" : "Draft";
