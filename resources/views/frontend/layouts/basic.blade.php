@@ -20,6 +20,11 @@
     @else
         <link rel="stylesheet" href="{{ frontAssets('css/home.css') }}">
     @endif
+    @if (isset($caseStudyPermalink))
+        <script>
+            var CASE_STUDY_PERMALINK = "{{$caseStudyPermalink}}"
+        </script>
+    @endif
   </head>
   <body class="{{ !empty($classBody) ? $classBody : '' }}">
     <div class="site">
@@ -29,6 +34,10 @@
       </main>
     @include('frontend.includes.footer')
     </div>
+    @if (isset($isQuiz))
+        @include('frontend.includes.quiz-result')
+    @endif
+    @include('frontend.includes.loader')
     @if (isset($jsFileName))
         <script src="{{ frontAssets('js/'.$jsFileName.'.js') }}"></script>
     @endif

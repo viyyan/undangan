@@ -32,7 +32,8 @@ class MarketResearchController extends Controller
         $data = array(
             "cssFileName" => "quiz",
             "jsFileName" => "quiz",
-            "classBody" => "p-quiz"
+            "classBody" => "p-quiz",
+            "isQuiz" => true
         );
         return view('frontend.pages.market-research.quiz', $data);
     }

@@ -50,7 +50,7 @@
             <div class="grid gap--md">
             <div class="column--25">
                 <div class="feature">
-                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt="High Quality & Transparent Data"/></div>
+                <div class="feature__thumb"><img src="{{ frontImages('home--transparent_data-visual.png') }}" alt="High Quality & Transparent Data"/></div>
                 <div class="feature__title">
                     <h3 class="text--lg">High Quality & Transparent Data</h3>
                 </div>
@@ -58,7 +58,7 @@
             </div>
             <div class="column--25">
                 <div class="feature">
-                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__thumb"><img src="{{ frontImages('home--responsible-visual.png') }}" alt=""/></div>
                 <div class="feature__title">
                     <h3 class="text--lg">Responsive & <br />Responsible</h3>
                 </div>
@@ -74,7 +74,7 @@
             </div>
             <div class="column--25">
                 <div class="feature">
-                <div class="feature__thumb"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
+                <div class="feature__thumb"><img src="{{ frontImages('home--accesible-visual.png') }}" alt=""/></div>
                 <div class="feature__title">
                     <h3 class="text--lg">Accessible Report Both Offline & Online</h3>
                 </div>
@@ -103,7 +103,23 @@
                 <p>We provide you with solutions for improvement to <br />help you business grow.</p>
             </div>
             <div class="section__header__widget">
-                <h2 class="text--xl">Header widget</h2>
+                <div class="feature__count">
+                    <div class="feature__count__block">
+                        <span>We’ve been running for</span>
+                        <h3 class="text--2xl">3</h3>
+                        <span>Year</span>
+                    </div>
+                    <div class="feature__count__block">
+                        <span>With nearly</span>
+                        <h3 class="text--2xl">100</h3>
+                        <span>Projects</span>
+                    </div>
+                    <div class="feature__count__block">
+                        <span>With</span>
+                        <h3 class="text--2xl">30</h3>
+                        <span>Repeated clients</span>
+                    </div>
+                </div>
             </div>
             </div>
             <div class="section__body">
@@ -189,13 +205,13 @@
             <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
                 <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('home--market-research.png') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
                     <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    <h2 class="cta__title text--3xl">Market Research Checkup!</h2>
                     </div>
                     <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    <p>Access your free assessment by answering 6 questions to discover the most suitable research you need.</p>
                     </div>
                     <div class="cta__action"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Let’s go!</span><span class="button__icon"><i class="icon__arrow">
                             <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

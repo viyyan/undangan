@@ -51,17 +51,4 @@ class WhoWeAreController extends Controller
         return view('frontend.pages.our-people.main', $data);
     }
 
-    /**
-     * Our People page
-     *
-     * @return void
-     */
-    public function careers(Request $request)
-    {
-        $data = array(
-            "cssFileName" => "career",
-            "classBody" => "p-career bg--main-red-4"
-        );
-        return view('frontend.pages.careers.main', $data);
-    }
 }

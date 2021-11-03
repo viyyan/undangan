@@ -24,18 +24,18 @@
     <div class="section__inner">
     <div class="container">
         <div class="section__main">
-        <div class="section__header case-study__filter">
+        <div class="section__header p-case-study__filter">
             <div class="section__header__main">
-            <h2 class="text--xl case-study__filter__label">All case studies</h2>
+            <h2 class="text--xl p-case-study__filter__label">All case studies</h2>
             </div>
             <div class="section__header__widget">
-            <div class="case-study__filter__group">
-                <div class="case-study__filter__icon">
+            <div class="p-case-study__filter__group">
+                <div class="p-case-study__filter__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" height="512pt" width="512pt" viewBox="0 0 512 512">
                     <path d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"></path>
                 </svg>
                 </div>
-                <div class="case-study__filter__item">
+                <div class="p-case-study__filter__item">
                 <div class="select" data-state="close" data-filter="industries" data-value="">
                     <div class="select__selected" data-placeholder="Industries">
                     <button type="button"> <span class="select__selected__label">Industries</span><span class="select__selected__icon"><i class="select__selected__icon__open">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 </div>
-                <div class="case-study__filter__item">
+                <div class="p-case-study__filter__item">
                 <div class="select" data-state="close" data-filter="type_of_research" data-value="">
                     <div class="select__selected" data-placeholder="Type of research">
                     <button type="button"> <span class="select__selected__label">Type of research</span><span class="select__selected__icon"><i class="select__selected__icon__open">
@@ -88,13 +88,13 @@
                 </div>
                 </div>
             </div>
-            <div class="case-study__filter__group">
-                <div class="case-study__filter__icon">
+            <div class="p-case-study__filter__group">
+                <div class="p-case-study__filter__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"></path>
                 </svg>
                 </div>
-                <div class="case-study__filter__item">
+                <div class="p-case-study__filter__item">
                 <div class="select" data-state="close" data-filter="order" data-value="">
                     <div class="select__selected" data-placeholder="Order">
                     <button type="button"> <span class="select__selected__label">Latest</span><span class="select__selected__icon"><i class="select__selected__icon__open">

@@ -66,11 +66,14 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "axios": "^0.24.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap-sass": "^3.4.1",
     "compass-mixins": "^0.12.10",
     "imagesloaded": "^4.1.4",
     "jquery": "^3.6.0",
+    "jquery-validation": "^1.19.3",
+    "jquery.transit": "^0.9.12",
     "sass": "^1.43.4",
     "spinkit": "^2.0.1"
   }

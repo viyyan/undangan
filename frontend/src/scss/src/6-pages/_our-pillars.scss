@@ -3,4 +3,37 @@
 //
 .p-our-pillars {
   position: relative;
+  .container{
+    position: relative;
+    z-index: 1;
+  }
+  .section{
+    &.top{
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        width: 34%;
+        height: 100%;
+        background: url('../images/about--our-pilar--ornament.png') no-repeat;
+        background-size: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    &.main--pilar {
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        background: url('../images/our--pilar--ornament.png') no-repeat bottom;
+        background-size: 100%;
+        right: 0;
+        bottom: 0; 
+      }
+    }
+  }
 }

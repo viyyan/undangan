@@ -22,14 +22,17 @@
         <div class="section__main">
         <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
-            <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
-                <div class="cta__content column--50 cta__content--left">
-                <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+            <div class="cta__main grid gap--xl">
+                <div class="cta__thumbnail column--40 banner"><img src="{{ frontImages('our--people-banner.png') }}" alt=""/></div>
+                <div class="cta__content column--60 cta__content--left">
+                <div class="cta__header right--align">
+                    <h2 class="cta__title text--3xl">Meet our architects for your marketing concerns & solutions</h2>
                 </div>
-                <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                <div class="cta__body right-align">
+                    <p>
+                        We believe research agencies should focus on the marketing concern dan answering the objective. We have the capabilities and your concern is the most important for us.
+                    </p>
+                    <span class="cta__sign">Scroll down to see the team</span>
                 </div>
                 </div>
             </div>

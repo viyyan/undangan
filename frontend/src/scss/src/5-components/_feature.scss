@@ -1,6 +1,6 @@
 //- 5-components/feature
 
-$thumb-deco-height: 11.25rem;
+$thumb-deco-height: 10.25rem;
 
 .feature {
   position: relative;
@@ -39,5 +39,112 @@ $thumb-deco-height: 11.25rem;
   &__title {
     margin-top: 1.5rem;
     text-align: center;
+    &-left{
+      text-align: left;
+      &.wd-85{
+        width: 85%;
+      }
+      &.wd-90{
+        width: 90%;
+      }
+    }
+
   }
+
+  &__count{
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 1px solid #fff;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: center;
+    &__block{
+      width: 33%;
+      border-right: 1px solid #fff;
+      padding: 1.5rem 1rem;
+      &:last-child{
+        border-right: none;
+      }
+    }
+  }
+
+
+  &_tableu.placeholder{
+    width: 100%;
+    min-height: 21rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__desc{
+    display: flex;
+    span {
+      padding: 0.35rem 1rem;
+      display: inline-block;
+      margin-top: 0.35rem;
+    }
+  }
+
+  
+
+  &--right{
+    position: relative;
+    justify-content: end;
+    &.no-line{
+      &::after{
+        display: none;
+      }
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      background: url('../images/about--left-conector.png') no-repeat;
+      width: 8rem;
+      height: 14rem;
+      left: 5%;
+      top:35%;
+      z-index: 1; 
+      background-size:100%;
+    }
+    .absolute--number{
+      right: -2rem;
+      left: auto;
+    }
+  }
+  &--left{
+    position: relative;
+    justify-content: start;
+    &::after{
+      content: '';
+      position: absolute;
+      background: url('../images/about--right-conector.png') no-repeat;
+      width: 8rem;
+      height: 14rem;
+      right: 5%;
+      top:35%;
+      z-index: 1;
+      background-size:100%;
+    }
+  }
+  
+}
+
+.absolute--number {
+  position: absolute;
+  width: 4rem;
+  left: -2rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A81D1D;
+  font-size: $text-lg;
+  top: -2rem;
+  font-weight: 600;
 }

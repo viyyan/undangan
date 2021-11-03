@@ -46,4 +46,22 @@
   &--info {
     --sk-color: #{$color-info};
   }
+
+  // Loader page
+  &__page {
+    z-index: 999999;
+    .modal__overlay {
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal__main {
+      background-color: transparent;
+      padding: 0;
+      min-width: 0;
+
+      .spinner {
+        --sk-color: #{$color-white};
+        --sk-size: 6rem;
+      }
+    }
+  }
 }
