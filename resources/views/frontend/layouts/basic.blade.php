@@ -20,6 +20,11 @@
     @else
         <link rel="stylesheet" href="{{ frontAssets('css/home.css') }}">
     @endif
+    @if (isset($caseStudyPermalink))
+        <script>
+            var CASE_STUDY_PERMALINK = "{{$caseStudyPermalink}}"
+        </script>
+    @endif
   </head>
   <body class="{{ !empty($classBody) ? $classBody : '' }}">
     <div class="site">
