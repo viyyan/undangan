@@ -1473,6 +1473,9 @@ p {
 .cta__body.right-align {
   text-align: right;
 }
+.cta__body .button {
+  margin-top: 2.5rem;
+}
 .cta__body p:first-child {
   margin-top: 0;
 }
@@ -1980,15 +1983,50 @@ form ::placeholder {
   border-left: 1px solid #ffffff;
 }
 
-.p-career-detail__main .grid {
+.p-career-detail .main .grid {
   align-items: inherit;
 }
-.p-career-detail__main .grid > div > div {
+.p-career-detail .main .grid > div > div {
   height: 100%;
+}
+.p-career-detail .main .page-top {
+  position: relative;
+}
+.p-career-detail .main .page-top::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 120%;
+  background: linear-gradient(180deg, #A81D1D 0%, rgba(168, 29, 29, 0) 100%);
+  background-size: 100%;
+  border-radius: 50%;
+  right: -10%;
+  bottom: -10%;
+}
+.p-career-detail .main .page-top__main {
+  position: relative;
+  z-index: 1;
 }
 .p-career-detail__content {
   padding: 4.25rem;
 }
 .p-career-detail__form .form__field:first-child {
   border-top: 0;
+}
+
+.career__detail__content {
+  padding: 2.5rem 4.25rem 6.25rem 4.25rem;
+}
+.career__detail__form {
+  position: relative;
+}
+.career__detail__form::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  background: url("../images/career-detail-ornament.png") no-repeat bottom;
+  background-size: 100%;
+  right: 0;
+  bottom: 0;
 }

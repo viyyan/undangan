@@ -3,4 +3,42 @@
 //
 .p-service {
   position: relative;
+  .main{
+    &::after{
+      content: '';
+      position: absolute;
+      width: 55%;
+      height: 100%;
+      background: url('../images/what-we-do--ornament.png') no-repeat top;
+      background-size: 100%;
+      right: 0;
+      top: 0;
+    }
+  }
+  .our--tools{
+    padding-bottom: 0;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: url('../images/our-tools-bottom--ornament.png') no-repeat bottom;
+      background-size: 100%;
+      left: 0;
+      top: 0;
+    }
+    .cta__thumbnail{
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        width: 24.375rem;
+        height: 24.375rem;
+        background: linear-gradient(180deg, #A81D1D 0%, rgba(168, 29, 29, 0) 100%);
+        right: 30%;
+        top: 20%; 
+        border-radius: 50%;
+      }
+    }
+  }
 }

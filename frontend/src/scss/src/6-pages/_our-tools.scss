@@ -3,4 +3,34 @@
 //
 .p-our-tools {
   position: relative;
+  .main{
+    position: relative;
+    .page-top {
+      position: relative;
+      z-index: 1;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      width: 24.375rem;
+      height: 24.375rem;
+      background: linear-gradient(180deg, #A81D1D 0%, rgba(168, 29, 29, 0) 100%);
+      right: 20%;
+      top: 14%;
+      border-radius: 50%;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background: url('../images/case-study--ornament.png') no-repeat left top 50%;
+      background-size: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  .card__info__inner{
+    height: auto;
+  }
 }
