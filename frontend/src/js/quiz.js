@@ -72,7 +72,23 @@ import ModalLib from './src/components/Modal';
       ]
     }
   ];
-  const onSubmit = (result) => console.log(result);
+  const onSubmit = (result) => {
+    // Show loader
+    document.querySelector('.loader__page').setAttribute('data-state', 'open');
+
+    setTimeout(() => {
+      console.log(result);
+
+      // Hide loader
+      document.querySelector('.loader__page').setAttribute('data-state', 'close');
+
+      // Open result
+      setTimeout(() => {
+        document.querySelector('.quiz__result').setAttribute('data-state', 'open');
+      }, 600);
+
+    }, 4000);
+  };
   new QuizLib(data, onSubmit).init();
 
   // Modal

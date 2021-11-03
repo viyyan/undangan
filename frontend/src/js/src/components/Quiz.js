@@ -37,6 +37,7 @@ class Quiz {
       this.questionsTotal = this.data.length;
       this.createQuestions();
       this.setupActions();
+      this.setupResult();
       this.changeDir(1);
     }
     return this;
@@ -151,29 +152,38 @@ class Quiz {
     button.addEventListener('click', (evt) => {
       evt.preventDefault();
 
-      this.step = 1;
-      
-      // Reset answer
-      for (let key in this.answers) {
-        if (this.answers.hasOwnProperty(key)) {
-          this.answers[key] = '';
-        }
-     }
-
-      this.rootEl.setAttribute('data-step', 1);
-      this.goToQuestionScreen(1);
-
-      // Reset active button
-      const activeButtons = this.rootEl.querySelectorAll('button[data-state="active"]');
-      activeButtons.forEach((button) => {
-        button.removeAttribute('data-state');
-      });
-
-      // Reset next button
-      const buttonNext = this.rootEl.querySelector('.quiz__action__next button');
-      buttonNext.querySelector('.button__label').textContent 
-        = buttonNext.getAttribute('data-label-next');
+      this.doResetQuiz();
     });
+  }
+
+  /**
+   * Do reset quiz
+   *
+   * @return mixed
+   */
+  doResetQuiz() {
+    this.step = 1;
+      
+    // Reset answer
+    for (let key in this.answers) {
+      if (this.answers.hasOwnProperty(key)) {
+        this.answers[key] = '';
+      }
+    }
+
+    this.rootEl.setAttribute('data-step', 1);
+    this.goToQuestionScreen(1);
+
+    // Reset active button
+    const activeButtons = this.rootEl.querySelectorAll('button[data-state="active"]');
+    activeButtons.forEach((button) => {
+      button.removeAttribute('data-state');
+    });
+
+    // Reset next button
+    const buttonNext = this.rootEl.querySelector('.quiz__action__next button');
+    buttonNext.querySelector('.button__label').textContent 
+      = buttonNext.getAttribute('data-label-next');
   }
 
   /**
@@ -346,6 +356,34 @@ class Quiz {
   getQuestionKey(item) {
     const key = `question__${item.id}`;
     return key;
+  }
+
+  /**
+   * Setup modal result
+   *
+   * @return mixed
+   */
+  setupResult() {
+    const modal = document.querySelector('.quiz__result');
+    if (modal) 
+    {
+      // Reset
+      const btnReset = modal.querySelector('.quiz__result__action__reset');
+      btnReset.addEventListener('click', (evt) => {
+        evt.preventDefault();
+
+        this.doResetQuiz();
+        document.querySelector('.quiz__result').setAttribute('data-state', 'close');
+      });
+
+      // Submit
+      const btnSubmit = modal.querySelector('.quiz__result__action__submit');
+      btnSubmit.addEventListener('click', (evt) => {
+        evt.preventDefault();
+      });
+
+      // Form
+    }
   }
 }
 

@@ -103,4 +103,7 @@
   &primary {
     background: linear-gradient(180deg, #{$color-gradient-start} 0%, #{$color-gradient-end} 100%);
   }
+  &number{
+    background: linear-gradient(180deg, #FFFFFF 26.67%, rgba(255, 255, 255, 0) 100%);
+  }
 }
