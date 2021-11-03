@@ -3,7 +3,7 @@
  * Quiz result view
  */
 ?>
-<div class="quiz__result modal" data-state="close">
+<div class="quiz__result modal" data-state="open">
   <div class="modal__overlay"></div>
   <div class="quiz__result__inner modal__main">
     <div class="quiz__result__top">
@@ -23,7 +23,7 @@
         <form method="post" action="">
           <div class="quiz__result__form__fields">
             <div class="quiz__result__form__field">
-                <div class="quiz__result__form__field__inner">
+              <div class="quiz__result__form__field__inner">
                 <div class="quiz__result__form__icon">
                   <img src="{{ frontImages('icon--user--dark.svg') }}" alt="" />
                 </div>
@@ -71,7 +71,7 @@
               </button>
             </div>
             <div class="quiz__result__action">
-              <button class="button button--red-dark button--md quiz__result__action__submit" type="button" disabled="disabled">
+              <button class="button button--red-dark button--md quiz__result__action__submit" type="submit">
                 <span class="button__content">
                   <span class="button__label">See related case studies</span>
                   <span class="button__icon">

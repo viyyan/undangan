@@ -73,6 +73,7 @@
     "imagesloaded": "^4.1.4",
     "jquery": "^3.6.0",
     "jquery-validation": "^1.19.3",
+    "jquery.transit": "^0.9.12",
     "sass": "^1.43.4",
     "spinkit": "^2.0.1"
   }

@@ -1,6 +1,8 @@
 //
 // Quiz lib
 //
+import FormValidator from '../libs/Form/Validator';
+
 class Quiz {
   /**
    * Class constructor
@@ -377,12 +379,56 @@ class Quiz {
       });
 
       // Submit
-      const btnSubmit = modal.querySelector('.quiz__result__action__submit');
-      btnSubmit.addEventListener('click', (evt) => {
-        evt.preventDefault();
-      });
+      // const btnSubmit = modal.querySelector('.quiz__result__action__submit');
+      // btnSubmit.addEventListener('click', (evt) => {
+      //   evt.preventDefault();
+      // });
 
       // Form
+      new FormValidator(
+        '.quiz__result__form form', 
+        {
+          fieldId: '.quiz__result__form__field',
+          rules: {
+            'name': [
+              {
+                type: 'required',
+                message: 'You must enter your name',
+              }
+            ],
+            'company_name': [
+              {
+                type: 'required',
+                message: 'You must enter your company name',
+              }
+            ],
+            'email': [
+              {
+                type: 'required',
+                message: 'You must enter your email',
+              },
+              {
+                type: 'email',
+                message: 'Your email address is wrong, eg: name@site.com.',
+              }
+            ],
+          },
+          onSubmit: (data) => {
+            // Show loader
+            document.querySelector('.loader__page').setAttribute('data-state', 'open');
+            //
+            // API here
+            //
+            console.log(data);
+
+            setTimeout(() => {
+              // Hide loader
+              document.querySelector('.loader__page').setAttribute('data-state', 'close');
+            }, 4000);
+
+          },
+        },
+      ).init();
     }
   }
 }

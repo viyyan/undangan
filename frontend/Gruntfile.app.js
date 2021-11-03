@@ -114,6 +114,7 @@ module.exports = function (grunt) {
       quiz_js: {
         src: [
           './node_modules/jquery/dist/jquery.slim.js',
+          './node_modules/jquery.transit/jquery.transit.js',
           './node_modules/jquery-validation/dist/jquery.validation.js',
           '<%= meta.public %>js/quiz.js',
         ],

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const API_BASE_URL = '';
+
 const http = {
   request(method, url, data, headers = {}) {
     const apiData = data instanceof FormData ? data : JSON.stringify(data);

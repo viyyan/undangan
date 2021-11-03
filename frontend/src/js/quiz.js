@@ -2,8 +2,11 @@
 // Quiz JS
 //
 
+import http from './src/services';
 import QuizLib from './src/components/Quiz';
 import ModalLib from './src/components/Modal';
+
+http.init();
 
 (function() {
   'use strict';
