@@ -111,11 +111,18 @@ module.exports = function (grunt) {
         ],
         dest: '<%= meta.public %>css/quiz.css',
       },
+      contact_css: {
+        src: [
+          // './node_modules/leaflet/dist/leaflet.css',
+          '<%= meta.public %>css/contact.css',
+        ],
+        dest: '<%= meta.public %>css/contact.css',
+      },
       quiz_js: {
         src: [
           './node_modules/jquery/dist/jquery.slim.js',
-          './node_modules/jquery.transit/jquery.transit.js',
-          './node_modules/jquery-validation/dist/jquery.validation.js',
+          // './node_modules/jquery.transit/jquery.transit.js',
+          // './node_modules/jquery-validation/dist/jquery.validation.js',
           '<%= meta.public %>js/quiz.js',
         ],
         dest: '<%= meta.public %>js/quiz.js',
@@ -126,6 +133,13 @@ module.exports = function (grunt) {
           '<%= meta.public %>js/our-thinking.js',
         ],
         dest: '<%= meta.public %>js/our-thinking.js',
+      },
+      contact_js: {
+        src: [
+          // './node_modules/leaflet/dist/leaflet.js',
+          '<%= meta.public %>js/contact.js',
+        ],
+        dest: '<%= meta.public %>js/contact.js',
       },
     },
 
@@ -157,14 +171,18 @@ module.exports = function (grunt) {
       },
       style: {
         files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
-        tasks: ['sass'],
+        tasks: [
+          'sass',
+          'concat:contact_css'
+        ],
       },
       script: {
         files: ['<%= meta.scripts %>/**/*.js'],
         tasks: [
           'browserify', 
           'concat:quiz_js', 
-          'concat:our_thinking_js'
+          'concat:our_thinking_js',
+          'concat:contact_js'
         ],
       },
       // pug: {
@@ -218,12 +236,14 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dev',
     'sass',
+    'concat:contact_css',
     // 'concat:quiz',
     'postcss',
     // 'pug',
     'browserify',
     'concat:quiz_js', 
     'concat:our_thinking_js',
+    'concat:contact_js',
     'uglify',
   ]);
   grunt.registerTask('serve', ['connect:server', 'watch']);

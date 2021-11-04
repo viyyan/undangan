@@ -545,6 +545,9 @@ p {
   padding: 0;
   max-width: none;
 }
+.container--xl {
+  max-width: 90rem;
+}
 .container--md {
   max-width: 70rem;
 }

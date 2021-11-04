@@ -545,6 +545,9 @@ p {
   padding: 0;
   max-width: none;
 }
+.container--xl {
+  max-width: 90rem;
+}
 .container--md {
   max-width: 70rem;
 }
@@ -1985,4 +1988,60 @@ form ::placeholder {
 
 .p-contact {
   position: relative;
+}
+.p-contact__ornament {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.p-contact__ornament img {
+  width: 20vw;
+}
+.p-contact__main {
+  position: relative;
+  z-index: 2;
+}
+.p-contact #contact-map {
+  height: 25rem;
+}
+.p-contact__info__inner {
+  background-color: #6d1313;
+}
+.p-contact__info__action {
+  margin-top: 2rem;
+}
+.p-contact__office {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 2.625rem;
+}
+.p-contact__office h3 {
+  margin-top: 0;
+}
+.p-contact__office ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.p-contact__office ul li {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.p-contact__office ul li:first-child {
+  align-items: flex-start;
+}
+.p-contact__office ul li:first-child svg {
+  padding-top: 0.375rem;
+}
+.p-contact__office ul li svg {
+  width: 1.5rem;
+  margin-right: 0.75rem;
+}
+.p-contact__office ul li span {
+  font-size: 1rem;
+  line-height: 1.8;
 }
