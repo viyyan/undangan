@@ -25,12 +25,12 @@ class SubOptionListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('item', 'Sub Options')
+            TD::make('item', 'Answers Combination')
                 ->render(function ($item) {
                     return $item;
                 }),
 
-            TD::make('question', 'Questions x Answer Code')
+            TD::make('question', 'Question x Answer Code')
                 ->render(function ($item) {
                     if (empty($item)) return "";
                     $arr = explode(".",$item);

@@ -39,7 +39,14 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('friends')
                 ->list([
                     Menu::make('All Members')->route('platform.member.list'),
-                    Menu::make('Level / Categories')->route('platform.category.list', ['type' => 'member']),
+                    Menu::make('Level')->route('platform.category.list', ['type' => 'member']),
+                ]),
+
+            Menu::make('Case Studies')
+                ->icon('folder-alt')
+                ->list([
+                    Menu::make('All Case Studies')->route('platform.case-study.list'),
+                    Menu::make('Categories')->route('platform.category.list', ['type' => 'caseStudy']),
                 ]),
 
             Menu::make('Market Research')

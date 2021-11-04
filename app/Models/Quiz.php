@@ -25,6 +25,7 @@ class Quiz extends Model
         'status',
         'type',
         'decor_image_id',
+        'is_check_prev'
     ];
 
      /**

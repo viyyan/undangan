@@ -11622,76 +11622,39 @@ _services["default"].init();
 (function () {
   'use strict'; // Quiz
 
-  var data = [{
-    id: 1,
-    question: 'Which industry are you working in?',
-    type: 'tags',
-    //
-    answers: [{
-      id: 1,
-      label: 'Advertising & Media'
-    }, {
-      id: 2,
-      label: 'Automotive'
-    }, {
-      id: 3,
-      label: 'Building  and Infrastructure'
-    }]
-  }, {
-    id: 2,
-    question: 'Who is your customer?',
-    type: 'binary',
-    answers: [{
-      id: 11,
-      label: 'Product'
-    }, {
-      id: 12,
-      label: 'Service'
-    }]
-  }, {
-    id: 3,
-    question: 'Click the phase that is suitable for your product',
-    type: 'step',
-    answers: [{
-      id: 21,
-      label: 'Development'
-    }, {
-      id: 22,
-      label: 'Launch'
-    }, {
-      id: 23,
-      label: 'Growth'
-    }, {
-      id: 22,
-      label: 'Launch'
-    }, {
-      id: 23,
-      label: 'Growth'
-    }]
-  }];
+  var onSubmit = function onSubmit(answers) {
+    console.log(answers); // Show loader
 
-  var onSubmit = function onSubmit(result) {
-    var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    console.log(result, step); // Show loader
-
+    var data = {
+      "answers": answers.join(".")
+    };
     document.querySelector('.loader__page').setAttribute('data-state', 'open');
-    setTimeout(function () {
-      console.log(result); // Hide loader
-
-      document.querySelector('.loader__page').setAttribute('data-state', 'close'); // Open result
-
-      setTimeout(function () {
-        document.querySelector('.quiz__result').setAttribute('data-state', 'open');
-      }, 600);
-    }, 4000);
+    (0, _general.postAnswers)(data).then(function (response) {
+      console.log(response.data);
+      document.querySelector('.loader__page').setAttribute('data-state', 'close');
+      quiz.setResult(response.data);
+      document.querySelector('.quiz__result').setAttribute('data-state', 'open');
+    })["catch"](function (error) {
+      console.log(error);
+      document.querySelector('.loader__page').setAttribute('data-state', 'close');
+    });
   };
 
   var onQuizNext = function onQuizNext() {
     var step = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var answers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
     if (step != null || step > 1) {
-      (0, _general.getQuizNext)(step).then(function (response) {
-        console.log(response);
+      var params = {};
+
+      if (answers !== null && answers.length > 0) {
+        console.log(answers);
+        params['sub_options'] = answers.join(".");
+        console.log(params);
+      } // console.log(answers);
+
+
+      (0, _general.getQuizNext)(step, params).then(function (response) {
         quiz.createQuestion(response.data.quiz, step);
       })["catch"](function (error) {
         // handle error
@@ -11699,9 +11662,8 @@ _services["default"].init();
       });
     } else {
       (0, _general.getQuiz)().then(function (response) {
-        console.log(response);
         quiz.setTotalCount(response.data.total);
-        quiz.createQuestion(response.data.quiz, 0);
+        quiz.createQuestion(response.data.quiz, 1);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -11806,6 +11768,8 @@ exports["default"] = void 0;
 
 var _Validator = _interopRequireDefault(require("../libs/Form/Validator"));
 
+var _general = require("../services/general");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11826,7 +11790,7 @@ var Quiz = /*#__PURE__*/function () {
     _classCallCheck(this, Quiz);
 
     this.step = 1;
-    this.answers = {};
+    this.answers = [];
     this.defaultAnswers = {};
     this.questionsTotal = 0;
     this.question = {}; // Set callback
@@ -11844,6 +11808,7 @@ var Quiz = /*#__PURE__*/function () {
     this.rootEl.setAttribute('data-step', this.step);
     this.contentEl = this.rootEl.querySelector('.quiz__main__content');
     this.decorEl = document.querySelector('.p-quiz__deco');
+    this.resText = document.querySelector('.quiz__result__categories');
   }
   /**
    * Init
@@ -11906,7 +11871,7 @@ var Quiz = /*#__PURE__*/function () {
 
   }, {
     key: "createQuestion",
-    value: function createQuestion(item, index) {
+    value: function createQuestion(item, step) {
       this.question = item;
       var itemEl = document.createElement('DIV');
       itemEl.setAttribute('data-id', item.id);
@@ -11926,12 +11891,12 @@ var Quiz = /*#__PURE__*/function () {
       this.contentEl.appendChild(itemEl); // Prepare answers variable
 
       var key = this.getQuestionKey(item);
-      this.answers[key] = ''; // image decor
+      this.answers[step - 1] = null; // image decor
 
       if (item.decor_image_url != null) {
         var imgEl = document.createElement('IMG');
         imgEl.setAttribute('src', item.decor_image_url);
-        imgEl.setAttribute('alt', "image decoration question " + (index + 1));
+        imgEl.setAttribute('alt', "image decoration question " + step);
         imgEl.setAttribute('width', 262);
         this.decorEl.innerHTML = "";
         this.decorEl.appendChild(imgEl);
@@ -12021,12 +11986,7 @@ var Quiz = /*#__PURE__*/function () {
     value: function doResetQuiz() {
       this.step = 1; // Reset answer
 
-      for (var key in this.answers) {
-        if (this.answers.hasOwnProperty(key)) {
-          this.answers[key] = '';
-        }
-      }
-
+      this.answers = [];
       this.rootEl.setAttribute('data-step', 1);
       this.goToQuestionScreen(1); // Reset active button
 
@@ -12037,6 +11997,10 @@ var Quiz = /*#__PURE__*/function () {
 
       var buttonNext = this.rootEl.querySelector('.quiz__action__next button');
       buttonNext.querySelector('.button__label').textContent = buttonNext.getAttribute('data-label-next');
+      var buttonPrev = this.rootEl.querySelector('.quiz__action__prev button');
+      buttonPrev.setAttribute('disabled', 'disabled');
+      var buttonReset = this.rootEl.querySelector('.quiz__action__reset button');
+      buttonReset.setAttribute('disabled', 'disabled');
     }
     /**
      * Setup button prev
@@ -12060,6 +12024,8 @@ var Quiz = /*#__PURE__*/function () {
 
         if (prevStep > 0) {
           _this4.step = prevStep;
+
+          _this4.answers.splice(prevStep - 1, 2);
 
           _this4.goToQuestionScreen(prevStep);
         }
@@ -12086,14 +12052,7 @@ var Quiz = /*#__PURE__*/function () {
       button.addEventListener('click', function (evt) {
         evt.preventDefault();
 
-        var key = _this5.getQuestionKey(_this5.question);
-
-        if (_this5.answers[key] == '') {
-          return;
-        } //   const isError = this.checkSelectionError();
-
-
-        var isError = false;
+        var isError = _this5.checkSelectionError();
 
         if (!isError) {
           if (_this5.step === _this5.questionsTotal && _this5.onSubmit) {
@@ -12130,10 +12089,8 @@ var Quiz = /*#__PURE__*/function () {
   }, {
     key: "onSelect",
     value: function onSelect(answer, question, buttonEl, answersEl) {
-      var key = this.getQuestionKey(question);
-
-      if (typeof this.answers[key] !== 'undefined') {
-        this.answers[key] = answer.code;
+      if (typeof this.answers[this.step - 1] !== 'undefined') {
+        this.answers[this.step - 1] = answer.code;
       }
 
       var state = buttonEl.getAttribute('data-state');
@@ -12160,9 +12117,8 @@ var Quiz = /*#__PURE__*/function () {
     key: "checkSelectionError",
     value: function checkSelectionError() {
       var stepIndex = this.step - 1;
-      var item = this.data[stepIndex];
-      var questionKey = this.getQuestionKey(item);
-      var answer = this.answers[questionKey];
+      var answer = this.answers[stepIndex];
+      console.log(answer);
 
       if (!answer || answer === '') {
         // Show error
@@ -12181,14 +12137,11 @@ var Quiz = /*#__PURE__*/function () {
   }, {
     key: "goToQuestionScreen",
     value: function goToQuestionScreen(step) {
-      // const stepIndex = step - 1;
-      // const item = this.data[stepIndex];
-      // if (typeof item !== 'undefined') {
       var activeEl = this.rootEl.querySelector('.quiz__question[data-state="active"]');
       var nextEl = this.rootEl.querySelector(".quiz__question[data-id=\"".concat(step, "\"]"));
       this.animateScreen(activeEl, nextEl);
       this.changeDir(step);
-      this.onQuizNext(step); // }
+      this.onQuizNext(step, this.answers);
     }
     /**
      * Go to question screen
@@ -12259,12 +12212,7 @@ var Quiz = /*#__PURE__*/function () {
           _this6.doResetQuiz();
 
           document.querySelector('.quiz__result').setAttribute('data-state', 'close');
-        }); // Submit
-        // const btnSubmit = modal.querySelector('.quiz__result__action__submit');
-        // btnSubmit.addEventListener('click', (evt) => {
-        //   evt.preventDefault();
-        // });
-        // Form
+        }); // Form
 
         new _Validator["default"]('.quiz__result__form form', {
           fieldId: '.quiz__result__form__field',
@@ -12286,19 +12234,38 @@ var Quiz = /*#__PURE__*/function () {
             }]
           },
           onSubmit: function onSubmit(data) {
-            // Show loader
-            document.querySelector('.loader__page').setAttribute('data-state', 'open'); //
-            // API here
-            //
+            data['answers'] = _this6.answers;
+            data['category_ids'] = _this6.categories.map(function (i) {
+              return i.id;
+            }); // Show loader
 
-            console.log(data);
-            setTimeout(function () {
-              // Hide loader
+            document.querySelector('.loader__page').setAttribute('data-state', 'open');
+            (0, _general.submitQuizUser)(data).then(function (response) {
+              console.log(response.data);
+              window.location = response.data.redirect_url;
+            })["catch"](function (error) {
+              console.log(error);
+            })["finally"](function () {
               document.querySelector('.loader__page').setAttribute('data-state', 'close');
-            }, 4000);
+            });
           }
         }).init();
       }
+    }
+  }, {
+    key: "setResult",
+    value: function setResult(data) {
+      this.categories = data.categories;
+      this.answers = data.answers;
+      var res = "";
+      this.categories.forEach(function (item, idx) {
+        if (idx > 0) {
+          res += ", ";
+        }
+
+        res += item.name;
+      });
+      this.resText.innerHTML = res;
     }
   }]);
 
@@ -12308,7 +12275,7 @@ var Quiz = /*#__PURE__*/function () {
 var _default = Quiz;
 exports["default"] = _default;
 
-},{"../libs/Form/Validator":34}],34:[function(require,module,exports){
+},{"../libs/Form/Validator":34,"../services/general":36}],34:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12604,8 +12571,8 @@ exports["default"] = void 0;
 var _default = {
   contact: '/send-message',
   submitQuiz: '/submit-quiz',
-  submitQuizUser: '/submit-quiz-user',
-  getQuiz: '/quiz'
+  submitQuizUser: 'quiz/participant',
+  quiz: '/quiz'
 };
 exports["default"] = _default;
 
@@ -12615,7 +12582,7 @@ exports["default"] = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.submitQuizUser = exports.submitQuiz = exports.getQuizNext = exports.getQuiz = exports.contact = void 0;
+exports.submitQuizUser = exports.submitQuiz = exports.postAnswers = exports.getQuizNext = exports.getQuiz = exports.contact = void 0;
 
 var _index = _interopRequireDefault(require("./index"));
 
@@ -12644,16 +12611,22 @@ var submitQuizUser = function submitQuizUser(data) {
 exports.submitQuizUser = submitQuizUser;
 
 var getQuiz = function getQuiz(data) {
-  return _index["default"].get(_endpoint["default"].getQuiz, data);
+  return _index["default"].get(_endpoint["default"].quiz, data);
 };
 
 exports.getQuiz = getQuiz;
 
-var getQuizNext = function getQuizNext(id, data) {
-  return _index["default"].get(_endpoint["default"].getQuiz + "/" + id, data);
+var getQuizNext = function getQuizNext(step, data) {
+  return _index["default"].get(_endpoint["default"].quiz + "/" + step, data);
 };
 
 exports.getQuizNext = getQuizNext;
+
+var postAnswers = function postAnswers(data) {
+  return _index["default"].post(_endpoint["default"].quiz, data);
+};
+
+exports.postAnswers = postAnswers;
 
 },{"./endpoint":35,"./index":37}],37:[function(require,module,exports){
 "use strict";
@@ -12671,15 +12644,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var http = {
   request: function request(method, url, data) {
     var headers = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-    var apiData = data instanceof FormData ? data : JSON.stringify(data);
+    var apiData = data; // instanceof FormData ? data : JSON.stringify(data);
+
     var requestHeaders = Object.assign({}, {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json'
     }, headers);
+    var params = "";
+
+    if (method == 'get') {
+      params = data;
+      apiData = {};
+    }
+
     return _axios["default"].request({
       url: url,
       data: apiData,
       method: method,
-      headers: requestHeaders
+      headers: requestHeaders,
+      params: params
     });
   },
   get: function get(url) {

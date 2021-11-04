@@ -2,6 +2,7 @@
 // Quiz lib
 //
 import FormValidator from '../libs/Form/Validator';
+import { submitQuizUser } from '../services/general';
 
 class Quiz {
   /**
@@ -11,7 +12,7 @@ class Quiz {
    */
   constructor(onQuizNext, onSubmit, options = {}) {
     this.step = 1;
-    this.answers = {};
+    this.answers = [];
     this.defaultAnswers = {};
     this.questionsTotal = 0;
     this.question = {};
@@ -30,6 +31,7 @@ class Quiz {
 
     this.contentEl = this.rootEl.querySelector('.quiz__main__content');
     this.decorEl = document.querySelector('.p-quiz__deco');
+    this.resText = document.querySelector('.quiz__result__categories');
   }
 
   /**
@@ -86,7 +88,7 @@ class Quiz {
    *
    * @return mixed
    */
-  createQuestion(item, index) {
+  createQuestion(item, step) {
     this.question = item;
     const itemEl = document.createElement('DIV');
     itemEl.setAttribute('data-id', item.id);
@@ -111,13 +113,13 @@ class Quiz {
 
     // Prepare answers variable
     const key = this.getQuestionKey(item);
-    this.answers[key] = '';
+    this.answers[step - 1] = null;
 
     // image decor
     if (item.decor_image_url != null) {
         const imgEl = document.createElement('IMG');
         imgEl.setAttribute('src', item.decor_image_url);
-        imgEl.setAttribute('alt', "image decoration question " + (index+1) );
+        imgEl.setAttribute('alt', "image decoration question " + ( step ) );
         imgEl.setAttribute('width', 262);
         this.decorEl.innerHTML = ""
         this.decorEl.appendChild(imgEl);
@@ -201,11 +203,7 @@ class Quiz {
     this.step = 1;
 
     // Reset answer
-    for (let key in this.answers) {
-      if (this.answers.hasOwnProperty(key)) {
-        this.answers[key] = '';
-      }
-    }
+    this.answers = [];
 
     this.rootEl.setAttribute('data-step', 1);
     this.goToQuestionScreen(1);
@@ -220,6 +218,11 @@ class Quiz {
     const buttonNext = this.rootEl.querySelector('.quiz__action__next button');
     buttonNext.querySelector('.button__label').textContent
       = buttonNext.getAttribute('data-label-next');
+
+    const buttonPrev = this.rootEl.querySelector('.quiz__action__prev button');
+    buttonPrev.setAttribute('disabled', 'disabled');
+    const buttonReset = this.rootEl.querySelector('.quiz__action__reset button');
+    buttonReset.setAttribute('disabled', 'disabled');
   }
 
   /**
@@ -240,6 +243,7 @@ class Quiz {
       const prevStep = this.step - 1;
       if (prevStep > 0) {
         this.step = prevStep;
+        this.answers.splice(prevStep - 1, 2);
         this.goToQuestionScreen(prevStep);
       }
 
@@ -260,13 +264,7 @@ class Quiz {
     const button = this.rootEl.querySelector('.quiz__action__next button');
     button.addEventListener('click', (evt) => {
       evt.preventDefault();
-      var key = this.getQuestionKey(this.question);
-      if (this.answers[key] == '') {
-        return;
-      }
-
-    //   const isError = this.checkSelectionError();
-      const isError = false;
+      const isError = this.checkSelectionError();
       if (! isError) {
 
         if (this.step === this.questionsTotal && this.onSubmit) {
@@ -297,9 +295,8 @@ class Quiz {
    * @return mixed
    */
   onSelect(answer, question, buttonEl, answersEl) {
-    const key = this.getQuestionKey(question);
-    if (typeof this.answers[key] !== 'undefined') {
-      this.answers[key] = answer.code;
+    if (typeof this.answers[this.step - 1] !== 'undefined') {
+      this.answers[this.step - 1] = answer.code;
     }
 
     const state = buttonEl.getAttribute('data-state');
@@ -321,9 +318,8 @@ class Quiz {
    */
   checkSelectionError() {
     const stepIndex = this.step - 1;
-    const item = this.data[stepIndex];
-    const questionKey = this.getQuestionKey(item);
-    const answer = this.answers[questionKey];
+    const answer = this.answers[stepIndex];
+    console.log(answer);
 
     if (! answer || answer === '') {
       // Show error
@@ -341,18 +337,13 @@ class Quiz {
    * @return mixed
    */
   goToQuestionScreen(step) {
-    // const stepIndex = step - 1;
-    // const item = this.data[stepIndex];
 
-    // if (typeof item !== 'undefined') {
+    const activeEl = this.rootEl.querySelector('.quiz__question[data-state="active"]');
+    const nextEl = this.rootEl.querySelector(`.quiz__question[data-id="${step}"]`);
 
-      const activeEl = this.rootEl.querySelector('.quiz__question[data-state="active"]');
-      const nextEl = this.rootEl.querySelector(`.quiz__question[data-id="${step}"]`);
-
-      this.animateScreen(activeEl, nextEl);
-      this.changeDir(step);
-      this.onQuizNext(step);
-    // }
+    this.animateScreen(activeEl, nextEl);
+    this.changeDir(step);
+    this.onQuizNext(step, this.answers);
   }
 
   /**
@@ -418,12 +409,6 @@ class Quiz {
         document.querySelector('.quiz__result').setAttribute('data-state', 'close');
       });
 
-      // Submit
-      // const btnSubmit = modal.querySelector('.quiz__result__action__submit');
-      // btnSubmit.addEventListener('click', (evt) => {
-      //   evt.preventDefault();
-      // });
-
       // Form
       new FormValidator(
         '.quiz__result__form form',
@@ -454,23 +439,39 @@ class Quiz {
             ],
           },
           onSubmit: (data) => {
+            data['answers'] = this.answers
+            data['category_ids'] = this.categories.map(i => i.id)
             // Show loader
             document.querySelector('.loader__page').setAttribute('data-state', 'open');
-            //
-            // API here
-            //
-            console.log(data);
-
-            setTimeout(() => {
-              // Hide loader
-              document.querySelector('.loader__page').setAttribute('data-state', 'close');
-            }, 4000);
-
+            submitQuizUser(data)
+                .then(response => {
+                    console.log(response.data);
+                    window.location = response.data.redirect_url;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+                .finally(() => {
+                    document.querySelector('.loader__page').setAttribute('data-state', 'close');
+                });
           },
         },
       ).init();
     }
   }
+
+  setResult(data) {
+        this.categories = data.categories;
+        this.answers = data.answers;
+        var res = "";
+        this.categories.forEach(function(item, idx) {
+            if (idx > 0) {
+                res += ", ";
+            }
+            res += item.name;
+        });
+        this.resText.innerHTML = res;
+    }
 }
 
 export default Quiz;

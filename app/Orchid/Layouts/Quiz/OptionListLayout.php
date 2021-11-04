@@ -37,7 +37,7 @@ class OptionListLayout extends Table
                     return $quizoption->code;
                 }),
 
-            TD::make('sub_options', 'Sub Options')
+            TD::make('sub_options', 'Previous Answer Combinations')
                 ->render(function (QuizOption $quizoption) {
                     return json_encode($quizoption->sub_options);
                 }),

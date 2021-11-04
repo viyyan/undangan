@@ -21,6 +21,8 @@ use App\Orchid\Screens\Member\MemberEditScreen;
 use App\Orchid\Screens\Quiz\QuizListScreen;
 use App\Orchid\Screens\Quiz\QuizEditScreen;
 use App\Orchid\Screens\QuizOption\OptionEditScreen;
+use App\Orchid\Screens\CaseStudy\CaseStudyListScreen;
+use App\Orchid\Screens\CaseStudy\CaseStudyEditScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -127,6 +129,22 @@ Route::screen('career/{career?}', CareerEditScreen::class)
         return $trail
             ->parent('platform.career.list')
             ->push(__('Career'));
+    });
+
+// Platform > Case Studies
+Route::screen('case-studies', CaseStudyListScreen::class)
+    ->name('platform.case-study.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Case Studies'), route('platform.case-study.list'));
+    });
+
+Route::screen('case-study/{career?}', CaseStudyEditScreen::class)
+    ->name('platform.case-study.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.case-study.list')
+            ->push(__('Case Study'));
     });
 
 // Platform > Profile

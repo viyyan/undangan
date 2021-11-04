@@ -16,8 +16,9 @@ class QuizResultSubmit extends Validator {
    */
     constructor(settings = {})
     {
-      super('.quiz__result__form', { ignore: "", ...settings });
-      this.logo = null;
+        super('.quiz__result__form', { ignore: "", ...settings });
+        this.logo = null;
+        this.resText = document.querySelector(".quiz__result__categories");
     }
 
     /**
@@ -82,15 +83,20 @@ class QuizResultSubmit extends Validator {
       let companyName = $('input[name="company_name"]').val();
       let email = $('input[name="email"]').val();
 
-      let formData = new FormData();
-      formData.append('name', name);
-      formData.append('company_name', companyName);
-      formData.append('email', email);
+      let formData = {
+          "name": name,
+          "company": companyName,
+          "email": email,
+          "answers": this.answers,
+          "category_ids": this.categories.map(i => i.id)
+      }
 
       // Call API
       submitQuizUser(formData)
         .then(response => {
-          form.reset();
+            console.log(response.data);
+            form.reset();
+            window.location = response.data.redirect_url;
         })
         .catch(error => {
           // showApiError(error, ERROR_SEND_MESSAGE);

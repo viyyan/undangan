@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Models\Quiz;
 use App\Models\QuizOption;
+use App\Models\QuizParticipant;
+use App\Models\Category;
 
 
 class QuizController extends ApiController
@@ -43,7 +45,7 @@ class QuizController extends ApiController
 
 
     /**
-     * Get exhibitors
+     * Get quiz next
      *
      * @return JSON string
      */
@@ -55,7 +57,11 @@ class QuizController extends ApiController
         $sub = $request->sub_options;
         if (isset($sub)) {
             $quiz = $quiz->first();
-            $options = $quiz->options()->whereJsonContains('sub_options', $sub)->get();
+            if ($quiz->is_check_prev === 1) {
+                $options = $quiz->options()->whereJsonContains('sub_options', $sub)->get();
+            } else {
+                $options = $quiz->options()->get();
+            }
             $quiz->options = $options;
         } else {
             $quiz = $quiz->with('options')->first();
@@ -80,6 +86,51 @@ class QuizController extends ApiController
             "total" => $total,
             "next_step" => $next_step,
             "prev_step" => $prev_step,
+        ]);
+    }
+
+
+    /**
+     * Post answers
+     *
+     * @return JSON string
+     */
+    public function postAnswers(Request $request)
+    {
+        $answers = $request->post("answers");
+        if (empty($answers)) return $this->respondValidationError("answers can't be empty!");
+        $categories = Category::select(['id', 'name'])
+                ->where('status', 1)
+                ->whereJsonContains('quiz_answers', $answers)
+                ->get();
+        return $this->response->array([
+            "categories" => $categories,
+            "answers" => $answers
+        ]);
+    }
+
+
+    /**
+     * Post answers
+     *
+     * @return JSON string
+     */
+    public function postParticipant(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'answers' => 'required|max:255',
+            'category_ids' => 'required|array',
+        ]);
+
+        $answers = $request->post("answers");
+        $cats = $request->post("category_ids");
+        $res = QuizParticipant::create($request->post());
+        if (empty($res)) return $this->respondValidationError("failed, please try again");
+        return $this->response->array([
+            "redirect_url" => route('case-study', ["type_of_research" => join(",",$cats)]),
+            "answers" => $answers
         ]);
     }
 }

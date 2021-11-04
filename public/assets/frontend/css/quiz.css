@@ -1391,7 +1391,7 @@ p {
   height: 42px;
 }
 .button--modal.button--danger {
-  background-color: #f14668;
+  background-color: #a81c1b;
   color: #ffffff;
 }
 .button__group {
@@ -2820,11 +2820,11 @@ p {
   color: #48c78e;
 }
 .modal__alert--danger .modal__title h2 {
-  color: #f14668;
+  color: #a81c1b;
 }
 .modal__alert--danger .modal__icon svg {
-  fill: #f14668;
-  color: #f14668;
+  fill: #a81c1b;
+  color: #a81c1b;
 }
 .modal__alert--warning .modal__title h2 {
   color: #f7942c;

@@ -12,7 +12,7 @@
           <h2 class="text--xl">Congratulation</h2>
           <p>You’ve finished the market research check up. Based on your answer, your suitable market research for you is :</p>
           <div class="quiz__result__tag">
-            <span class="text--lg">Product Test</span>
+            <span class="text--lg quiz__result__categories"></span>
           </div>
         </div>
       </div>

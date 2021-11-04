@@ -24,5 +24,7 @@ $api->version('v1', function ($api) {
 
     $api->get('quiz', 'App\Http\Controllers\Api\QuizController@getQuiz');
     $api->get('quiz/{step}', 'App\Http\Controllers\Api\QuizController@getNextQuiz');
+    $api->post('quiz', 'App\Http\Controllers\Api\QuizController@postAnswers');
+    $api->post('quiz/participant', 'App\Http\Controllers\Api\QuizController@postParticipant');
 
 });

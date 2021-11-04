@@ -160,7 +160,7 @@ class OptionEditScreen extends Screen
         $subs = array_diff($subs, [$sub]);
         $quizoption->sub_options = $subs;
         $quizoption->save();
-        Alert::info('You have successfully created an quiz option.');
+        Alert::info('You have successfully removed an quiz option.');
     }
 
 

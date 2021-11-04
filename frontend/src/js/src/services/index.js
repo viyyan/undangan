@@ -4,20 +4,27 @@ import axios from 'axios';
 
 const http = {
   request(method, url, data, headers = {}) {
-    const apiData = data instanceof FormData ? data : JSON.stringify(data);
+    var apiData = data;
+    // instanceof FormData ? data : JSON.stringify(data);
     const requestHeaders = Object.assign(
       {},
       {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
       headers,
     );
 
+    var params = "";
+    if (method == 'get') {
+        params = data;
+        apiData = {};
+    }
     return axios.request({
       url,
       data: apiData,
       method,
       headers: requestHeaders,
+      params: params,
     });
   },
 

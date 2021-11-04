@@ -9,7 +9,6 @@ use Orchid\Filters\Filterable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Builder;
-use App\Models\Product;
 
 
 class Category extends Model
@@ -27,7 +26,14 @@ class Category extends Model
         'slug',
         'status',
         'type',
-        'order'
+        'order',
+        'quiz_answers'
+    ];
+
+
+    // cast to array
+    protected $casts = [
+        'quiz_answers' => 'array'
     ];
 
     /**
@@ -63,6 +69,16 @@ class Category extends Model
     public function scopeMember(Builder $query)
     {
         return $query->where('type', 'member');
+    }
+
+    /**
+     * @param Builder $query
+     *
+     * @return Builder
+     */
+    public function scopeStudyCase(Builder $query)
+    {
+        return $query->where('type', 'studyCase');
     }
 
 }

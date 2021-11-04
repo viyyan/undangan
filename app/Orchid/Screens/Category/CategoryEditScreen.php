@@ -9,7 +9,9 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Group;
 use Illuminate\Http\Request;
+use App\Orchid\Layouts\Quiz\SubOptionListLayout;
 
 
 class CategoryEditScreen extends Screen
@@ -44,7 +46,8 @@ class CategoryEditScreen extends Screen
         }
         $this->name = ucwords($this->type).' '.$this->name;
         return [
-            'category' => $category
+            'category' => $category,
+            'sub_options' => isset($category->quiz_answers) ? $category->quiz_answers : [],
         ];
     }
 
@@ -80,9 +83,8 @@ class CategoryEditScreen extends Screen
      */
     public function layout(): array
     {
-        return [
+        $layout = [
             Layout::rows([
-
                 Input::make('category.name')
                     ->title('Name')
                     ->placeholder('Category name')
@@ -105,9 +107,22 @@ class CategoryEditScreen extends Screen
                     ->title("Order")
                     ->type("number")
                     ->min(1)
-                    ->canSee(($this->type == 'member'))
-            ])
+                    ->canSee($this->type == 'member')
+            ]),
+            Layout::rows([
+                Group::make([
+                    Input::make('quiz_answers')
+                    ->help('If the category refer to market research answers,<br> set with answer code combination ex. Q1: 1, Q2: 2, Q3: 1 write "1.2.1"'),
+                    Button::make('Add')
+                        ->method('addQuizAnswer')
+                        ->class('btn btn-success'),
+                ]),
+            ])->title('Quiz Answers')->canSee($this->type == 'caseStudy'),
         ];
+        if ($this->type == 'caseStudy') {
+            array_push($layout, SubOptionListLayout::class);
+        }
+        return $layout;
     }
 
     /**
@@ -118,8 +133,7 @@ class CategoryEditScreen extends Screen
      */
     public function createOrUpdate(Category $category, Request $request)
     {
-        $category->fill($request->get('category'));
-        $category->save();
+        $category = $this->_save($category, $request);
 
         Alert::info('You have successfully created an category.');
 
@@ -139,6 +153,50 @@ class CategoryEditScreen extends Screen
         Alert::info('You have successfully deleted the category.');
 
         return redirect()->route('platform.category.list', ['type' => $category->type]);
+    }
+
+
+    /**
+     * @param AnswerCombination    $category
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addQuizAnswer(Category $category, Request $request)
+    {
+        $category = $this->_save($category, $request);
+        $answers = !empty($category->quiz_answers) ? $category->quiz_answers : array();
+        if (!empty($request->get('quiz_answers'))) {
+            array_push($answers, $request->get('quiz_answers'));
+            $category->quiz_answers = $answers;
+            $category->save();
+            Alert::info('You have successfully added an quiz answers combination.');
+        } else {
+            Alert::error('Quiz answers can\'t be empty text!');
+        }
+        return redirect()->route('platform.category.edit', $category->id);
+    }
+
+    /**
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function removeSub($sub, Category $category)
+    {
+        $subs = !empty($category->quiz_answers) ? $category->quiz_answers : array();
+        $subs = array_diff($subs, [$sub]);
+        $category->quiz_answers = $subs;
+        $category->save();
+        Alert::info('You have successfully removed an quiz answer.');
+    }
+
+
+    private function _save(Category $category, Request $request)
+    {
+        $category->fill($request->get('category'));
+        $category->save();
+        return $category;
     }
 
 }

@@ -9,6 +9,7 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Checkbox;
 use Illuminate\Http\Request;
 use App\Orchid\Layouts\Quiz\OptionListLayout;
 use Orchid\Screen\Fields\Cropper;
@@ -99,6 +100,11 @@ class QuizEditScreen extends Screen
                     ->targetId()
                     ->title('Quiz image decoration')
                     ->required(),
+
+                CheckBox::make('quiz.is_check_prev')
+                    ->sendTrueOrFalse()
+                    ->title('Based on previous answer?')
+                    ->help('Check if the question options based on prev answer, then set options Prev Answer Combination'),
 
                 Select::make('quiz.status')
                     ->title("Status")
