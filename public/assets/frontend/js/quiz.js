@@ -11688,9 +11688,8 @@ _services["default"].init();
 
   var onQuizNext = function onQuizNext() {
     var step = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    console.log(result, step);
 
-    if (step != null) {
+    if (step != null || step > 1) {
       (0, _general.getQuizNext)(step).then(function (response) {
         console.log(response);
         quiz.createQuestion(response.data.quiz, step);
@@ -11710,7 +11709,7 @@ _services["default"].init();
     }
   };
 
-  onQuiz;
+  onQuizNext();
   var quiz = new _Quiz["default"](onQuizNext, onSubmit).init(); // Modal
 
   new _Modal["default"]().init();
@@ -11821,7 +11820,7 @@ var Quiz = /*#__PURE__*/function () {
    *
    * @return void
    */
-  function Quiz(onQuizNext, nSubmit) {
+  function Quiz(onQuizNext, onSubmit) {
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     _classCallCheck(this, Quiz);
@@ -11843,6 +11842,8 @@ var Quiz = /*#__PURE__*/function () {
 
     this.rootEl = document.querySelector(selector);
     this.rootEl.setAttribute('data-step', this.step);
+    this.contentEl = this.rootEl.querySelector('.quiz__main__content');
+    this.decorEl = document.querySelector('.p-quiz__deco');
   }
   /**
    * Init
@@ -11870,9 +11871,13 @@ var Quiz = /*#__PURE__*/function () {
     key: "setTotalCount",
     value: function setTotalCount(total) {
       this.questionsTotal = total;
-      this.contentEl = this.rootEl.querySelector('.quiz__main__content');
-      this.decorEl = document.querySelector('.p-quiz__deco');
-    }
+    } //   /**
+    //    * set total
+    //    */
+    //    setQuizNext(quizNext) {
+    //     this.onQuizNext = quizNext
+    //   }
+
     /**
      * Prepare questions
      *
@@ -11889,10 +11894,8 @@ var Quiz = /*#__PURE__*/function () {
         var content = _this.createQuestion(item, index);
 
         contentEl.appendChild(content); // Prepare answers variable
-
-        var key = _this.getQuestionKey(item);
-
-        _this.answers[key] = '';
+        //   const key = this.getQuestionKey(item);
+        //   this.answers[key] = '';
       });
     }
     /**
@@ -11908,11 +11911,9 @@ var Quiz = /*#__PURE__*/function () {
       var itemEl = document.createElement('DIV');
       itemEl.setAttribute('data-id', item.id);
       itemEl.setAttribute('data-type', item.type);
-      itemEl.classList.add('quiz__question');
+      itemEl.classList.add('quiz__question'); // if (index === 0) {
 
-      if (index === 0) {
-        itemEl.setAttribute('data-state', 'active');
-      }
+      itemEl.setAttribute('data-state', 'active'); // }
 
       var titleEl = document.createElement('H3');
       var titleTxt = document.createTextNode(item.question);
@@ -11935,8 +11936,6 @@ var Quiz = /*#__PURE__*/function () {
         this.decorEl.innerHTML = "";
         this.decorEl.appendChild(imgEl);
       }
-
-      console.log(item.decor_image_url); // return itemEl;
     }
     /**
      * Create answers
@@ -12085,7 +12084,14 @@ var Quiz = /*#__PURE__*/function () {
 
       var button = this.rootEl.querySelector('.quiz__action__next button');
       button.addEventListener('click', function (evt) {
-        evt.preventDefault(); //   const isError = this.checkSelectionError();
+        evt.preventDefault();
+
+        var key = _this5.getQuestionKey(_this5.question);
+
+        if (_this5.answers[key] == '') {
+          return;
+        } //   const isError = this.checkSelectionError();
+
 
         var isError = false;
 
@@ -12127,7 +12133,7 @@ var Quiz = /*#__PURE__*/function () {
       var key = this.getQuestionKey(question);
 
       if (typeof this.answers[key] !== 'undefined') {
-        this.answers[key] = answer.id;
+        this.answers[key] = answer.code;
       }
 
       var state = buttonEl.getAttribute('data-state');

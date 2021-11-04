@@ -9,7 +9,7 @@ class Quiz {
    *
    * @return void
    */
-  constructor(onQuizNext, nSubmit, options = {}) {
+  constructor(onQuizNext, onSubmit, options = {}) {
     this.step = 1;
     this.answers = {};
     this.defaultAnswers = {};
@@ -28,6 +28,8 @@ class Quiz {
     this.rootEl = document.querySelector(selector);
     this.rootEl.setAttribute('data-step', this.step);
 
+    this.contentEl = this.rootEl.querySelector('.quiz__main__content');
+    this.decorEl = document.querySelector('.p-quiz__deco');
   }
 
   /**
@@ -50,9 +52,15 @@ class Quiz {
    */
   setTotalCount(total) {
     this.questionsTotal = total
-    this.contentEl = this.rootEl.querySelector('.quiz__main__content');
-    this.decorEl = document.querySelector('.p-quiz__deco');
   }
+
+
+//   /**
+//    * set total
+//    */
+//    setQuizNext(quizNext) {
+//     this.onQuizNext = quizNext
+//   }
 
 
   /**
@@ -68,8 +76,8 @@ class Quiz {
       contentEl.appendChild(content);
 
       // Prepare answers variable
-      const key = this.getQuestionKey(item);
-      this.answers[key] = '';
+    //   const key = this.getQuestionKey(item);
+    //   this.answers[key] = '';
     });
   }
 
@@ -85,9 +93,9 @@ class Quiz {
     itemEl.setAttribute('data-type', item.type);
     itemEl.classList.add('quiz__question');
 
-    if (index === 0) {
-      itemEl.setAttribute('data-state', 'active');
-    }
+    // if (index === 0) {
+    itemEl.setAttribute('data-state', 'active');
+    // }
 
     const titleEl = document.createElement('H3');
     const titleTxt = document.createTextNode(item.question);
@@ -114,8 +122,6 @@ class Quiz {
         this.decorEl.innerHTML = ""
         this.decorEl.appendChild(imgEl);
     }
-    console.log(item.decor_image_url);
-    // return itemEl;
   }
 
   /**
@@ -254,6 +260,10 @@ class Quiz {
     const button = this.rootEl.querySelector('.quiz__action__next button');
     button.addEventListener('click', (evt) => {
       evt.preventDefault();
+      var key = this.getQuestionKey(this.question);
+      if (this.answers[key] == '') {
+        return;
+      }
 
     //   const isError = this.checkSelectionError();
       const isError = false;
@@ -289,7 +299,7 @@ class Quiz {
   onSelect(answer, question, buttonEl, answersEl) {
     const key = this.getQuestionKey(question);
     if (typeof this.answers[key] !== 'undefined') {
-      this.answers[key] = answer.id;
+      this.answers[key] = answer.code;
     }
 
     const state = buttonEl.getAttribute('data-state');

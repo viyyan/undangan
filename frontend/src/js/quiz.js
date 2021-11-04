@@ -97,8 +97,7 @@ http.init();
   };
 
   const onQuizNext = (step = null) => {
-    console.log(result, step);
-    if (step != null) {
+    if (step != null || step > 1) {
         getQuizNext(step).then(function (response) {
             console.log(response);
             quiz.createQuestion(response.data.quiz, step)
