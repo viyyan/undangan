@@ -20,6 +20,9 @@
     @else
         <link rel="stylesheet" href="{{ frontAssets('css/home.css') }}">
     @endif
+    <script>
+        var API_BASE_URL = "{{ url(env('API_PREFIX')) }}"
+    </script>
     @if (isset($caseStudyPermalink))
         <script>
             var CASE_STUDY_PERMALINK = "{{$caseStudyPermalink}}"

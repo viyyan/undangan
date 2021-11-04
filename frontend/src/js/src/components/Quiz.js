@@ -7,16 +7,17 @@ class Quiz {
   /**
    * Class constructor
    *
-   * @return void 
+   * @return void
    */
-  constructor(data, onSubmit, options = {}) {
+  constructor(onQuizNext, nSubmit, options = {}) {
     this.step = 1;
     this.answers = {};
     this.defaultAnswers = {};
     this.questionsTotal = 0;
-  
+    this.question = {};
+
     // Set callback
-    this.data = data;
+    this.onQuizNext = onQuizNext;
     this.onSubmit = onSubmit;
 
     // Get root element
@@ -35,15 +36,24 @@ class Quiz {
    * @return mixed
    */
   init() {
-    if (this.data && this.data.length > 0) {
-      this.questionsTotal = this.data.length;
-      this.createQuestions();
+    // if (this.data && this.data.length > 0) {
+    //   this.createQuestions();
       this.setupActions();
       this.setupResult();
       this.changeDir(1);
-    }
+    // }
     return this;
   }
+
+  /**
+   * set total
+   */
+  setTotalCount(total) {
+    this.questionsTotal = total
+    this.contentEl = this.rootEl.querySelector('.quiz__main__content');
+    this.decorEl = document.querySelector('.p-quiz__deco');
+  }
+
 
   /**
    * Prepare questions
@@ -69,6 +79,7 @@ class Quiz {
    * @return mixed
    */
   createQuestion(item, index) {
+    this.question = item;
     const itemEl = document.createElement('DIV');
     itemEl.setAttribute('data-id', item.id);
     itemEl.setAttribute('data-type', item.type);
@@ -87,7 +98,24 @@ class Quiz {
     const answersEl = this.createAnswers(item);
     itemEl.appendChild(answersEl);
 
-    return itemEl;
+    this.contentEl.innerHTML = ""
+    this.contentEl.appendChild(itemEl);
+
+    // Prepare answers variable
+    const key = this.getQuestionKey(item);
+    this.answers[key] = '';
+
+    // image decor
+    if (item.decor_image_url != null) {
+        const imgEl = document.createElement('IMG');
+        imgEl.setAttribute('src', item.decor_image_url);
+        imgEl.setAttribute('alt', "image decoration question " + (index+1) );
+        imgEl.setAttribute('width', 262);
+        this.decorEl.innerHTML = ""
+        this.decorEl.appendChild(imgEl);
+    }
+    console.log(item.decor_image_url);
+    // return itemEl;
   }
 
   /**
@@ -96,7 +124,7 @@ class Quiz {
    * @return mixed
    */
   createAnswers(item) {
-    const answers = item.answers;
+    const answers = item.options;
     const answersEl = document.createElement('DIV');
     answersEl.classList.add('quiz__answers');
 
@@ -105,7 +133,7 @@ class Quiz {
     answers.forEach((answer) => {
       const answerEl = document.createElement('LI');
       const buttonEl = document.createElement('BUTTON');
-      const buttonTxt = document.createTextNode(answer.label);
+      const buttonTxt = document.createTextNode(answer.name);
 
       buttonEl.classList.add('button');
       buttonEl.classList.add('button--white');
@@ -165,7 +193,7 @@ class Quiz {
    */
   doResetQuiz() {
     this.step = 1;
-      
+
     // Reset answer
     for (let key in this.answers) {
       if (this.answers.hasOwnProperty(key)) {
@@ -184,7 +212,7 @@ class Quiz {
 
     // Reset next button
     const buttonNext = this.rootEl.querySelector('.quiz__action__next button');
-    buttonNext.querySelector('.button__label').textContent 
+    buttonNext.querySelector('.button__label').textContent
       = buttonNext.getAttribute('data-label-next');
   }
 
@@ -200,7 +228,7 @@ class Quiz {
 
       // Reset button
       const buttonNext = this.rootEl.querySelector('.quiz__action__next button');
-      buttonNext.querySelector('.button__label').textContent 
+      buttonNext.querySelector('.button__label').textContent
         = buttonNext.getAttribute('data-label-next');
 
       const prevStep = this.step - 1;
@@ -208,7 +236,7 @@ class Quiz {
         this.step = prevStep;
         this.goToQuestionScreen(prevStep);
       }
-      
+
       if (prevStep === 1) {
         this.rootEl.querySelector('.quiz__action__reset button')
           .setAttribute('disabled', 'disabled');
@@ -227,7 +255,8 @@ class Quiz {
     button.addEventListener('click', (evt) => {
       evt.preventDefault();
 
-      const isError = this.checkSelectionError();
+    //   const isError = this.checkSelectionError();
+      const isError = false;
       if (! isError) {
 
         if (this.step === this.questionsTotal && this.onSubmit) {
@@ -238,13 +267,13 @@ class Quiz {
         // Reset button
         this.rootEl.querySelector('.quiz__action__reset button').removeAttribute('disabled');
         this.rootEl.querySelector('.quiz__action__prev button').removeAttribute('disabled');
-  
+
         const nextStep = this.step + 1;
         if (nextStep <= this.questionsTotal) {
           this.step = nextStep;
           this.goToQuestionScreen(nextStep);
-        } 
-        
+        }
+
         if (nextStep === this.questionsTotal) {
           button.querySelector('.button__label').textContent = button.getAttribute('data-label-submit');
         }
@@ -292,7 +321,7 @@ class Quiz {
 
       return true;
     }
-    
+
     return false;
   }
 
@@ -302,17 +331,18 @@ class Quiz {
    * @return mixed
    */
   goToQuestionScreen(step) {
-    const stepIndex = step - 1;
-    const item = this.data[stepIndex];
+    // const stepIndex = step - 1;
+    // const item = this.data[stepIndex];
 
-    if (typeof item !== 'undefined') {
+    // if (typeof item !== 'undefined') {
 
       const activeEl = this.rootEl.querySelector('.quiz__question[data-state="active"]');
-      const nextEl = this.rootEl.querySelector(`.quiz__question[data-id="${item.id}"]`);
+      const nextEl = this.rootEl.querySelector(`.quiz__question[data-id="${step}"]`);
 
       this.animateScreen(activeEl, nextEl);
       this.changeDir(step);
-    }
+      this.onQuizNext(step);
+    // }
   }
 
   /**
@@ -322,7 +352,7 @@ class Quiz {
    */
   animateScreen(activeEl, nextEl) {
     if (activeEl && nextEl) {
-      
+
       activeEl.style.visibility = 'hidden';
       activeEl.style.opacity = 0;
       activeEl.setAttribute('data-state', 'inactive');
@@ -367,7 +397,7 @@ class Quiz {
    */
   setupResult() {
     const modal = document.querySelector('.quiz__result');
-    if (modal) 
+    if (modal)
     {
       // Reset
       const btnReset = modal.querySelector('.quiz__result__action__reset');
@@ -386,7 +416,7 @@ class Quiz {
 
       // Form
       new FormValidator(
-        '.quiz__result__form form', 
+        '.quiz__result__form form',
         {
           fieldId: '.quiz__result__form__field',
           rules: {
@@ -434,4 +464,3 @@ class Quiz {
 }
 
 export default Quiz;
-    

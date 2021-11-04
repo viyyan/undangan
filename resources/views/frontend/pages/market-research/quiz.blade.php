@@ -83,7 +83,9 @@
         </div>
         </div>
     </div>
-    <div class="p-quiz__deco"><img src="{{ frontImages('quiz--object.png') }}" alt=""></div>
+    <div class="p-quiz__deco">
+        <img src="{{ frontImages('quiz--object.png') }}" alt="">
+    </div>
     </div>
 </div>
 

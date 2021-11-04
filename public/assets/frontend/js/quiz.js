@@ -11610,6 +11610,8 @@ var _Quiz = _interopRequireDefault(require("./src/components/Quiz"));
 
 var _Modal = _interopRequireDefault(require("./src/components/Modal"));
 
+var _general = require("./src/services/general");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 //
@@ -11624,6 +11626,7 @@ _services["default"].init();
     id: 1,
     question: 'Which industry are you working in?',
     type: 'tags',
+    //
     answers: [{
       id: 1,
       label: 'Advertising & Media'
@@ -11668,7 +11671,9 @@ _services["default"].init();
   }];
 
   var onSubmit = function onSubmit(result) {
-    // Show loader
+    var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    console.log(result, step); // Show loader
+
     document.querySelector('.loader__page').setAttribute('data-state', 'open');
     setTimeout(function () {
       console.log(result); // Hide loader
@@ -11681,12 +11686,37 @@ _services["default"].init();
     }, 4000);
   };
 
-  new _Quiz["default"](data, onSubmit).init(); // Modal
+  var onQuizNext = function onQuizNext() {
+    var step = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    console.log(result, step);
+
+    if (step != null) {
+      (0, _general.getQuizNext)(step).then(function (response) {
+        console.log(response);
+        quiz.createQuestion(response.data.quiz, step);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    } else {
+      (0, _general.getQuiz)().then(function (response) {
+        console.log(response);
+        quiz.setTotalCount(response.data.total);
+        quiz.createQuestion(response.data.quiz, 0);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    }
+  };
+
+  onQuiz;
+  var quiz = new _Quiz["default"](onQuizNext, onSubmit).init(); // Modal
 
   new _Modal["default"]().init();
 })();
 
-},{"./src/components/Modal":32,"./src/components/Quiz":33,"./src/services":35}],32:[function(require,module,exports){
+},{"./src/components/Modal":32,"./src/components/Quiz":33,"./src/services":37,"./src/services/general":36}],32:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11789,9 +11819,9 @@ var Quiz = /*#__PURE__*/function () {
   /**
    * Class constructor
    *
-   * @return void 
+   * @return void
    */
-  function Quiz(data, onSubmit) {
+  function Quiz(onQuizNext, nSubmit) {
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     _classCallCheck(this, Quiz);
@@ -11799,9 +11829,10 @@ var Quiz = /*#__PURE__*/function () {
     this.step = 1;
     this.answers = {};
     this.defaultAnswers = {};
-    this.questionsTotal = 0; // Set callback
+    this.questionsTotal = 0;
+    this.question = {}; // Set callback
 
-    this.data = data;
+    this.onQuizNext = onQuizNext;
     this.onSubmit = onSubmit; // Get root element
 
     var selector = '.quiz';
@@ -11823,15 +11854,24 @@ var Quiz = /*#__PURE__*/function () {
   _createClass(Quiz, [{
     key: "init",
     value: function init() {
-      if (this.data && this.data.length > 0) {
-        this.questionsTotal = this.data.length;
-        this.createQuestions();
-        this.setupActions();
-        this.setupResult();
-        this.changeDir(1);
-      }
+      // if (this.data && this.data.length > 0) {
+      //   this.createQuestions();
+      this.setupActions();
+      this.setupResult();
+      this.changeDir(1); // }
 
       return this;
+    }
+    /**
+     * set total
+     */
+
+  }, {
+    key: "setTotalCount",
+    value: function setTotalCount(total) {
+      this.questionsTotal = total;
+      this.contentEl = this.rootEl.querySelector('.quiz__main__content');
+      this.decorEl = document.querySelector('.p-quiz__deco');
     }
     /**
      * Prepare questions
@@ -11864,6 +11904,7 @@ var Quiz = /*#__PURE__*/function () {
   }, {
     key: "createQuestion",
     value: function createQuestion(item, index) {
+      this.question = item;
       var itemEl = document.createElement('DIV');
       itemEl.setAttribute('data-id', item.id);
       itemEl.setAttribute('data-type', item.type);
@@ -11880,7 +11921,22 @@ var Quiz = /*#__PURE__*/function () {
       itemEl.appendChild(titleEl);
       var answersEl = this.createAnswers(item);
       itemEl.appendChild(answersEl);
-      return itemEl;
+      this.contentEl.innerHTML = "";
+      this.contentEl.appendChild(itemEl); // Prepare answers variable
+
+      var key = this.getQuestionKey(item);
+      this.answers[key] = ''; // image decor
+
+      if (item.decor_image_url != null) {
+        var imgEl = document.createElement('IMG');
+        imgEl.setAttribute('src', item.decor_image_url);
+        imgEl.setAttribute('alt', "image decoration question " + (index + 1));
+        imgEl.setAttribute('width', 262);
+        this.decorEl.innerHTML = "";
+        this.decorEl.appendChild(imgEl);
+      }
+
+      console.log(item.decor_image_url); // return itemEl;
     }
     /**
      * Create answers
@@ -11893,14 +11949,14 @@ var Quiz = /*#__PURE__*/function () {
     value: function createAnswers(item) {
       var _this2 = this;
 
-      var answers = item.answers;
+      var answers = item.options;
       var answersEl = document.createElement('DIV');
       answersEl.classList.add('quiz__answers');
       var innerEl = document.createElement('OL');
       answers.forEach(function (answer) {
         var answerEl = document.createElement('LI');
         var buttonEl = document.createElement('BUTTON');
-        var buttonTxt = document.createTextNode(answer.label);
+        var buttonTxt = document.createTextNode(answer.name);
         buttonEl.classList.add('button');
         buttonEl.classList.add('button--white');
 
@@ -12029,9 +12085,9 @@ var Quiz = /*#__PURE__*/function () {
 
       var button = this.rootEl.querySelector('.quiz__action__next button');
       button.addEventListener('click', function (evt) {
-        evt.preventDefault();
+        evt.preventDefault(); //   const isError = this.checkSelectionError();
 
-        var isError = _this5.checkSelectionError();
+        var isError = false;
 
         if (!isError) {
           if (_this5.step === _this5.questionsTotal && _this5.onSubmit) {
@@ -12119,15 +12175,14 @@ var Quiz = /*#__PURE__*/function () {
   }, {
     key: "goToQuestionScreen",
     value: function goToQuestionScreen(step) {
-      var stepIndex = step - 1;
-      var item = this.data[stepIndex];
-
-      if (typeof item !== 'undefined') {
-        var activeEl = this.rootEl.querySelector('.quiz__question[data-state="active"]');
-        var nextEl = this.rootEl.querySelector(".quiz__question[data-id=\"".concat(item.id, "\"]"));
-        this.animateScreen(activeEl, nextEl);
-        this.changeDir(step);
-      }
+      // const stepIndex = step - 1;
+      // const item = this.data[stepIndex];
+      // if (typeof item !== 'undefined') {
+      var activeEl = this.rootEl.querySelector('.quiz__question[data-state="active"]');
+      var nextEl = this.rootEl.querySelector(".quiz__question[data-id=\"".concat(step, "\"]"));
+      this.animateScreen(activeEl, nextEl);
+      this.changeDir(step);
+      this.onQuizNext(step); // }
     }
     /**
      * Go to question screen
@@ -12537,11 +12592,76 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+/**
+ * endpoint
+ */
+var _default = {
+  contact: '/send-message',
+  submitQuiz: '/submit-quiz',
+  submitQuizUser: '/submit-quiz-user',
+  getQuiz: '/quiz'
+};
+exports["default"] = _default;
+
+},{}],36:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.submitQuizUser = exports.submitQuiz = exports.getQuizNext = exports.getQuiz = exports.contact = void 0;
+
+var _index = _interopRequireDefault(require("./index"));
+
+var _endpoint = _interopRequireDefault(require("./endpoint"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// Contact
+var contact = function contact(data) {
+  return _index["default"].post(_endpoint["default"].contact, data);
+}; // Quiz
+
+
+exports.contact = contact;
+
+var submitQuiz = function submitQuiz(data) {
+  return _index["default"].post(_endpoint["default"].submitQuiz, data);
+};
+
+exports.submitQuiz = submitQuiz;
+
+var submitQuizUser = function submitQuizUser(data) {
+  return _index["default"].post(_endpoint["default"].submitQuizUser, data);
+};
+
+exports.submitQuizUser = submitQuizUser;
+
+var getQuiz = function getQuiz(data) {
+  return _index["default"].get(_endpoint["default"].getQuiz, data);
+};
+
+exports.getQuiz = getQuiz;
+
+var getQuizNext = function getQuizNext(id, data) {
+  return _index["default"].get(_endpoint["default"].getQuiz + "/" + id, data);
+};
+
+exports.getQuizNext = getQuizNext;
+
+},{"./endpoint":35,"./index":37}],37:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var API_BASE_URL = '';
+// const API_BASE_URL = '';
 var http = {
   request: function request(method, url, data) {
     var headers = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};

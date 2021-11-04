@@ -5,6 +5,7 @@
 import http from './src/services';
 import QuizLib from './src/components/Quiz';
 import ModalLib from './src/components/Modal';
+import { getQuiz, getQuizNext } from './src/services/general';
 
 http.init();
 
@@ -16,7 +17,7 @@ http.init();
     {
       id: 1,
       question: 'Which industry are you working in?',
-      type: 'tags', // 
+      type: 'tags', //
       answers: [
         {
           id: 1,
@@ -75,7 +76,9 @@ http.init();
       ]
     }
   ];
-  const onSubmit = (result) => {
+
+  const onSubmit = (result, step = null) => {
+    console.log(result, step);
     // Show loader
     document.querySelector('.loader__page').setAttribute('data-state', 'open');
 
@@ -92,8 +95,32 @@ http.init();
 
     }, 4000);
   };
-  new QuizLib(data, onSubmit).init();
 
+  const onQuizNext = (step = null) => {
+    console.log(result, step);
+    if (step != null) {
+        getQuizNext(step).then(function (response) {
+            console.log(response);
+            quiz.createQuestion(response.data.quiz, step)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        });
+    } else {
+        getQuiz().then(function (response) {
+            console.log(response);
+            quiz.setTotalCount(response.data.total)
+            quiz.createQuestion(response.data.quiz, 0)
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+    }
+  };
+  onQuizNext();
+  var quiz = new QuizLib(onQuizNext, onSubmit).init();
   // Modal
   new ModalLib().init();
 })();

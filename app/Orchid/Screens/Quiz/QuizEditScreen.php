@@ -11,6 +11,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
 use Illuminate\Http\Request;
 use App\Orchid\Layouts\Quiz\OptionListLayout;
+use Orchid\Screen\Fields\Cropper;
 
 
 class QuizEditScreen extends Screen
@@ -90,8 +91,13 @@ class QuizEditScreen extends Screen
                     ->options([
                         'tags' => 'Tags',
                         'binary'  => 'Binary',
-                        'steps'  => 'Steps',
+                        'step'  => 'Step',
                     ])
+                    ->required(),
+
+                Cropper::make('quiz.decor_image_id')
+                    ->targetId()
+                    ->title('Quiz image decoration')
                     ->required(),
 
                 Select::make('quiz.status')

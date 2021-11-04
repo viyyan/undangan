@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use App\Models\QuizOption;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Screen\AsSource;
 
 
 class Quiz extends Model
 {
-    use Filterable;
+    use Filterable, AsSource, Attachable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +24,7 @@ class Quiz extends Model
         'order',
         'status',
         'type',
+        'decor_image_id',
     ];
 
      /**
@@ -43,6 +47,23 @@ class Quiz extends Model
     public function options()
     {
         return $this->hasMany(QuizOption::class)->orderBy('code', 'asc');
+    }
+
+    /**
+     * Get hero for the post.
+     */
+    public function decorImage()
+    {
+        return $this->belongsTo(Attachment::class, 'decor_image_id');
+    }
+
+    /**
+     * Get hero imageUrl for the post.
+     */
+    public function decorImageUrl()
+    {
+        $image = $this->decorImage()->first();
+        return !empty($image) ? $image->url() : null;
     }
 
 }
