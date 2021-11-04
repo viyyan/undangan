@@ -118,6 +118,13 @@ module.exports = function (grunt) {
         ],
         dest: '<%= meta.public %>css/contact.css',
       },
+      our_thinking_css: {
+        src: [
+          // Slick,
+          '<%= meta.public %>css/our-thinking.css',
+        ],
+        dest: '<%= meta.public %>css/our-thinking.css',
+      },
       quiz_js: {
         src: [
           './node_modules/jquery/dist/jquery.slim.js',
@@ -130,6 +137,7 @@ module.exports = function (grunt) {
       our_thinking_js: {
         src: [
           './node_modules/jquery/dist/jquery.js',
+          // SLick,
           '<%= meta.public %>js/our-thinking.js',
         ],
         dest: '<%= meta.public %>js/our-thinking.js',
@@ -173,7 +181,8 @@ module.exports = function (grunt) {
         files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
         tasks: [
           'sass',
-          'concat:contact_css'
+          'concat:contact_css',
+          'concat:our_thinking_css'
         ],
       },
       script: {
@@ -237,6 +246,7 @@ module.exports = function (grunt) {
     'clean:dev',
     'sass',
     'concat:contact_css',
+    'concat:our_thinking_css',
     // 'concat:quiz',
     'postcss',
     // 'pug',
