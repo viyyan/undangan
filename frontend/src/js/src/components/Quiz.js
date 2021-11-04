@@ -421,7 +421,7 @@ class Quiz {
                 message: 'You must enter your name',
               }
             ],
-            'company_name': [
+            'company': [
               {
                 type: 'required',
                 message: 'You must enter your company name',

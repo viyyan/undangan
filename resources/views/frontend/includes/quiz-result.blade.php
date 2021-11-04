@@ -38,7 +38,7 @@
                   <img src="{{ frontImages('icon--work--dark.svg') }}" alt="" />
                 </div>
                 <div class="quiz__result__form__input">
-                  <input type="text" name="company_name" placeholder="Company Name *" />
+                  <input type="text" name="company" placeholder="Company Name *" />
                 </div>
               </div>
             </div>
