@@ -24,13 +24,15 @@
         <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('what-we-do--banner.png') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
-                <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                <div class="cta__header right--align">
+                    <h2 class="cta__title text--3xl">We perform extensive range of type of research.</h2>
                 </div>
-                <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                <div class="cta__body right-align">
+                    <p>Both in quantitative and qualitative methods across industries.
+                        Since our specialty is in the deep analysis, most of our project were conducted full service. However, we are open for opportunity to field work only.
+                        </p>
                 </div>
                 </div>
             </div>
@@ -124,20 +126,25 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--main-red-3">
+<div class="section section--space-md bg--main-red-3 our--tools">
     <div class="section__inner">
     <div class="container container--lg">
         <div class="section__main">
         <div class="cta cta--thumb-right cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('our--tools-banner.png') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
                 <div class="cta__header">
-                    <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
+                    <h2 class="cta__title text--3xl">Our Tools</h2>
                 </div>
                 <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a class="button button--white button--md mt-20" href="#"><span class="button__content"><span class="button__label">See all tools</span><span class="button__icon"><i class="icon__arrow">
+                        <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <polyline points="14 6 20 12 14 18"></polyline>
+                        </svg></i></span></span></a>
                 </div>
                 </div>
             </div>

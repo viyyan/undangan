@@ -14,6 +14,7 @@
     border-left: 0;
   }
 
+
   &__group {
     display: flex;
     flex-direction: row;
@@ -36,6 +37,36 @@
       width: 1.2rem;
       height: 1.2rem;
       fill: $color-white;
+    }
+  }
+}
+
+.p-our-study{
+  .page-top{
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 24.375rem;
+      height: 24.375rem;
+      background: linear-gradient(180deg, #A81D1D 0%, rgba(168, 29, 29, 0) 100%);
+      right: 28%;
+      bottom: -57%;
+      border-radius: 50%;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 20%;
+      height: 100%;
+      background: url('../images/case-study--ornament.png') no-repeat left -70px bottom -170px;
+      background-size: 100%;
+      left: 0;
+      bottom: 0;
+    }
+    &__info{
+      position: relative;
+      z-index: 1;
     }
   }
 }

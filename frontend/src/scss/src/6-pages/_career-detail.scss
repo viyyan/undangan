@@ -2,7 +2,7 @@
 // Career details
 //
 .p-career-detail {
-  &__main {
+  .main {
     .grid {
       align-items: inherit;
 
@@ -10,10 +10,28 @@
         height: 100%;
       }
     }
+    .page-top{
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        width: 30%;
+        height: 120%;
+        background: linear-gradient(180deg, #A81D1D 0%, rgba(168, 29, 29, 0) 100%);
+        background-size: 100%;
+        border-radius: 50%;
+        right: -10%;
+        bottom: -10%;
+      }
+      &__main {
+        position: relative;
+        z-index: 1;
+      }
+    }
   }
 
   &__content {
-    padding: 4.25rem
+    padding: 4.25rem;
   }
 
   &__form {
@@ -21,6 +39,29 @@
       &:first-child {
         border-top: 0;
       }
+    }
+  }
+}
+
+
+.career {
+  &__detail{
+    &__content{
+      padding: 2.5rem 4.25rem 6.25rem 4.25rem;
+    }
+    &__form{
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 100%;
+        background: url('../images/career-detail-ornament.png') no-repeat bottom;
+        background-size: 100%;
+        right: 0;
+        bottom: 0;
+      }
+
     }
   }
 }

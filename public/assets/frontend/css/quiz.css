@@ -2386,6 +2386,9 @@ p {
 .cta__body.right-align {
   text-align: right;
 }
+.cta__body .button {
+  margin-top: 2.5rem;
+}
 .cta__body p:first-child {
   margin-top: 0;
 }
