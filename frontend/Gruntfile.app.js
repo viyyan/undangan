@@ -120,7 +120,8 @@ module.exports = function (grunt) {
       },
       our_thinking_css: {
         src: [
-          // Slick,
+          './node_modules/slick-carousel/slick/slick-theme.css',
+          './node_modules/slick-carousel/slick/slick.css',
           '<%= meta.public %>css/our-thinking.css',
         ],
         dest: '<%= meta.public %>css/our-thinking.css',
@@ -137,7 +138,7 @@ module.exports = function (grunt) {
       our_thinking_js: {
         src: [
           './node_modules/jquery/dist/jquery.js',
-          // SLick,
+          './node_modules/slick-carousel/slick/slick.min.js',
           '<%= meta.public %>js/our-thinking.js',
         ],
         dest: '<%= meta.public %>js/our-thinking.js',
