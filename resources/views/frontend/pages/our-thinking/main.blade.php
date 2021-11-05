@@ -7,50 +7,41 @@
 @section('content')
 
 <div class="section section--space-md bg--main-red-4 slider--section">
-    <div class="slider">
-  
-        <div class="slider-inner">
-          <div class="slide" data-slide='1'>
-            <div class="content" style="background-color: #ff4d4d;">
-                <div class="slide__images">
-                    <img src="{{ frontImages('dummy--slider.png') }}" alt=""/>
-                </div>
-                <div class="slide__content">
-                    <h3>Consumer behavior in the Covid recovery: Polarizing “moving-on mindsets” within retail</h3>
+    <div class="section__slider">
+        <div class="slider__wrapper">
+            <div class="slider__wrapper__inner">
+            <div class="slider__thumb">
+                <img src="{{ frontImages('dummy--slider.png') }}" alt=""/>
+            </div>
+            <div class="slider__info">
+                <div class="container">
+                    <div class="card__category category"><span class="category__main">Retail Census</span></div>
+                    <h2 class="text--2xl">Consumer behavior in the Covid recovery: Polarizing “moving-on mindsets” within retail</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="cta__action">
+                    <a class="button button--white button--md" href="{{ route('our-thinking.details', 'slug') }}">
+                        <span class="button__content">
+                            <span class="button__label">Read more</span>
+                        <span class="button__icon">
+                        <i class="icon__arrow">
+                        <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="4" x2="20" y1="12" y2="12"></line>
+                            <polyline points="14 6 20 12 14 18"></polyline>
+                            </svg>
+                        </i>
+                        </span></span>
+                    </a>
+                    </div>
                 </div>
             </div>
-          </div>
-          
-          <div class="slide" data-slide='2'>
-            <div class="content" style="background-color: #32ff7e;"></div>
-          </div>
-          
-          <div class="slide" data-slide='3'>
-            <div class="content" style="background-color: #18dcff;"></div>
-          </div>
-          
-          <div class="slide" data-slide='4'>
-            <div class="content" style="background-color: #c56cf0;"></div>
-          </div>
+            </div>
         </div>
-          
-        <div class="indicators">
-          <div class="indicator" data-slide='1' active></div>
-          <div class="indicator" data-slide='2'></div>
-          <div class="indicator" data-slide='3'></div>
-          <div class="indicator" data-slide='4'></div>
+        <div>
+
         </div>
-        
-        <div class="arrows">
-          <div class="arrow-prev">
-            <i class="fas fa-chevron-left"></i>
-          </div>
-          <div class="arrow-next">
-            <i class="fas fa-chevron-right"></i>
-          </div>
+        <div>
+
         </div>
-      
       </div>
 </div>
 <div class="section section--space-md bg--main-red-4 top--section">
