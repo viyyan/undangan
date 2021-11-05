@@ -67,7 +67,7 @@
     <div class="container">
     <div class="grid gap--md">
         <div class="column--50">
-        <div class="card card__menu"><a href="#">
+        <div class="card card__menu"><a href="{{ route('our-pillars') }}">
             <div class="card__inner">
                 <div class="card__thumb">
                 <div class="card__thumb__image"><img src="{{ frontImages('card-menu--thumbnail.png') }}" alt=""/></div>
@@ -79,7 +79,7 @@
             <div class="card__deco"><span class="card__deco__icon"></span></div></a></div>
         </div>
         <div class="column--50">
-        <div class="card card__menu"><a href="#">
+        <div class="card card__menu"><a href="{{ route('our-people') }}">
             <div class="card__inner">
                 <div class="card__thumb">
                 <div class="card__thumb__image"><img src="{{ frontImages('icon--our-people.png') }}" alt=""/></div>
