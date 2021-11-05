@@ -17,6 +17,7 @@ class OurThinkingController extends Controller
     {
         $data = array(
             "cssFileName" => "our-thinking",
+            "jsFileName" => "our-thinking",
             "classBody" => "blog p-our-thinking"
         );
         return view('frontend.pages.our-thinking.main', $data);

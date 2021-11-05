@@ -28,6 +28,10 @@ $spaceFull: 2.5rem;
     max-width: none;
   }
 
+  &--xl {
+    max-width: #{$container-size-xl};
+  }
+
   &--md {
     max-width: #{$container-size-md};
   }

@@ -104,6 +104,13 @@
   }
 
   //
+  // date
+  &__date {
+    position: relative;
+    margin: 1.25rem 0;
+  }
+
+  //
   // Thumb
   &__thumb {
     position: relative;
@@ -154,7 +161,6 @@
           transition: all 0.4s;
         }
       }
-
       &__thumb {
         &:after {
           content: "";
@@ -180,6 +186,8 @@
           color: #{$color-white};
         }
       }
+
+      
 
       &__desc {
         max-width: 13.75rem;

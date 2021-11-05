@@ -17,7 +17,9 @@ class ContactController extends Controller
     {
         $data = array(
             "cssFileName" => "contact",
-            "classBody" => "p-contact"
+            "jsFileName" => "contact",
+            "classBody" => "p-contact",
+            "isContact" => true
         );
         return view('frontend.pages.contact-us.main', $data);
     }
