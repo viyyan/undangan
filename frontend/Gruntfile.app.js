@@ -126,6 +126,13 @@ module.exports = function (grunt) {
         ],
         dest: '<%= meta.public %>css/our-thinking.css',
       },
+      home_js: {
+        src: [
+          './node_modules/jquery/dist/jquery.js',
+          '<%= meta.public %>js/home.js',
+        ],
+        dest: '<%= meta.public %>js/home.js',
+      },
       quiz_js: {
         src: [
           './node_modules/jquery/dist/jquery.slim.js',
@@ -190,6 +197,7 @@ module.exports = function (grunt) {
         files: ['<%= meta.scripts %>/**/*.js'],
         tasks: [
           'browserify', 
+          'concat:home_js', 
           'concat:quiz_js', 
           'concat:our_thinking_js',
           'concat:contact_js'
@@ -252,6 +260,7 @@ module.exports = function (grunt) {
     'postcss',
     // 'pug',
     'browserify',
+    'concat:home_js', 
     'concat:quiz_js', 
     'concat:our_thinking_js',
     'concat:contact_js',
