@@ -18,6 +18,7 @@ class HomeController extends Controller
 
         $data = array(
             "cssFileName" => "home",
+            "jsFileName" => "home",
             "cssBody" => "home",
         );
         return view('frontend.pages.home.main', $data);
