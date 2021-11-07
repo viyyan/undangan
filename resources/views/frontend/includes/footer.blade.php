@@ -8,7 +8,10 @@
         <div class="footer__inner">
         <div class="footer__primary">
             <div class="footer__logo"><a href="index.html" title=""><img src="{{ frontImages('logo--main.svg') }}" alt="Clove"></a></div>
-            <div class="footer__social"><a href="#" title=""><i class="fab fa-instagram"></i></a><a href="#" title=""><i class="fab fa-linkedin"></i></a></div>
+            <div class="footer__social">
+                <a href="#" title=""><i class="fab fa-instagram"><img src="{{ frontImages('instagram.svg') }}" alt="Linkedin"></i></a>
+                <a href="#" title=""><i class="fab fa-instagram"><img src="{{ frontImages('linkedin.svg') }}" alt="Instagram"></i></a>
+            </div>
             <div class="footer__nav">
             <p><a href="#">Privacy Policy</a><span>|</span><a href="#">Terms & Condition</a><span>|</span><a href="#">Contact Us</a></p>
             </div>

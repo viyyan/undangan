@@ -106,17 +106,17 @@
                 <div class="feature__count">
                     <div class="feature__count__block">
                         <span>We’ve been running for</span>
-                        <h3 class="text--2xl">3</h3>
+                        <h3 class="text--2xl count">3</h3>
                         <span>Year</span>
                     </div>
                     <div class="feature__count__block">
                         <span>With nearly</span>
-                        <h3 class="text--2xl">100</h3>
+                        <h3 class="text--2xl count">100</h3>
                         <span>Projects</span>
                     </div>
                     <div class="feature__count__block">
                         <span>With</span>
-                        <h3 class="text--2xl">30</h3>
+                        <h3 class="text--2xl count">30</h3>
                         <span>Repeated clients</span>
                     </div>
                 </div>
@@ -323,7 +323,7 @@
 </div>
 <div class="home__testimony">
     <div class="section section--space--lg bg--main-red-2">
-    <div class="section__bg" style="background-image: url({{ frontImages('home__testimony--bg.jpeg') }})"></div>
+    <div class="section__bg" style="background-image: url({{ frontImages('home__testimony--bg.jpg') }})"></div>
     <div class="container">
         <div class="section__main">
         <div class="section__body">
