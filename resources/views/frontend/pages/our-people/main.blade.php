@@ -43,7 +43,7 @@
     </div>
 </div>
 <div class="section section--space-md bg--main-red-3">
-    <div class="section__inner">
+    <div class="section__inner" style="position: relative;z-index:30;">
     <div class="container">
         <div class="section__main">
         <div class="section__header section__header--center">
@@ -63,7 +63,7 @@
     </div>
 </div>
 <div class="section section--space-md bg--main-red-5">
-    <div class="section__inner">
+    <div class="section__inner" style="position: relative;z-index:30;">
     <div class="container">
         <div class="section__main">
         <div class="section__header section__header--center">
