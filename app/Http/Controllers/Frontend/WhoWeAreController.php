@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Member;
 
 
 class WhoWeAreController extends Controller
@@ -44,10 +45,27 @@ class WhoWeAreController extends Controller
      */
     public function ourPeople(Request $request)
     {
+        $result = Member::where('status', 1)->with('category')->orderBy('order')->get();
+
+        $members = array();
+        $leaders = array();
+        foreach ($result as $item) {
+            if (strtolower($item->category->name) == "leaders") {
+                $leaders[] = $item;
+            } else {
+                $members[] = $item;
+            }
+        }
+
         $data = array(
             "cssFileName" => "our-people",
-            "classBody" => "p-our-people bg--main-red-4"
+            "classBody" => "p-our-people bg--main-red-4",
+            "leaders" => $leaders,
+            "members" => $members,
         );
+        // echo "<pre>";
+        // print_r($members);
+        // echo "<pre>";exit();
         return view('frontend.pages.our-people.main', $data);
     }
 

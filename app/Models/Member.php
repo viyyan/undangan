@@ -56,10 +56,10 @@ class Member extends Model
     /**
      * Get hero imageUrl for the post.
      */
-    public function photoUrl($size = '1000x610')
+    public function photoUrl()
     {
         $image = $this->photo()->first();
-        return !empty($image) ? $image->url() : "https://via.placeholder.com/${size}.png?text=taisho.co.id";
+        return !empty($image) ? $image->url() : frontImages('dummy-ava.png');
     }
 
     /**

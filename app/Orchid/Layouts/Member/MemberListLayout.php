@@ -22,9 +22,9 @@ class MemberListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('title', 'Title')
+            TD::make('name', 'Name')
                 ->render(function (Member $member) {
-                    return Link::make($member->title)
+                    return Link::make($member->name)
                         ->route('platform.member.edit', $member);
                 }),
 

@@ -139,7 +139,7 @@
                     <h2 class="cta__title text--3xl">Our Tools</h2>
                 </div>
                 <div class="cta__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Monitor the survey progress and reports live and engage with the research data and insights.</p>
                     <a class="button button--white button--md mt-20" href="{{ route('our-tools') }}"><span class="button__content"><span class="button__label">See all tools</span><span class="button__icon"><i class="icon__arrow">
                         <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <line x1="4" x2="20" y1="12" y2="12"></line>

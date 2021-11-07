@@ -20,9 +20,9 @@
                     <h3 class="cta__subtitle text--xl">Creating loyalty and value</h3>
                     </div>
                     <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with 100% audio checking, tailored to your need.</p>
+                    <p>The first market research consultant that provide transparent data, with <b>100% AUDIO CHECKING</b>, tailored to your need.</p>
                     </div>
-                    <div class="cta__action"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Who we are</span><span class="button__icon"><i class="icon__arrow">
+                    <div class="cta__action"><a class="button button--white button--md" href="{{ route('who-we-are') }}"><span class="button__content"><span class="button__label">Who we are</span><span class="button__icon"><i class="icon__arrow">
                             <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="4" x2="20" y1="12" y2="12"></line>
                                 <polyline points="14 6 20 12 14 18"></polyline>
@@ -82,7 +82,7 @@
             </div>
             </div>
         </div>
-        <div class="section__footer"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Learn More</span><span class="button__icon"><i class="icon__arrow">
+        <div class="section__footer"><a class="button button--white button--md" href="{{ route('our-pillars') }}"><span class="button__content"><span class="button__label">Learn More</span><span class="button__icon"><i class="icon__arrow">
                     <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <line x1="4" x2="20" y1="12" y2="12"></line>
                     <polyline points="14 6 20 12 14 18"></polyline>
@@ -135,7 +135,7 @@
                         <div class="card__info__main">
                             <div class="card__category category"><span class="category__main">Retail Census</span></div>
                             <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">3 steps to streamline assortment and merchandising solutions</a></h3>
+                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
                             </div>
                         </div>
                         </div>
@@ -155,7 +155,7 @@
                         <div class="card__info__main">
                             <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
                             <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
+                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
                             </div>
                         </div>
                         </div>
@@ -175,7 +175,7 @@
                         <div class="card__info__main">
                             <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
                             <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">Improving a New Product for Commercial Acceleration</a></h3>
+                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
                             </div>
                         </div>
                         </div>
@@ -186,7 +186,7 @@
                 </div>
             </div>
             </div>
-            <div class="section__footer"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
+            <div class="section__footer"><a class="button button--white button--md" href="{{ route('case-study') }}"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
                     <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <line x1="4" x2="20" y1="12" y2="12"></line>
                         <polyline points="14 6 20 12 14 18"></polyline>
@@ -213,7 +213,7 @@
                     <div class="cta__body">
                     <p>Access your free assessment by answering 6 questions to discover the most suitable research you need.</p>
                     </div>
-                    <div class="cta__action"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">Let’s go!</span><span class="button__icon"><i class="icon__arrow">
+                    <div class="cta__action"><a class="button button--white button--md" href="{{ route('market-research') }}"><span class="button__content"><span class="button__label">Let’s go!</span><span class="button__icon"><i class="icon__arrow">
                             <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="4" x2="20" y1="12" y2="12"></line>
                                 <polyline points="14 6 20 12 14 18"></polyline>
@@ -249,9 +249,8 @@
                     <div class="card__info">
                         <div class="card__info__inner">
                         <div class="card__info__main">
-                            <div class="card__category category"><span class="category__main">Retail Census</span></div>
                             <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">3 steps to streamline assortment and merchandising solutions</a></h3>
+                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
                             </div>
                         </div>
                         </div>
@@ -269,9 +268,8 @@
                     <div class="card__info">
                         <div class="card__info__inner">
                         <div class="card__info__main">
-                            <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
                             <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
+                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
                             </div>
                         </div>
                         </div>
@@ -282,7 +280,7 @@
                 </div>
             </div>
             </div>
-            <div class="section__footer"><a class="button button--white button--md" href="#"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
+            <div class="section__footer"><a class="button button--white button--md" href="{{ route('our-thinking') }}"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
                     <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <line x1="4" x2="20" y1="12" y2="12"></line>
                         <polyline points="14 6 20 12 14 18"></polyline>
@@ -346,7 +344,7 @@
             <div class="chat__info__thumb"><img src="{{ frontImages('chat--thumbnail.png') }}" alt=""></div>
             <div class="chat__info__main">
                 <h2 class="text--3xl">So, let’s have a chat!</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Your concern is the most important for us.</p>
             </div>
             </div>
         </div>

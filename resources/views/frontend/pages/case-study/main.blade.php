@@ -49,13 +49,13 @@
                     <div class="select__options">
                     <ul>
                         <li>
-                        <button type="button" data-value="all"><span>All</span></button>
+                            <button type="button" data-value="all"><span>All</span></button>
                         </li>
                         <li>
-                        <button type="button" data-value="2"><span>Retail Census</span></button>
+                            <button type="button" data-value="2"><span>Electronic Products</span></button>
                         </li>
                         <li>
-                        <button type="button" data-value="3"><span>Event Evaluation</span></button>
+                            <button type="button" data-value="3"><span>Vinyl & HPL</span></button>
                         </li>
                     </ul>
                     </div>
@@ -75,13 +75,13 @@
                     <div class="select__options">
                     <ul>
                         <li>
-                        <button type="button" data-value="all"><span>All</span></button>
+                            <button type="button" data-value="all"><span>All</span></button>
                         </li>
                         <li>
-                        <button type="button" data-value="2"><span>Electronic Products</span></button>
+                            <button type="button" data-value="2"><span>Retail Census</span></button>
                         </li>
                         <li>
-                        <button type="button" data-value="3"><span>Vinyl & HPL</span></button>
+                            <button type="button" data-value="3"><span>Event Evaluation</span></button>
                         </li>
                     </ul>
                     </div>
