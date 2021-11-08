@@ -23,7 +23,7 @@
         <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--xl">
-                <div class="cta__thumbnail column--40 banner"><img src="{{ frontImages('our--people-banner.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--40 banner"><img src="{{ frontImages('our--people-banner.png', '2') }}" alt=""/></div>
                 <div class="cta__content column--60 cta__content--left">
                 <div class="cta__header right--align">
                     <h2 class="cta__title text--3xl">Meet our architects for your marketing concerns & solutions</h2>

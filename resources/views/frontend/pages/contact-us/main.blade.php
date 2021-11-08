@@ -28,7 +28,7 @@
           <div class="cta cta--thumb-left cta--align--middle">
               <div class="cta__inner">
               <div class="cta__main grid gap--2xl">
-                  <div class="cta__thumbnail column--50"><img src="{{ frontImages('contact--thumbnail.png') }}" alt=""/></div>
+                  <div class="cta__thumbnail column--50"><img src="{{ frontImages('contact--thumbnail.png', '2') }}" alt=""/></div>
                   <div class="cta__content column--50 cta__content--left">
                   <div class="cta__header">
                       <h2 class="cta__title text--3xl">Let’s get in touch!</h2>

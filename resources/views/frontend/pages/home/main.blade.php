@@ -13,7 +13,7 @@
             <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
                 <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png') }}" alt="Hello We are Clove"/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('cta--thumbnail.png', '2') }}" alt="Hello We are Clove"/></div>
                 <div class="cta__content column--50 cta__content--left">
                     <div class="cta__header">
                     <h2 class="cta__title text--3xl">Hello, we are Clove</h2>

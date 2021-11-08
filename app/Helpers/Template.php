@@ -12,8 +12,8 @@ function frontAssets($file) {
 /**
  * frontImage
  */
-function frontImages($image) {
-    return asset('assets/frontend/images/' . $image);
+function frontImages($image, $v = null) {
+    return asset('assets/frontend/images/' . $image . (isset($v) ? '?v='.$v : ''));
 }
 
 /**

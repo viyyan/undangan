@@ -24,7 +24,7 @@
         <div class="cta cta--thumb-right cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid">
-                <div class="cta__thumbnail column--40"><img src="{{ frontImages('about--who-we-are.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--40"><img src="{{ frontImages('about--who-we-are.png', '2') }}" alt=""/></div>
                 <div class="cta__content column--60 cta__content--left">
                 <div class="cta__header">
                     <h2 class="cta__title text--3xl">Clove’s DNA is to engage and give the best solution to any marketing concern.</h2>
@@ -47,7 +47,7 @@
         <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('about--concern.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('about--concern.png', '2') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
                 <div class="cta__header">
                     <h2 class="cta__title text--3xl">We focus on listening to your concern and providing impactful insights to advance your businesses. </h2>

@@ -24,7 +24,7 @@
         <div class="cta cta--thumb-left cta--align--middle">
             <div class="cta__inner">
             <div class="cta__main grid gap--2xl">
-                <div class="cta__thumbnail column--50"><img src="{{ frontImages('what-we-do--banner.png') }}" alt=""/></div>
+                <div class="cta__thumbnail column--50"><img src="{{ frontImages('what-we-do--banner.png', '2') }}" alt=""/></div>
                 <div class="cta__content column--50 cta__content--left">
                 <div class="cta__header right--align">
                     <h2 class="cta__title text--3xl">We perform extensive range of type of research.</h2>
