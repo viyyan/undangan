@@ -27,7 +27,7 @@
             </div>
             </div>
         </div>
-        <div class="footer__chat"><a href="#"><img src="{{ frontImages('quiz--bottom.png') }}" alt=""></a></div>
+        <div class="footer__chat"><a href="{{ route('market-research') }}"><img src="{{ frontImages('quiz--bottom.png') }}" alt=""></a></div>
         </div>
     </div>
     </footer>
