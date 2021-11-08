@@ -80,9 +80,11 @@
 
   &__chat {
     width: 13.75rem;
-    position: absolute;
+    position: fixed;
+    z-index: 20;
     bottom: 0;
     right: 0;
+    display: none;
 
     img {
       width: 100%;
