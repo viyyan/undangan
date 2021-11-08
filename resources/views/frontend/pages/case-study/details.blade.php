@@ -77,7 +77,7 @@
             <div class="chat__info__thumb"><img src="{{ frontImages('chat--thumbnail.png') }}" alt=""></div>
             <div class="chat__info__main">
                 <h2 class="text--3xl">So, let’s have a chat!</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Your concern is the most important for us.</p>
             </div>
             </div>
         </div>
