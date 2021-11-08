@@ -27,7 +27,9 @@
             </div>
             </div>
         </div>
+        @if(Request::is('/'))
         <div class="footer__chat"><a href="{{ route('market-research') }}"><img src="{{ frontImages('quiz--bottom.png') }}" alt=""></a></div>
         </div>
+        @endif
     </div>
     </footer>
