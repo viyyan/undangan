@@ -89,8 +89,8 @@ class MemberEditScreen extends Screen
                 Cropper::make('member.photo_id')
                     ->targetId()
                     ->title('Photo member')
-                    ->width(640)
-                    ->height(640),
+                    ->width(800)
+                    ->height(800),
 
                 Relation::make('member.category_id')
                     ->title('Member level / category')
