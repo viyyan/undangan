@@ -98,7 +98,7 @@
         <div class="container">
         <div class="section__main">
             <div class="section__header">
-            <div class="section__header__main">
+            <div class="section__header__main" id="counter">
                 <h2 class="text--3xl">What we’ve done</h2>
                 <p>We provide you with solutions for improvement to <br />help you business grow.</p>
             </div>
@@ -106,17 +106,17 @@
                 <div class="feature__count">
                     <div class="feature__count__block">
                         <span>We’ve been running for</span>
-                        <h3 class="text--2xl count">3</h3>
+                        <h3 class="text--2xl count" data-count="3">0</h3>
                         <span>Year</span>
                     </div>
                     <div class="feature__count__block">
                         <span>With nearly</span>
-                        <h3 class="text--2xl count">100</h3>
+                        <h3 class="text--2xl count" data-count="100">0</h3>
                         <span>Projects</span>
                     </div>
                     <div class="feature__count__block">
                         <span>With</span>
-                        <h3 class="text--2xl count">30</h3>
+                        <h3 class="text--2xl count" data-count="30">0</h3>
                         <span>Repeated clients</span>
                     </div>
                 </div>
