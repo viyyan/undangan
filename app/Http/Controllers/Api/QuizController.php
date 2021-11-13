@@ -22,7 +22,7 @@ class QuizController extends ApiController
     {
         $quiz = Quiz::where('status', 1)
                 ->orderBy('order', 'asc')
-                ->with('options')->first();
+                ->with('options')->with('options.optionChilds')->first();
         $next_id = null;
         if (isset($quiz)) {
             $next = Quiz::where('status', 1)
@@ -58,13 +58,13 @@ class QuizController extends ApiController
         if (isset($sub)) {
             $quiz = $quiz->first();
             if ($quiz->is_check_prev === 1) {
-                $options = $quiz->options()->whereJsonContains('sub_options', $sub)->get();
+                $options = $quiz->options()->whereJsonContains('sub_options', $sub)->with('optionChilds')->get();
             } else {
-                $options = $quiz->options()->get();
+                $options = $quiz->options()->with('optionChilds')->get();
             }
             $quiz->options = $options;
         } else {
-            $quiz = $quiz->with('options')->first();
+            $quiz = $quiz->with(['options', 'options.optionChilds'])->first();
         }
         $total = Quiz::where('status', 1)->count();
 

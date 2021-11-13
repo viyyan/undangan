@@ -12,6 +12,7 @@ use Orchid\Screen\Fields\Select;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Group;
 use App\Orchid\Layouts\Quiz\SubOptionListLayout;
+use App\Orchid\Layouts\Quiz\OptionChildListLayout;
 
 
 class OptionEditScreen extends Screen
@@ -47,6 +48,7 @@ class OptionEditScreen extends Screen
         return [
             'quizoption' => $quizoption,
             'sub_options' => isset($quizoption->sub_options) ? $quizoption->sub_options : [],
+            'option_childs' => $quizoption->optionChilds
         ];
     }
 
@@ -115,8 +117,16 @@ class OptionEditScreen extends Screen
                         ->method('addSubOption')
                         ->class('btn btn-success'),
                 ]),
-            ])->title('Sub Options'),
+            ])->title('Prev Options Combinations'),
             SubOptionListLayout::class,
+
+            Layout::rows([
+                Button::make('Add Option Child')
+                    ->icon('plus')
+                    ->method('addChild')
+                    ->class('btn btn-primary'),
+            ])->title('Quiz Option Child'),
+            OptionChildListLayout::class,
         ];
     }
 
@@ -191,5 +201,17 @@ class OptionEditScreen extends Screen
         $quizoption->fill($request->get('quizoption'));
         $quizoption->save();
         return $quizoption;
+    }
+
+    /**
+     * @param QuizOption    $quizOption
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addChild(QuizOption $quizOption, Request $request)
+    {
+        $quiz = $this->_save($quizOption, $request);
+        return redirect()->route('platform.quiz.option.child.edit', ['quiz_option_name' => $quizOption->name, 'quiz_option_id' => $quizOption->id]);
     }
 }

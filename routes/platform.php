@@ -21,6 +21,7 @@ use App\Orchid\Screens\Member\MemberEditScreen;
 use App\Orchid\Screens\Quiz\QuizListScreen;
 use App\Orchid\Screens\Quiz\QuizEditScreen;
 use App\Orchid\Screens\QuizOption\OptionEditScreen;
+use App\Orchid\Screens\QuizOption\OptionChildEditScreen;
 use App\Orchid\Screens\CaseStudy\CaseStudyListScreen;
 use App\Orchid\Screens\CaseStudy\CaseStudyEditScreen;
 use Illuminate\Support\Facades\Route;
@@ -113,6 +114,15 @@ Route::screen('option/{option?}', OptionEditScreen::class)
         return $trail
             ->parent('platform.quiz.edit')
             ->push(__('Quiz Option'));
+    });
+
+// Platform > Quiz > Option > Child
+Route::screen('option-child/{child?}', OptionChildEditScreen::class)
+    ->name('platform.quiz.option.child.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.quiz.option.edit')
+            ->push(__('Quiz Option Child'));
     });
 
 // Platform > Career

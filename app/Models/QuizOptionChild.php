@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
-use App\Models\QuizOptionChild;
+use App\Models\QuizOption;
 
 
-class QuizOption extends Model
+class QuizOptionChild extends Model
 {
     use Filterable;
 
@@ -18,9 +18,8 @@ class QuizOption extends Model
      */
     protected $fillable = [
         'name',
-        'quiz_id',
+        'quiz_option_id',
         'code',
-        'sub_options',
         'status',
     ];
 
@@ -42,28 +41,12 @@ class QuizOption extends Model
         'updated_at'
     ];
 
-
-    /**
-     * Get children for the option.
+     /**
+     * Get hero for the post.
      */
-    public function optionChilds()
+    public function parent()
     {
-        return $this->hasMany(QuizOptionChild::class)->orderBy('code', 'asc');
-    }
-
-
-    //Add extra attribute
-    protected $attributes = ['has_children'];
-
-    //Make it available in the json response
-    protected $appends = ['has_children'];
-
-    /**
-     * Get children for the product.
-     */
-    public function getHasChildrenAttribute()
-    {
-        return $this->optionChilds()->exists();
+        return $this->belongsTo(QuizOption::class, 'quiz_option_id');
     }
 
 }

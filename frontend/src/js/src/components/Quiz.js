@@ -16,6 +16,7 @@ class Quiz {
     this.defaultAnswers = {};
     this.questionsTotal = 0;
     this.question = {};
+    this.isChild = false;
 
     // Set callback
     this.onQuizNext = onQuizNext;
@@ -131,14 +132,14 @@ class Quiz {
    *
    * @return mixed
    */
-  createAnswers(item) {
-    const answers = item.options;
+  createAnswers(item, childIdx = null) {
+    const answers = childIdx === null ? item.options : item.options[childIdx].option_childs ;
     const answersEl = document.createElement('DIV');
     answersEl.classList.add('quiz__answers');
 
     const innerEl = document.createElement('OL');
 
-    answers.forEach((answer) => {
+    answers.forEach((answer, idx) => {
       const answerEl = document.createElement('LI');
       const buttonEl = document.createElement('BUTTON');
       const buttonTxt = document.createTextNode(answer.name);
@@ -152,7 +153,15 @@ class Quiz {
       buttonEl.addEventListener('click', (evt) => {
         evt.preventDefault();
         evt.stopPropagation();
-        this.onSelect(answer, item, buttonEl, answersEl);
+        this.onSelect(answer, answer.has_children, buttonEl, answersEl, childIdx !== null);
+        if (answer.has_children) {
+            var child = this.createAnswers(item, idx);
+            answersEl.innerHTML = "";
+            answersEl.appendChild(child);
+            this.isChild = true;
+        } else {
+            this.isChild = false;
+        }
       });
 
       buttonEl.appendChild(buttonTxt);
@@ -240,6 +249,10 @@ class Quiz {
       buttonNext.querySelector('.button__label').textContent
         = buttonNext.getAttribute('data-label-next');
 
+      if (this.isChild) {
+          this.createQuestion(this.question, this.step);
+          return;
+      }
       const prevStep = this.step - 1;
       if (prevStep > 0) {
         this.step = prevStep;
@@ -294,9 +307,9 @@ class Quiz {
    *
    * @return mixed
    */
-  onSelect(answer, question, buttonEl, answersEl) {
+  onSelect(answer, hasChild, buttonEl, answersEl, isChild = false) {
     if (typeof this.answers[this.step - 1] !== 'undefined') {
-      this.answers[this.step - 1] = answer.code;
+        this.answers[this.step - 1] = isChild ? this.answers[this.step - 1] +"-"+ answer.code : answer.code;
     }
 
     const state = buttonEl.getAttribute('data-state');
@@ -319,9 +332,7 @@ class Quiz {
   checkSelectionError() {
     const stepIndex = this.step - 1;
     const answer = this.answers[stepIndex];
-    console.log(answer);
-
-    if (! answer || answer === '') {
+    if (! answer || answer === '' || (this.isChild && !(answer.toString().includes('-')))) {
       // Show error
       document.querySelector('.quiz__alert-error').setAttribute('data-state', 'open');
 

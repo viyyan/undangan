@@ -38,7 +38,6 @@ http.init();
     if (step != null || step > 1) {
         var params = {}
         if (answers !== null && answers.length > 0) {
-            console.log(answers);
             params['sub_options'] = answers.join(".");
             console.log(params);
         }
