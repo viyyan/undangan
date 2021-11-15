@@ -55,6 +55,18 @@
               </div>
             </div>
           </div>
+          <div class="quiz__result__form__fields">
+            <div class="quiz__result__form__field">
+              <div class="quiz__result__form__field__inner">
+                <div class="quiz__result__form__icon">
+                  <img src="{{ frontImages('icon--email--dark.svg') }}" alt="" />
+                </div>
+                <div class="quiz__result__form__input">
+                  <input type="phone" name="phone" placeholder="Phone number" />
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="quiz__result__actions">
             <div class="quiz__result__action">
               <button class="button button--white button--md quiz__result__action__reset" type="button">
