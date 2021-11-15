@@ -272,6 +272,9 @@
           padding: 0 0.625rem;
         }
       }
+      &__fields:not(:last-child) {
+        margin-bottom: 2rem;
+      }
       &__field {
         position: relative;
 
