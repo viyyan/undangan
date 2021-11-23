@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 /**
  * frontAssets
  */
-function frontAssets($file) {
-    return asset('assets/frontend/' . $file);
+function frontAssets($file, $v = null) {
+    return asset('assets/frontend/' . $file . (isset($v) ? '?v='.$v : ''));
 }
 
 /**
