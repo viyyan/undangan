@@ -91,13 +91,16 @@ class Quiz {
    */
   createQuestion(item, step) {
     this.question = item;
+    const rootEl = document.createElement('DIV');
+    rootEl.setAttribute('data-id', item.id);
+    rootEl.setAttribute('data-type', item.type);
+    rootEl.classList.add('quiz__question');
+
     const itemEl = document.createElement('DIV');
-    itemEl.setAttribute('data-id', item.id);
-    itemEl.setAttribute('data-type', item.type);
-    itemEl.classList.add('quiz__question');
+    itemEl.classList.add('quiz__question__inner');
 
     // if (index === 0) {
-    itemEl.setAttribute('data-state', 'active');
+    rootEl.setAttribute('data-state', 'active');
     // }
 
     const titleEl = document.createElement('H3');
@@ -109,8 +112,9 @@ class Quiz {
     const answersEl = this.createAnswers(item);
     itemEl.appendChild(answersEl);
 
+    rootEl.appendChild(itemEl);
     this.contentEl.innerHTML = ""
-    this.contentEl.appendChild(itemEl);
+    this.contentEl.appendChild(rootEl);
 
     // Prepare answers variable
     const key = this.getQuestionKey(item);
@@ -125,6 +129,9 @@ class Quiz {
         this.decorEl.innerHTML = ""
         this.decorEl.appendChild(imgEl);
     }
+    
+    // checkLayout
+    this.checkLayout();
   }
 
   /**
@@ -472,17 +479,41 @@ class Quiz {
   }
 
   setResult(data) {
-        this.categories = data.categories;
-        this.answers = data.answers;
-        var res = "";
-        this.categories.forEach(function(item, idx) {
-            if (idx > 0) {
-                res += ", ";
-            }
-            res += item.name;
-        });
-        this.resText.innerHTML = res;
+    this.categories = data.categories;
+    this.answers = data.answers;
+    var res = "";
+    this.categories.forEach(function(item, idx) {
+        if (idx > 0) {
+            res += ", ";
+        }
+        res += item.name;
+    });
+    this.resText.innerHTML = res;
+  }
+
+  /**
+   * checkLayout
+   */
+  checkLayout() {
+    const maxHeight = 350;
+    const rootEl = document.querySelector('.quiz__main');
+    rootEl.classList.remove('height-auto');
+    rootEl.classList.remove('height-full');
+
+    const contentEl = document.querySelector('.quiz__question__inner');
+    const contentHeight = contentEl.offsetHeight;
+
+    console.log(contentHeight);
+
+    if (contentHeight <= maxHeight) {
+      rootEl.classList.add('height-full');
+      rootEl.style.height = '560px';
+    } else {
+      rootEl.classList.add('height-auto');
+      rootEl.style.height = `${contentHeight + 250}px`;
     }
+
+  }
 }
 
 export default Quiz;

@@ -59,6 +59,8 @@
 
   &__main {
     height: 560px;
+    min-width: calc(68% - 1.5rem);
+    transition: height 0.4s;
 
     &__inner {
       padding: 3rem;
@@ -71,21 +73,53 @@
       flex: 1;
       position: relative;
     }
+
+    &.height-full {
+      .quiz__question__inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    // &.height-auto {
+    //   height: auto;
+    // }
   }
 
   &__action {
     display: flex;
     flex-direction: row;
     align-items: center;
+    // < 768px
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
 
     &__dir {
       margin-left: auto;
       display: flex;
       flex-direction: row;
       align-items: center;
+      // < 768px
+      @media (max-width: 768px) {
+        margin-left: 0;
+      }
 
       > * {
         margin-left: .625rem;
+        // < 768px
+        @media (max-width: 768px) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__reset {
+      // < 768px
+      @media (max-width: 768px) {
+        margin-top: 1rem;
       }
     }
 
@@ -111,8 +145,6 @@
     right: 0;
     opacity: 0;
     visibility: hidden;
-    display: flex;
-    flex-direction: column;
     transition: all 0.4s;
 
     &[data-state="active"] {

@@ -16,7 +16,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-lg bg--main-red-4">
+<div class="section section--space-lg bg--main-red-4 p-our-people__top">
     <div class="section__inner">
     <div class="container container--lg">
         <div class="section__main">
@@ -42,7 +42,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--main-red-3">
+<div class="section section--space-md bg--main-red-3 p-our-people__list">
     <div class="section__inner" style="position: relative;z-index:30;">
     <div class="container">
         <div class="section__main">
@@ -62,7 +62,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--main-red-5">
+<div class="section section--space-md bg--main-red-5 p-our-people__list">
     <div class="section__inner" style="position: relative;z-index:30;">
     <div class="container">
         <div class="section__main">
