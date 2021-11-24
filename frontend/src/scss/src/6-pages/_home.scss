@@ -73,12 +73,14 @@ $circle-size: 6.75rem;
     }
     
     .section__body .grid {
-      // < 480px
-      @media (max-width: 480px) {
+      // < 768px
+      @media (max-width: 768px) {
         flex-direction: column;
 
         > div {
           width: 100%;
+          max-width: 520px;
+          margin: 0 auto;
         }
       }
     }

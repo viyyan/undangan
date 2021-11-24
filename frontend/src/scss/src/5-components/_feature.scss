@@ -51,9 +51,17 @@ $thumb-deco-height: 10.25rem;
       text-align: left;
       &.wd-85{
         width: 85%;
+        // < 480px
+        @media (max-width: 480px) {
+          width: 100%;
+        }
       }
       &.wd-90{
         width: 90%;
+        // < 480px
+        @media (max-width: 480px) {
+          width: 100%;
+        }
       }
     }
 
@@ -130,6 +138,10 @@ $thumb-deco-height: 10.25rem;
       top:35%;
       z-index: 1; 
       background-size:100%;
+      // < 768px
+      @media (max-width: 768px) {
+        display: none;
+      } 
     }
     .absolute--number{
       right: -2rem;
@@ -149,6 +161,10 @@ $thumb-deco-height: 10.25rem;
       top:35%;
       z-index: 1;
       background-size:100%;
+      // < 768px
+      @media (max-width: 768px) {
+        display: none;
+      } 
     }
   }
   

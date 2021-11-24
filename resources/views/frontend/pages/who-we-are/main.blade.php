@@ -63,7 +63,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--main-red-2">
+<div class="section section--space-md bg--main-red-2 p-about__bottom">
     <div class="container">
     <div class="grid gap--md">
         <div class="column--50">

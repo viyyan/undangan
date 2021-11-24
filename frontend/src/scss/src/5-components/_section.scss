@@ -65,6 +65,17 @@
     p {
       margin-top: 1.25rem;
       margin-bottom: 0;
+      // < 480px
+      @media (max-width: 480px) {
+        line-height: 1.2;
+      }
+    }
+
+    &__main {
+      // < 768px
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
 
     &--center {

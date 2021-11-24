@@ -29,14 +29,38 @@
   &lg {
     font-size: $text-lg;
     line-height: $line-height-lg;
+    // < 768px
+    @media (max-width: 768px) {
+      font-size: 1.375rem;
+    }
+    // < 480px
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
   }
   &xl {
     font-size: $text-xl;
     line-height: $line-height-xl;
+    // < 768px
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+    // < 480px
+    @media (max-width: 480px) {
+      font-size: 1.375rem;
+    }
   }
   &2xl {
     font-size: $text-2xl;
     line-height: $line-height-2xl;
+    // < 768px
+    @media (max-width: 768px) {
+      font-size: 1.875rem;
+    }
+    // < 480px
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
   &3xl {
     font-size: $text-3xl;
@@ -47,7 +71,7 @@
     }
     // < 480px
     @media (max-width: 480px) {
-      font-size: 2.25rem;
+      font-size: 2rem;
       line-height: 1.1;
     }
   }
