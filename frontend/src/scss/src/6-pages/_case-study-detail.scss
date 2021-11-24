@@ -33,4 +33,33 @@
       justify-content: center;
       } 
   }
+
+  &__others {
+    .grid {
+      // < 768px
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+      // < 480px
+      @media (max-width: 480px) {
+        flex-direction: column;
+        margin: 0;
+      }
+
+      > div {
+        margin-bottom: 1.25rem;
+
+        // < 768px
+        @media (max-width: 768px) {
+          width: 50%;
+        }
+
+        // < 480px
+        @media (max-width: 480px) {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    }
+  }
 }

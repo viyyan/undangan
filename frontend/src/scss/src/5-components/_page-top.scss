@@ -67,9 +67,18 @@
       }
     }
 
+    h1 {
+      // < 768px
+      @media (max-width: 768px) {
+        margin-bottom: .75rem;
+      }
+    }
+
     p {
       max-width: 30rem;
       margin-left: auto;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 

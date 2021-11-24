@@ -69,7 +69,7 @@
     </div>
 </div>
 @include('frontend.includes.contact')
-<div class="section section--space-md bg--main-red-5">
+<div class="section section--space-md bg--main-red-5 p-case-study-detail__others">
     <div class="section__inner">
     <div class="container">
         <div class="section__main">

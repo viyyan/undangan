@@ -15,8 +15,26 @@
       top: 0;
     }
   }
+  &__studies {
+    .section__body .grid {
+      // < 768px
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+        > div {
+          width: 100%;
+          max-width: 32.5rem;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
   .our--tools{
     padding-bottom: 0;
+    // < 768px
+    @media (max-width: 768px) {
+      padding-bottom: 4rem;
+    }
     &::after{
       content: '';
       position: absolute;

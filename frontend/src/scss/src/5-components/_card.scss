@@ -420,6 +420,12 @@
   justify-content: space-between;
   z-index: 1;
   position: relative;
+  // < 480px
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &__desc{
     margin-top: 0;
     p{
@@ -429,5 +435,12 @@
   }
   &__button{
     margin-bottom: 0.5rem;
+  }
+
+  .card__button {
+    // < 480px
+    @media (max-width: 480px) {
+      margin-top: 1rem;
+    }
   }
 }
