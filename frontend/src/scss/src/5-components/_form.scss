@@ -153,6 +153,11 @@ form {
       @media (max-width: 992px) {
         margin-left: 1rem;
       }
+
+      // < 480px
+      @media (max-width: 480px) {
+        margin-top: 5px;
+      }
     }
 
     &__main {
@@ -170,6 +175,12 @@ form {
         flex-direction: row-reverse;
         align-items: center;
         margin-left: 0;
+      }
+      // < 480px
+      @media (max-width: 480px) {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        margin-top: 1rem;
       }
     }
 

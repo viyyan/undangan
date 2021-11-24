@@ -5,6 +5,19 @@
 
   &__main {
     align-items: center;
+    
+    // < 768px
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      > div {
+        width: 100%;
+
+        &:first-child {
+          margin-bottom: 2rem;
+        }
+      }
+    }
   }
 
   &__thumbnail {
