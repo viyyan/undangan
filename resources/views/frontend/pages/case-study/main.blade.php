@@ -30,23 +30,25 @@
             </div>
             <div class="section__header__widget">
             <div class="p-case-study__filter__group">
-                <div class="p-case-study__filter__icon">
+            <div class="p-case-study__filter__group__item">
+              <div class="p-case-study__filter__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" height="512pt" width="512pt" viewBox="0 0 512 512">
-                    <path d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"></path>
+                  <path d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"></path>
                 </svg>
-                </div>
-                <div class="p-case-study__filter__item">
+              </div>
+              <div class="p-case-study__filter__item">
                 <div class="select" data-state="close" data-filter="industries" data-value="">
-                    <div class="select__selected" data-placeholder="Industries">
+                  <div class="select__selected" data-placeholder="Industries">
                     <button type="button"> <span class="select__selected__label">Industries</span><span class="select__selected__icon"><i class="select__selected__icon__open">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792">
                             <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"></path>
                             </svg></i><i class="select__selected__icon__close">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792">
                             <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
-                            </svg></i></span></button>
-                    </div>
-                    <div class="select__options">
+                            </svg></i></span>
+                    </button>
+                  </div>
+                  <div class="select__options">
                     <ul>
                         <li>
                             <button type="button" data-value="all"><span>All</span></button>
@@ -58,21 +60,29 @@
                             <button type="button" data-value="3"><span>Vinyl & HPL</span></button>
                         </li>
                     </ul>
-                    </div>
+                  </div>
                 </div>
-                </div>
-                <div class="p-case-study__filter__item">
+              </div>
+              </div>
+              <div class="p-case-study__filter__group__item">
+              <div class="p-case-study__filter__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="512pt" width="512pt" viewBox="0 0 512 512">
+                    <path d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"></path>
+                </svg>
+              </div>
+              <div class="p-case-study__filter__item">
                 <div class="select" data-state="close" data-filter="type_of_research" data-value="">
-                    <div class="select__selected" data-placeholder="Type of research">
+                  <div class="select__selected" data-placeholder="Type of research">
                     <button type="button"> <span class="select__selected__label">Type of research</span><span class="select__selected__icon"><i class="select__selected__icon__open">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792">
                             <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"></path>
                             </svg></i><i class="select__selected__icon__close">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792">
                             <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
-                            </svg></i></span></button>
-                    </div>
-                    <div class="select__options">
+                            </svg></i></span>
+                    </button>
+                  </div>
+                  <div class="select__options">
                     <ul>
                         <li>
                             <button type="button" data-value="all"><span>All</span></button>
@@ -84,9 +94,10 @@
                             <button type="button" data-value="3"><span>Event Evaluation</span></button>
                         </li>
                     </ul>
-                    </div>
+                  </div>
                 </div>
-                </div>
+              </div>
+              </div>
             </div>
             <div class="p-case-study__filter__group">
                 <div class="p-case-study__filter__icon">
@@ -120,7 +131,7 @@
             </div>
             </div>
         </div>
-        <div class="section__body">
+        <div class="section__body p-case-study__main">
             <div class="grid gap--md">
             <div class="column--33">
                 <article class="card card--info-inside">

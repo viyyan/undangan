@@ -68,6 +68,9 @@ $spaceFull: 2.5rem;
 .column--100 {
   width: 100%;
 }
+.column--auto {
+  flex: 1;
+}
 .column--90 {
   width: 90%;
 }

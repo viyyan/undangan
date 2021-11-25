@@ -48,7 +48,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--main-red-5">
+<div class="section section--space-md bg--main-red-5 p-our-thinking-detail__others">
     <div class="section__inner">
     <div class="container">
         <div class="section__main">

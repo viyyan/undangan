@@ -17,7 +17,7 @@
     </div>
     </div>
 </div>
-<div class="section section--space-md bg--primary no--padding-bottom">
+<div class="section section--space-md bg--primary no--padding-bottom p-market-quiz__main">
     <div class="section__inner">
     <div class="container container--lg">
         <div class="section__main">

@@ -37,6 +37,10 @@
     visibility: hidden;
     opacity: 0;
     transform: translateY(-6.25rem);
+    // < 768px
+    @media (max-width: 768px) {
+      min-width: none;
+    }
   }
 
   &__close {
@@ -91,6 +95,10 @@
   .modal {
     &__main {
       min-width: 36rem;
+      // < 768px
+      @media (max-width: 768px) {
+        min-width: none;
+      }
     }
     &__content {
       display: flex;

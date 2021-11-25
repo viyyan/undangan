@@ -71,6 +71,10 @@
 
     &__link {
       margin-top: 2rem;
+      // < 768px
+      @media (max-width: 768px) {
+        margin-top: 0.5rem;
+      }
     }
   }
 }

@@ -1,6 +1,16 @@
 //- 5-components/chat
 
 .chat {
+  .grid {
+    // < 768px
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
   &__info {
     padding: 6.25rem 2rem 0;
     display: flex;
@@ -11,6 +21,10 @@
     @media (max-width: 992px) {
       display: block;
     }
+    // < 768px
+    @media (max-width: 768px) {
+      text-align: center;
+    }
 
     &__inner {
       display: flex;
@@ -19,6 +33,13 @@
       // < 992px
       @media (max-width: 992px) {
         flex-direction: column;
+      }
+    }
+
+    &__thumb {
+      // < 768px
+      @media (max-width: 768px) {
+        margin: 0 auto;
       }
     }
 
@@ -34,6 +55,12 @@
         width: auto;
         margin-top: 1rem;
       }
+      // < 768px
+      @media (max-width: 768px) {
+        margin-top: 2rem;
+        width: 100%;
+        padding-left: 0;
+      }
 
       h2 {
         margin: 0;
@@ -45,5 +72,10 @@
     padding-top: 6.25rem;
     padding-bottom: 2.25rem;
     border-left: 1px solid $color-white;
+    // < 768px
+    @media (max-width: 768px) {
+      padding-top: 2.25rem;
+      border-left: none;
+    }
   }
 }

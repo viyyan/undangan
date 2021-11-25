@@ -15,4 +15,21 @@
       top: 0;
     }
   }
+
+  &__bottom { 
+    // < 768px
+    @media (max-width: 768px) {
+      .grid {
+        flex-direction: column;
+  
+        > div {
+          width: 100%;
+  
+          &:first-child {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
 }

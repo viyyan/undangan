@@ -19,7 +19,7 @@ class CaseStudyController extends Controller
             "cssFileName" => "case-study",
             "jsFileName" => "case-study",
             "caseStudyPermalink" => route('case-study'),
-            "classBody" => "p-our-study bg--main-red-4"
+            "classBody" => "p-case-study bg--main-red-4"
         );
         return view('frontend.pages.case-study.main', $data);
     }

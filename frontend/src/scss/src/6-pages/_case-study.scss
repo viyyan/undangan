@@ -1,49 +1,16 @@
 //-
 //- Filter
 //-
-.p-case-study__filter {
-  position: relative;
-
-  .section__header__widget {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .select__selected button {
-    border-left: 0;
-  }
-
-
-  &__group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 1.25rem;
-  }
-
-  &__icon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 3.25rem;
-    width: 3.25rem;
-    border: 1px solid $color-white;
-    background-color: $color-primary;
-    color: $color-white;
-
-    svg {
-      width: 1.2rem;
-      height: 1.2rem;
-      fill: $color-white;
-    }
-  }
-}
-
-.p-our-study{
+.p-case-study {
   .page-top{
     position: relative;
+
+    // < 768px
+    @media (max-width: 768px) {
+      padding-top: 3.25rem;
+      padding-bottom: 1.75rem;
+    }
+
     &::before{
       content: '';
       position: absolute;
@@ -67,6 +34,118 @@
     &__info{
       position: relative;
       z-index: 1;
+    }
+  }
+
+  &__filter {
+    position: relative;
+    overflow: hidden;
+
+    .section__header__widget {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      // < 768px
+      @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+
+        > div {
+          margin-left: 0;
+
+          &:last-child {
+            margin-top: 1.25rem;
+          }
+        }
+      }
+    }
+
+    .select__selected button {
+      border-left: 0;
+    }
+
+
+    &__group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 1.25rem;
+
+      // < 480px
+      @media (max-width: 480px) {
+        &:first-child {
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &:last-child {
+          // < 480px
+          @media (max-width: 480px) {
+            margin-top: .5rem;
+          }
+
+          .p-case-study__filter__icon {
+            display: none;
+            // < 480px
+            @media (max-width: 480px) {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+
+    &__icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 3.25rem;
+      width: 3.25rem;
+      border: 1px solid $color-white;
+      background-color: $color-primary;
+      color: $color-white;
+
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: $color-white;
+      }
+    }
+  }
+
+  &__main {
+    .grid {
+      // < 480px
+      @media (max-width: 480px) {
+        flex-direction: column;
+        margin: 0;
+      }
+
+      > div {
+        margin-bottom: 1.25rem;
+
+        // < 768px
+        @media (max-width: 768px) {
+          width: 50%;
+        }
+
+        // < 480px
+        @media (max-width: 480px) {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    }
+    .card {
+      margin-bottom: 0;
     }
   }
 }

@@ -15,9 +15,13 @@
             <div class="footer__nav">
             <p><a href="#">Privacy Policy</a><span>|</span><a href="#">Terms & Condition</a><span>|</span><a href="{{ route('contact-us') }}">Contact Us</a></p>
             </div>
+            <div class="footer__copy">
+                <p>&copy; 2021 - CLOVE Research & Marketing Analytics |  All Rights Reserved.</p>
+            </div>
         </div>
         <div class="footer__secondary">
             <div class="footer__content">
+            <div class="footer__logo"><a href="index.html" title=""><img src="{{ frontImages('logo--main.svg') }}" alt="Clove"></a></div>
             <div class="footer__address">
                 <p> <strong>CLOVE INDONESIA</strong></p>
                 <p>Jl. Mampang Prapatan X, RT.6/RW.1, Tegal Parang, Kec. Mampang Prpt., <br />Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12790</p>

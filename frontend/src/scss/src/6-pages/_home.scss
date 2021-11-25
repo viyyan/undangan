@@ -34,6 +34,24 @@ $circle-size: 6.75rem;
       left: 0;
       top: 0;
     }
+    
+    .section__body .grid {
+      // < 768px
+      @media (max-width: 768px) {
+        > div {
+          width: 50%;
+          margin-bottom: 3rem;
+        }
+      }
+      // < 480px
+      @media (max-width: 480px) {
+        flex-direction: column;
+
+        > div {
+          width: 100%;
+        }
+      }
+    }
   }
   //-
   //- project
@@ -52,6 +70,19 @@ $circle-size: 6.75rem;
     }
     .section__header__widget{
       width: 60%;
+    }
+    
+    .section__body .grid {
+      // < 768px
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+        > div {
+          width: 100%;
+          max-width: 520px;
+          margin: 0 auto;
+        }
+      }
     }
   }
   //-
@@ -85,6 +116,17 @@ $circle-size: 6.75rem;
       right: 0;
       top: 0;
     }
+    
+    .section__body .grid {
+      // < 480px
+      @media (max-width: 480px) {
+        flex-direction: column;
+
+        > div {
+          width: 100%;
+        }
+      }
+    }
   }
 
   //-
@@ -105,6 +147,14 @@ $circle-size: 6.75rem;
     }
     .section {
       padding-bottom: 8.75rem; 
+      // < 768px
+      @media (max-width: 768px) {
+        padding-bottom: 4rem; 
+      }
+      // < 480px
+      @media (max-width: 480px) {
+        padding-bottom: 0; 
+      }
     }
 
     &__list {
@@ -132,6 +182,11 @@ $circle-size: 6.75rem;
         height: $circle-size;
         border-radius: 100%;
         background-color: $color-white;
+        // < 480px
+        @media (max-width: 480px) {
+          width: 6rem;
+          height: 6rem;
+        }
 
         img {
           width: 60%;
@@ -154,10 +209,26 @@ $circle-size: 6.75rem;
       align-items: center;
       justify-content: center;
       text-align: center;
+      // < 768px
+      @media (max-width: 768px) {
+        height: 30rem;
+      }
+      // < 480px
+      @media (max-width: 480px) {
+        height: auto;
+        padding: 4rem 0;
+      }
     }
 
     blockquote {
       position: relative;
+      // < 480px
+      @media (max-width: 480px) {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 2rem;
+        line-height: 1.2;
+      }
 
       &:before {
         content: '';

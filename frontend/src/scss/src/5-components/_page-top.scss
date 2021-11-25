@@ -3,16 +3,33 @@
 .page-top {
   padding-top: 7.75rem;
   padding-bottom: 4.25rem;
+  // < 768px
+  @media (max-width: 768px) {
+    padding-top: 7rem;
+  } 
+  // < 480px
+  @media (max-width: 480px) {
+    padding-top: 6.25rem;
+    padding-left: 1rem;
+  }
 
   &__main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    // < 768px
+    @media (max-width: 768px) {
+      flex-direction: column;
+    } 
   }
 
   &__breadcrumb {
     padding-top: .625rem;
     text-transform: uppercase;
+    // < 768px
+    @media (max-width: 768px) {
+      margin-bottom: 0.25rem;
+    } 
 
     a {
       color: $color-white;
@@ -34,15 +51,34 @@
   &__info {
     margin-left: auto;
     text-align: right;
+    // < 768px
+    @media (max-width: 768px) {
+      margin-left: 0;
+      text-align: left;
+      margin-bottom: 3rem;
+    } 
 
     h1, h2 {
       margin-top: 0;
       max-width: 38rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1 {
+      // < 768px
+      @media (max-width: 768px) {
+        margin-bottom: .75rem;
+      }
     }
 
     p {
       max-width: 30rem;
       margin-left: auto;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 

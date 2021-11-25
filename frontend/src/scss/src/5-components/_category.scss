@@ -20,6 +20,10 @@
     width: 4.25rem;
     height: 1px;
     background-color: $color-white;
+    // < 480px
+    @media (max-width: 480px) {
+      display: none;
+    } 
   }
 
   &__main {
