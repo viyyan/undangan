@@ -55,6 +55,7 @@ class Quiz {
    */
   setTotalCount(total) {
     this.questionsTotal = total
+    this.changeDir(1);
   }
 
 

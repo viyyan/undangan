@@ -9,7 +9,7 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
-use Orchid\Screen\Fields\Checkbox;
+use Orchid\Screen\Fields\CheckBox;
 use Illuminate\Http\Request;
 use App\Orchid\Layouts\Quiz\OptionListLayout;
 use Orchid\Screen\Fields\Cropper;
@@ -98,8 +98,7 @@ class QuizEditScreen extends Screen
 
                 Cropper::make('quiz.decor_image_id')
                     ->targetId()
-                    ->title('Quiz image decoration')
-                    ->required(),
+                    ->title('Quiz image decoration'),
 
                 CheckBox::make('quiz.is_check_prev')
                     ->sendTrueOrFalse()

@@ -9,8 +9,8 @@
         <div class="footer__primary">
             <div class="footer__logo"><a href="index.html" title=""><img src="{{ frontImages('logo--main.svg') }}" alt="Clove"></a></div>
             <div class="footer__social">
-                <a href="https://www.linkedin.com/company/clove-research-and-marketing-analytics/" title="Clove Resaerch Linkedin"><i class="fab fa-instagram"><img src="{{ frontImages('instagram.svg') }}" alt="Linkedin"></i></a>
-                <a href="https://www.instagram.com/clove_research/ " title="Clove Resaerch Instagram"><i class="fab fa-instagram"><img src="{{ frontImages('linkedin.svg') }}" alt="Instagram"></i></a>
+                <a href="https://www.instagram.com/clove_research/" title="Clove Resaerch Linkedin"><i class="fab fa-instagram"><img src="{{ frontImages('instagram.svg') }}" alt="Linkedin"></i></a>
+                <a href="https://www.linkedin.com/company/clove-research-and-marketing-analytics/" title="Clove Resaerch Instagram"><i class="fab fa-instagram"><img src="{{ frontImages('linkedin.svg') }}" alt="Instagram"></i></a>
             </div>
             <div class="footer__nav">
             <p><a href="#">Privacy Policy</a><span>|</span><a href="#">Terms & Condition</a><span>|</span><a href="{{ route('contact-us') }}">Contact Us</a></p>

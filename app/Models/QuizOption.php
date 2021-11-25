@@ -53,9 +53,6 @@ class QuizOption extends Model
 
 
     //Add extra attribute
-    protected $attributes = ['has_children'];
-
-    //Make it available in the json response
     protected $appends = ['has_children'];
 
     /**

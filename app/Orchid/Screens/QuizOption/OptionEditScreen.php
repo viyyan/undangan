@@ -138,6 +138,11 @@ class OptionEditScreen extends Screen
      */
     public function createOrUpdate(QuizOption $quizoption, Request $request)
     {
+
+        // echo "<pre>";
+        // print_r($request->get('quizoption')[0]);
+        // echo "<pre>";
+        // exit();
         $this->_save($quizoption, $request);
         Alert::info('You have successfully created an quiz option.');
 
