@@ -43,6 +43,8 @@ class OptionEditScreen extends Screen
             $this->name = 'Edit QuizOption';
         } else {
             $quizoption->quiz_id = $this->quiz_id;
+            $defCode = QuizOption::where('quiz_id', $this->quiz_id)->count() + 1;
+            $quizoption->code = $defCode;
         }
 
         return [
@@ -138,15 +140,12 @@ class OptionEditScreen extends Screen
      */
     public function createOrUpdate(QuizOption $quizoption, Request $request)
     {
+        $option = $this->_save($quizoption, $request);
+        if ($option) {
+            Alert::info('You have successfully created an quiz option.');
 
-        // echo "<pre>";
-        // print_r($request->get('quizoption')[0]);
-        // echo "<pre>";
-        // exit();
-        $this->_save($quizoption, $request);
-        Alert::info('You have successfully created an quiz option.');
-
-        return redirect()->route('platform.quiz.edit', $quizoption->quiz_id);
+            return redirect()->route('platform.quiz.edit', $quizoption->quiz_id);
+        }
     }
 
     /**
@@ -188,22 +187,31 @@ class OptionEditScreen extends Screen
     public function addSubOption(QuizOption $quizoption, Request $request)
     {
         $quizoption = $this->_save($quizoption, $request);
-        $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
-        if (!empty($request->get('subs'))) {
-            array_push($subs, $request->get('subs'));
-            $quizoption->sub_options = $subs;
-            $quizoption->save();
-            Alert::info('You have successfully created an quiz option.');
-        } else {
-            Alert::error('Sub options can\'t be empty text!');
+        if ($quizoption) {
+            $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
+            if (!empty($request->get('subs'))) {
+                array_push($subs, $request->get('subs'));
+                $quizoption->sub_options = $subs;
+                $quizoption->save();
+                Alert::info('You have successfully created an quiz option.');
+            } else {
+                Alert::error('Sub options can\'t be empty text!');
+            }
+            return redirect()->route('platform.quiz.option.edit', $quizoption->id);
         }
-        return redirect()->route('platform.quiz.option.edit', $quizoption->id);
     }
 
 
     private function _save(QuizOption $quizoption, Request $request)
     {
         $quizoption->fill($request->get('quizoption'));
+        $exist = QuizOption::where('id', '!=', $quizoption->id)
+                ->where('quiz_id', $quizoption->quiz_id)
+                ->where('name', $quizoption->name)->first();
+        if ($exist != null) {
+            Alert::error('The options name already exist! Opt code: '.$exist->code);
+            return false;
+        }
         $quizoption->save();
         return $quizoption;
     }
@@ -216,7 +224,9 @@ class OptionEditScreen extends Screen
      */
     public function addChild(QuizOption $quizOption, Request $request)
     {
-        $quiz = $this->_save($quizOption, $request);
-        return redirect()->route('platform.quiz.option.child.edit', ['quiz_option_name' => $quizOption->name, 'quiz_option_id' => $quizOption->id]);
+        $option = $this->_save($quizOption, $request);
+        if ($option) {
+            return redirect()->route('platform.quiz.option.child.edit', ['quiz_option_name' => $quizOption->name, 'quiz_option_id' => $quizOption->id]);
+        }
     }
 }
