@@ -4,7 +4,6 @@ namespace App\Orchid\Screens\CaseStudy;
 
 use Orchid\Screen\Screen;
 use App\Models\CaseStudy;
-use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
@@ -114,9 +113,10 @@ class CaseStudyEditScreen extends Screen
                     ->applyScope('industry')
                     ->required(),
 
-                Relation::make('caseStudy.cat_research_id')
+                Relation::make('caseStudy.cat_research_ids')
                     ->title('Category')
                     ->fromModel(Category::class, 'name')
+                    ->multiple()
                     ->applyScope('research')
                     ->required(),
 
@@ -125,11 +125,6 @@ class CaseStudyEditScreen extends Screen
                     ->title('Large web banner image, generally in the front and center')
                     ->width(1000)
                     ->height(610),
-
-                Relation::make('caseStudy.author_id')
-                    ->title('Author')
-                    ->fromModel(User::class, 'name')
-                    ->required(),
 
                 TextArea::make('caseStudy.excerpt')
                     ->title('Excerpt')
