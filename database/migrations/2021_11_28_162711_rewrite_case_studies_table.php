@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIndustryResearchIdInCaseStudiesTable extends Migration
+class RewriteCaseStudiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,6 +22,7 @@ class AddIndustryResearchIdInCaseStudiesTable extends Migration
             $table->dropColumn('sub_content_3');
             $table->dropColumn('category_id');
             $table->dropColumn('author_id');
+            $table->dropColumn('excerpt');
 
             $table->text('objective')->nullable();
             $table->text('approach')->nullable();
@@ -50,6 +51,7 @@ class AddIndustryResearchIdInCaseStudiesTable extends Migration
             $table->text('sub_content_3')->nullable();
             $table->bigInteger('category_id');
             $table->bigInteger('author_id');
+            $table->string('excerpt');
 
             $table->dropColumn('objective');
             $table->dropColumn('approach');
