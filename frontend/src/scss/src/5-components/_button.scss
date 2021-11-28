@@ -50,6 +50,7 @@
   &__label {
     font-size: $text-md;
     line-height: $text-md;
+    font-weight: 700;
     + .button__icon {
       margin-left: 1rem;
     }

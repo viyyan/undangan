@@ -8,7 +8,7 @@ $header-height: 5rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid $color-white;
+  //border-bottom: 1px solid $color-white;
 
   &--fixed {
     .header__sticky {
@@ -24,7 +24,7 @@ $header-height: 5rem;
       background-color: $color-primary;
       transform: translateY(-8rem);
       z-index: 999;
-      border-bottom: 1px solid $color-white;
+      //border-bottom: 1px solid $color-white;
       > div {
         flex: 1;
       }
@@ -46,13 +46,13 @@ $header-height: 5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-right: 1px solid $color-white;
+    //border-right: 1px solid $color-white;
 
     h1 {
       margin: 0;
     }
     img {
-      height: 3rem;
+      height: 2.3rem;
       // // < 480px
       // @media (max-width: 480px) {
       //   height: 42px;
@@ -119,12 +119,13 @@ $header-height: 5rem;
           width: 16.666666%;
 
           &:not(:last-child) {
-            border-right: 1px solid $color-white;
+            //border-right: 1px solid $color-white;
           }
 
           &:hover {
             > a {
               background-color: $color-main-red-3;
+              border-bottom: 1px solid $color-white;
             }
             &::after {
               opacity: 1;
