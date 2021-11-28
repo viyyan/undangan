@@ -27,7 +27,7 @@ class RewriteCaseStudiesTable extends Migration
             $table->text('objective')->nullable();
             $table->text('approach')->nullable();
             $table->text('result')->nullable();
-            $table->text('recomendation')->nullable();
+            $table->text('recommendation')->nullable();
             $table->string('tools')->nullable();
             $table->json('cat_research_ids');
             $table->bigInteger('cat_industry_id');
@@ -56,7 +56,7 @@ class RewriteCaseStudiesTable extends Migration
             $table->dropColumn('objective');
             $table->dropColumn('approach');
             $table->dropColumn('result');
-            $table->dropColumn('recomendation');
+            $table->dropColumn('recommendation');
             $table->dropColumn('tools');
             $table->dropColumn('cat_research_ids');
             $table->dropColumn('cat_industry_id');

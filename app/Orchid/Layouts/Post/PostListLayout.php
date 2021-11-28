@@ -28,11 +28,6 @@ class PostListLayout extends Table
                         ->route('platform.post.edit', $post);
                 }),
 
-            TD::make('category_id', 'Category')
-                ->render(function (Post $post) {
-                    return $post->category->name;
-                }),
-
             TD::make('author_id', 'Author')
                 ->render(function (Post $post) {
                     return $post->author->name;

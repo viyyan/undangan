@@ -53,12 +53,11 @@
                         <li>
                             <button type="button" data-value="all"><span>All</span></button>
                         </li>
+                        @foreach($industries as $industry)
                         <li>
-                            <button type="button" data-value="2"><span>Electronic Products</span></button>
+                            <button type="button" data-value="{{ $industry->id }}"><span>{{ $industry->name }}</span></button>
                         </li>
-                        <li>
-                            <button type="button" data-value="3"><span>Vinyl & HPL</span></button>
-                        </li>
+                        @endforeach
                     </ul>
                   </div>
                 </div>
@@ -87,12 +86,11 @@
                         <li>
                             <button type="button" data-value="all"><span>All</span></button>
                         </li>
+                        @foreach($researches as $research)
                         <li>
-                            <button type="button" data-value="2"><span>Retail Census</span></button>
+                            <button type="button" data-value="{{ $research->id }}"><span>{{ $research->name }}</span></button>
                         </li>
-                        <li>
-                            <button type="button" data-value="3"><span>Event Evaluation</span></button>
-                        </li>
+                        @endforeach
                     </ul>
                   </div>
                 </div>
@@ -119,10 +117,10 @@
                     <div class="select__options">
                     <ul>
                         <li>
-                        <button type="button" data-value="1"><span>Latest</span></button>
+                        <button type="button" data-value="desc"><span>Latest</span></button>
                         </li>
                         <li>
-                        <button type="button" data-value="2"><span>Oldest</span></button>
+                        <button type="button" data-value="asc"><span>Oldest</span></button>
                         </li>
                     </ul>
                     </div>
@@ -133,246 +131,30 @@
         </div>
         <div class="section__body p-case-study__main">
             <div class="grid gap--md">
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Retail Census</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
+            @foreach($caseStudies as $case)
+                <div class="column--33">
+                    <article class="card card--info-inside">
+                    <div class="card__inner">
+                        <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
                         </div>
+                        <div class="card__info">
+                        <div class="card__info__inner">
+                            <div class="card__info__main">
+                            <div class="card__category category"><span class="category__main">{{ $case->industry->name }}</span></div>
+                            <div class="card__title">
+                                <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', $case->id) }}">
+                                    {{ $case->researchesStr }}
+                                </a></h3>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
                         </div>
                     </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
+                    </article>
                 </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Retail Census</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Retail Census</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Retail Census</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
+            @endforeach
             </div>
         </div>
         <div class="section__footer">

@@ -108,13 +108,13 @@ class CaseStudyEditScreen extends Screen
                     ->sendTrueOrFalse(),
 
                 Relation::make('caseStudy.cat_industry_id')
-                    ->title('Category')
+                    ->title('Industry')
                     ->fromModel(Category::class, 'name')
                     ->applyScope('industry')
                     ->required(),
 
                 Relation::make('caseStudy.cat_research_ids')
-                    ->title('Category')
+                    ->title('Researches')
                     ->fromModel(Category::class, 'name')
                     ->multiple()
                     ->applyScope('research')
@@ -126,32 +126,20 @@ class CaseStudyEditScreen extends Screen
                     ->width(1000)
                     ->height(610),
 
-                TextArea::make('caseStudy.excerpt')
-                    ->title('Excerpt')
-                    ->rows(3)
-                    ->maxlength(200)
-                    ->placeholder('Brief excerpt for preview'),
+                Quill::make('caseStudy.objective')
+                    ->title('Objective'),
 
-                Input::make('caseStudy.sub_title_1')
-                    ->title('Sub Title Content 1')
-                    ->placeholder('Challange'),
+                Quill::make('caseStudy.approach')
+                    ->title('Approach'),
 
-                Quill::make('caseStudy.sub_content_1')
-                    ->title('Body Content 1'),
+                Quill::make('caseStudy.result')
+                    ->title('Result'),
 
-                Input::make('caseStudy.sub_title_2')
-                    ->title('Sub Title Content 2')
-                    ->placeholder('Bussines Issue'),
+                Quill::make('caseStudy.recommendation')
+                    ->title('Recommendation'),
 
-                Quill::make('caseStudy.sub_content_2')
-                    ->title('Body Content 2'),
-
-                Input::make('caseStudy.sub_title_2')
-                    ->title('Sub Title Content 2')
-                    ->placeholder('Approach'),
-
-                Quill::make('caseStudy.sub_content_3')
-                    ->title('Body Content 3'),
+                Input::make('caseStudy.tools')
+                    ->title('Tools'),
 
                 DateTimer::make('caseStudy.created_at')
                     ->title('CaseStudy post Date')

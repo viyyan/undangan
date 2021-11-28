@@ -15,10 +15,10 @@
     <div class="card__info">
         <div class="card__info__inner">
         <div class="card__title">
-            <h3 class="card__title__main text--2xl">Consumer behavior in the Covid recovery: Polarizing “moving-on mindsets” within retail</h3>
+            <h3 class="card__title__main text--2xl">{{ $post->title }}</h3>
         </div>
         <div class="card__desc">
-            <p>11 August 2021</p>
+            <p>{{ $post->created_at->format('d F Y') }}</p>
         </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
 </div>
 <div class="blog__detail__main bg--content text--black">
     <div class="container container--md">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.</p>
+    <p>{!! $post->body !!}</p>
     <div class="blog__detail__share"><strong>Share this</strong>
         <div class="button__social">
         <div class="button__group"><a class="button button--line button--square button--primary button--md" href="#"><span class="button__content"><span class="button__icon">
@@ -59,66 +59,35 @@
         </div>
         <div class="section__body">
             <div class="grid gap--md">
+            @foreach ($recommends as $rec)
             <div class="column--33">
                 <article class="card card--info-inside">
                 <div class="card__inner">
                     <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
+                    <div class="card__thumb__image"><img src="{{ $rec->heroUrl() }}" alt=""/></div>
                     </div>
                     <div class="card__info">
                     <div class="card__info__inner">
                         <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Retail Census</span></div>
                         <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">3 steps to streamline assortment and merchandising solutions</a></h3>
+                            <h3 class="card__title__main text--lg">
+                                <a href="{{ route('our-thinking.details', $rec->slug) }}">
+                                    {{ $rec->title }}
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="card__date">
+                            <span class="text--md">{{ $rec->created_at->format('d F Y') }}</span>
                         </div>
                         </div>
                     </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
+                    <div class="card__deco">
+                        <span class="card__deco__icon"></span></div>
                     </div>
                 </div>
                 </article>
             </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Event Evaluation</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__category category"><span class="category__main">Product Placement Test</span></div>
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="#">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
+            @endforeach
             </div>
         </div>
         </div>

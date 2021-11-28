@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\CaseStudy;
 
 
 class CaseStudyController extends Controller
@@ -15,11 +17,18 @@ class CaseStudyController extends Controller
      */
     public function index(Request $request)
     {
+        $researches = Category::where('status', 1)->where('type', 'research')->get();
+        $industries = Category::where('status', 1)->where('type', 'industry')->get();
+        $caseStudies = CaseStudy::where('status', 1)->get();
+
         $data = array(
             "cssFileName" => "case-study",
             "jsFileName" => "case-study",
             "caseStudyPermalink" => route('case-study'),
-            "classBody" => "p-case-study bg--main-red-4"
+            "classBody" => "p-case-study bg--main-red-4",
+            "industries" => $industries,
+            "researches" => $researches,
+            "caseStudies" => $caseStudies,
         );
         return view('frontend.pages.case-study.main', $data);
     }
@@ -29,11 +38,13 @@ class CaseStudyController extends Controller
      *
      * @return void
      */
-    public function details(string $slug, Request $request)
+    public function details(string $id, Request $request)
     {
+        $caseStudy = CaseStudy::findOrFail($id);
         $data = array(
             "cssFileName" => "case-study-detail",
-            "classBody" => "p-case-study-detail"
+            "classBody" => "p-case-study-detail",
+            "caseStudy" => $caseStudy
         );
         return view('frontend.pages.case-study.details', $data);
     }

@@ -32,7 +32,7 @@ class CaseStudy extends Model
         'objective',
         'approach',
         'result',
-        'recomendation',
+        'recommendation',
         'tools',
         'hero_id',
         'status',
@@ -116,7 +116,7 @@ class CaseStudy extends Model
     /**
      * Get category for the case study
      */
-    public function indsutry()
+    public function industry()
     {
         return $this->belongsTo(Category::class, 'cat_industry_id');
     }
@@ -130,4 +130,14 @@ class CaseStudy extends Model
         return Category::whereIn("id", $cat_research_ids)->get();
     }
 
+
+    public function getResearchesStrAttribute()
+    {
+        $researches = '';
+        foreach($this->researches as $key=>$research) {
+            if ($key > 0) $researches .= ", ";
+            $researches .= $research->name;
+        }
+        return $researches;
+    }
 }

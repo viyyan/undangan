@@ -13,9 +13,9 @@
     </div>
     <div class="card__info">
         <div class="card__info__inner">
-        <div class="card__category category"><span class="category__main">Retail Census</span></div>
+        <div class="card__category category"><span class="category__main">{{ $caseStudy->industry->name }}</span></div>
         <div class="card__title">
-            <h3 class="card__title__main text--2xl">Consumer behavior in the Covid recovery: Polarizing “moving-on mindsets” within retail</h3>
+            <h3 class="card__title__main text--2xl">{{ $caseStudy->researchesStr }}</h3>
         </div>
         </div>
     </div>
@@ -25,18 +25,10 @@
     <div class="container container--lg">
     <div class="grid">
         <div class="column--20">
-            <h4 class="sub--title_section">Challenge</h4>
+            <h4 class="sub--title_section">Objective</h4>
         </div>
         <div class="column--80">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.</p>
-        </div>
-    </div>
-    <div class="grid">
-        <div class="column--20">
-            <h4 class="sub--title_section">Business Issue</h4>
-        </div>
-        <div class="column--80">
-            <p>Fusce massa neque, condimentum vel mattis ut, finibus in dui. Etiam commodo quam a ex condimentum tincidunt. Morbi eu laoreet dolor. Curabitur pellentesque, urna et sagittis molestie, nisl justo faucibus justo, in consectetur lorem purus non lacus. Nulla ipsum augue, feugiat vitae elit nec, porta eleifend nunc. Pellentesque magna lorem, viverra vel est id, posuere bibendum erat. Aliquam blandit eget risus non egestas. Quisque quis velit non ante imperdiet tincidunt. Vestibulum eu mollis magna. Nunc feugiat felis nec ante euismod, vel mattis metus gravida. Donec gravida molestie lectus, ut porta ante. Morbi finibus consequat est, sed ullamcorper est cursus tempor. Nulla volutpat eget turpis vel pulvinar. Nullam placerat consectetur enim a malesuada. Proin a dignissim orci, sed sollicitudin diam. Etiam sed congue justo, vitae ullamcorper quam. Sed in quam eu libero eleifend porta. Vestibulum libero libero, accumsan at diam vel, lobortis mattis orci. Mauris commodo eros a lacinia bibendum. Maecenas rhoncus metus felis, sed feugiat tellus finibus quis. Nulla auctor congue arcu, in elementum nunc mollis vitae. Phasellus in posuere mauris. In a tellus porta, mattis purus in, consectetur nulla.</p>
+            <p>{!! $caseStudy->objective !!}</p>
         </div>
     </div>
     <div class="grid">
@@ -44,9 +36,35 @@
             <h4 class="sub--title_section">Approach</h4>
         </div>
         <div class="column--80">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.</p>
+            <p>{!! $caseStudy->approach !!}</p>
         </div>
     </div>
+    <div class="grid">
+        <div class="column--20">
+            <h4 class="sub--title_section">Result</h4>
+        </div>
+        <div class="column--80">
+            <p>{!! $caseStudy->result !!}</p>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="column--20">
+            <h4 class="sub--title_section">Recommendation</h4>
+        </div>
+        <div class="column--80">
+            <p>{!! $caseStudy->recommendation !!}</p>
+        </div>
+    </div>
+    @if (isset($caseStudy->tools))
+    <div class="grid">
+        <div class="column--20">
+            <h4 class="sub--title_section">Tools</h4>
+        </div>
+        <div class="column--80">
+            <p>{{ $caseStudy->tools }}</p>
+        </div>
+    </div>
+    @endif
     <div class="blog__detail__share"><strong>Share this</strong>
         <div class="button__social">
         <div class="button__group"><a class="button button--line button--square button--primary button--md" href="#"><span class="button__content"><span class="button__icon">
@@ -68,7 +86,9 @@
     </div>
     </div>
 </div>
+
 @include('frontend.includes.contact')
+
 <div class="section section--space-md bg--main-red-5 p-case-study-detail__others">
     <div class="section__inner">
     <div class="container">

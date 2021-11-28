@@ -109,12 +109,6 @@ class PostEditScreen extends Screen
                     ->title("Featured")
                     ->sendTrueOrFalse(),
 
-                // Relation::make('post.category_id')
-                //     ->title('Category')
-                //     ->fromModel(Category::class, 'name')
-                //     ->applyScope('post')
-                //     ->required(),
-
                 Cropper::make('post.hero_id')
                     ->targetId()
                     ->title('Large web banner image, generally in the front and center')

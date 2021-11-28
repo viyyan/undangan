@@ -25,17 +25,22 @@ class CaseStudyListLayout extends Table
             TD::make('title', 'Title')
                 ->render(function (CaseStudy $caseStudy) {
                     return Link::make($caseStudy->title)
-                        ->route('platform.caseStudy.edit', $caseStudy);
+                        ->route('platform.case-study.edit', $caseStudy);
                 }),
 
-            TD::make('category_id', 'Category')
+            TD::make('cat_industry_id', 'Industry')
                 ->render(function (CaseStudy $caseStudy) {
-                    return $caseStudy->category->name;
+                    return $caseStudy->industry->name;
                 }),
 
-            TD::make('author_id', 'Author')
+            TD::make('cat_research_ids', 'Research')
                 ->render(function (CaseStudy $caseStudy) {
-                    return $caseStudy->author->name;
+                    $researches = '';
+                    foreach($caseStudy->researches as $key=>$research) {
+                        if ($key > 0) $researches .= ", ";
+                        $researches .= $research->name;
+                    }
+                    return $researches;
                 }),
 
             TD::make('status', 'Status')

@@ -146,7 +146,7 @@ Route::screen('case-studies', CaseStudyListScreen::class)
     ->name('platform.case-study.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->push(__('Case Studies'), route('platform.case-study.list'));
+            ->push(__('Case Studies'));
     });
 
 Route::screen('case-study/{career?}', CaseStudyEditScreen::class)

@@ -46,63 +46,65 @@
 </div>
 <div class="section section--space-md bg--main-red-4 top--section">
     <div class="section__inner">
-    <div class="container">
-        <div class="section__main">
-        <div class="section__header">
-            <div class="section__header__main">
-            <h2 class="text--xl">What we think recently..</h2>
-            </div>
-        </div>
-        <div class="section__body">
-            <div class="grid gap--md">
-            <div class="column--50">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
+        @if (false)
+        <div class="container">
+            <div class="section__main">
+            <div class="section__header">
+                <div class="section__header__main">
+                <h2 class="text--xl">What we think recently..</h2>
                 </div>
-                </article>
             </div>
-            <div class="column--50">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
+            <div class="section__body">
+                <div class="grid gap--md">
+                <div class="column--50">
+                    <article class="card card--info-inside">
+                    <div class="card__inner">
+                        <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
                         </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
+                        <div class="card__info">
+                        <div class="card__info__inner">
+                            <div class="card__info__main">
+                            <div class="card__title">
+                                <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
+                            </div>
+                            <div class="card__date">
+                                <span class="text--md">11 Februari 2021</span>
+                            </div>
+                            </div>
                         </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
                         </div>
                     </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
+                    </article>
                 </div>
-                </article>
+                <div class="column--50">
+                    <article class="card card--info-inside">
+                    <div class="card__inner">
+                        <div class="card__thumb">
+                        <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
+                        </div>
+                        <div class="card__info">
+                        <div class="card__info__inner">
+                            <div class="card__info__main">
+                            <div class="card__title">
+                                <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
+                            </div>
+                            <div class="card__date">
+                                <span class="text--md">11 Februari 2021</span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card__deco"><span class="card__deco__icon"></span></div>
+                        </div>
+                    </div>
+                    </article>
+                </div>
+                </div>
             </div>
             </div>
         </div>
-        </div>
-    </div>
+        @endif
     </div>
 </div>
 <div class="section section--space-md bg--main-red-5 p-our-thinking__posts">
@@ -129,270 +131,34 @@
         </div>
         <div class="section__body">
             <div class="grid gap--md">
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
+                @foreach ($posts as $post)
+                    <div class="column--33">
+                        <article class="card card--info-inside">
+                        <div class="card__inner">
+                            <div class="card__thumb">
+                            <div class="card__thumb__image"><img src="{{ $post->heroUrl() }}" alt=""/></div>
+                            </div>
+                            <div class="card__info">
+                            <div class="card__info__inner">
+                                <div class="card__info__main">
+                                <div class="card__title">
+                                    <h3 class="card__title__main text--lg">
+                                        <a href="{{ route('our-thinking.details', $post->slug) }}">
+                                            {{ $post->title }}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="card__date">
+                                    <span class="text--md">{{ $post->created_at->format('d F Y') }}</span>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card__deco"><span class="card__deco__icon"></span></div>
+                            </div>
                         </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
+                        </article>
                     </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">3 steps to streamline assortment and merchandising solutions</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--2.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Stress Testing an Equity Investment Thesis on the Growth Strategy of a Global C2C Marketplace</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <div class="column--33">
-                <article class="card card--info-inside">
-                <div class="card__inner">
-                    <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('post--thumbnail--3.jpeg') }}" alt=""/></div>
-                    </div>
-                    <div class="card__info">
-                    <div class="card__info__inner">
-                        <div class="card__info__main">
-                        <div class="card__title">
-                            <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', 'slug') }}">Improving a New Product for Commercial Acceleration</a></h3>
-                        </div>
-                        <div class="card__date">
-                            <span class="text--md">11 Februari 2021</span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="card__deco"><span class="card__deco__icon"></span></div>
-                    </div>
-                </div>
-                </article>
-            </div>
+                @endforeach
             </div>
         </div>
         <div class="section__footer">

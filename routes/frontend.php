@@ -45,7 +45,7 @@ Route::prefix('what-we-do')->group(function () {
         ->name('what-we-do');
     Route::get('/case-studies', [CaseStudyController::class, 'index'])
         ->name('case-study');
-    Route::get('/case-studies/{slug}', [CaseStudyController::class, 'details'])
+    Route::get('/case-studies/{id}', [CaseStudyController::class, 'details'])
         ->name('case-study.details');
     Route::get('/our-tools', [WhatWeDoController::class, 'ourTools'])
         ->name('our-tools');
