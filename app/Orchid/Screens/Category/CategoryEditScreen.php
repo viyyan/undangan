@@ -117,9 +117,9 @@ class CategoryEditScreen extends Screen
                         ->method('addQuizAnswer')
                         ->class('btn btn-success'),
                 ]),
-            ])->title('Quiz Answers')->canSee($this->type == 'caseStudy'),
+            ])->title('Quiz Answers')->canSee($this->type == 'research'),
         ];
-        if ($this->type == 'caseStudy') {
+        if ($this->type == 'research') {
             array_push($layout, SubOptionListLayout::class);
         }
         return $layout;
