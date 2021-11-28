@@ -90,6 +90,5 @@ class Category extends Model
     {
         return $query->where('type', 'research');
     }
-
 }
 

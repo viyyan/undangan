@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens\QuizOption;
 
 use Orchid\Screen\Screen;
+use App\Models\Quiz;
 use App\Models\QuizOption;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Group;
 use App\Orchid\Layouts\Quiz\SubOptionListLayout;
 use App\Orchid\Layouts\Quiz\OptionChildListLayout;
+use Orchid\Screen\Fields\Relation;
 
 
 class OptionEditScreen extends Screen
@@ -41,8 +43,11 @@ class OptionEditScreen extends Screen
         $this->exists = $quizoption->exists;
         if($this->exists){
             $this->name = 'Edit QuizOption';
+            $this->quiz_id = $quizoption->quiz_id;
         } else {
             $quizoption->quiz_id = $this->quiz_id;
+            $defCode = QuizOption::where('quiz_id', $this->quiz_id)->count() + 1;
+            $quizoption->code = $defCode;
         }
 
         return [
@@ -84,6 +89,37 @@ class OptionEditScreen extends Screen
      */
     public function layout(): array
     {
+
+        $quiz = Quiz::find($this->quiz_id);
+        $combination = array();
+
+        if (!empty($quiz)) {
+            $prevs = Quiz::where('status', 1)
+                ->where('order', '<', $quiz->order)
+                ->orderBy('order', 'asc')
+                ->with(['options', 'options.optionChilds'])->get();
+
+            foreach ($prevs as $key=>$prev) {
+                $prevOpt = $prev->options;
+                $options = array();
+                foreach ($prevOpt as $opt) {
+                    if ($opt->has_children) {
+                        foreach($opt->optionChilds as $child) {
+                            $code = $opt->code.'-'.$child->code;
+                            $name = $opt->name.' - '.$child->name;
+                            $options[$code] = $name;
+                        }
+                    } else {
+                        $options[$opt->code] = $opt->name;
+                    }
+                }
+                $comb = Select::make('subs[]')
+                    ->empty('No select', 0)
+                    ->help('Q'.($key+1))
+                    ->options($options);
+                array_push($combination, $comb);
+            }
+        }
         return [
             Layout::rows([
 
@@ -110,13 +146,12 @@ class OptionEditScreen extends Screen
                     ->required()
             ]),
             Layout::rows([
-                Group::make([
-                    Input::make('subs')
-                    ->help('If the options refer from previous questions,<br> set with answer code combination ex. Q1: 1, Q2: 2, Q3: 1 write "1.2.1"'),
-                    Button::make('Add')
-                        ->method('addSubOption')
-                        ->class('btn btn-success'),
-                ]),
+                Group::make(
+                    $combination
+                ),
+                Button::make('Add')
+                    ->method('addSubOption')
+                    ->class('btn btn-success')
             ])->title('Prev Options Combinations'),
             SubOptionListLayout::class,
 
@@ -138,15 +173,12 @@ class OptionEditScreen extends Screen
      */
     public function createOrUpdate(QuizOption $quizoption, Request $request)
     {
+        $option = $this->_save($quizoption, $request);
+        if ($option) {
+            Alert::info('You have successfully created an quiz option.');
 
-        // echo "<pre>";
-        // print_r($request->get('quizoption')[0]);
-        // echo "<pre>";
-        // exit();
-        $this->_save($quizoption, $request);
-        Alert::info('You have successfully created an quiz option.');
-
-        return redirect()->route('platform.quiz.edit', $quizoption->quiz_id);
+            return redirect()->route('platform.quiz.edit', $quizoption->quiz_id);
+        }
     }
 
     /**
@@ -188,22 +220,32 @@ class OptionEditScreen extends Screen
     public function addSubOption(QuizOption $quizoption, Request $request)
     {
         $quizoption = $this->_save($quizoption, $request);
-        $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
-        if (!empty($request->get('subs'))) {
-            array_push($subs, $request->get('subs'));
-            $quizoption->sub_options = $subs;
-            $quizoption->save();
-            Alert::info('You have successfully created an quiz option.');
-        } else {
-            Alert::error('Sub options can\'t be empty text!');
+        if ($quizoption) {
+            $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
+            $subs_add = $request->get('subs');
+            if (count($subs_add) > 0) {
+                array_push($subs, join(".",$subs_add));
+                $quizoption->sub_options = $subs;
+                $quizoption->save();
+                Alert::info('You have successfully created an quiz option.');
+            } else {
+                Alert::error('Sub options can\'t be empty text!');
+            }
+            return redirect()->route('platform.quiz.option.edit', $quizoption->id);
         }
-        return redirect()->route('platform.quiz.option.edit', $quizoption->id);
     }
 
 
     private function _save(QuizOption $quizoption, Request $request)
     {
         $quizoption->fill($request->get('quizoption'));
+        $exist = QuizOption::where('id', '!=', $quizoption->id)
+                ->where('quiz_id', $quizoption->quiz_id)
+                ->where('name', $quizoption->name)->first();
+        if ($exist != null) {
+            Alert::error('The options name already exist! Opt code: '.$exist->code);
+            return false;
+        }
         $quizoption->save();
         return $quizoption;
     }
@@ -216,7 +258,9 @@ class OptionEditScreen extends Screen
      */
     public function addChild(QuizOption $quizOption, Request $request)
     {
-        $quiz = $this->_save($quizOption, $request);
-        return redirect()->route('platform.quiz.option.child.edit', ['quiz_option_name' => $quizOption->name, 'quiz_option_id' => $quizOption->id]);
+        $option = $this->_save($quizOption, $request);
+        if ($option) {
+            return redirect()->route('platform.quiz.option.child.edit', ['quiz_option_name' => $quizOption->name, 'quiz_option_id' => $quizOption->id]);
+        }
     }
 }

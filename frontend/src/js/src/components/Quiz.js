@@ -130,7 +130,7 @@ class Quiz {
         this.decorEl.innerHTML = ""
         this.decorEl.appendChild(imgEl);
     }
-    
+
     // checkLayout
     this.checkLayout();
   }
@@ -456,8 +456,19 @@ class Quiz {
                 message: 'Your email address is wrong, eg: name@site.com.',
               }
             ],
+            'phone': [
+                {
+                  type: 'required',
+                  message: 'You must enter your phone',
+                },
+                {
+                  type: 'phone',
+                  message: 'Your phone is not valid.',
+                }
+              ],
           },
           onSubmit: (data) => {
+            console.log(data);
             data['answers'] = this.answers
             data['category_ids'] = this.categories.map(i => i.id)
             // Show loader

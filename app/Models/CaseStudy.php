@@ -27,18 +27,21 @@ class CaseStudy extends Model
         'title',
         'slug',
         'excerpt',
-        'sub_title_1',
-        'sub_title_2',
-        'sub_title_3',
-        'sub_content_1',
-        'sub_content_2',
-        'sub_content_3',
-        'author_id',
-        'category_id',
+        'cat_industry_id',
+        'cat_research_ids',
+        'objective',
+        'approach',
+        'result',
+        'recomendation',
+        'tools',
         'hero_id',
         'status',
         'featured',
         'created_at'
+    ];
+
+    protected $casts = [
+        'cat_research_ids' => 'array'
     ];
 
     /**
@@ -111,30 +114,20 @@ class CaseStudy extends Model
 
 
     /**
-     * Get category for the post.
+     * Get category for the case study
      */
-    public function category()
+    public function indsutry()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'cat_industry_id');
     }
 
     /**
-     * Get category for the post.
+     * Get researches for the case study
      */
-    public function author()
+    public function getResearchesAttribute()
     {
-        return $this->belongsTo(User::class, 'author_id');
+        $cat_research_ids = (isset($this->cat_research_ids)) ? $this->cat_research_ids : [];
+        return Category::whereIn("id", $cat_research_ids)->get();
     }
 
-    /**
-     * Total exhibitors
-     */
-    public function getFrontendExcerptAttribute()
-    {
-        if (empty($this->excerpt)) {
-            if (empty($this->sub_content_1)) return "";
-            return excerptLimit(strip_tags($this->sub_content_1), 300);
-        }
-        return $this->sub_content_1;
-    }
 }

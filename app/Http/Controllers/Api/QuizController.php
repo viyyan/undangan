@@ -54,7 +54,9 @@ class QuizController extends ApiController
 
         $quiz = Quiz::where('status', 1)
                 ->orderBy('order', 'asc')->skip($step - 1);
-        $sub = $request->sub_options;
+        $sub_real = $request->sub_options;
+        // exclude first answer
+        $sub = "0".substr($sub_real, 1);
         if (isset($sub)) {
             $quiz = $quiz->first();
             if ($quiz->is_check_prev === 1) {
@@ -85,7 +87,7 @@ class QuizController extends ApiController
             "quiz" => $quiz,
             "total" => $total,
             "next_step" => $next_step,
-            "prev_step" => $prev_step,
+            "prev_step" => $prev_step
         ]);
     }
 
@@ -97,7 +99,9 @@ class QuizController extends ApiController
      */
     public function postAnswers(Request $request)
     {
-        $answers = $request->post("answers");
+        $answers_real = $request->post("answers");
+        // exclude first answer
+        $answers = "0".substr($answers_real, 1);
         if (empty($answers)) return $this->respondValidationError("answers can't be empty!");
         $categories = Category::select(['id', 'name'])
                 ->where('status', 1)
@@ -120,8 +124,9 @@ class QuizController extends ApiController
         $validated = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'phone' => 'required|max:255',
             'answers' => 'required|max:255',
-            'category_ids' => 'required|array',
+            'category_ids' => 'array',
         ]);
 
         $answers = $request->post("answers");

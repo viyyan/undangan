@@ -108,10 +108,16 @@ class CaseStudyEditScreen extends Screen
                     ->title("Featured")
                     ->sendTrueOrFalse(),
 
-                Relation::make('caseStudy.category_id')
+                Relation::make('caseStudy.cat_industry_id')
                     ->title('Category')
                     ->fromModel(Category::class, 'name')
-                    ->applyScope('caseStudy')
+                    ->applyScope('industry')
+                    ->required(),
+
+                Relation::make('caseStudy.cat_research_id')
+                    ->title('Category')
+                    ->fromModel(Category::class, 'name')
+                    ->applyScope('research')
                     ->required(),
 
                 Cropper::make('caseStudy.hero_id')

@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 use App\Models\QuizOptionChild;
 
 
 class QuizOption extends Model
 {
-    use Filterable;
+    use Filterable, AsSource;
 
     /**
      * The attributes that are mass assignable.
@@ -62,5 +63,4 @@ class QuizOption extends Model
     {
         return $this->optionChilds()->exists();
     }
-
 }
