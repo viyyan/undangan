@@ -17,10 +17,10 @@
                 <div class="cta__content column--50 cta__content--left">
                     <div class="cta__header">
                     <h2 class="cta__title text--3xl">Hello, we are Clove</h2>
-                    <h3 class="cta__subtitle text--xl">Creating loyalty and value</h3>
+                    <h3 class="cta__subtitle text--md">Creating loyalty and value</h3>
                     </div>
                     <div class="cta__body">
-                    <p>The first market research consultant that provide transparent data, with <b>100% AUDIO CHECKING</b>, tailored to your need.</p>
+                    <p class="text--2md">The first market research consultant that provide transparent data, with <b>100% AUDIO CHECKING</b>, tailored to your need.</p>
                     </div>
                     <div class="cta__action"><a class="button button--white button--md" href="{{ route('who-we-are') }}"><span class="button__content"><span class="button__label">Who we are</span><span class="button__icon"><i class="icon__arrow">
                             <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
