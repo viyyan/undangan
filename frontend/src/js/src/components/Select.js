@@ -57,6 +57,10 @@ class Select {
           if (this.onClick) {
             this.onClick(element);
           }
+          
+          this.elements.forEach((element) => {
+            element.setAttribute('data-state', 'close');
+          });
 
           const state = element.getAttribute('data-state');
           const newState = state === 'open' ? 'close' : 'open';

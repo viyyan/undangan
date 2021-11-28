@@ -58,6 +58,11 @@
     background-color: $color-main-red-3;
     padding: 2rem;
 
+    // < 768px
+    @media (max-width: 768px) {
+      padding: 1.25rem;
+    }
+
     ul {
       list-style: none;
       margin: 0 -0.5rem;
@@ -66,6 +71,17 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+
+      // < 768px
+      @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+
+        > li {
+          width: 100%;
+        }
+      }
 
       button {
         display: block;
