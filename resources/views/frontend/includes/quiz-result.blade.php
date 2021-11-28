@@ -59,7 +59,7 @@
             <div class="quiz__result__form__field">
               <div class="quiz__result__form__field__inner">
                 <div class="quiz__result__form__icon">
-                  <img src="{{ frontImages('icon--email--dark.svg') }}" alt="" />
+                  <img src="{{ frontImages('icon--phone--red.svg') }}" alt="" />
                 </div>
                 <div class="quiz__result__form__input">
                   <input type="phone" name="phone" placeholder="Phone number" />

@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens\QuizOption;
 
 use Orchid\Screen\Screen;
+use App\Models\Quiz;
 use App\Models\QuizOption;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Group;
 use App\Orchid\Layouts\Quiz\SubOptionListLayout;
 use App\Orchid\Layouts\Quiz\OptionChildListLayout;
+use Orchid\Screen\Fields\Relation;
 
 
 class OptionEditScreen extends Screen
@@ -41,6 +43,7 @@ class OptionEditScreen extends Screen
         $this->exists = $quizoption->exists;
         if($this->exists){
             $this->name = 'Edit QuizOption';
+            $this->quiz_id = $quizoption->quiz_id;
         } else {
             $quizoption->quiz_id = $this->quiz_id;
             $defCode = QuizOption::where('quiz_id', $this->quiz_id)->count() + 1;
@@ -86,6 +89,41 @@ class OptionEditScreen extends Screen
      */
     public function layout(): array
     {
+
+        $quiz = Quiz::find($this->quiz_id);
+        $combination = array();
+
+        if (!empty($quiz)) {
+            $prevs = Quiz::where('status', 1)
+                ->where('order', '<', $quiz->order)
+                ->orderBy('order', 'asc')
+                ->with(['options', 'options.optionChilds'])->get();
+
+            foreach ($prevs as $key=>$prev) {
+                $prevOpt = $prev->options;
+                $options = array();
+                foreach ($prevOpt as $opt) {
+                    if ($opt->has_children) {
+                        foreach($opt->optionChilds as $child) {
+                            $code = $opt->code.'-'.$child->code;
+                            $name = $opt->name.' - '.$child->name;
+                            $options[$code] = $name;
+                        }
+                    } else {
+                        $options[$opt->code] = $opt->name;
+                    }
+                }
+                $comb = Select::make('subs[]')
+                    ->empty('No select', 0)
+                    ->help('Q'.($key+1))
+                    ->options($options);
+                array_push($combination, $comb);
+            }
+        }
+        $addBtn = Button::make('Add')
+                        ->method('addSubOption')
+                        ->class('btn btn-success');
+        array_push($combination, $addBtn);
         return [
             Layout::rows([
 
@@ -112,13 +150,9 @@ class OptionEditScreen extends Screen
                     ->required()
             ]),
             Layout::rows([
-                Group::make([
-                    Input::make('subs')
-                    ->help('If the options refer from previous questions,<br> set with answer code combination ex. Q1: 1, Q2: 2, Q3: 1 write "1.2.1"'),
-                    Button::make('Add')
-                        ->method('addSubOption')
-                        ->class('btn btn-success'),
-                ]),
+                Group::make(
+                    $combination
+                ),
             ])->title('Prev Options Combinations'),
             SubOptionListLayout::class,
 
@@ -189,8 +223,9 @@ class OptionEditScreen extends Screen
         $quizoption = $this->_save($quizoption, $request);
         if ($quizoption) {
             $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
-            if (!empty($request->get('subs'))) {
-                array_push($subs, $request->get('subs'));
+            $subs_add = $request->get('subs');
+            if (count($subs_add) > 0) {
+                array_push($subs, join(".",$subs_add));
                 $quizoption->sub_options = $subs;
                 $quizoption->save();
                 Alert::info('You have successfully created an quiz option.');

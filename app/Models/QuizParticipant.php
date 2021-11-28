@@ -23,6 +23,7 @@ class QuizParticipant extends Model
         'company',
         'email',
         'answers',
+        'phone',
         'category_ids'
     ];
 

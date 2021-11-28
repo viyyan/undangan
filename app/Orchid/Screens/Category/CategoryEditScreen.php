@@ -4,6 +4,7 @@ namespace App\Orchid\Screens\Category;
 
 use Orchid\Screen\Screen;
 use App\Models\Category;
+use App\Models\Quiz;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
@@ -83,6 +84,37 @@ class CategoryEditScreen extends Screen
      */
     public function layout(): array
     {
+        if ($this->type = 'caseStudy') {
+            $combination = array();
+            $quizzes = Quiz::where('status', 1)
+                ->orderBy('order', 'asc')
+                ->with(['options', 'options.optionChilds'])->get();
+
+            foreach ($quizzes as $key=>$prev) {
+                $prevOpt = $prev->options;
+                $options = array();
+                foreach ($prevOpt as $opt) {
+                    if ($opt->has_children) {
+                        foreach($opt->optionChilds as $child) {
+                            $code = $opt->code.'-'.$child->code;
+                            $name = $opt->name.' - '.$child->name;
+                            $options[$code] = $name;
+                        }
+                    } else {
+                        $options[$opt->code] = $opt->name;
+                    }
+                }
+                $comb = Select::make('quiz_answers[]')
+                    ->empty('No select', 0)
+                    ->help('Q'.($key+1))
+                    ->options($options);
+                array_push($combination, $comb);
+            }
+            $addBtn = Button::make('Add')
+                        ->method('addQuizAnswer')
+                        ->class('btn btn-success');
+            array_push($combination, $addBtn);
+        }
         $layout = [
             Layout::rows([
                 Input::make('category.name')
@@ -110,13 +142,9 @@ class CategoryEditScreen extends Screen
                     ->canSee($this->type == 'member')
             ]),
             Layout::rows([
-                Group::make([
-                    Input::make('quiz_answers')
-                    ->help('If the category refer to market research answers,<br> set with answer code combination ex. Q1: 1, Q2: 2, Q3: 1 write "1.2.1"'),
-                    Button::make('Add')
-                        ->method('addQuizAnswer')
-                        ->class('btn btn-success'),
-                ]),
+                Group::make(
+                    $combination
+                ),
             ])->title('Quiz Answers')->canSee($this->type == 'caseStudy'),
         ];
         if ($this->type == 'caseStudy') {
@@ -166,8 +194,9 @@ class CategoryEditScreen extends Screen
     {
         $category = $this->_save($category, $request);
         $answers = !empty($category->quiz_answers) ? $category->quiz_answers : array();
-        if (!empty($request->get('quiz_answers'))) {
-            array_push($answers, $request->get('quiz_answers'));
+        $quiz_answers = $request->get('quiz_answers');
+        if (count($quiz_answers) > 0) {
+            array_push($answers, join(".",$quiz_answers));
             $category->quiz_answers = $answers;
             $category->save();
             Alert::info('You have successfully added an quiz answers combination.');

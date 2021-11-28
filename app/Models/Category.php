@@ -76,10 +76,9 @@ class Category extends Model
      *
      * @return Builder
      */
-    public function scopeStudyCase(Builder $query)
+    public function scopeCaseStudy(Builder $query)
     {
-        return $query->where('type', 'studyCase');
+        return $query->where('type', 'caseStudy');
     }
-
 }
 
