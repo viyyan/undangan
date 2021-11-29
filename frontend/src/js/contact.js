@@ -1,8 +1,13 @@
 //
 // Contact JS
 //
+import General from './src/libs/general';
+
 (function() {
   'use strict';
+    //
+    // Run general scripts
+    General();
 
   const contactMap = L.map('contact-map').setView([-6.2489365, 106.8288992], 14);
 

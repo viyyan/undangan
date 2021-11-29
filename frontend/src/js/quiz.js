@@ -6,11 +6,15 @@ import http from './src/services';
 import QuizLib from './src/components/Quiz';
 import ModalLib from './src/components/Modal';
 import { getQuiz, getQuizNext, postAnswers } from './src/services/general';
+import General from './src/libs/general';
 
 http.init();
 
 (function() {
   'use strict';
+  //
+  // Run general scripts
+  General();
 
   // Quiz
 
