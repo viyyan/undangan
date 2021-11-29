@@ -25,7 +25,7 @@ class CaseStudyController extends Controller
         $caseStudies = CaseStudy::where('status', 1);
 
         if (isset($catIndustry)) {
-            $caseStudies->where('cat_industry_id', $catIndustry);
+            $caseStudies->whereIn('cat_industry_id', explode(",", $catIndustry));
         }
         if (isset($catResearches)) {
             $caseStudies->whereJsonContains('cat_research_ids', $catResearches);
