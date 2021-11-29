@@ -134,7 +134,7 @@ class QuizController extends ApiController
         $res = QuizParticipant::create($request->post());
         if (empty($res)) return $this->respondValidationError("failed, please try again");
         return $this->response->array([
-            "redirect_url" => route('case-study', ["type_of_research" => join(",",$cats)]),
+            "redirect_url" => urldecode(route('case-study', ["type_of_research" => join(",",$cats)])),
             "answers" => $answers
         ]);
     }

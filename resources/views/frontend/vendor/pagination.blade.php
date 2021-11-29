@@ -1,4 +1,3 @@
-@if ($paginator->hasPages())
 <ul class="pagination">
     {{-- Pagination Previous --}}
     @if ($paginator->onFirstPage())

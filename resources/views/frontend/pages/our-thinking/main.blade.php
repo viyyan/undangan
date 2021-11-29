@@ -161,7 +161,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="section__footer">
+        <!-- <div class="section__footer">
             <div class="button__group button__pagination"><a class="button button--line button--square button--white button--md" href="#"><span class="button__content"><span class="button__icon">
                 <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <line x1="20" x2="4" y1="12" y2="12"></line>
@@ -172,7 +172,7 @@
                 <polyline points="14 6 20 12 14 18"></polyline>
                 </svg></span></span></a>
             </div>
-        </div>
+        </div> -->
         </div>
     </div>
     </div>

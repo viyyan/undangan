@@ -10,7 +10,7 @@
 <div class="blog__detail__cover">
     <div class="card card--info-inside">
     <div class="card__thumb">
-        <div class="card__thumb__image"><img src="{{ frontImages('cover.jpg') }}" alt=""></div>
+        <div class="card__thumb__image"><img src="{{ $post->heroUrl() }}" alt=""></div>
     </div>
     <div class="card__info">
         <div class="card__info__inner">

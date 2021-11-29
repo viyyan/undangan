@@ -152,7 +152,8 @@ class PostEditScreen extends Screen
         $post->attachment()->syncWithoutDetaching(
             $request->input('post.attachment', [])
         );
-        $this->_makeThumbnail($post);
+
+        // $this->_makeThumbnail($post);
 
         Alert::info('You have successfully created an post.');
 

@@ -164,7 +164,7 @@ class CaseStudyEditScreen extends Screen
         $caseStudy->attachment()->syncWithoutDetaching(
             $request->input('caseStudy.attachment', [])
         );
-        $this->_makeThumbnail($caseStudy);
+        // $this->_makeThumbnail($caseStudy);
 
         Alert::info('You have successfully created an caseStudy.');
 

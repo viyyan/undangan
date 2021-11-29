@@ -83,7 +83,7 @@ class CaseStudy extends Model
     public function heroUrl($size = '1000x610')
     {
         $image = $this->heroImage()->first();
-        return !empty($image) ? $image->url() : "https://via.placeholder.com/${size}.png?text=taisho.co.id";
+        return !empty($image) ? $image->url() : "https://via.placeholder.com/${size}.png?text=clove-research.com";
     }
 
 
@@ -107,7 +107,7 @@ class CaseStudy extends Model
         if ($image = $this->heroImage()->first()) {
             return dirname($image->url())."/".$image->name."_thumb.".$image->extension;
         } else {
-            return "https://via.placeholder.com/${size}.png?text=taisho.co.id";
+            return "https://via.placeholder.com/${size}.png?text=clove-research.com";
         }
     }
 

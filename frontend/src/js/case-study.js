@@ -6,21 +6,30 @@ import Select from './src/components/Select';
 (function() {
   'use strict';
 
-  // Get url filtered 
+  // Get url filtered
   const getUrlFiltered = (filterName, value) => {
-    let url = `${CASE_STUDY_PERMALINK}?${filterName}=${value}`;
-
-    // Get other filter options
-    const selects = document.querySelectorAll('.case-study__filter__item .select');
-    selects.forEach((select) => {
-      const selectName = select.getAttribute('data-filter');
-      const selectValue = select.getAttribute('data-value');
-      if (selectName !== filterName) {
-        url += `&${selectName}=${selectValue}`;
-      }
-    });
-
-    return url;
+    const currentUrl = new URL(window.location.href);
+    if (value.length === 0) {
+        currentUrl.searchParams.delete(filterName);
+        return currentUrl.toString();
+    }
+    var exist = currentUrl.searchParams.get(filterName);
+    if (exist != null) {
+        var existArr = exist.split(",");
+        var idx = existArr.indexOf(value);
+        console.log("idx "+idx);
+        currentUrl.searchParams.delete(filterName);
+        if (idx > -1) {
+            existArr.splice(idx, 1);
+            currentUrl.searchParams.append(filterName, existArr.join(','));
+        } else {
+            currentUrl.searchParams.append(filterName, `${exist},${value}`);
+        }
+    } else {
+        currentUrl.searchParams.delete(filterName);
+        currentUrl.searchParams.append(filterName, value);
+    }
+    return currentUrl.toString();
   };
 
   // Filter options
@@ -37,6 +46,7 @@ import Select from './src/components/Select';
     onOptionClick: (button, select) => {
       const value = button.getAttribute('data-value');
       const filterName = select.getAttribute('data-filter');
+      console.log(getUrlFiltered(filterName, value));
       window.location.href = getUrlFiltered(filterName, value);
     },
     onInitOptions: () => {
@@ -64,4 +74,3 @@ import Select from './src/components/Select';
   }).init();
 
 })();
- 

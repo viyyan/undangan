@@ -51,11 +51,15 @@
                   <div class="select__options">
                     <ul>
                         <li>
-                            <button type="button" data-value="all"><span>All</span></button>
+                            <button type="button" data-value=""><span>All</span></button>
                         </li>
                         @foreach($industries as $industry)
                         <li>
-                            <button type="button" data-value="{{ $industry->id }}"><span>{{ $industry->name }}</span></button>
+                            @if(Request::get('industries') == $industry->id)
+                                <button type="button" data-value="{{ $industry->id }}" data-state="active"><span>{{ $industry->name }}</span></button>
+                            @else
+                                <button type="button" data-value="{{ $industry->id }}"><span>{{ $industry->name }}</span></button>
+                            @endif
                         </li>
                         @endforeach
                     </ul>
@@ -84,11 +88,15 @@
                   <div class="select__options">
                     <ul>
                         <li>
-                            <button type="button" data-value="all"><span>All</span></button>
+                            <button type="button" data-value=""><span>All</span></button>
                         </li>
                         @foreach($researches as $research)
                         <li>
-                            <button type="button" data-value="{{ $research->id }}"><span>{{ $research->name }}</span></button>
+                            @if(Request::get('type_of_research') !== null && in_array($research->id, explode(",", Request::get('type_of_research'))))
+                                <button type="button" data-value="{{ $research->id }}" data-state="active"><span>{{ $research->name }}</span></button>
+                            @else
+                                <button type="button" data-value="{{ $research->id }}"><span>{{ $research->name }}</span></button>
+                            @endif
                         </li>
                         @endforeach
                     </ul>
@@ -136,7 +144,7 @@
                     <article class="card card--info-inside">
                     <div class="card__inner">
                         <div class="card__thumb">
-                        <div class="card__thumb__image"><img src="{{ frontImages('card--thumbnail.png') }}" alt=""/></div>
+                        <div class="card__thumb__image"><img src="{{ $case->heroUrl() }}" alt=""/></div>
                         </div>
                         <div class="card__info">
                         <div class="card__info__inner">
@@ -157,7 +165,7 @@
             @endforeach
             </div>
         </div>
-        <div class="section__footer">
+        <!-- <div class="section__footer">
             <div class="button__group button__pagination"><a class="button button--line button--square button--white button--md" href="#"><span class="button__content"><span class="button__icon">
                     <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <line x1="20" x2="4" y1="12" y2="12"></line>
@@ -174,7 +182,7 @@
                     <polyline points="14 6 20 12 14 18"></polyline>
                     </svg></span></span></a>
             </div>
-        </div>
+        </div> -->
         </div>
     </div>
     </div>
