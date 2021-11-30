@@ -37,7 +37,10 @@ class QuizEditScreen extends Screen
         }
         return [
             'quiz' => $quiz,
-            'options' => $quiz->options,
+            'options' => $quiz
+                    ->options()
+                    ->filters()
+                    ->defaultSort('created_at', 'desc')->get(),
         ];
     }
 

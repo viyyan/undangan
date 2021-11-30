@@ -9,7 +9,6 @@ use Orchid\Screen\Screen;
 use Illuminate\Http\Request;
 
 
-
 class CategoryListScreen extends Screen
 {
     /**
@@ -27,27 +26,20 @@ class CategoryListScreen extends Screen
      */
     public $description = 'All categories';
 
-    public $type = 'post';
-
-    // construct
-    public function __construct(Request $request) {
-        $this->type = $request->get('type') ?  $request->get('type') : 'post';
-    }
+    public $type = 'research';
 
     /**
      * Query data.
      *
      * @return array
      */
-    public function query(): array
+    public function query(String $type): array
     {
-        $this->name = ucwords($this->type).' '.$this->name;
-        $categories = Category::where('type', $this->type)
+        $this->name = ucwords($type).' '.$this->name;
+        $this->type = $type;
+        $categories = Category::where('type', $type)
                 ->filters()
-                ->orderBy('created_at', 'desc');
-        if ($this->type == 'investor') {
-            $categories->orderBy('order', 'asc');
-        }
+                ->defaultSort('created_at', 'desc');
         return [
             'categories' => $categories->paginate()
         ];
@@ -89,7 +81,7 @@ class CategoryListScreen extends Screen
 
         Alert::info('You have successfully deleted the category.');
 
-        return redirect()->route('platform.category.list', ['type' => $this->type]);
+        return redirect()->route('platform.category.list', $this->type);
     }
 
 

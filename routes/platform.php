@@ -24,6 +24,8 @@ use App\Orchid\Screens\QuizOption\OptionEditScreen;
 use App\Orchid\Screens\QuizOption\OptionChildEditScreen;
 use App\Orchid\Screens\CaseStudy\CaseStudyListScreen;
 use App\Orchid\Screens\CaseStudy\CaseStudyEditScreen;
+use App\Orchid\Screens\QuizParticipant\ParticipantListScreen;
+use App\Orchid\Screens\QuizParticipant\ParticipantEditScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -60,7 +62,7 @@ Route::screen('post/{post?}', PostEditScreen::class)
     });
 
 // Platform > Category
-Route::screen('categories', CategoryListScreen::class)
+Route::screen('categories/{type}', CategoryListScreen::class)
     ->name('platform.category.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
@@ -123,6 +125,22 @@ Route::screen('option-child/{child?}', OptionChildEditScreen::class)
         return $trail
             ->parent('platform.quiz.option.edit')
             ->push(__('Quiz Option Child'));
+    });
+
+// Platform > Participant quiz
+Route::screen('participants', ParticipantListScreen::class)
+    ->name('platform.participant.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Participants'), route('platform.participant.list'));
+    });
+
+Route::screen('participant/{participant?}', ParticipantEditScreen::class)
+    ->name('platform.participant.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.participant.list')
+            ->push(__('Participant'));
     });
 
 // Platform > Career

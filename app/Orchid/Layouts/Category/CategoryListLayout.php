@@ -8,6 +8,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Fields\Input;
 
 
 class CategoryListLayout extends Table
@@ -26,17 +27,21 @@ class CategoryListLayout extends Table
     {
         return [
             TD::make('name', 'Name')
-                ->render(function (Category $category) {
-                    return Link::make($category->name)
-                        ->route('platform.category.edit', $category);
-                }),
+                    ->sort()
+                    ->filter(Input::make())
+                    ->render(function (Category $category) {
+                        return Link::make($category->name)
+                            ->route('platform.category.edit', $category);
+                    }),
 
             TD::make('status', 'Status')
+                ->sort()
                 ->render(function (Category $category) {
                     return ($category->status == 1) ? "Publish" : "Draft";
                 }),
 
             TD::make('created_at', 'Date')
+                ->sort()
                 ->render(function (Category $category) {
                     return $category->created_at->format('d F Y');
                 }),

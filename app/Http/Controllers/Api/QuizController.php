@@ -56,7 +56,7 @@ class QuizController extends ApiController
                 ->orderBy('order', 'asc')->skip($step - 1);
         $sub_real = $request->sub_options;
         // exclude first answer
-        $sub = "0".substr($sub_real, 1);
+        $sub = $this->_removeFirst($sub_real);
         if (isset($sub)) {
             $quiz = $quiz->first();
             if ($quiz->is_check_prev === 1) {
@@ -101,7 +101,7 @@ class QuizController extends ApiController
     {
         $answers_real = $request->post("answers");
         // exclude first answer
-        $answers = "0".substr($answers_real, 1);
+        $answers = $this->_removeFirst($answers_real);
         if (empty($answers)) return $this->respondValidationError("answers can't be empty!");
         $categories = Category::select(['id', 'name'])
                 ->where('status', 1)
@@ -109,7 +109,7 @@ class QuizController extends ApiController
                 ->get();
         return $this->response->array([
             "categories" => $categories,
-            "answers" => $answers
+            "answers" => $answers_real
         ]);
     }
 
@@ -137,5 +137,12 @@ class QuizController extends ApiController
             "redirect_url" => urldecode(route('case-study', ["type_of_research" => join(",",$cats)])),
             "answers" => $answers
         ]);
+    }
+
+
+    private function _removeFirst($answers) {
+        $a = explode(".", $answers);
+        array_shift($a);
+        return "0.". implode(".", $a);
     }
 }

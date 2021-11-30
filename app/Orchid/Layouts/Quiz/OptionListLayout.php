@@ -8,7 +8,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use App\Orchid\Layouts\Quiz\SubOptionListLayout;
-use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Fields\Input;
 
 
 class OptionListLayout extends Table
@@ -27,17 +27,23 @@ class OptionListLayout extends Table
     {
         return [
             TD::make('name', 'Name')
+                ->sort()
+                ->filter(Input::make())
                 ->render(function (QuizOption $quizoption) {
                     return Link::make($quizoption->name)
                         ->route('platform.quiz.option.edit', $quizoption);
                 }),
 
             TD::make('code', 'Code')
+                ->sort()
+                ->filter(Input::make())
                 ->render(function (QuizOption $quizoption) {
                     return $quizoption->code;
                 }),
 
             TD::make('sub_options', 'Previous Answer Combinations')
+                ->sort()
+                ->filter(Input::make())
                 ->render(function (QuizOption $quizoption) {
                     return json_encode($quizoption->sub_options);
                 }),

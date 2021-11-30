@@ -61,6 +61,9 @@ class Category extends Model
         'updated_at'
     ];
 
+    protected $allowedFilters = [
+        'name',
+    ];
     /**
      * @param Builder $query
      *

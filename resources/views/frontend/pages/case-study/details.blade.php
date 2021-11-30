@@ -58,7 +58,7 @@
     @if (isset($caseStudy->tools))
     <div class="grid">
         <div class="column--20">
-            <h4 class="sub--title_section">Tools</h4>
+            <h4 class="sub--title_section">Our Tools</h4>
         </div>
         <div class="column--80">
             <p>{{ $caseStudy->tools }}</p>

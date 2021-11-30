@@ -36,11 +36,17 @@ class QuizOption extends Model
      * @var array
      */
     protected $allowedSorts = [
-        'question',
+        'name',
         'code',
         'status',
         'created_at',
         'updated_at'
+    ];
+
+    protected $allowedFilters = [
+        'name',
+        'code',
+        'sub_options',
     ];
 
 

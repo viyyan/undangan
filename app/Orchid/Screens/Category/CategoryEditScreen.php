@@ -164,7 +164,7 @@ class CategoryEditScreen extends Screen
 
         Alert::info('You have successfully created an category.');
 
-        return redirect()->route('platform.category.list', ['type' => $category->type]);
+        return redirect()->route('platform.category.list', $category->type);
     }
 
     /**
@@ -179,7 +179,7 @@ class CategoryEditScreen extends Screen
 
         Alert::info('You have successfully deleted the category.');
 
-        return redirect()->route('platform.category.list', ['type' => $category->type]);
+        return redirect()->route('platform.category.list', $category->type);
     }
 
 
