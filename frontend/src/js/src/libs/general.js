@@ -10,7 +10,7 @@ const General = () => {
     if (scroll >= 50) {
         $(".header").addClass("scroll");
     } else {
-        $(".header").removeClass("scroll");
+        $(".header").removeClass("scroll"); 
     }
 });
 };

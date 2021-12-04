@@ -30,7 +30,7 @@
             <article class="card card--info-bottom">
                 <div class="card__inner">
                 <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images01.png') }}" alt=""/></div>
+                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images01.jpg') }}" alt=""/></div>
                 </div>
                 <div class="card__tag bg--primary">Registered PowerBI or Tableau</div>
                 <div class="card__info">
@@ -54,7 +54,7 @@
             <article class="card card--info-bottom">
                 <div class="card__inner">
                 <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images02.png') }}" alt=""/></div>
+                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images02.jpg') }}" alt=""/></div>
                 </div>
                 <div class="card__tag bg--primary">Registered PowerBI or Tableau</div>
                 <div class="card__info">
@@ -78,9 +78,9 @@
             <article class="card card--info-bottom">
                 <div class="card__inner">
                 <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images03.png') }}" alt=""/></div>
+                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images03.jpg') }}" alt=""/></div>
                 </div>
-                <div class="card__tag bg--main-red-4">Closer (made by Clove))</div>
+                <div class="card__tag bg--main-red-4">Closer (made by Clove)</div>
                 <div class="card__info">
                     <div class="card__info__inner">
                     <div class="card__icon"><img src="{{ frontImages('card--icon03.svg') }}" alt=""/></div>
@@ -102,7 +102,7 @@
             <article class="card card--info-bottom">
                 <div class="card__inner">
                 <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images04.png') }}" alt=""/></div>
+                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images04.jpg') }}" alt=""/></div>
                 </div>
                 <div class="card__tag bg--black">MyPer (made by Clove)</div>
                 <div class="card__info">
@@ -126,7 +126,7 @@
             <article class="card card--info-bottom">
                 <div class="card__inner">
                 <div class="card__thumb">
-                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images05.png') }}" alt=""/></div>
+                    <div class="card__thumb__image"><img src="{{ frontImages('our_tools-images05.jpg') }}" alt=""/></div>
                 </div>
                 <div class="card__tag bg--main-red-4">Registered PowerBI or Tableau</div>
                 <div class="card__info">

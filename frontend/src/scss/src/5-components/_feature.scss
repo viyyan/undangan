@@ -146,9 +146,21 @@ $thumb-deco-height: 10.25rem;
       display: inline-block;
       margin-top: 0.35rem;
       &.add-border{
-        border: 1px solid $color-white;
-        margin-top: 1.3rem;
+        margin-top: 1.4rem;
         margin-bottom: 1.2rem;
+        position: relative;
+        padding-left: 2.5rem;
+        &::before{
+          content: '';
+          position: absolute;
+          background: url('../images/markdown.svg') #fff center no-repeat;
+          background-size: 1rem ;
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          left: 0;
+          top: 0.1875rem
+        }
       }
     }
   }
