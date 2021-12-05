@@ -69,12 +69,17 @@ $thumb-deco-height: 10.25rem;
 
   &__cta {
     display: flex;
-    flex-direction: column;
     flex-direction: row;
     margin-top: 0.1rem;
     &-block{
       width: 45%;
       margin: 5px 5px 5px 0px;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      flex-direction: column;
     }
     .button{
       padding-right: 0;
@@ -87,6 +92,12 @@ $thumb-deco-height: 10.25rem;
             margin-top: 0;
           }
         }
+        @media (max-width: 768px) {
+          justify-content: flex-start;
+        }
+      }
+      @media (max-width: 768px) {
+        width: 100%;
       }
     }
    span{
@@ -193,6 +204,9 @@ $thumb-deco-height: 10.25rem;
     .absolute--number{
       right: -2rem;
       left: auto;
+      @media (max-width: 768px) {
+        right: 0;
+      }
     }
   }
   &--left{
@@ -235,4 +249,10 @@ $thumb-deco-height: 10.25rem;
   font-size: $text-lg;
   top: -2rem;
   font-weight: 600;
+  @media (max-width: 768px) {
+    width: 3rem;
+    left: 0rem;
+    height: 3rem;
+    top: -1.25rem;
+  }
 }
