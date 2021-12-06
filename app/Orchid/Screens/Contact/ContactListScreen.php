@@ -32,7 +32,7 @@ class ContactListScreen extends Screen
     public function query(): array
     {
         return [
-            'contacts' => Contact::filters()->defaultSort('id')->paginate()
+            'contacts' => Contact::filters()->defaultSort('created_at', 'desc')->paginate()
         ];
     }
 

@@ -81,11 +81,20 @@
                         {{ session()->get('success') }}
                     <span>
                 </div>
+                <script>
+                    let url = '{{ frontAssets("download/clove-credentials-2021.pdf") }}';
+                    setTimeout(function() {
+                        var link = document.createElement("a");
+                        link.setAttribute('download', name);
+                        link.href = url;
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                    }, 1000);
+                    console.log(url);
+                </script>
             @endif
 
-            <div class="form_alert success">
-                <span>Submit your inquiry and get our credentials.</span>
-            </div>
             <div class="form__submit">
                 <button class="button button--white button--md" type="submit"><span class="button__content"><span class="button__label">Submit</span><span class="button__icon"><i class="icon__arrow">
                         <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +102,9 @@
                         <polyline points="14 6 20 12 14 18"></polyline>
                         </svg></i></span></span>
                 </button>
+            </div>
+            <div class="form__alert">
+                <span>*submit your inquiry and get our credentials.</span>
             </div>
             </form>
         </div>
