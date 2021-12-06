@@ -8,7 +8,7 @@
         <div class="header__container container container--full">
         <div class="header__inner">
             <div class="header__main">
-            <span><a href="{{ url('/') }}"><img src="{{ frontImages('logo--main.svg') }}" alt="Clove"></a></span>
+            <span><a href="{{ url('/') }}"><img src="{{ frontImages('logo--main.svg', '2') }}" alt="Clove"></a></span>
             </div>
             <nav class="header__nav desktop_nav">
                 <div class="header__nav__main nav nav--horizontal">
