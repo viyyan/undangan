@@ -1,10 +1,14 @@
 //
 // Case study JS
 //
+import General from './src/libs/general';
 import Select from './src/components/Select';
 
 (function() {
   'use strict';
+  //
+  // Run general scripts
+  General();
 
   // Get url filtered
   const getUrlFiltered = (filterName, value) => {

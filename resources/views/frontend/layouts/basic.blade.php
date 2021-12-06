@@ -56,7 +56,9 @@
     @endif
     @include('frontend.includes.loader')
     @if (isset($jsFileName))
-        <script src="{{ frontAssets('js/'.$jsFileName.'.js') }}"></script>
+      <script src="{{ frontAssets('js/'.$jsFileName.'.js') }}"></script>
+    @else
+      <script src="{{ frontAssets('js/general.js') }}"></script>
     @endif
   </body>
 </html>
