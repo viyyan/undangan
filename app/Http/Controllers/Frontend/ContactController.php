@@ -48,6 +48,6 @@ class ContactController extends Controller
 			'file' => $filename,
 			'message' => $request->message,
 		]);
-        return redirect()->back()->with('success', 'Well received, we will respond to your enquiry as soon as possible');
+        return redirect()->back()->with('success', 'Well received, we will respond to your inquiry as soon as possible');
     }
 }
