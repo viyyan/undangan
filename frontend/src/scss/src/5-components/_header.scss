@@ -178,6 +178,30 @@ $header-height: 5rem;
           justify-content: center;
           opacity: 0;
         }
+        &.active {
+          padding: 0;
+          a{
+            background-color: $color-main-red-3;
+            border-bottom: 1px solid #fff;
+          }
+          &:after {
+            opacity: 1;
+          }
+          .header__nav__subs {
+            background: #fff;
+            ul{
+              li{
+                a{
+                  background: #fff;
+                  border-bottom: 1px solid $color-primary;
+                }
+                &:after{
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
       }
 
       > ul {
@@ -395,6 +419,7 @@ $header-height: 5rem;
 
       > ul {
         > li {
+          
           > a {
             font-size: 2.4rem;
             font-weight: 700;
