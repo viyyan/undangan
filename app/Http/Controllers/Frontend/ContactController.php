@@ -48,6 +48,11 @@ class ContactController extends Controller
 			'file' => $filename,
 			'message' => $request->message,
 		]);
-        return redirect()->back()->with('success', 'Well received, we will respond to your enquiry as soon as possible');
+        $file = public_path().'/download/clove-credentials-2021.pdf';
+        $headers = array(
+            'Content-Type: application/pdf',
+          );
+        return Response::download($file, 'clove-credentials-2021.pdf', $headers);
+        // return redirect()->back()->with('success', 'Well received, we will respond to your enquiry as soon as possible');
     }
 }
