@@ -6,6 +6,7 @@
 @extends('frontend.layouts.basic')
 @section('content')
 
+@if (false)
 <div class="section section--space-md bg--main-red-4 slider--section">
     <div class="section__slider">
         <div class="slider__wrapper">
@@ -44,9 +45,10 @@
         </div>
       </div>
 </div>
+@endif
+@if (false)
 <div class="section section--space-md bg--main-red-4 top--section">
     <div class="section__inner">
-        @if (false)
         <div class="container">
             <div class="section__main">
             <div class="section__header">
@@ -104,9 +106,9 @@
             </div>
             </div>
         </div>
-        @endif
     </div>
 </div>
+@endif
 <div class="section section--space-md bg--main-red-5 p-our-thinking__posts">
     <div class="section__inner">
     <div class="container">
@@ -116,6 +118,7 @@
             <h2 class="text--3xl">All of the thinking</h2>
             </div>
             <div class="section__header__widget">
+            @if (false)
             <form class="form__search" method="post" action="">
                 <div class="form__search__main">
                 <input type="text" name="keyword" placeholder="You can type your search here..">
@@ -127,9 +130,16 @@
                         </svg></i></span></span></button>
                 </div>
             </form>
+            @endif
             </div>
+
         </div>
         <div class="section__body">
+            @if (count($posts) == 0)
+                <div style="min-height: 400px;">
+                <span class="text--small">Coming soon</span>
+                </div>
+            @endif
             <div class="grid gap--md">
                 @foreach ($posts as $post)
                     <div class="column--33">

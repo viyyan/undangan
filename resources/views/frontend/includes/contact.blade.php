@@ -19,13 +19,15 @@
         </div>
         </div>
         <div class="column--50">
+
         <div class="chat__form">
-            <form class="form" method="post" action="" enctype="multipart/form-data">
+            <form class="form" method="post" action="{{ route('contact-us.submit') }}" enctype="multipart/form-data">
+            @csrf
             <div class="form__field">
                 <div class="form__icon"><img src="{{ frontImages('icon--user--white.svg') }}" alt=""></div>
                 <div class="form__main">
                 <div class="form__control">
-                    <input type="text" name="name" placeholder="Name *">
+                    <input type="text" name="name" placeholder="Name *" required>
                 </div>
                 </div>
             </div>
@@ -33,7 +35,7 @@
                 <div class="form__icon"><img src="{{ frontImages('icon--email--white.svg') }}" alt=""></div>
                 <div class="form__main">
                 <div class="form__control">
-                    <input type="text" name="email" placeholder="E-mail *">
+                    <input type="text" name="email" placeholder="E-mail *" required>
                 </div>
                 </div>
             </div>
@@ -44,7 +46,7 @@
                 <div class="form__upload__main">
                     <div class="form__upload__info">(PDF, PPT or Word)</div>
                     <div class="form__upload__control">
-                    <input type="file" name="doc" accept="application/pdf,application/vnd.ms-powerpoint,application/msword">
+                    <input type="file" name="file" accept="application/pdf,application/vnd.ms-powerpoint,application/msword">
                     <div class="form__upload__button">
                         <button class="button button--dark button--sm" type="button"><span class="button__content"><span class="button__icon"><i class="icon__arrow">
                                 <svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -61,12 +63,27 @@
             <div class="form__field form__field__message">
                 <div class="form__main">
                 <div class="form__control">
-                    <textarea name="message" placeholder="What do you wanna say?"></textarea>
+                    <textarea name="message" placeholder="What do you wanna say?" required></textarea>
                 </div>
                 </div>
             </div>
+            @if(count($errors) > 0)
+                    <div class="form__alert error">
+                        @foreach ($errors->all() as $error)
+                        <span>{{ $error }}</span> <br/>
+                        @endforeach
+                    </div>
+            @endif
+
+            @if(session()->has('success'))
+                <div class="form__alert success">
+                    <span>
+                        {{ session()->get('success') }}
+                    <span>
+                </div>
+            @endif
             <div class="form__submit">
-                <button class="button button--white button--md" type="button"><span class="button__content"><span class="button__label">Submit</span><span class="button__icon"><i class="icon__arrow">
+                <button class="button button--white button--md" type="submit"><span class="button__content"><span class="button__label">Submit</span><span class="button__icon"><i class="icon__arrow">
                         <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <line x1="4" x2="20" y1="12" y2="12"></line>
                         <polyline points="14 6 20 12 14 18"></polyline>
@@ -79,3 +96,6 @@
     </div>
     </div>
 </div>
+
+
+

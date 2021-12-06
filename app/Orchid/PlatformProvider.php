@@ -29,10 +29,7 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make('Our Thinking')
                 ->icon('book-open')
-                ->list([
-                    Menu::make('All Posts')->route('platform.post.list'),
-                    // Menu::make('Categories')->route('platform.category.list', ['type' => 'post']),
-                ])
+                ->route('platform.post.list')
                 ->title('Content'),
 
             Menu::make('Team')
@@ -64,6 +61,11 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Categories')->route('platform.category.list', ['type' => 'career']),
                 ])
                 ->title('Careers'),
+
+            Menu::make('Inquiries')
+                ->icon('envelope-letter')
+                ->route('platform.contact.list')
+                ->title('Contact'),
 
             Menu::make(__('Users'))
                 ->icon('user')

@@ -26,6 +26,7 @@ use App\Orchid\Screens\CaseStudy\CaseStudyListScreen;
 use App\Orchid\Screens\CaseStudy\CaseStudyEditScreen;
 use App\Orchid\Screens\QuizParticipant\ParticipantListScreen;
 use App\Orchid\Screens\QuizParticipant\ParticipantEditScreen;
+use App\Orchid\Screens\Contact\ContactListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -173,6 +174,14 @@ Route::screen('case-study/{career?}', CaseStudyEditScreen::class)
         return $trail
             ->parent('platform.case-study.list')
             ->push(__('Case Study'));
+    });
+
+// Platform > Contact
+Route::screen('contacts', ContactListScreen::class)
+    ->name('platform.contact.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Contacts'), route('platform.contact.list'));
     });
 
 // Platform > Profile

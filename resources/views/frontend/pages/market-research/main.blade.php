@@ -32,20 +32,28 @@
                 <div class="cta__body">
                     <p>Access your free assessment by answering 6 questions to discover the most suitable research you need.</p>
                 </div>
-                <div class="cta__action">
-                    <a class="button button--white button--md" href="{{ route('market-research.quiz') }}">
-                        <span class="button__content">
-                            <span class="button__label">Let's Go!</span>
-                        <span class="button__icon">
-                        <i class="icon__arrow">
-                        <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="4" x2="20" y1="12" y2="12"></line>
-                            <polyline points="14 6 20 12 14 18"></polyline>
-                            </svg>
-                        </i>
-                        </span></span>
-                    </a>
-                </div>
+                    @if (false)
+                    <div class="cta__action">
+                        <a class="button button--white button--md" href="{{ route('market-research.quiz') }}">
+                            <span class="button__content">
+                                <span class="button__label">Let's Go!</span>
+                            <span class="button__icon">
+                            <i class="icon__arrow">
+                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="4" x2="20" y1="12" y2="12"></line>
+                                <polyline points="14 6 20 12 14 18"></polyline>
+                                </svg>
+                            </i>
+                            </span></span>
+                        </a>
+                    </div>
+                    @else
+                    <div class="cta__action">
+                        <a class="button button--white button--md" href="#">
+                            <span class="button__content"><span class="button__label">Coming soon</span><span class="button__icon">
+                        </a>
+                    </div>
+                    @endif
                 </div>
             </div>
             </div>

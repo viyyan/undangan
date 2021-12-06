@@ -23,7 +23,7 @@ form {
   ::-webkit-input-placeholder {
     color: $color-white;
   }
-  :-moz-placeholder { 
+  :-moz-placeholder {
     color: $color-white;
     opacity:  1;
   }
@@ -99,7 +99,7 @@ form {
     flex: 1;
   }
 
-  // Upload 
+  // Upload
   &__upload {
     padding-right: 3rem;
     // < 1200px
@@ -236,6 +236,30 @@ form {
   font-size: .75rem;
 }
 
+.form__alert {
+    margin-top: .5rem;
+    font-size: 1rem;
+    padding-left: 1.875rem;
+    padding-right: 1.25rem;
+    padding-top: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding-left: 1.875rem;
+    padding-right: 1.25rem;
+    height: 29px;
+    // width: fit-content;
+    padding-top: 0.45rem;
+    // margin-left: 1.875rem;
+    height: 30px;
+    padding-top: 0.45rem;
+    &.success {
+        color: #80061c;
+        background: white;
+    }
+    &.error {
+        color: white;
+        background: #80061c;
+    }
+  }
 //
 // Form search
 //
@@ -246,7 +270,7 @@ form {
 
   &__main {
     width: 23rem;
-    height: 3rem; 
+    height: 3rem;
     border: 1px solid $color-white;
     border-right: 0;
 

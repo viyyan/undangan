@@ -67,3 +67,6 @@ Route::prefix('market-research')->group(function () {
 
 Route::get('contact-us', [ContactController::class, 'index'])
     ->name('contact-us');
+
+Route::post('contact-us', [ContactController::class, 'submitInquiry'])
+    ->name('contact-us.submit');
