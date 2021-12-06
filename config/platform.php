@@ -128,8 +128,8 @@ return [
     */
 
     'template' => [
-        'header' => null,
-        'footer' => null,
+        'header' => 'backend.includes.header',
+        'footer' => 'backend.includes.footer',
     ],
 
     /*

@@ -23,4 +23,9 @@ class ContactController extends Controller
         );
         return view('frontend.pages.contact-us.main', $data);
     }
+
+    public function submitInquiry(Request $request)
+    {
+        
+    }
 }

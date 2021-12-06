@@ -204,7 +204,8 @@ class OptionEditScreen extends Screen
     public function removeSub($sub, QuizOption $quizoption)
     {
         $subs = !empty($quizoption->sub_options) ? $quizoption->sub_options : array();
-        $subs = array_diff($subs, [$sub]);
+        $key = array_search($sub, $subs);
+        array_splice($subs, $key, 1);
         $quizoption->sub_options = $subs;
         $quizoption->save();
         Alert::info('You have successfully removed an quiz option.');
