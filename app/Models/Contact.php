@@ -39,7 +39,7 @@ class Contact extends Model
     public function getAttachedFile()
     {
         if ($this->file != null) {
-            return url("contact_attachment/".$this->file);
+            return frontAssets("contact_attachment/".$this->file);
         } else {
             return null;
         }
