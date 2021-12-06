@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CaseStudy;
 
 
 class WhatWeDoController extends Controller
@@ -15,9 +16,12 @@ class WhatWeDoController extends Controller
      */
     public function index(Request $request)
     {
+        $caseStudies = CaseStudy::where('status', 1)
+        ->limit(3)->orderBy('created_at', 'desc')->get();
         $data = array(
             "cssFileName" => "service",
-            "classBody" => "p-service"
+            "classBody" => "p-service",
+            "caseStudies" => $caseStudies
         );
         return view('frontend.pages.what-we-do.main', $data);
     }
