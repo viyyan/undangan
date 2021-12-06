@@ -14,7 +14,8 @@
                 <div class="header__nav__main nav nav--horizontal">
                     <ul>
                     <li class="header__nav__home {{ isCurrent('home') }}"><a href="{{ route('home') }}"><span>Home</span></a></li>
-                    <li class="header__nav__about {{ isCurrent('our-pillars') }}"><a href="{{ route('who-we-are') }}"><span>Who We Are</span></a>
+                    <li class="header__nav__about {{ isCurrent('who-we-are') . isCurrent('our-pillars') . isCurrent('our-people') . isCurrent('careers') }}">
+                        <a href="{{ route('who-we-are') }}"><span>Who We Are</span></a>
                         <div class="header__nav__subs">
                         <ul>
                             <li><a href="{{ route('our-pillars') }}">Our 4 Pillars</a></li>
@@ -23,7 +24,8 @@
                         </ul>
                         </div>
                     </li>
-                    <li class="header__nav__service"><a href="{{ route('what-we-do') }}"><span>What We Do</span></a>
+                    <li class="header__nav__service {{ isCurrent('what-we-do') . isCurrent('case-study') . isCurrent('our-tools') . isCurrent('case-study.details') }}">
+                        <a href="{{ route('what-we-do') }}"><span>What We Do</span></a>
                         <div class="header__nav__subs">
                         <ul>
                             <li><a href="{{ route('case-study') }}">Case Studies</a></li>
@@ -31,9 +33,9 @@
                         </ul>
                         </div>
                     </li>
-                    <li class="header__nav__blog"><a href="{{ route('our-thinking') }}"><span>Our Thinking</span></a></li>
-                    <li class="header__nav__quiz"> <a href="{{ route('market-research') }}"><span>Market research <br />check-up</span></a></li>
-                    <li class="header__nav__contact"><a href="{{ route('contact-us') }}"><span>Contact Us</span></a></li>
+                    <li class="header__nav__blog {{ isCurrent('our-thinking') }}"><a href="{{ route('our-thinking') }}"><span>Our Thinking</span></a></li>
+                    <li class="header__nav__quiz {{ isCurrent('market-research') }}"> <a href="{{ route('market-research') }}"><span>Market research <br />check-up</span></a></li>
+                    <li class="header__nav__contact {{ isCurrent('contact-us') }}"><a href="{{ route('contact-us') }}"><span>Contact Us</span></a></li>
                     </ul>
                 </div>
             </nav>
