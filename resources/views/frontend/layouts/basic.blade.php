@@ -7,10 +7,10 @@
   <head>
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]-->
-    <title>{{ env('APP_NAME') }}{{ (isset($title)) ? ' | '.$title : '' }}</title>
+    <title>{{ (isset($title)) ? $title.' | ' : '' }}{{ env('APP_NAME') }}</title>
     <meta name="description" content="{{ env('APP_DESC') }}">
     <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
-    <meta property="og:title" content="{{ env('APP_NAME') }}{{ (isset($title)) ? ' | '.$title : '' }}" />
+    <meta property="og:title" content="{{ (isset($title)) ? $title.' | ' : '' }}{{ env('APP_NAME') }}" />
     <meta property="og:image" content="{{ frontImages('meta-image-logo.png') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no">
     <link rel="icon" href="{{ frontImages('favicon.ico') }}" type="image/x-icon" sizes="16x16">
