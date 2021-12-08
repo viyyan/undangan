@@ -16,6 +16,7 @@ class MarketResearchController extends Controller
     public function index(Request $request)
     {
         $data = array(
+            "title" => "Market Research",
             "cssFileName" => "market-quiz",
             "classBody" => "p-market-quiz"
         );
@@ -30,6 +31,7 @@ class MarketResearchController extends Controller
     public function quiz(Request $request)
     {
         $data = array(
+            "title" => "Market Research Check up",
             "cssFileName" => "quiz",
             "jsFileName" => "quiz",
             "classBody" => "p-quiz",

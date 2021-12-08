@@ -45,7 +45,6 @@
                             behavior: 'smooth'
                         });
                     }, 800);
-                    console.log(url);
                 </script>
             @else
             <form class="form" method="post" action="{{ route('contact-us.submit') }}" enctype="multipart/form-data">

@@ -10,7 +10,9 @@ class CareerController extends Controller
 {
     public function index(Request $request)
     {
+        
         $data = array(
+            "title" => "Want to Join Us?",
             "cssFileName" => "career",
             "classBody" => "p-career bg--main-red-4"
         );
@@ -25,6 +27,7 @@ class CareerController extends Controller
     public function show(string $slug,  Request $request)
     {
         $data = array(
+            "title" => "Want to Join Us?",
             "cssFileName" => "career-detail",
             "classBody" => "p-career-detail bg--main-red-4"
         );

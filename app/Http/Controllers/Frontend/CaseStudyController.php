@@ -38,6 +38,7 @@ class CaseStudyController extends Controller
         }
 
         $data = array(
+            "title" => "Case Studies",
             "cssFileName" => "case-study",
             "jsFileName" => "case-study",
             "caseStudyPermalink" => route('case-study'),
@@ -58,6 +59,7 @@ class CaseStudyController extends Controller
     {
         $caseStudy = CaseStudy::findOrFail($id);
         $data = array(
+            "title" => $caseStudy->researchesStr,
             "cssFileName" => "case-study-detail",
             "classBody" => "p-case-study-detail",
             "caseStudy" => $caseStudy

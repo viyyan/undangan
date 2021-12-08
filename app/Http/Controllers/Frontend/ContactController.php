@@ -17,6 +17,7 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $data = array(
+            "title" => "Contact Us",
             "cssFileName" => "contact",
             "jsFileName" => "contact",
             "classBody" => "p-contact",

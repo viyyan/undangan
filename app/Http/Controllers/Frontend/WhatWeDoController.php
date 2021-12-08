@@ -19,6 +19,7 @@ class WhatWeDoController extends Controller
         $caseStudies = CaseStudy::where('status', 1)
         ->limit(3)->orderBy('created_at', 'desc')->get();
         $data = array(
+            "title" => "What We Do",
             "cssFileName" => "service",
             "classBody" => "p-service",
             "caseStudies" => $caseStudies
@@ -34,6 +35,7 @@ class WhatWeDoController extends Controller
     public function ourTools(Request $request)
     {
         $data = array(
+            "title" => "Our Tools",
             "cssFileName" => "our-tools",
             "classBody" => "p-our-tools bg--main-red-4"
         );

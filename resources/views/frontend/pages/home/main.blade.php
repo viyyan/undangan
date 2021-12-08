@@ -270,13 +270,13 @@
             <li><span><img src="{{ frontImages('logo--bintang-toedjoe.png') }}" alt="Bintang Toedjoe"></span></li>
             <li><span><img src="{{ frontImages('logo--savoria.png') }}" alt="Savoria"></span></li>
             <li><span><img src="{{ frontImages('logo--universal-music.png') }}" alt="Universal Music Indonesia"></span></li>
-            <li><span><img src="{{ frontImages('logo--unza.png') }}" alt="UNZA"></span></li>
+            <li><span><img src="{{ frontImages('logo--sera.png', 1) }}" alt="Serasi Autoraya"></span></li>
             <li><span><img src="{{ frontImages('logo--blue-scope.png') }}" alt="Blue Scope"></span></li>
             <li><span><img src="{{ frontImages('logo--danone.png') }}" alt="Danone"></span></li>
             <li><span><img src="{{ frontImages('logo--h-three.png') }}" alt="H Three"></span></li>
             <li><span><img src="{{ frontImages('logo--pharos.png') }}" alt="Pharos"></span></li>
             <li><span><img src="{{ frontImages('logo--kfc.png') }}" alt="KFC"></span></li>
-            <li><span><img src="{{ frontImages('logo--mitsubishi.png') }}" alt="Mitsubishi Motors"></span></li>
+            <li><span><img src="{{ frontImages('logo--mitsubishi.png', 1) }}" alt="Mitsubishi Motors"></span></li>
             <li><span><img src="{{ frontImages('logo--uj.png') }}" alt="Ultra Jaya"></span></li>
             <li><span><img src="{{ frontImages('logo--godrej.png') }}" alt="Godrej"></span></li>
             </ul>

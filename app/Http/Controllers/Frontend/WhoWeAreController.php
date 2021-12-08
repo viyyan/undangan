@@ -18,6 +18,7 @@ class WhoWeAreController extends Controller
     public function index(Request $request)
     {
         $data = array(
+            "title" => "Who We Are",
             "cssFileName" => "about",
             "classBody" => "p-about"
         );
@@ -32,6 +33,7 @@ class WhoWeAreController extends Controller
     public function ourPillars(Request $request)
     {
         $data = array(
+            "title" => "Our Pillars",
             "cssFileName" => "our-pillars",
             "classBody" => "p-our-pillars bg--main-red-4"
         );
@@ -58,14 +60,12 @@ class WhoWeAreController extends Controller
         }
 
         $data = array(
+            "title" => "Our People",
             "cssFileName" => "our-people",
             "classBody" => "p-our-people bg--main-red-4",
             "leaders" => $leaders,
             "members" => $members,
         );
-        // echo "<pre>";
-        // print_r($members);
-        // echo "<pre>";exit();
         return view('frontend.pages.our-people.main', $data);
     }
 

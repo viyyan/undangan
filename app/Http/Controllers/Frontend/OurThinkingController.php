@@ -18,6 +18,7 @@ class OurThinkingController extends Controller
     {
         $posts = Post::where('status', 1)->get();
         $data = array(
+            "title" => "Our Thinking",
             "cssFileName" => "our-thinking",
             "jsFileName" => "our-thinking",
             "classBody" => "blog p-our-thinking bg--main-red-5",
@@ -40,6 +41,7 @@ class OurThinkingController extends Controller
             ->take(3)
             ->get();
         $data = array(
+            "title" => $post->title,
             "cssFileName" => "our-thinking-detail",
             "classBody" => "blog blog__detail p-our-thinking-detail",
             "post" => $post,
