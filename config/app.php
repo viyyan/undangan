@@ -179,7 +179,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         // view service provider
         App\Providers\ViewServiceProvider::class,
-
+        // excel download
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -235,6 +236,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

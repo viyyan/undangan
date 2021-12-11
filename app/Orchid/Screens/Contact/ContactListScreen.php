@@ -8,6 +8,7 @@ use App\Models\Contact;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
 
+
 class ContactListScreen extends Screen
 {
     /**
@@ -44,6 +45,9 @@ class ContactListScreen extends Screen
     public function commandBar(): array
     {
         return [
+            Link::make('Export to Excel')
+                ->class('btn btn-primary')
+                ->route('contact-export')
         ];
     }
 
@@ -58,4 +62,5 @@ class ContactListScreen extends Screen
             ContactListLayout::class
         ];
     }
+
 }

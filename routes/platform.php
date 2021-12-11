@@ -29,6 +29,7 @@ use App\Orchid\Screens\QuizParticipant\ParticipantEditScreen;
 use App\Orchid\Screens\Contact\ContactListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
+use App\Http\Controllers\Backend\ExporterController;
 
 
 /*
@@ -239,3 +240,5 @@ Route::screen('roles', RoleListScreen::class)
             ->push(__('Roles'), route('platform.systems.roles'));
     });
 
+Route::get('admin/contact-export', [ExporterController::class, 'exportContact'])
+    ->name('contact-export');
