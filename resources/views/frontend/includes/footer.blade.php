@@ -21,7 +21,11 @@
                 <a href="https://www.linkedin.com/company/clove-research-and-marketing-analytics/" target="_blank" title="Clove Resaerch Instagram"><i class="fab fa-instagram"><img src="{{ frontImages('linkedin.svg') }}" alt="Instagram"></i></a>
             </div>
             <div class="footer__nav">
-            <p><a href="#">Privacy Policy</a><span>|</span><a href="#">Terms & Condition</a><span>|</span><a href="{{ route('contact-us') }}">Contact Us</a></p>
+            <p>
+                <!-- <a href="#">Privacy Policy</a><span>|</span>
+                <a href="#">Terms & Condition</a><span>|</span> -->
+                <a href="{{ route('contact-us') }}">Contact Us</a>
+            </p>
             </div>
             <div class="footer__copy">
                 <p>&copy; 2021 - CLOVE Research & Marketing Analytics |  All Rights Reserved.</p>
