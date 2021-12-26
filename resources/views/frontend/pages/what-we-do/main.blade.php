@@ -67,7 +67,7 @@
                             <div class="card__category category"><span class="category__main">{{ $case->industry->name }}</span></div>
                             <div class="card__title">
                                 <h3 class="card__title__main text--lg"><a href="{{ route('case-study.details', $case->id) }}">
-                                    {{ excerptLimit($case->researchesStr, 50) }}
+                                    {{ excerptLimit($case->title, 50) }}
                                 </a></h3>
                             </div>
                             </div>

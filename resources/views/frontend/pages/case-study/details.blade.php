@@ -15,7 +15,7 @@
         <div class="card__info__inner">
         <div class="card__category category"><span class="category__main">{{ $caseStudy->industry->name }}</span></div>
         <div class="card__title">
-            <h3 class="card__title__main text--2xl">{{ $caseStudy->researchesStr }}</h3>
+            <h3 class="card__title__main text--2xl">{{ $caseStudy->title }}</h3>
         </div>
         </div>
     </div>
@@ -25,20 +25,17 @@
     <div class="container container--lg">
     <div class="grid tap-of-research">
         <div class="column--20">
-            
+
         </div>
         <div class="column--80">
             <ul>
+                @foreach($caseStudy->researches as $res)
                 <li>
-                    <a href="#">
-                        type of research 
+                    <a href="{{ route('case-study', ['type_of_research' => $res->id ]) }}">
+                        {{ $res->name }}
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        type of research 
-                    </a>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

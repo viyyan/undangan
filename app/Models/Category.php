@@ -9,6 +9,7 @@ use Orchid\Filters\Filterable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\CaseStudy;
 
 
 class Category extends Model
@@ -92,6 +93,11 @@ class Category extends Model
     public function scopeResearch(Builder $query)
     {
         return $query->where('type', 'research');
+    }
+
+    public function cases()
+    {
+        return $this->hasMany(CaseStudy::class, 'cat_industry_id')->orderBy('order', 'asc');
     }
 }
 
