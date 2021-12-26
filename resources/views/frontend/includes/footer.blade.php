@@ -7,7 +7,15 @@
     <div class="container">
         <div class="footer__inner">
         <div class="footer__primary">
-            <div class="footer__logo"><a href="index.html" title=""><img src="{{ frontImages('logo--main.svg') }}" alt="Clove"></a></div>
+            <div class="footer__logo">
+                <a href="index.html" title=""><img src="{{ frontImages('logo--main.svg') }}" alt="Logo Clove"></a>
+            </div>
+            <div class="footer__member">
+                <span>Member of</span>
+                <a href="https://www.perpi.or.id/" title="perpi" class="footer__logo-inline">
+                    <img src="{{ frontImages('perpi-logo.png') }}" alt="Logo Perhimpunan riset pemasaran Indonesia">
+                </a>
+            </div>
             <div class="footer__social">
                 <a href="https://www.instagram.com/clove_research/" target="_blank" title="Clove Resaerch Linkedin"><i class="fab fa-instagram"><img src="{{ frontImages('instagram.svg') }}" alt="Linkedin"></i></a>
                 <a href="https://www.linkedin.com/company/clove-research-and-marketing-analytics/" target="_blank" title="Clove Resaerch Instagram"><i class="fab fa-instagram"><img src="{{ frontImages('linkedin.svg') }}" alt="Instagram"></i></a>

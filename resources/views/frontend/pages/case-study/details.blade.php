@@ -23,6 +23,25 @@
 </div>
 <div class="blog__detail__main bg--content text--black">
     <div class="container container--lg">
+    <div class="grid tap-of-research">
+        <div class="column--20">
+            
+        </div>
+        <div class="column--80">
+            <ul>
+                <li>
+                    <a href="#">
+                        type of research 
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        type of research 
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="grid">
         <div class="column--20">
             <h4 class="sub--title_section">Objective</h4>
