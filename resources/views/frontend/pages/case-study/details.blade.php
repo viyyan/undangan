@@ -43,7 +43,7 @@
         <div class="column--20">
             <h4 class="sub--title_section">Objective</h4>
         </div>
-        <div class="column--80">
+        <div class="column--80 list-study">
             <p>{!! $caseStudy->objective !!}</p>
         </div>
     </div>
@@ -51,7 +51,7 @@
         <div class="column--20">
             <h4 class="sub--title_section">Approach</h4>
         </div>
-        <div class="column--80">
+        <div class="column--80 list-study">
             <p>{!! $caseStudy->approach !!}</p>
         </div>
     </div>
@@ -59,7 +59,7 @@
         <div class="column--20">
             <h4 class="sub--title_section">Result</h4>
         </div>
-        <div class="column--80">
+        <div class="column--80 list-study">
             <p>{!! $caseStudy->result !!}</p>
         </div>
     </div>
@@ -67,7 +67,7 @@
         <div class="column--20">
             <h4 class="sub--title_section">Recommendation</h4>
         </div>
-        <div class="column--80">
+        <div class="column--80 list-study">
             <p>{!! $caseStudy->recommendation !!}</p>
         </div>
     </div>
@@ -76,7 +76,7 @@
         <div class="column--20">
             <h4 class="sub--title_section">Our Tools</h4>
         </div>
-        <div class="column--80">
+        <div class="column--80 list-study">
             <p>{{ $caseStudy->tools }}</p>
         </div>
     </div>

@@ -72,16 +72,27 @@
     li {
       display: inline-block;
       margin-right: 0.4375rem;
+      margin-bottom: 2.3rem;
       a {
         text-decoration: none;
         padding: 0.625rem;
         border: 1px solid #a81c1b;
         transition: all 0.5s ease-in-out;
+        color: #a81c1b;
         &:hover{
           background: #a81c1b;
           color: #fff;
         }
       }
+    }
+  }
+}
+
+.list-study {
+  ul {
+    li{
+      line-height: 1.375rem;
+      margin-bottom: 0.625rem;  
     }
   }
 }
