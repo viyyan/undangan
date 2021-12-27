@@ -149,9 +149,9 @@ class QuizEditScreen extends Screen
      */
     public function remove(Quiz $quiz)
     {
-        $quiz->delete();
+        // $quiz->delete();
 
-        Alert::info('You have successfully deleted the quiz.');
+        // Alert::info('You have successfully deleted the quiz.');
 
         return redirect()->route('platform.quiz.list', ['type' => $quiz->type]);
     }

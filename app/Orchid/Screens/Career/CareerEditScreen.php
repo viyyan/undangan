@@ -98,17 +98,11 @@ class CareerEditScreen extends Screen
                     ->applyScope('career')
                     ->required(),
 
-                TextArea::make('career.desc')
-                    ->title('Description')
-                    ->rows(3)
-                    ->maxlength(300)
-                    ->placeholder('Job description'),
-
                 Quill::make('career.requirements')
-                    ->title('Text Content'),
+                    ->title('Requirements'),
 
                 Quill::make('career.responsibilities')
-                    ->title('Text Content'),
+                    ->title('Responsibilities'),
 
                 Input::make('career.email_to')
                     ->title('Email to')
@@ -116,9 +110,6 @@ class CareerEditScreen extends Screen
                     ->placeholder('HR email address')
                     ->required(),
 
-                Input::make('career.linkedin_url')
-                    ->title('Linkedin job URL')
-                    ->placeholder('https://'),
             ])
         ];
     }

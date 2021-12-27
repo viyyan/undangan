@@ -60,7 +60,17 @@ class QuizController extends ApiController
         if (isset($sub)) {
             $quiz = $quiz->first();
             if ($quiz->is_check_prev === 1) {
-                $options = $quiz->options()->whereJsonContains('sub_options', $sub)->with('optionChilds')->get();
+                $frist = substr($sub_real, 0, 1);
+                // hardcode step 5 & Q1 Automotive
+                if ($step == 5 && $frist != 2) {
+                    $options = $quiz->options()->whereJsonContains('sub_options', $sub)->with('optionChilds', function ($query) {
+                        $exclude = ['design', 'feature'];
+                        $query->whereNotIn('name', $exclude);
+                    })->get();
+                } else {
+                    $options = $quiz->options()->whereJsonContains('sub_options', $sub)->with('optionChilds')->get();
+                }
+
             } else {
                 $options = $quiz->options()->with('optionChilds')->get();
             }
@@ -83,6 +93,25 @@ class QuizController extends ApiController
             return $this->respondNotFound();
         }
         $quiz->decor_image_url = $quiz->decorImageUrl();
+        // $quizArr = $quiz->toArray();
+        // // hardcoded automotive
+        // $frist = substr($sub_real, 0, 1);
+        // if ($step == 5 && $frist != 2) {
+        //     foreach ($quiz->options as $key=>$opt) {
+        //         if (strtolower($opt['name']) == "product" && count($opt->optionChilds) > 0) {
+        //             $opt->optionChilds->filter(function($item) {
+        //                 $exclude = ['design', 'feature'];
+        //                 return !in_array(strtolower($item->name), $exclude);
+        //             });
+        //             // $opt['option_childs'] = $children;
+        //             // return $children;
+        //             $quizArr['options'][$key]['option_childs'] = 'kskksks';
+        //         }
+        //     }
+        //     // unset($quizArr['options'][0]['option_childs']);
+        //     // $quizArr['options'][0]['option_childs'] = 'kskksks';
+        //     return $quizArr['options'][0];
+        // }
         return $this->response->array([
             "quiz" => $quiz,
             "total" => $total,
