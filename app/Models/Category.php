@@ -95,9 +95,12 @@ class Category extends Model
         return $query->where('type', 'research');
     }
 
+
     public function cases()
     {
-        return $this->hasMany(CaseStudy::class, 'cat_industry_id')->orderBy('order', 'asc');
+        return CaseStudy::all()->filter(function($case) {
+            return in_array($this->id, $case->cat_research_ids) ? $case : null;
+        });
     }
 }
 

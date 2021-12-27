@@ -18,17 +18,27 @@ class CaseStudyController extends Controller
     public function index(Request $request)
     {
         $catIndustry = $request->industries;
-        $catResearches = $request->researches;
+        $catResearches = $request->type_of_research;
         $order = $request->order;
         $researches = Category::where('status', 1)->where('type', 'research')->get();
         $industries = Category::where('status', 1)->where('type', 'industry')->get();
         $caseStudies = CaseStudy::where('status', 1);
 
+        $researches = $researches->filter(function($case) {
+            return $case->cases()->count() > 0;
+        });
+
         if (isset($catIndustry)) {
             $caseStudies->whereIn('cat_industry_id', explode(",", $catIndustry));
         }
         if (isset($catResearches)) {
-            $caseStudies->whereJsonContains('cat_research_ids', $catResearches);
+            $resArr = array_diff(explode(",", $catResearches),array(""));
+            $caseStudies->where(function ($q) use ($resArr) {
+                foreach($resArr as $res)
+                {
+                    $q->whereJsonContains('cat_research_ids', $res, 'or');
+                }
+            });
         }
 
         if ($order == 'asc') {
