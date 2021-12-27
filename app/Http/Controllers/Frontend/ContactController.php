@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Inquiry;
 
 class ContactController extends Controller
 {
@@ -43,12 +44,18 @@ class ContactController extends Controller
             $file->move($dir, $filename);
         }
 
-        Contact::create([
+        $contact = Contact::create([
             'name' => $request->name,
             'email' => $request->email,
 			'file' => $filename,
 			'message' => $request->message,
 		]);
+
+        $emails = explode(',', env('MAIL_TO_ADDRESS'));
+        foreach ($emails as $recipient) {
+            Mail::to($recipient)->send(new Inquiry($contact));
+        }
+
         return redirect()->back()->with('success', 'Well received, we will respond to your inquiry as soon as possible');
     }
 }

@@ -69,7 +69,7 @@ class CaseStudyController extends Controller
     {
         $caseStudy = CaseStudy::findOrFail($id);
         $data = array(
-            "title" => $caseStudy->researchesStr,
+            "title" => $caseStudy->title,
             "cssFileName" => "case-study-detail",
             "classBody" => "p-case-study-detail",
             "caseStudy" => $caseStudy
