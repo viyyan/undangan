@@ -20,6 +20,7 @@ class QuizOptionChild extends Model
         'name',
         'quiz_option_id',
         'code',
+        // 'sub_options',
         'status',
     ];
 

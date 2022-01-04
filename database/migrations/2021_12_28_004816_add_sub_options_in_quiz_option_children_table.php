@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCareerAppliers extends Migration
+class AddSubOptionsInQuizOptionChildrenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateCareerAppliers extends Migration
      */
     public function up()
     {
-        Schema::create('career_appliers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('quiz_option_children', function (Blueprint $table) {
+            $table->json('sub_options')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateCareerAppliers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('career_appliers');
+        Schema::table('quiz_option_children', function (Blueprint $table) {
+            $table->dropColumn('sub_options');
+        });
     }
 }

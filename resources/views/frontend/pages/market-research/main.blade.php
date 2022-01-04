@@ -32,7 +32,7 @@
                 <div class="cta__body">
                     <p>Access your free assessment by answering 6 questions to discover the most suitable research you need.</p>
                 </div>
-                    @if (false)
+                    @if (true)
                     <div class="cta__action">
                         <a class="button button--white button--md" href="{{ route('market-research.quiz') }}">
                             <span class="button__content">

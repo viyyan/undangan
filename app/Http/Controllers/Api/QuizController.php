@@ -60,17 +60,21 @@ class QuizController extends ApiController
         if (isset($sub)) {
             $quiz = $quiz->first();
             if ($quiz->is_check_prev === 1) {
-                $frist = substr($sub_real, 0, 1);
-                // hardcode step 5 & Q1 Automotive
-                if ($step == 5 && $frist != 2) {
-                    $options = $quiz->options()->whereJsonContains('sub_options', $sub)->with('optionChilds', function ($query) {
-                        $exclude = ['design', 'feature'];
-                        $query->whereNotIn('name', $exclude);
-                    })->get();
-                } else {
-                    $options = $quiz->options()->whereJsonContains('sub_options', $sub)->with('optionChilds')->get();
+                $opt_answers = $this->_getPathAnswers($sub_real);
+                $opt_answers;
+                $query = $quiz->options()->with('optionChilds');
+                $query->whereIn('code', array_column($opt_answers, 'code'));
+                $options = $query->get()->toArray();
+                foreach ($options as $idx=>$item) {
+                    $key = array_search($item['code'], array_column($opt_answers, 'code'));
+                    if ($key >= 0 && isset($opt_answers[$key]['child'])) {
+                        $opt_child = $opt_answers[$key]['child'];
+                        $children = array();
+                        $options[$idx]['option_childs'] = array_filter( $options[$idx]['option_childs'], function($child) use($opt_child) {
+                            return in_array($child['code'], $opt_child);
+                        });
+                    }
                 }
-
             } else {
                 $options = $quiz->options()->with('optionChilds')->get();
             }
@@ -93,25 +97,6 @@ class QuizController extends ApiController
             return $this->respondNotFound();
         }
         $quiz->decor_image_url = $quiz->decorImageUrl();
-        // $quizArr = $quiz->toArray();
-        // // hardcoded automotive
-        // $frist = substr($sub_real, 0, 1);
-        // if ($step == 5 && $frist != 2) {
-        //     foreach ($quiz->options as $key=>$opt) {
-        //         if (strtolower($opt['name']) == "product" && count($opt->optionChilds) > 0) {
-        //             $opt->optionChilds->filter(function($item) {
-        //                 $exclude = ['design', 'feature'];
-        //                 return !in_array(strtolower($item->name), $exclude);
-        //             });
-        //             // $opt['option_childs'] = $children;
-        //             // return $children;
-        //             $quizArr['options'][$key]['option_childs'] = 'kskksks';
-        //         }
-        //     }
-        //     // unset($quizArr['options'][0]['option_childs']);
-        //     // $quizArr['options'][0]['option_childs'] = 'kskksks';
-        //     return $quizArr['options'][0];
-        // }
         return $this->response->array([
             "quiz" => $quiz,
             "total" => $total,
@@ -132,10 +117,19 @@ class QuizController extends ApiController
         // exclude first answer
         $answers = $this->_removeFirst($answers_real);
         if (empty($answers)) return $this->respondValidationError("answers can't be empty!");
+
         $categories = Category::select(['id', 'name'])
-                ->where('status', 1)
-                ->whereJsonContains('quiz_answers', $answers)
-                ->get();
+            ->where('type', 'research')
+            ->where('status', 1)
+            ->whereJsonContains('quiz_answers', $answers);
+
+        if ($categories->count() == 0) {
+            $categories->orWhereJsonContains('quiz_answers', $answers_real);
+        }
+
+
+        $categories = $categories->get();
+
         return $this->response->array([
             "categories" => $categories,
             "answers" => $answers_real
@@ -173,5 +167,76 @@ class QuizController extends ApiController
         $a = explode(".", $answers);
         array_shift($a);
         return "0.". implode(".", $a);
+    }
+
+    private function _countAnswers($answers) {
+        $a = explode(".", $answers);
+        return count($a);
+    }
+
+    private function _getFirst($answers, $total) {
+        $a = explode(".", $answers);
+        $a = array_slice($a, 0, $total);
+        return implode(".", $a);
+    }
+
+    private function _getPathAnswers($answers) {
+        $opt_answers = Category::select(['quiz_answers'])
+            ->where('status', 1)
+            ->whereNotNull('quiz_answers')
+            ->where('type', 'research')
+            ->pluck('quiz_answers')
+            ->toArray();
+        $new_arr = array_unique(array_merge(...$opt_answers));
+        $data = $this->_getCodes($answers, $new_arr);
+        return $data;
+    }
+
+
+    private function _getCodes($answers_real, $arr_codes) {
+        $answers = $this->_removeFirst($answers_real);
+        $data = [];
+        $count = $this->_countAnswers($answers);
+        foreach($arr_codes as $item) {
+            $arr = explode(".", $item);
+            $slice_arr = array_slice($arr, 0, $count);
+            $ans = implode(".", $slice_arr);
+            if (($ans === $answers || $ans === $answers_real) && $count < count($arr)) {
+                $code['code'] = $arr[$count];
+                if ($code['code'] == 0) continue;
+                $branch = explode("-", $code['code']);
+                if (is_array($branch) && count($branch) > 1) {
+                    $code['code'] = $branch[0];
+                    $code['child'][] = $branch[1];
+                    $code['child'] = array_unique($code['child']);
+                    if (count($code['child']) > 0) {
+                        sort($code['child']);
+                    }
+                    $data[$branch[0]] = $code;
+                } else if ($code != "" && !in_array($code, $data)) {
+                    $data[$arr[$count]] = $code;
+                }
+            }
+        }
+        sort($data);
+        $ex_design_feature = false;
+        $first = substr($answers_real, 0, 1);
+        if ($first == 2 && strlen($answers_real) > 3) {
+            $last = substr($answers_real, 2, strlen($answers_real));
+            if ($last !== "1.1.1") {
+                $ex_design_feature = true;
+            }
+        }
+        if ($ex_design_feature) {
+            foreach($data as $key=>$item) {
+                // hardcode
+                if ($item['code'] == 1 && isset($item['child'])) {
+                    $child = array_diff($item['child'], ['4','5']);
+                    $data[$key]['child'] = $child;
+                    break;
+                }
+            }
+        }
+        return $data;
     }
 }

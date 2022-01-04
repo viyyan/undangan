@@ -42,6 +42,16 @@ class SubOptionListLayout extends Table
                     return $res;
                 }),
 
+            TD::make('actions', 'Details')
+                ->render(function ($item) {
+                    return ModalToggle::make('Show Details')
+                        ->modal('detailsModal')
+                        ->icon('full-screen')
+                        ->asyncParameters($item);
+                }),
+
+
+
             TD::make('actions', 'Actions')
                 ->render(function ($item) {
                     return Button::make('Remove')

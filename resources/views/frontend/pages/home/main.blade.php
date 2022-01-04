@@ -178,7 +178,7 @@
                     <p>Access your free assessment by answering 6 questions to discover the most suitable research you need.</p>
                     </div>
                     <!-- hide for while -->
-                    @if (false)
+                    @if (true)
                     <div class="cta__action"><a class="button button--white button--md" href="{{ route('market-research') }}">
                         <span class="button__content"><span class="button__label">Let’s go!</span><span class="button__icon">
                             <i class="icon__arrow">
