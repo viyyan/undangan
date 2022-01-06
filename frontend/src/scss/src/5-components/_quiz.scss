@@ -10,6 +10,7 @@
     &__inner {
       padding: 2rem;
       height: 100%;
+      
     }
 
     h2 {
@@ -36,6 +37,9 @@
   &__dir {
     align-self: center;
     margin-top: 6rem;
+    @media (max-width: 768px) {
+      margin-top: 1.5rem;
+    }
 
     &__title {
       margin-bottom: .625rem;
@@ -67,6 +71,9 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      @media (max-width: 768px) {
+       padding: 2rem 2rem 5rem 2rem; 
+      }
     }
 
     &__content {
@@ -95,6 +102,7 @@
     @media (max-width: 768px) {
       flex-direction: column-reverse;
       justify-content: center;
+      align-items: flex-start;
     }
 
     &__dir {
@@ -120,18 +128,44 @@
       // < 768px
       @media (max-width: 768px) {
         margin-top: 1rem;
+        .button__label {
+          font-size: 0.7rem;
+        }
       }
     }
 
     &__next {
       button {
         width: 183px;
+        @media (max-width: 768px) {
+          width: 100%;
+          padding-left: 1rem;
+          padding-right: 0.5rem;
+          margin-left: 0.5rem;
+          .button__label {
+            font-size: 0.7rem;
+          }
+        }
 
         .button__content {
           width: 100%;
         }
         .button__icon {
           margin-left: auto;
+        }
+      }
+    }
+    &__prev{
+      @media (max-width: 768px) {
+        button{
+          width: 100%;
+          padding-left: 1rem;
+          padding-right: 0.5rem;
+          .button__label {
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
         }
       }
     }
@@ -175,6 +209,13 @@
 
       li {
         padding: .3125rem;
+        @media (max-width: 768px) {
+          button{
+            padding: 0.5rem;
+            height: auto;
+          }
+        }
+        
       }
     }
   }
@@ -195,6 +236,11 @@
         width: 100%;
         font-size: $text-lg;
         font-weight: bold;
+        @media (max-width: 768px) {
+          height: auto;
+          min-height: 6rem;
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -207,6 +253,10 @@
         justify-content: space-between;
         width: 100%;
         position: relative;
+        @media (max-width: 768px) {
+          justify-content: center;
+          margin-top: 3rem;
+        }
 
         &:before {
           content: "";
@@ -216,6 +266,9 @@
           right: 1rem;
           height: 1px;
           border-bottom: 1px dashed $color-white;
+          @media (max-width: 768px) {
+            display: none;
+          }
         }
       }
       li {
@@ -227,6 +280,10 @@
         width: 9rem;
         height: 9rem;
         border-radius: 100%;
+        @media (max-width: 768px) {
+          width: 7rem;
+          height: 7rem;
+        }
 
         &:hover, &[data-state="active"] {
           background-color: $color-main-red-5;
@@ -246,6 +303,18 @@
       padding: 1rem 1rem 2.25rem;
       width: 100%;
       border-radius: 0;
+      &.modal__main {
+        @media (max-width: 768px) {
+          min-width: auto;
+          transform: translateY(3rem)!important;
+        }
+      }
+    }
+
+    &.modal {
+      @media (max-width: 768px) {
+        overflow-x: scroll;
+      }
     }
 
     &__top {
@@ -256,6 +325,9 @@
         border-radius: .625rem;
         background-color: $color-main-red;
         text-align: center;
+        @media (max-width: 768px) {
+          padding: 2rem 1rem;
+        }
       }
 
       &__main {
@@ -265,6 +337,9 @@
         p {
           max-width: 27rem;
           margin: 0 auto;
+          @media (max-width: 768px) {
+            line-height: 1.2rem;
+          }
         }
       }
     }
@@ -275,6 +350,9 @@
       background-color: $color-main-red-5;
       border-radius: .625rem;
       text-transform: uppercase;
+      @media (max-width: 768px) {
+        padding: 1rem;
+      }
     }
 
     &__main {
@@ -288,6 +366,9 @@
       > p {
         text-align: center;
         padding: 0 1rem;
+        @media (max-width: 768px) {
+          line-height: 1.4rem;
+        }
       }
       form {
         margin-top: 2rem;
@@ -388,12 +469,23 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
 
       > div {
         padding: 0 .625rem;
+        @media (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
 
         &:first-child {
           width: 12.25rem;
+          @media (max-width: 768px) {
+            width: 100%;
+          }
+          
         }
         &:last-child {
           flex: 1;
