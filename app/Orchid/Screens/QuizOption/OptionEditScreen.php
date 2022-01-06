@@ -90,36 +90,36 @@ class OptionEditScreen extends Screen
     public function layout(): array
     {
 
-        $quiz = Quiz::find($this->quiz_id);
-        $combination = array();
+        // $quiz = Quiz::find($this->quiz_id);
+        // $combination = array();
 
-        if (!empty($quiz)) {
-            $prevs = Quiz::where('status', 1)
-                ->where('order', '<', $quiz->order)
-                ->orderBy('order', 'asc')
-                ->with(['options', 'options.optionChilds'])->get();
+        // if (!empty($quiz)) {
+        //     $prevs = Quiz::where('status', 1)
+        //         ->where('order', '<', $quiz->order)
+        //         ->orderBy('order', 'asc')
+        //         ->with(['options', 'options.optionChilds'])->get();
 
-            foreach ($prevs as $key=>$prev) {
-                $prevOpt = $prev->options;
-                $options = array();
-                foreach ($prevOpt as $opt) {
-                    if ($opt->has_children) {
-                        foreach($opt->optionChilds as $child) {
-                            $code = $opt->code.'-'.$child->code;
-                            $name = $opt->name.' - '.$child->name;
-                            $options[$code] = $name;
-                        }
-                    } else {
-                        $options[$opt->code] = $opt->name;
-                    }
-                }
-                $comb = Select::make('subs[]')
-                    ->empty('No select', 0)
-                    ->help('Q'.($key+1))
-                    ->options($options);
-                array_push($combination, $comb);
-            }
-        }
+        //     foreach ($prevs as $key=>$prev) {
+        //         $prevOpt = $prev->options;
+        //         $options = array();
+        //         foreach ($prevOpt as $opt) {
+        //             if ($opt->has_children) {
+        //                 foreach($opt->optionChilds as $child) {
+        //                     $code = $opt->code.'-'.$child->code;
+        //                     $name = $opt->name.' - '.$child->name;
+        //                     $options[$code] = $name;
+        //                 }
+        //             } else {
+        //                 $options[$opt->code] = $opt->name;
+        //             }
+        //         }
+        //         $comb = Select::make('subs[]')
+        //             ->empty('No select', 0)
+        //             ->help('Q'.($key+1))
+        //             ->options($options);
+        //         array_push($combination, $comb);
+        //     }
+        // }
         return [
             Layout::rows([
 
@@ -145,15 +145,15 @@ class OptionEditScreen extends Screen
                     ])
                     ->required()
             ]),
-            Layout::rows([
-                Group::make(
-                    $combination
-                ),
-                Button::make('Add')
-                    ->method('addSubOption')
-                    ->class('btn btn-success')
-            ])->title('Prev Options Combinations'),
-            SubOptionListLayout::class,
+            // Layout::rows([
+            //     Group::make(
+            //         $combination
+            //     ),
+            //     Button::make('Add')
+            //         ->method('addSubOption')
+            //         ->class('btn btn-success')
+            // ])->title('Prev Options Combinations'),
+            // SubOptionListLayout::class,
 
             Layout::rows([
                 Button::make('Add Option Child')

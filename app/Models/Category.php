@@ -95,6 +95,17 @@ class Category extends Model
         return $query->where('type', 'research');
     }
 
+     /**
+     * @param Builder $query
+     *
+     * @return Builder
+     */
+    public function scopeCareer(Builder $query)
+    {
+        return $query->where('type', 'career');
+    }
+
+
 
     public function cases()
     {

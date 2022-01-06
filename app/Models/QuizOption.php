@@ -21,7 +21,7 @@ class QuizOption extends Model
         'name',
         'quiz_id',
         'code',
-        'sub_options',
+        // 'sub_options',
         'status',
     ];
 
@@ -46,7 +46,7 @@ class QuizOption extends Model
     protected $allowedFilters = [
         'name',
         'code',
-        'sub_options',
+        // 'sub_options',
     ];
 
 

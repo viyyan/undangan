@@ -29,13 +29,15 @@ class OptionChildListLayout extends Table
             TD::make('name', 'Name')
                 ->render(function (QuizOptionChild $quizOptionChild) {
                     return Link::make($quizOptionChild->name)
-                        ->route('platform.quiz.option.child.edit', [$quizOptionChild, 'quiz_option_name' => $quizOptionChild->parent->name]);
+                        ->route('platform.quiz.option.child.edit', [$quizOptionChild,
+                        'quiz_option_name' => $quizOptionChild->parent->name,
+                        'quiz_id' => $quizOptionChild->parent->quiz_id]);
                 }),
 
-            TD::make('code', 'Code')
-                ->render(function (QuizOptionChild $quizOptionChild) {
-                    return $quizOptionChild->code;
-                }),
+            // TD::make('code', 'Code')
+            //     ->render(function (QuizOptionChild $quizOptionChild) {
+            //         return $quizOptionChild->code;
+            //     }),
 
             TD::make('status', 'Status')
                 ->render(function (QuizOptionChild $quizOptionChild) {

@@ -52,30 +52,16 @@
             </div>
         </div>
         <div class="section__body"></div>
+            @foreach ($careers as $career)
             <div class="card__career bg--content ">
                 <div class="card__career__desc">
-                    <p class="text--black">Quantitative Research Manager</p>
+                    <p class="text--black">{{ $career->title }}</p>
                 </div>
                 <div class="card__button">
-                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
+                    <a href="{{ route('careers.details', $career->slug) }}" class="button button--red-dark button__arrow-right">See listing details</a>
                 </div>
             </div>
-            <div class="card__career bg--content ">
-                <div class="card__career__desc">
-                    <p class="text--black">Project Manager</p>
-                </div>
-                <div class="card__button">
-                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
-                </div>
-            </div>
-            <div class="card__career bg--content ">
-                <div class="card__career__desc">
-                    <p class="text--black">Account Director</p>
-                </div>
-                <div class="card__button">
-                    <a href="{{ route('careers.details', 'dummy-slug') }}" class="button button--red-dark button__arrow-right">See listing details</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     </div>

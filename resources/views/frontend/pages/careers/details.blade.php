@@ -5,7 +5,7 @@
 ?>
 @extends('frontend.layouts.basic')
 @section('content')
-
+@if(isset($career))
 <div class="page-top">
     <div class="container">
     <div class="page-top__main">
@@ -15,8 +15,8 @@
         </div>
         </div>
         <div class="page-top__info">
-        <h1 class="text--3xl">Quantitative Research <br />Manager</h1>
-        <p>Full Time Position</p>
+        <h1 class="text--3xl">{{ $career->title }}</h1>
+        <p>{{ $career->category->name }}</p>
         </div>
     </div>
     </div>
@@ -26,10 +26,10 @@
     <div class="column--50">
         <div class="career__detail__content bg--content text--black content__entry">
         <h2>Requirements </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.</p><br><br>
+        <p>{!! $career->requirements !!}</p>
         <h2>Responsibilites</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tincidunt ex. Ut commodo justo eget felis fringilla aliquet. Fusce in accumsan dui. Morbi elementum massa volutpat risus maximus, feugiat sodales dolor semper. Mauris justo quam, iaculis vitae diam a, pretium interdum risus. Donec sagittis odio quis rutrum finibus. Integer eleifend ullamcorper euismod. Phasellus sed gravida mauris. Cras lacinia vitae sapien vel semper. Nam sed tellus neque. Sed nunc eros, commodo sit amet volutpat eu, rhoncus vel urna. Etiam at scelerisque mauris, vel sagittis lectus. In ac eros arcu. Aliquam elementum rhoncus placerat. Donec dignissim, diam quis elementum faucibus, massa odio auctor eros, semper ultrices lacus risus lobortis quam. Integer non lectus placerat, tristique sapien et, consectetur lectus.</p>
-        </div>
+        <p>{!! $career->responsibilities !!}</p>
+    </div>
     </div>
     <div class="column--50">
         <div class="career__detail__form bg--primary">
@@ -53,7 +53,7 @@
             <div class="form__field form__upload">
             <div class="form__icon"><img src="{{ frontImages('icon--notes--white.svg') }}" alt=""></div>
             <div class="form__main">
-                <div class="form__label">Already have the brief?</div>
+                <div class="form__label">Attach Curriculum Vitae</div>
                 <div class="form__upload__main">
                 <div class="form__upload__info">(PDF, PPT or Word)</div>
                 <div class="form__upload__control">
@@ -91,5 +91,5 @@
     </div>
     </div>
 </div>
-
+@endif
 @endsection

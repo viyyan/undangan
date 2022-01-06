@@ -13,6 +13,8 @@ use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\Group;
 use Illuminate\Http\Request;
 use App\Orchid\Layouts\Quiz\SubOptionListLayout;
+use Orchid\Screen\TD;
+
 
 
 class CategoryEditScreen extends Screen
@@ -46,9 +48,11 @@ class CategoryEditScreen extends Screen
             $category->type = $this->type;
         }
         $this->name = ucwords($this->type).' '.$this->name;
+        $sub_options = $category->quiz_answers;
+        if (!empty($sub_options)) natsort($sub_options);
         return [
             'category' => $category,
-            'sub_options' => isset($category->quiz_answers) ? $category->quiz_answers : [],
+            'sub_options' => isset($sub_options) ? $sub_options : [],
         ];
     }
 
@@ -148,6 +152,13 @@ class CategoryEditScreen extends Screen
         ];
         if ($this->type == 'research') {
             array_push($layout, SubOptionListLayout::class);
+            array_push($layout,
+                Layout::modal('detailsModal', [
+                ])
+                ->async('asyncGetAnswersDetails')
+                ->title('Answers Combination')
+                ->withoutApplyButton()
+            );
         }
         return $layout;
     }
@@ -195,10 +206,15 @@ class CategoryEditScreen extends Screen
         $answers = !empty($category->quiz_answers) ? $category->quiz_answers : array();
         $quiz_answers = $request->get('quiz_answers');
         if (count($quiz_answers) > 0) {
-            array_push($answers, join(".",$quiz_answers));
-            $category->quiz_answers = $answers;
-            $category->save();
-            Alert::info('You have successfully added an quiz answers combination.');
+            $new_ans = join(".",$quiz_answers);
+            if (!in_array($new_ans, $answers)) {
+                array_push($answers, $new_ans);
+                $category->quiz_answers = $answers;
+                $category->save();
+                Alert::info('You have successfully added an quiz answers combination.');
+            } else {
+                Alert::error('Duplicated combination - '.$new_ans);
+            }
         } else {
             Alert::error('Quiz answers can\'t be empty text!');
         }
@@ -220,6 +236,7 @@ class CategoryEditScreen extends Screen
     }
 
 
+
     private function _save(Category $category, Request $request)
     {
         $category->fill($request->get('category'));
@@ -227,4 +244,33 @@ class CategoryEditScreen extends Screen
         return $category;
     }
 
+
+    public function asyncGetAnswersDetails(string $subs): array
+    {
+        $arr = explode(".", $subs);
+        $quizes = "<p><b>&ensp;&ensp;&ensp;";
+        $sub_quizes = "<ul>";
+        foreach ($arr as $key=>$item) {
+            $quizes .= "Q".($key + 1).": ".$item;
+            if ($key < count($arr) - 1) $quizes .= ", ";
+            $quiz = Quiz::where("order", $key + 1)->first();
+            $option_name = "-";
+            if ($item > 0) {
+                $sub = explode("-", $item);
+                if (count($sub) > 1) {
+                    $option = $quiz->options()->where("code", $item)->first();
+                    $sub_opt = $option->optionChilds()->where("code", $sub[1])->first();
+                    $option_name = $option->name ." - ".$sub_opt->name;
+                } else {
+                    $option = $quiz->options()->where("code", $item)->first();
+                    $option_name = $option->name;
+                }
+            }
+            $sub_quizes .= "<li>Quiz ".($key + 1)." : ".$option_name."</li>";
+        }
+        $quizes .= "</b></p>";
+        $sub_quizes .= "</ul>";
+        $sub_quizes = $quizes.$sub_quizes;
+        print_r($sub_quizes); exit();
+    }
 }

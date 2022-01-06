@@ -34,19 +34,19 @@ class OptionListLayout extends Table
                         ->route('platform.quiz.option.edit', $quizoption);
                 }),
 
-            TD::make('code', 'Code')
-                ->sort()
-                ->filter(Input::make())
-                ->render(function (QuizOption $quizoption) {
-                    return $quizoption->code;
-                }),
+            // TD::make('code', 'Code')
+            //     ->sort()
+            //     ->filter(Input::make())
+            //     ->render(function (QuizOption $quizoption) {
+            //         return $quizoption->code;
+            //     }),
 
-            TD::make('sub_options', 'Previous Answer Combinations')
-                ->sort()
-                ->filter(Input::make())
-                ->render(function (QuizOption $quizoption) {
-                    return json_encode($quizoption->sub_options);
-                }),
+            // TD::make('sub_options', 'Previous Answer Combinations')
+            //     ->sort()
+            //     ->filter(Input::make())
+            //     ->render(function (QuizOption $quizoption) {
+            //         return json_encode($quizoption->sub_options);
+            //     }),
 
             TD::make('status', 'Status')
                 ->render(function (QuizOption $quizoption) {

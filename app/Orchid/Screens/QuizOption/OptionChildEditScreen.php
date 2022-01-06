@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens\QuizOption;
 
 use Orchid\Screen\Screen;
+use App\Models\Quiz;
 use App\Models\QuizOptionChild;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
@@ -11,6 +12,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Group;
+use App\Orchid\Layouts\Quiz\SubOptionListLayout;
 
 
 class OptionChildEditScreen extends Screen
@@ -22,11 +24,13 @@ class OptionChildEditScreen extends Screen
      */
     public $name = 'Create Quiz Option Child';
 
+    public $quiz_id;
     public $quiz_option_id;
     public $quiz_option_name;
 
     // construct
     public function __construct(Request $request) {
+        $this->quiz_id = $request->get('quiz_id');
         $this->quiz_option_id = $request->get('quiz_option_id');
         $this->quiz_option_name = $request->get('quiz_option_name');
     }
@@ -48,6 +52,7 @@ class OptionChildEditScreen extends Screen
 
         return [
             'quizOptionChild' => $quizOptionChild,
+            'sub_options' => isset($quizOptionChild->sub_options) ? $quizOptionChild->sub_options : [],
         ];
     }
 
@@ -83,6 +88,28 @@ class OptionChildEditScreen extends Screen
      */
     public function layout(): array
     {
+        // $quiz = Quiz::find($this->quiz_id);
+        // $combination = array();
+
+        // if (!empty($quiz)) {
+        //     $prevs = Quiz::where('status', 1)
+        //         ->where('order', '<', $quiz->order)
+        //         ->orderBy('order', 'asc')
+        //         ->with(['options', 'options.optionChilds'])->get();
+
+        //     foreach ($prevs as $key=>$prev) {
+        //         $prevOpt = $prev->options;
+        //         $options = array();
+        //         foreach ($prevOpt as $opt) {
+        //             $options[$opt->code] = $opt->name;
+        //         }
+        //         $comb = Select::make('subs[]')
+        //             ->empty('No select', 0)
+        //             ->help('Q'.($key+1))
+        //             ->options($options);
+        //         array_push($combination, $comb);
+        //     }
+        // }
         return [
             Layout::rows([
 
@@ -108,6 +135,15 @@ class OptionChildEditScreen extends Screen
                     ])
                     ->required()
             ]),
+            // Layout::rows([
+            //     Group::make(
+            //         $combination
+            //     ),
+            //     Button::make('Add')
+            //         ->method('addSubOption')
+            //         ->class('btn btn-success')
+            // ])->title('Prev Options Combinations'),
+            // SubOptionListLayout::class,
         ];
     }
 
@@ -145,5 +181,43 @@ class OptionChildEditScreen extends Screen
         $quizOptionChild->fill($request->get('quizOptionChild'));
         $quizOptionChild->save();
         return $quizOptionChild;
+    }
+
+    /**
+     * @param QuizOption    $quizOptionChild
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addSubOption(QuizOptionChild $quizOptionChild, Request $request)
+    {
+        $quizOptionChild = $this->_save($quizOptionChild, $request);
+        if ($quizOptionChild) {
+            $subs = !empty($quizOptionChild->sub_options) ? $quizOptionChild->sub_options : array();
+            $subs_add = $request->get('subs');
+            if (count($subs_add) > 0) {
+                array_push($subs, join(".",$subs_add));
+                $quizOptionChild->sub_options = $subs;
+                $quizOptionChild->save();
+                Alert::info('You have successfully created an quiz option.');
+            } else {
+                Alert::error('Sub options can\'t be empty text!');
+            }
+        }
+    }
+
+    /**
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function removeSub($sub, QuizOptionChild $quizOptionChild)
+    {
+        $subs = !empty($quizOptionChild->sub_options) ? $quizOptionChild->sub_options : array();
+        $key = array_search($sub, $subs);
+        array_splice($subs, $key, 1);
+        $quizOptionChild->sub_options = $subs;
+        $quizOptionChild->save();
+        Alert::info('You have successfully removed an quiz option.');
     }
 }
