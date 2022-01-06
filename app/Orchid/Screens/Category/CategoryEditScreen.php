@@ -49,7 +49,7 @@ class CategoryEditScreen extends Screen
         }
         $this->name = ucwords($this->type).' '.$this->name;
         $sub_options = $category->quiz_answers;
-        if (!empty($sub_options)) sort($sub_options);
+        if (!empty($sub_options)) natsort($sub_options);
         return [
             'category' => $category,
             'sub_options' => isset($sub_options) ? $sub_options : [],
@@ -206,10 +206,15 @@ class CategoryEditScreen extends Screen
         $answers = !empty($category->quiz_answers) ? $category->quiz_answers : array();
         $quiz_answers = $request->get('quiz_answers');
         if (count($quiz_answers) > 0) {
-            array_push($answers, join(".",$quiz_answers));
-            $category->quiz_answers = $answers;
-            $category->save();
-            Alert::info('You have successfully added an quiz answers combination.');
+            $new_ans = join(".",$quiz_answers);
+            if (!in_array($new_ans, $answers)) {
+                array_push($answers, $new_ans);
+                $category->quiz_answers = $answers;
+                $category->save();
+                Alert::info('You have successfully added an quiz answers combination.');
+            } else {
+                Alert::error('Duplicated combination - '.$new_ans);
+            }
         } else {
             Alert::error('Quiz answers can\'t be empty text!');
         }

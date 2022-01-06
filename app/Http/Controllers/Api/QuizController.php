@@ -73,6 +73,7 @@ class QuizController extends ApiController
                         $options[$idx]['option_childs'] = array_filter( $options[$idx]['option_childs'], function($child) use($opt_child) {
                             return in_array($child['code'], $opt_child);
                         });
+                        sort($options[$idx]['option_childs']);
                     }
                 }
             } else {
