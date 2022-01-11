@@ -458,10 +458,6 @@ class Quiz {
             ],
             'phone': [
                 {
-                  type: 'required',
-                  message: 'You must enter your phone',
-                },
-                {
                   type: 'phone',
                   message: 'Your phone is not valid.',
                 }
