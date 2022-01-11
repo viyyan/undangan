@@ -306,7 +306,7 @@
       &.modal__main {
         @media (max-width: 768px) {
           min-width: auto;
-          transform: translateY(3rem)!important;
+          transform: translateY(0)!important; 
         }
       }
     }
@@ -314,6 +314,8 @@
     &.modal {
       @media (max-width: 768px) {
         overflow-x: scroll;
+        align-items: flex-start;
+
       }
     }
 
