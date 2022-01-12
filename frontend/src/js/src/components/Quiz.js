@@ -105,9 +105,11 @@ class Quiz {
     // }
 
     const titleEl = document.createElement('H3');
-    const titleTxt = document.createTextNode(item.question);
+    // const titleTxt = document.createTextNode(item.question);
     titleEl.classList.add('text--xl');
-    titleEl.appendChild(titleTxt);
+    // titleEl.appendChild(titleTxt);
+
+    titleEl.innerHTML = item.question;
     itemEl.appendChild(titleEl);
 
     const answersEl = this.createAnswers(item);
