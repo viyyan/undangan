@@ -2,13 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Frontend\WhoWeAreController;
-use App\Http\Controllers\Frontend\WhatWeDoController;
-use App\Http\Controllers\Frontend\CaseStudyController;
-use App\Http\Controllers\Frontend\OurThinkingController;
-use App\Http\Controllers\Frontend\MarketResearchController;
 use App\Http\Controllers\Frontend\ContactController;
-use App\Http\Controllers\Frontend\CareerController;
+use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\ParentingTipsController;
 
 
 /*
@@ -24,13 +20,18 @@ use App\Http\Controllers\Frontend\CareerController;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
+Route::get('/product', [ProductController::class, 'index'])
+    ->name('product');
 
-Route::prefix('our-thinking')->group(function () {
-    Route::get('/', [OurThinkingController::class, 'index'])
-        ->name('our-thinking');
-    Route::get('/{slug}', [OurThinkingController::class, 'details'])
-        ->name('our-thinking.details');
+Route::prefix('parenting-tips')->group(function () {
+    Route::get('/', [ParentingTipsController::class, 'index'])
+        ->name('parenting-tips');
+    Route::get('/{slug}', [ParentingTipsController::class, 'details'])
+        ->name('parenting-tips.details');
 });
+
+Route::get('/where-to-buy', [ProductController::class, 'index'])
+    ->name('where-to-buy');
 
 Route::get('contact-us', [ContactController::class, 'index'])
     ->name('contact-us');
