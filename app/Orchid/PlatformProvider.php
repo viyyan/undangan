@@ -27,40 +27,15 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
 
-            Menu::make('Our Thinking')
+            Menu::make('Banners')
+                ->icon('book-open')
+                ->route('platform.banner.list')
+                ->title('Banner'),
+
+            Menu::make('Parenting Tips')
                 ->icon('book-open')
                 ->route('platform.post.list')
-                ->title('Content'),
-
-            Menu::make('Team')
-                ->icon('friends')
-                ->list([
-                    Menu::make('All Members')->route('platform.member.list'),
-                    Menu::make('Level')->route('platform.category.list', 'member'),
-                ]),
-
-            Menu::make('Case Studies')
-                ->icon('folder-alt')
-                ->list([
-                    Menu::make('All Case Studies')->route('platform.case-study.list'),
-                    Menu::make('Type of Industries')->route('platform.category.list', 'industry'),
-                    Menu::make('Type of Researches')->route('platform.category.list', 'research'),
-                ]),
-
-            Menu::make('Market Research')
-                ->icon('magnifier-add')
-                ->list([
-                    Menu::make('All Question')->route('platform.quiz.list'),
-                    Menu::make('All Participants')->route('platform.participant.list'),
-                ]),
-
-            Menu::make('Job List')
-                ->icon('people')
-                ->list([
-                    Menu::make('All Positions')->route('platform.career.list'),
-                    Menu::make('Categories')->route('platform.category.list', ['type' => 'career']),
-                ])
-                ->title('Careers'),
+                ->title('Post'),
 
             Menu::make('Inquiries')
                 ->icon('envelope-letter')

@@ -25,44 +25,11 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
 
-Route::prefix('who-we-are')->group(function () {
-    Route::get('/', [WhoWeAreController::class, 'index'])
-        ->name('who-we-are');
-    Route::get('/our-4-pillars', [WhoWeAreController::class, 'ourPillars'])
-        ->name('our-pillars');
-    Route::get('/our-people', [WhoWeAreController::class, 'ourPeople'])
-        ->name('our-people');
-    Route::get('/want-to-join-us', [CareerController::class, 'index'])
-        ->name('careers');
-});
-
-Route::get('/career/{slug}', [CareerController::class, 'show'])
-        ->name('careers.details');
-
-
-Route::prefix('what-we-do')->group(function () {
-    Route::get('/', [WhatWeDoController::class, 'index'])
-        ->name('what-we-do');
-    Route::get('/case-studies', [CaseStudyController::class, 'index'])
-        ->name('case-study');
-    Route::get('/case-studies/{id}', [CaseStudyController::class, 'details'])
-        ->name('case-study.details');
-    Route::get('/our-tools', [WhatWeDoController::class, 'ourTools'])
-        ->name('our-tools');
-});
-
 Route::prefix('our-thinking')->group(function () {
     Route::get('/', [OurThinkingController::class, 'index'])
         ->name('our-thinking');
     Route::get('/{slug}', [OurThinkingController::class, 'details'])
         ->name('our-thinking.details');
-});
-
-Route::prefix('market-research')->group(function () {
-    Route::get('/', [MarketResearchController::class, 'index'])
-        ->name('market-research');
-    Route::get('/quiz', [MarketResearchController::class, 'quiz'])
-        ->name('market-research.quiz');
 });
 
 Route::get('contact-us', [ContactController::class, 'index'])

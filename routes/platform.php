@@ -14,18 +14,6 @@ use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Banner\BannerListScreen;
 use App\Orchid\Screens\Banner\BannerEditScreen;
-use App\Orchid\Screens\Career\CareerListScreen;
-use App\Orchid\Screens\Career\CareerEditScreen;
-use App\Orchid\Screens\Member\MemberListScreen;
-use App\Orchid\Screens\Member\MemberEditScreen;
-use App\Orchid\Screens\Quiz\QuizListScreen;
-use App\Orchid\Screens\Quiz\QuizEditScreen;
-use App\Orchid\Screens\QuizOption\OptionEditScreen;
-use App\Orchid\Screens\QuizOption\OptionChildEditScreen;
-use App\Orchid\Screens\CaseStudy\CaseStudyListScreen;
-use App\Orchid\Screens\CaseStudy\CaseStudyEditScreen;
-use App\Orchid\Screens\QuizParticipant\ParticipantListScreen;
-use App\Orchid\Screens\QuizParticipant\ParticipantEditScreen;
 use App\Orchid\Screens\Contact\ContactListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -46,6 +34,22 @@ use App\Http\Controllers\Backend\ExporterController;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
+
+// Platform > Banners
+Route::screen('banners', BannerListScreen::class)
+    ->name('platform.banner.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Banners'), route('platform.banner.list'));
+    });
+
+Route::screen('banner/{banner?}', BannerEditScreen::class)
+    ->name('platform.banner.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.banner.list')
+            ->push(__('Banner'));
+    });
 
 // Platform > Post
 Route::screen('posts', PostListScreen::class)
@@ -78,104 +82,6 @@ Route::screen('category/{category?}', CategoryEditScreen::class)
             ->push(__('Category'));
     })
     ;
-
-// Platform > Member
-Route::screen('members', MemberListScreen::class)
-    ->name('platform.member.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Members'), route('platform.member.list'));
-    });
-
-Route::screen('member/{member?}', MemberEditScreen::class)
-    ->name('platform.member.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.member.list')
-            ->push(__('Member'));
-    });
-
-// Platform > Market Research / quiz
-Route::screen('quizzes', QuizListScreen::class)
-    ->name('platform.quiz.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Questions'), route('platform.quiz.list'));
-    });
-
-Route::screen('quiz/{quiz?}', QuizEditScreen::class)
-    ->name('platform.quiz.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.quiz.list')
-            ->push(__('Quiz'));
-    });
-
-// Platform > Quiz > Option
-Route::screen('option/{option?}', OptionEditScreen::class)
-    ->name('platform.quiz.option.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.quiz.edit')
-            ->push(__('Quiz Option'));
-    });
-
-// Platform > Quiz > Option > Child
-Route::screen('option-child/{child?}', OptionChildEditScreen::class)
-    ->name('platform.quiz.option.child.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.quiz.option.edit')
-            ->push(__('Quiz Option Child'));
-    });
-
-// Platform > Participant quiz
-Route::screen('participants', ParticipantListScreen::class)
-    ->name('platform.participant.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Participants'), route('platform.participant.list'));
-    });
-
-Route::screen('participant/{participant?}', ParticipantEditScreen::class)
-    ->name('platform.participant.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.participant.list')
-            ->push(__('Participant'));
-    });
-
-// Platform > Career
-Route::screen('careers', CareerListScreen::class)
-    ->name('platform.career.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Careers'), route('platform.career.list'));
-    });
-
-Route::screen('career/{career?}', CareerEditScreen::class)
-    ->name('platform.career.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.career.list')
-            ->push(__('Career'));
-    });
-
-// Platform > Case Studies
-Route::screen('case-studies', CaseStudyListScreen::class)
-    ->name('platform.case-study.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Case Studies'));
-    });
-
-Route::screen('case-study/{career?}', CaseStudyEditScreen::class)
-    ->name('platform.case-study.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.case-study.list')
-            ->push(__('Case Study'));
-    });
 
 // Platform > Contact
 Route::screen('contacts', ContactListScreen::class)

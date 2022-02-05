@@ -124,30 +124,7 @@
             </div>
             <div class="section__body">
             <div class="grid gap--md">
-                @foreach ($caseStudies as $case)
-                <div class="column--33">
-                    <article class="card card--info-inside">
-                        <div class="card__inner">
-                        <div class="card__thumb">
-                            <div class="card__thumb__image"><img src="{{ $case->heroUrl() }}" alt=""/></div>
-                        </div>
-                        <div class="card__info">
-                            <div class="card__info__inner">
-                            <div class="card__info__main">
-                                <div class="card__category category"><span class="category__main">{{ $case->industry->name }}</span></div>
-                                <div class="card__title">
-                                <h3 class="card__title__main text--lg">
-                                    <a href="{{ route('case-study.details', $case->id ) }}">{{ excerptLimit($case->title, 50) }}</a>
-                                </h3>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="card__deco"><span class="card__deco__icon"></span></div>
-                        </div>
-                        </div>
-                    </article>
-                </div>
-                @endforeach
+
             </div>
             </div>
             <div class="section__footer"><a class="button button--white button--md" href="{{ route('case-study') }}"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
@@ -213,45 +190,12 @@
                 <h2 class="text--3xl">Here are some of our recent thoughts</h2>
             </div>
             </div>
-            @if (count($posts) > 0)
-            <div class="section__body">
-                <div class="grid gap--md">
-                    @foreach($posts as $post)
-                    <div class="column--50">
-                        <article class="card card--info-inside">
-                            <div class="card__inner">
-                            <div class="card__thumb">
-                                <div class="card__thumb__image"><img src="{{ $post->heroUrl() }}" alt=""/></div>
-                            </div>
-                            <div class="card__info">
-                                <div class="card__info__inner">
-                                <div class="card__info__main">
-                                    <div class="card__title">
-                                    <h3 class="card__title__main text--lg"><a href="{{ route('our-thinking.details', $post->slug) }}">{{ $post->title }}</a></h3>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="card__deco"><span class="card__deco__icon"></span></div>
-                            </div>
-                            </div>
-                        </article>
-                    </div>
-                    @endforeach
-                </div>
+
+            <div class="cta__action">
+                <a class="button button--white button--md" href="#">
+                    <span class="button__content"><span class="button__label">Coming soon</span><span class="button__icon">
+                </a>
             </div>
-            <div class="section__footer"><a class="button button--white button--md" href="{{ route('our-thinking') }}"><span class="button__content"><span class="button__label">See all</span><span class="button__icon"><i class="icon__arrow">
-                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="4" x2="20" y1="12" y2="12"></line>
-                        <polyline points="14 6 20 12 14 18"></polyline>
-                    </svg></i></span></span></a>
-            </div>
-            @else
-                <div class="cta__action">
-                    <a class="button button--white button--md" href="#">
-                        <span class="button__content"><span class="button__label">Coming soon</span><span class="button__icon">
-                    </a>
-                </div>
-            @endif
         </div>
         </div>
     </div>
@@ -301,5 +245,4 @@
     </div>
     </div>
 </div>
-@include('frontend.includes.contact')
 @endsection

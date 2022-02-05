@@ -25,19 +25,6 @@
     <script>
         var API_BASE_URL = "{{ url(env('API_PREFIX')) }}"
     </script>
-    @if (isset($caseStudyPermalink))
-        <script>
-            var CASE_STUDY_PERMALINK = "{{$caseStudyPermalink}}"
-        </script>
-    @endif
-    @if (isset($isContact))
-      <script>
-        var ASSETS_ROOT_URL = "{{ asset('assets/frontend/images') }}/"
-      </script>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
-    @endif
   </head>
   <body class="{{ !empty($classBody) ? $classBody : '' }}">
     <div class="site">
@@ -48,14 +35,6 @@
     @include('frontend.includes.footer')
     </div>
 
-    @if (isset($isContact))
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    @endif
-    @if (isset($isQuiz))
-        @include('frontend.includes.quiz-result')
-    @endif
     @include('frontend.includes.loader')
     @if (isset($jsFileName))
       <script src="{{ frontAssets('js/'.$jsFileName.'.js', 12) }}"></script>

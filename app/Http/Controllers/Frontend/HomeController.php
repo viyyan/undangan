@@ -18,18 +18,10 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-        $caseStudies = CaseStudy::where('status', 1)
-                    ->limit(3)->orderBy('created_at', 'desc')->get();
-
-        $posts = Post::where('status', 1)
-                    ->limit(2)->orderBy('created_at', 'desc')->get();
-
         $data = array(
             "cssFileName" => "home",
             "jsFileName" => "home",
             "cssBody" => "home",
-            "caseStudies" => $caseStudies,
-            "posts" => $posts,
         );
         return view('frontend.pages.home.main', $data);
     }
