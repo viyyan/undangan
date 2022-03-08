@@ -1,1 +1,16 @@
 //- 4-generic/font-face
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/gothamroundedmedium.woff2') format('woff2'), url('../fonts/gothamroundedmedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/gothamroundedbold.woff2') format('woff2'), url('../fonts/gothamroundedbold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

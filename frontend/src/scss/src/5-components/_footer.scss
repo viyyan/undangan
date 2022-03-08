@@ -1,164 +1,105 @@
-//- 5-components/footer
 .footer {
-  background-color: $color-footer;
+  background: #23678D;
+  position: relative;
+  padding-top: 2.5rem;
+  font-family: 'Gotham Rounded';
+  font-size: .875rem;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    background: url('../images/footer_ornament.png') no-repeat;
+    height: 2.5rem;left: 0;top: -2.5rem;
 
-  p {
-    font-size: $text-sm;
   }
-
-  .fab{
-    width: 1.25rem;
-    height: 1.25rem;
+  &::after {
+    position: absolute;
+    content: '';
+    background: url('../images/footer-ornament_leave.png') no-repeat;
+    right: 0;
+    width: 68px;
+    height: 251px;
+    bottom: 0;
   }
-
-  &__inner {
-    position: relative;
+  &--logo {
+    img {
+      width: 8.125rem;
+    }
+  }
+  &--center {
     display: flex;
     flex-direction: row;
-    align-items: inherit;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    // < 768px
-    @media (max-width: 768px) {
-      flex-direction: column-reverse;
-    }
+    justify-content: space-between;
+    align-items: center;
   }
-
-  &__primary {
-    margin-right: 2.5rem;
-
-    .footer__logo {
-      // < 768px
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    .footer__copy {
-      display: none;
-      // < 768px
-      @media (max-width: 768px) {
-        margin-top: 2rem;
-        display: block;
-      }
-    }
-  }
-
-  &__content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__logo {
-    margin-bottom: 1rem;
-
-    img {
-      height: 2.5rem;
-    }
-  }
-
-  &__social {
-    margin-bottom: 1.5rem;
-
-    a {
-      font-size: 1.5rem;
-      color: $color-white;
-      margin-right: 1.25rem;
-    }
-  }
-
-  &__member {
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: flex-end;
-    span{
-      font-size: 0.875rem;
-      display: inline-block;
-      margin-right: 0.5rem;
-    }
-    a {
-      font-size: 1.5rem;
-      color: $color-white;
-      margin-right: 1.25rem;
-      display: block;
-    }
-    img {
-      height: 2rem;
-      position: relative;
-      top: 0px; 
-    }
-  }
-
-  &__nav {
+  &--address {
+    width: 50%;
     p {
-      margin: 0;
-    }
-    a {
-      color: $color-white;
-    }
-    span {
-      margin: 0 .625rem;
-    }
-  }
-
-  &__secondary {
-    margin-left: auto;
-    padding-right: 16.25rem;
-    // < 768px
-    @media (max-width: 768px) {
-      padding-right: 12rem;
-      margin-left: 0;
-      margin-bottom: 2rem;
-    }
-    // < 480px
-    @media (max-width: 480px) {
-      padding-right: 0;
-    }
-
-    .footer__logo {
-      display: none;
-      // < 768px
-      @media (max-width: 768px) {
-        display: block;
-      }
-    }
-
-    .footer__copy {
-      // < 768px
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-  }
-
-  &__address {
-    p:first-child {
-      margin-top: 0;
-    }
-  }
-
-  &__copy {
-    margin-top: auto;
-    p {
-      margin: 0;
-    }
-  }
-
-  &__chat {
-    width: 13.75rem;
-    position: fixed;
-    z-index: 20;
-    bottom: 0;
-    right: 0;
-    display: none;
-    // < 480px
-    @media (max-width: 480px) {
-      display: none!important;
-    }
-
-    img {
       width: 100%;
+      font-weight: 400;
+      font-family: 'Gotham Rounded';
+      font-size: .875rem;
+    }
+  }
+  &--social {
+    width: 50%;
+    text-align: right;
+    ul {
+      li {
+        list-style: none;
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        text-align: center;
+        padding-top: 15px;
+        margin: 0 10px;
+        a {
+          display: block;
+          text-indent: -624.9375rem;
+        }
+        &.fb {
+          background: url('../images/footer_fb-background.svg') no-repeat;
+          background-size: cover;
+          a {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background: url('../images/fb-icon.svg') no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+          }
+        }
+        &.ig {
+          background: url('../images/footer_ig-background.svg') no-repeat;
+          background-size: cover;
+          a {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background: url('../images/ig-icon.svg') no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+  &--bottom {
+    margin-top: 2.5rem;
+    padding-bottom: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      li {
+        display: inline-block;
+        margin: 0 .625rem;
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
     }
   }
 }

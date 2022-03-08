@@ -8,6 +8,7 @@
  html {
     /* Apply border-box across the entire page. */
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /**
@@ -26,5 +27,113 @@
  */
 .main {
   position: relative;
-  padding-top: 4.625rem;
+  &-button {
+    font-family: 'Gotham Rounded';
+    font-size: 14px;
+    line-height: 17px;
+    color: #23678D;
+    text-shadow: none;
+    background: linear-gradient(180deg, #FFFFFF 0%, #E6F6FF 100%);
+    box-shadow: 5px 13px 17px -6px rgba(35, 103, 141, 0.2);
+    border-radius: 20px;
+    padding: 15.5px 20px;
+    cursor: pointer;
+  }
+  &-title {
+      margin: 0;
+      font-family: 'Gaegu', cursive;
+      font-size: 3.4375rem;
+      letter-spacing: -0.3125rem;
+  }
 }
+
+.relative {
+    position: relative;
+}
+
+//article block 
+
+.article-blocks {
+    border-radius: 1.875rem;
+    overflow: hidden;
+    &_images {
+        border-radius: 30px 30px 0 0;
+        overflow: hidden;
+        position: relative;
+        height: 19.375rem;
+    }
+    &_tag {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        top: -15%;
+        left: 0; 
+        width: 100%;
+        .tag {
+            background: url('../images/article-ornament_tags.png') no-repeat;
+            padding: 13px 12px;
+            font-family: 'Gaegu', cursive;
+            font-size: 1.375rem;
+            letter-spacing: -0.125rem;
+            color: #23678D;
+            width: 11.25rem;
+            text-align: center;
+            position: relative;
+            left: 1.25rem;
+        }
+        .link-button {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: url('../images/article_blue-cta.png') no-repeat;
+            background-size: cover;
+            text-indent: -624.9375rem;
+            cursor: pointer;
+            position: relative;
+            right: 1.25rem;
+            transition: all 0.5s ease;
+            &:hover {
+                right: 0;
+            }
+        }
+        &.tumbuh-kembang {
+            .tag {
+                color: #EA9F1B;
+            }
+            .link-button {
+                background: url('../images/article_orange-cta.png') no-repeat;
+                background-size: cover;
+            }
+        }
+        &.tips-bunda {
+            .tag {
+                color: #68BB45;
+            }
+            .link-button {
+                background: url('../images/article_green-cta.png') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+    &_desc {
+        position: relative;
+        background-color: #EBF6FD;
+        padding: 40px 20px 60px 20px;
+        height: 9.375rem;
+        p {
+            margin: 0;
+            color: #204860;
+            font-family: 'Gotham Rounded';
+            font-size: 1rem;
+            line-height: 1.375rem;
+        }
+    }
+}
+
+.general--section_ornament {
+    width: 100%;
+    margin-top: 7.5rem;
+    img {
+        width: 100%;
+    }
+}
+
