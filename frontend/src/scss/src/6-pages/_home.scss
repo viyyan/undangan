@@ -174,22 +174,118 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.875rem;
+      &.flat {
+        display: block; 
+      }
     }
     &_promotions {
       background: linear-gradient(180deg, #FFFFFF -11.21%, #96D9FF 100%);
     }
+    &_news {
+      .home--section_title {
+        width: 100%;
+      }
+      .main-title {
+        color: #23678D;
+      }
+      &-wrapper {
+        padding: 0 1.25rem;
+        width: 100%!important;
+      }
+      &-slider_content {
+        width: 80%;
+      }
+      .outer-wrapper {
+        margin-left: 7%;
+        overflow: hidden;
+        margin-top: 1.875rem;
+      }
+      .slick-list {
+        overflow: unset;
+      }
+      .slick-slide {
+        height: auto;
+      }
+      .slick-clone {
+        opacity: 0;
+      }
+
+      .slick-dots {
+        margin-top: 3.125rem;
+        li {
+          list-style: none;
+          display: inline-block;
+          padding: 0 .3125rem;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: url('../images/hover-vector.svg') no-repeat;
+            z-index: 1;
+            left: 0;
+            top: -6px;
+            transform: scale(0);
+            transition: all 0.5s ease;
+          }
+          &.slick-active {
+            &::after {
+              transform: scale(1);
+              transition: all 0.5s ease;
+            }
+          }
+          button {
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50%;
+            border: none;
+            text-indent: -9999px;
+            cursor: pointer;
+            position: relative;
+          }
+        }
+      }
+     
+      &-content {
+        background: linear-gradient(180deg, #BEE4F7 0%, #3382A8 100%);
+        box-shadow: 5px 13px 17px -6px rgba(35, 103, 141, 0.2);
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 2rem;
+        overflow: hidden;
+        .content-images {
+          width: 35%;
+        }
+        .content-desc {
+          width: 65%;
+          font-family: 'Gotham Rounded';
+          h2 {
+            color: #fff;
+            font-family: 'Gotham Rounded';
+            font-size: 3.75rem;
+            margin: 1.875rem 0 0 0;
+          }
+          p {
+            font-size: 18px;
+          }
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
     &_articles {
       .main-title {
-        color: #169DCE;
-      }
+        color: #169DCE;  
+      } 
       &-block {
-        display: flex;
-        flex-wrap: wrap;
-        > div {
-          flex-grow: 1;
-          width: 30%;
-          margin: .9375rem;
-        }
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }

@@ -26,7 +26,7 @@ Route::get('/product', [ProductController::class, 'index'])
 Route::prefix('parenting-tips')->group(function () {
     Route::get('/', [ParentingTipsController::class, 'index'])
         ->name('parenting-tips');
-    Route::get('/{slug}', [ParentingTipsController::class, 'details'])
+    Route::get('/{slug}', [ParentingTipsController::class, 'show'])
         ->name('parenting-tips.details');
 });
 

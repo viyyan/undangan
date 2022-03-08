@@ -28,7 +28,7 @@
 .main {
   position: relative;
   &-button {
-    font-family: 'Gotham Rounded';
+    font-family: 'Gotham Rounded'; 
     font-size: 14px;
     line-height: 17px;
     color: #23678D;
@@ -136,4 +136,120 @@
         width: 100%;
     }
 }
+
+.general-title {
+    color: #23678D;
+    font-size: 4.75rem;
+    font-family: 'Sriracha', cursive;
+    text-shadow: 4px 0px 0px white;
+    margin-bottom: 2.5rem;
+}
+
+.general-desc {
+    color:#204860;
+    font-family: 'Gotham Rounded';
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    vertical-align: middle;
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 .625rem;
+        vertical-align: middle;
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Gotham Rounded';
+            font-size: 1.25rem;
+        }
+
+    }
+}
+
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+/* KEYFRAMES FROM RIGHT*/
+
+@-webkit-keyframes animateCloudRight {
+    0% {
+        margin-right: -1000px;
+    }
+    100% {
+        margin-right: 100%;
+    }
+}
+
+@-moz-keyframes animateCloudRight {
+    0% {
+        margin-right: -1000px;
+    }
+    100% {
+        margin-right: 100%;
+    }
+}
+
+@keyframes animateCloudRight {
+    0% {
+        margin-right: -1000px;
+    }
+    100% {
+        margin-right: 100%;
+    }
+}
+
+
+
+.anime-cloud_late {
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
+}
+
+.anime-cloud_fast {
+	-webkit-animation: animateCloud 20s linear infinite;
+	-moz-animation: animateCloud 20s linear infinite;
+	animation: animateCloud 20s linear infinite;
+}
+
+.anime-cloud_medium {
+	-webkit-animation: animateCloud 30s linear infinite;
+	-moz-animation: animateCloud 30s linear infinite;
+	animation: animateCloud 30s linear infinite;
+}
+
 

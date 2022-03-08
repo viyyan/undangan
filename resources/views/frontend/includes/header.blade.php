@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route(‘parenting-tips’) }}">
+                <a href="{{ route('parenting-tips') }}">
                     <span>PARENTING TIPS</span>
                 </a>
             </li>

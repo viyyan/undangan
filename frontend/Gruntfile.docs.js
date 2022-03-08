@@ -6,11 +6,15 @@ module.exports = function (grunt) {
     './node_modules/jquery/dist/jquery.js',
     // FontAwesome
     './node_modules/@fortawesome/fontawesome-free/js/all.js',
+    // Slick slider
+    './node_modules/slick-carousel/slick/slick.js', 
   ];
 
   var style_lib = [
     // spinkit
     './node_modules/spinkit/spinkit.css',
+    // Slick slider
+    './node_modules/slick-carousel/slick/slick.css',
   ];
 
   const sass = require('node-sass');

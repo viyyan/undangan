@@ -17,11 +17,11 @@ class ParentingTipsController extends Controller
     {
 
         $data = array(
-            // "cssFileName" => "home",
+            "cssFileName" => "parenting",
             // "jsFileName" => "home",
             // "cssBody" => "home",
         );
-        return view('frontend.pages.parenting.main', $data);
+        return view('frontend.pages.parenting.main', $data); 
     }
 
     /**
@@ -31,12 +31,11 @@ class ParentingTipsController extends Controller
      */
     public function show(string $slug,  Request $request)
     {
-
         $data = array(
-            // "cssFileName" => "home",
+            "cssFileName" => "parenting",
             // "jsFileName" => "home",
             // "cssBody" => "home",
         );
-        return view('frontend.pages.parenting.detail', $data);
+        return view('frontend.pages.parenting.details', $data);
     }
 }

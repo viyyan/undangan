@@ -65,10 +65,61 @@
             <!--Berita Section-->
             <!--===============-->
             <div class="home--section_news">
-                <div class="container">
-                    <div class="home--section_title">
-                        <div class="home--section_title-text">
+                <div class="home--section_title flat">
+                    <div class="home--section_title-text">
+                        <div class="container">
                             <h2 class="main-title">Berita & Promo</h2>
+                        </div>
+                        <div class="outer-wrapper">
+                            <div class="home--section_news-slider_content">
+                                <div class="home--section_news-slider" id="promo">
+                                    <div class="home--section_news-wrapper">
+                                        <div class="home--section_news-content">
+                                            <div class="content-images">
+                                                <img src="{{ frontImages('home--news_ornament.png') }}">
+                                            </div>
+                                            <div class="content-desc">
+                                                <div class="addon-logo">
+                                                    <img src="{{ frontImages('tokopedia.svg') }}">
+                                                </div>
+                                                <h2>Diskon hingga 30%</h2>
+                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
+                                                <a href="#" class="main-button">Beli sekarang</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="home--section_news-wrapper">
+                                        <div class="home--section_news-content">
+                                            <div class="content-images">
+                                                <img src="{{ frontImages('home--news_ornament.png') }}">
+                                            </div>
+                                            <div class="content-desc">
+                                                <div class="addon-logo">
+                                                    <img src="{{ frontImages('tokopedia.svg') }}">
+                                                </div>
+                                                <h2>Diskon hingga 30%</h2>
+                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
+                                                <a href="#" class="main-button">Beli sekarang</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="home--section_news-wrapper">
+                                        <div class="home--section_news-content">
+                                            <div class="content-images">
+                                                <img src="{{ frontImages('home--news_ornament.png') }}">
+                                            </div>
+                                            <div class="content-desc">
+                                                <div class="addon-logo">
+                                                    <img src="{{ frontImages('tokopedia.svg') }}">
+                                                </div>
+                                                <h2>Diskon hingga 30%</h2>
+                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
+                                                <a href="#" class="main-button">Beli sekarang</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
