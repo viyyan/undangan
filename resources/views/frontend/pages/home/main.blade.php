@@ -20,11 +20,42 @@
                 </div>
                 <div class="home--section_top-images">
                     <div class="home--section_top-images-duck">
-                        <img src="{{ frontImages('duck.png') }}">
+                        <img src="{{ frontImages('home-ornament/home-duck.svg') }}">
                     </div>
                     <div class="home--section_top-images-product">
-                        <img src="{{ frontImages('Produk.png') }}">
+                        <div class="home--section_top-images-product inside_left">
+                            <img src="{{ frontImages('home-ornament/home-product_paracetamol-small.svg') }}">
+                        </div>
+                        <div class="home--section_top-images-product inside_right">
+                            <img src="{{ frontImages('home-ornament/home-product_paracetamol.svg') }}">
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="general-ornament">
+                <div class="general-ornament_gunung-left">
+                    <img src="{{ frontImages('parenting-ornament/gunung_bg.svg') }}">
+                </div>
+                <div class="general-ornament_gunung-right">
+                    <img src="{{ frontImages('parenting-ornament/gunung.svg') }}">
+                </div>
+                <div class="general-ornament_daun-center">
+                    <div class="leaf"></div>
+                </div>
+                <div class="general-ornament_field-left">
+                    <img src="{{ frontImages('parenting-ornament/field-left.svg') }}">
+                </div>
+                <div class="general-ornament_field-right">
+                    <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
+                </div>
+                <div class="general-ornament_field-right">
+                    <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
+                </div>
+                <div class="general-ornament_daun-right">
+                    <img src="{{ frontImages('parenting-ornament/daun-small.svg') }}">
+                </div>
+                <div class="general-ornament_daun-left">
+                    <img src="{{ frontImages('parenting-ornament/daun-medium.svg') }}">
                 </div>
             </div>
         </div>
