@@ -7,7 +7,7 @@
     <nav>
         <ul>
             <li>
-                <a href="">
+                <a href="{{ route('product') }}">
                     <span>PRODUCTS</span>
                 </a>
             </li>
@@ -22,12 +22,12 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('where-to-buy') }}">
                     <span>WHERE TO BUY</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('contact-us') }}">
                     <span>CONTACT US</span>
                 </a>
             </li>

@@ -1,0 +1,89 @@
+//-
+//- Contact
+//-
+
+.contact {
+  background: linear-gradient(180deg, #FFFFFF -11.21%, #96D9FF 100%);
+  .section_contact {
+    &-top {
+      text-align: center;
+      padding-top: 9.375rem;
+      padding-bottom: 3.125rem;
+      position: relative;
+      z-index: 5;
+      p {
+        width: 65%;
+        margin: 0 auto;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        background: url('../images/parenting-cloud_right.svg') no-repeat;
+        width: 241px;
+        height: 91px;
+        background-size: cover;
+        right: 10%;
+        top: 45%;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        background: url('../images/parenting-cloud_left.svg') no-repeat;
+        width: 167px;
+        height: 63px;
+        background-size: cover;
+        left: 5%;
+        top: 85%;
+        z-index: -1;
+      }
+    }
+    &-content {
+      display: flex;
+      width: 90%;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+  }
+  &-wrapper_input {
+    background: #eff9fe;
+    border-radius: 20px;
+    padding: 15px;
+    color: #333333;
+    border: 1px solid #eff9fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    input {
+      color: #333333;
+      font-family: 'Gotham Rounded';
+      font-size: .875rem;
+      font-weight: 300;
+      padding-left: .625rem;
+      padding-top: 3px;
+      &::placeholder {
+        color: #169DCE;
+        opacity: 0.5;
+      }
+    }
+    i {
+      display: inline-block;
+      &.person-icon {
+        width: 20px;
+        height: 20px;
+        background: url('../images/contact-icons_person.svg');
+        background-size: cover;
+      }
+    }
+  }
+  &-form {
+    width: 100%;
+  }
+  &-grid-2 {
+      display: grid;
+      position: relative;
+      grid-gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
