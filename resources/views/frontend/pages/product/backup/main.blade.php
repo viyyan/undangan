@@ -15,13 +15,13 @@
     <div class="product--section_main">
         <div class="container">
             <div class="product--section_product-wrapper">
+                <div class="product--section_product-content active">
+                    <img src="{{ frontImages('product-nipe-syrup.png') }}" />
+                </div>
                 <div class="product--section_product-content">
                     <a href="">
-                        <img src="{{ frontImages('product-nipe-syrup.png') }}" />
+                        <img src="{{ frontImages('product-nipe-drop.png') }}" />
                     </a>
-                </div>
-                <div class="product--section_product-content active">
-                    <img src="{{ frontImages('product-nipe-drop.png') }}" />
                 </div>
                 <div class="product--section_product-content">
                     <a href="">
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="product--section_wave">
-        <div class="product--section_wave-content second-product"></div>
+        <div class="product--section_wave-content"></div>
     </div>
     <div class="product--section_content">
         <div class="container">
@@ -40,13 +40,13 @@
             <!--============ product detail title =============-->
             <!--===============================================-->
             <div class="product--section_content-title">
-                <div class="product--section_content-title-images nipe-drop">
+                <div class="product--section_content-title-images">
                     <div class="product--section_content-title-images-main">
-                        <img src="{{ frontImages('products-fever-drop/product-sirup_main.svg') }}" />
+                        <img src="{{ frontImages('products-fever-sirup/product-sirup_main.svg') }}" />
                     </div>
                 </div>
                 <div class="product--section_content-title-text">
-                    <img src="{{ frontImages('products-fever-drop/product-sirup_title.svg') }}" />
+                    <img src="{{ frontImages('products-fever-sirup/product-sirup_title.svg') }}" />
                 </div>
             </div>
             <!--================================================-->
@@ -59,18 +59,18 @@
                 <div class="product--section_content-benefit_box">
                     <div class="product--section_content-benefit-images">
                         <div class="single-benefit">
-                            <img src="{{ frontImages('products-fever-drop/product-ilustration_1.svg') }}" />
+                            <img src="{{ frontImages('products-fever-sirup/product-ilustration_1.svg') }}" />
                         </div>
                         <div class="single-benefit">
-                            <img src="{{ frontImages('products-fever-drop/product-ilustration_2.svg') }}" />
+                            <img src="{{ frontImages('products-fever-sirup/product-ilustration_2.svg') }}" />
                         </div>
                         <div class="single-benefit">
-                            <img src="{{ frontImages('products-fever-drop/product-ilustration_3.svg') }}" />
+                            <img src="{{ frontImages('products-fever-sirup/product-ilustration_3.svg') }}" />
                         </div>
                     </div>
                     <div class="product--section_content-benefit-text">
                         <p>
-                            Menurunkan demam yang menyertai flu serta meredakan sakit kepala dan sakit gigi.
+                            Menurunkan demam, meredakan sakit kepala, dan sakit gigi Si Kecil.
                         </p>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="product--section_content-howto_content">
                         <p>
-                            3-4 kali sehari dengan minimum interval 4 jam dan tidak melebihi 4x dalam 24 jam.
+                            3-4 kali sehari, boleh diberikan langsung atau dicampur air/sari buah dengan minimum interval 4 jam dan tidak melebihi 4x dalam 24 jam.
                         </p>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="product--section_content-howto_content">
                         <p>
-                            Nipe<sup>&reg;</sup> Fever Drop berguna untuk menurunkan demam yang menyertai flu serta meredakan rasa sakit seperti sakit kepala dan sakit gigi.
+                            Nipe<sup>&reg;</sup> Fever Sirup berguna untuk menurunkan demam, meredakan rasa sakit seperti sakit kepala, sakit gigi Si Kecil.
                         </p>
                     </div>
                 </div>
@@ -112,19 +112,16 @@
                         <div class="product--section_content-howtouse_desc">
                             <ul>
                                 <li>
-                                    <p> Dibawah 3 Bulan: Sesuai anjuran dokter</p>
+                                    <p>Usia 1-2 Tahun: 3,75 ml</p>
                                 </li>
                                 <li>
-                                    <p>3-9 Bulan: 0,8 ml</p>
+                                    <p>Usia 2-3 Tahun: 5 ml</p>
                                 </li>
                                 <li>
-                                    <p>10-24 Bulan: 1,2 ml</p>
+                                    <p>Usia 4-5 Tahun: 7,5 ml</p>
                                 </li>
                                 <li>
-                                    <p>2-3 tahun : 1,6 ml</p>
-                                </li>
-                                <li>
-                                    <p>3 tahun ke atas : gunakan Nipe<sup>&reg;</sup> Fever Sirup</p>
+                                    <p>Usia 6 Tahun ke atas: 10 ml</p>
                                 </li>
                             </ul>
                         </div>
@@ -190,7 +187,7 @@
                             <ul>
                                 <li>
                                     <h3 class="gaegu">INFEKSI</h3>
-                                    <p>Seperti terserang bakteri, virus atau<br>parasit</p>
+                                    <p>Seperti terserang bakteri, virus atau parasit</p>
                                 </li>
                                 <li>
                                     <h3 class="gaegu">NON-INFEKSI</h3>
@@ -198,7 +195,7 @@
                                 </li>
                             </ul>
                             <div class="product--section_content-infografis_box-desc_ornament">
-                                <img src="{{ frontImages('products-fever-drop/product-ornament-info01.svg') }}" />
+                                <img src="{{ frontImages('products-fever-sirup/product-ornament-info01.svg') }}" />
                             </div>
                         </div>
                     </div>
