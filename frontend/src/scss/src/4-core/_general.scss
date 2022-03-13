@@ -152,6 +152,32 @@
     font-weight: 300;
 }
 
+.submit-button {
+    display: inline-block;
+    background: linear-gradient(180deg, #FFFFFF 0%, #E6F6FF 100%);
+    opacity: 0.5;
+    box-shadow: 5px 13px 17px -6px rgba(35, 103, 141, 0.2);
+    border-radius: 20px;
+    font-family: 'Gotham Rounded';
+    font-size: .875rem;
+    color: #23678D;
+    cursor: pointer;
+    width: auto;
+    padding: 15px 40px 15px 20px;
+    position: relative;
+    border: none;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        background: url('../images/arrow-right-icon.svg') no-repeat;
+        background-size: cover;
+        top: 15px;
+        right: 20px;
+    }
+}
+
 .pagination {
     width: 100%;
     text-align: center;
@@ -171,6 +197,68 @@
         }
 
     }
+}
+
+.general-ornament {
+    height: 18.75rem;
+    position: relative;
+    &_field-left {
+      position: absolute;
+      left: 0;
+      bottom: 0; 
+    }
+    &_field-right {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    &_gunung-left {
+      position: absolute;
+      left: 0;
+      bottom: 40%; 
+    }
+    &_gunung-right {
+      position: absolute;
+      right: 0;
+      bottom: 40%;
+    }
+    &_daun-left {
+      position: absolute;
+      left: 20%;
+      bottom:0;
+      &.happy {
+        left: 40%;
+      } 
+    }
+    &_daun-right {
+      position: absolute;
+      right: 5%;
+      bottom: 0;
+    }
+    &_daun-center {
+      position: absolute;
+      left: 30%;
+      bottom: 30%;
+      &.happy {
+        left: auto;
+        right: 30%;
+      }
+    }
+    &_bebek {
+      position: absolute;
+      right: 10%;
+      bottom: 3%;
+      &.happy {
+        left: 10%;
+        right: auto;
+        bottom: 0;
+      }
+    }
+}
+
+.gaegu {
+    font-family: 'Gaegu', cursive;
+    color: #68BB45;
 }
 
 

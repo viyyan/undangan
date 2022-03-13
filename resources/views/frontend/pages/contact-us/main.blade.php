@@ -20,13 +20,75 @@
                     <div class="contact-wrapper_input">
                         <i class="person-icon"></i>
                         <input type="text" placeholder="Nama Depan">
+                        <span><sup>*</sup></span>
                     </div>
                     <div class="contact-wrapper_input">
                         <i class="person-icon"></i>
-                        <input type="text" placeholder="Nama Belakang"></div>
+                        <input type="text" placeholder="Nama Belakang">
+                        <span><sup>*</sup></span>
+                    </div>
+                </div>
+                <div class="contact-grid-2">
+                    <div class="contact-wrapper_input">
+                        <i class="email-icon"></i>
+                        <input type="Email" placeholder="Email">
+                        <span><sup>*</sup></span>
+                    </div>
+                    <div class="contact-wrapper_input">
+                        <i class="phone-icon"></i>
+                        <input type="Number" placeholder="No. Handphone">
+                    </div>
+                </div>
+                <div class="contact-grid-1">
+                    <div class="contact-wrapper_input">
+                        <i class="subject-icon"></i>
+                        <input type="text" placeholder="Subject">
+                        <span><sup>*</sup></span>
+                    </div>
+                </div>
+                <div class="contact-grid-1">
+                    <div class="contact-wrapper_input textarea-field">
+                        <textarea placeholder="Tuliskan isi disini (maks. 1.000 karakter"></textarea>
+                        <span style="position: relative;top: 15px;"><sup>*</sup></span>
+                    </div>
+                </div>
+                <div class="contact-grid-1">
+                    <div class="contact-wrapper_submit">
+                        <button class="submit-button">
+                            Submit
+                        </button>
+                        <span>
+                            *) Harus diisi
+                        </span>
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="general-ornament">
+        <div class="general-ornament_gunung-left">
+            <img src="{{ frontImages('parenting-ornament/gunung_bg.svg') }}">
+        </div>
+        <div class="general-ornament_gunung-right">
+            <img src="{{ frontImages('parenting-ornament/gunung.svg') }}">
+        </div>
+        <div class="general-ornament_daun-center">
+            <img src="{{ frontImages('parenting-ornament/daun.svg') }}">
+        </div>
+        <div class="general-ornament_field-left">
+            <img src="{{ frontImages('parenting-ornament/field-left.svg') }}">
+        </div>
+        <div class="general-ornament_field-right">
+            <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
+        </div>
+        <div class="general-ornament_field-right">
+            <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
+        </div>
+        <div class="general-ornament_daun-right">
+            <img src="{{ frontImages('parenting-ornament/daun-small.svg') }}">
+        </div>
+        <div class="general-ornament_daun-left">
+            <img src="{{ frontImages('parenting-ornament/daun-medium.svg') }}">
         </div>
     </div>
 </div>

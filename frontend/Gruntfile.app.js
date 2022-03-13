@@ -130,6 +130,7 @@ module.exports = function (grunt) {
         src: [
           './node_modules/jquery/dist/jquery.js',
           './node_modules/slick-carousel/slick/slick.js',
+          './src/js/vendors/jquery.animateSprite.min.js', 
           '<%= meta.public %>js/home.js',
         ],
         dest: '<%= meta.public %>js/home.js',

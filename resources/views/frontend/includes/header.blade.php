@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="header--logo">
-                <a href="">
+                <a href="{{ route('home') }}">
                     <img src="{{ frontImages('logo-rounded.svg') }}" />
                 </a>
             </li>

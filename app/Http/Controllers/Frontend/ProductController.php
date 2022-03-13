@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
 
         $data = array(
-            // "cssFileName" => "home",
+            "cssFileName" => "product",
             // "jsFileName" => "home",
             // "cssBody" => "home",
         );

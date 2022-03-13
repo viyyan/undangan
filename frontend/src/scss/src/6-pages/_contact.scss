@@ -44,6 +44,7 @@
       align-items: center;
       justify-content: flex-start;
       flex-direction: row;
+      padding-bottom: 3.125rem;
     }
   }
   &-wrapper_input {
@@ -55,6 +56,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    &.textarea-field {
+      align-items: flex-start;
+    }
     input {
       color: #333333;
       font-family: 'Gotham Rounded';
@@ -62,6 +66,19 @@
       font-weight: 300;
       padding-left: .625rem;
       padding-top: 3px;
+      &::placeholder {
+        color: #169DCE;
+        opacity: 0.5;
+      }
+    }
+    textarea {
+      color: #333333;
+      font-family: 'Gotham Rounded';
+      font-size: .875rem;
+      font-weight: 300;
+      padding-left: .625rem;
+      padding-top: 3px;
+      min-height: 80px;
       &::placeholder {
         color: #169DCE;
         opacity: 0.5;
@@ -75,7 +92,34 @@
         background: url('../images/contact-icons_person.svg');
         background-size: cover;
       }
+      &.email-icon {
+        width: 20px;
+        height: 20px;
+        background: url('../images/contact-icons_email.svg');
+        background-size: cover;
+      }
+      &.phone-icon {
+        width: 20px;
+        height: 20px;
+        background: url('../images/contact-icons_phone.svg');
+        background-size: cover;
+      }
+      &.subject-icon {
+        width: 20px;
+        height: 20px;
+        background: url('../images/contact-icons_subject.svg');
+        background-size: cover;
+      }
     }
+  }
+  &-wrapper_submit {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    font-family: 'Gotham Rounded';
+    color: #23678D;
+    font-size: .875rem;
   }
   &-form {
     width: 100%;
@@ -85,5 +129,16 @@
       position: relative;
       grid-gap: 30px;
       grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 1.875rem;
+  }
+  &-grid-1 {
+    display: grid;
+    position: relative;
+    grid-gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 1.875rem;
+  }
+  &-decoration {
+    margin-right: 3.125rem;
   }
 }
