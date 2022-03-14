@@ -20,8 +20,18 @@ use App\Http\Controllers\Frontend\ParentingTipsController;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('/product', [ProductController::class, 'index'])
+
+Route::prefix('product')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])
     ->name('product');
+    Route::get('/sirup', [ProductController::class, 'syrup'])
+        ->name('product.syrup');
+    Route::get('/drop', [ProductController::class, 'drop'])
+    ->name('product.drop');
+    Route::get('/expectorant', [ProductController::class, 'expectorant'])
+    ->name('product.expectorant');
+});
+
 
 Route::prefix('parenting-tips')->group(function () {
     Route::get('/', [ParentingTipsController::class, 'index'])

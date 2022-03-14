@@ -19,6 +19,39 @@ class ProductController extends Controller
             // "jsFileName" => "home",
             // "cssBody" => "home",
         );
-        return view('frontend.pages.product.main', $data);
+        return view('frontend.pages.product.details.syrup', $data);
+    }
+
+    public function syrup(Request $request)
+    {
+
+        $data = array(
+            "cssFileName" => "product", //iki nganggo 1 css rapopo, tp nek koe pengen dipisah di rename wae dari yg index
+            // "jsFileName" => "home",
+            // "cssBody" => "home",
+        );
+        return view('frontend.pages.product.details.syrup', $data);
+    }
+
+    public function drop(Request $request)
+    {
+
+        $data = array(
+            "cssFileName" => "product",
+            // "jsFileName" => "home",
+            // "cssBody" => "home",
+        );
+        return view('frontend.pages.product.details.drop', $data);
+    }
+
+    public function expectorant(Request $request)
+    {
+
+        $data = array(
+            "cssFileName" => "product",
+            // "jsFileName" => "home",
+            // "cssBody" => "home",
+        );
+        return view('frontend.pages.product.details.expectorant', $data);
     }
 }
