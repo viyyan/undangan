@@ -33,14 +33,6 @@
             </div>
         </div>
     </div>
-    <div class="product--section_wave">
-        <div class="product--section_wave-content second-product"></div>
-    </div>
-    <div class="product--section_content">
-        @yield('content.product')
-        <div class="product--section_ornament">
-            <img src="{{ frontImages('product-ornament.svg') }}" />
-        </div>
-    </div>
+    @yield('content.product')
 </div>
 @endsection
