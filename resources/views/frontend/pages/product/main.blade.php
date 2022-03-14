@@ -16,19 +16,28 @@
         <div class="container">
             <div class="product--section_product-wrapper">
                 <div class="product--section_product-content {{ isCurrent('product.syrup') ? 'active' : '' }}">
-                    <a href="{{ route('product.syrup') }}">
-                        <img src="{{ frontImages('product-nipe-syrup.png') }}" />
-                    </a>
+                    <img src="{{ frontImages('product-nipe-syrup.png') }}" />
+                    <div class="product_button-klick">
+                        <a href="{{ route('product.syrup') }}">
+                            Klik untuk detail
+                        </a>
+                    </div>
                 </div>
                 <div class="product--section_product-content {{ isCurrent('product.drop') || isCurrent('product') ? 'active' : '' }}">
-                    <a href="{{ route('product.drop') }}">
-                        <img src="{{ frontImages('product-nipe-drop.png') }}" />
-                    </a>
+                    <img src="{{ frontImages('product-nipe-drop.png') }}" />
+                    <div class="product_button-klick">
+                        <a href="{{ route('product.drop') }}">
+                            Klik untuk detail
+                        </a>
+                    </div>
                 </div>
                 <div class="product--section_product-content {{ isCurrent('product.expectorant') ? 'active' : '' }}">
-                    <a href="{{ route('product.expectorant') }}">
-                        <img src="{{ frontImages('product-nipe-expectorant.png') }}" />
-                    </a>
+                    <img src="{{ frontImages('product-nipe-expectorant.png') }}" />
+                    <div class="product_button-klick">
+                        <a href="{{ route('product.expectorant') }}">
+                            Klik untuk detail
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

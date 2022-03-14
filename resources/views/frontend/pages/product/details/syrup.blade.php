@@ -2,7 +2,7 @@
 @extends('frontend.pages.product.main')
 @section('content.product')
 <div class="product--section_wave">
-        <div class="product--section_wave-content second-product"></div>
+        <div class="product--section_wave-content"></div>
 </div>
 <div class="product--section_content">
     <div class="container">
