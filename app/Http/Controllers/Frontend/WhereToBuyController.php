@@ -15,8 +15,8 @@ class WhereToBuyController extends Controller
     {
 
         $data = array(
-            // "cssFileName" => "home",
-            // "jsFileName" => "home",
+            "cssFileName" => "wheretobuy",
+            "jsFileName" => "addres",
             // "cssBody" => "home",
         );
         return view('frontend.pages.where-to-buy.main', $data);

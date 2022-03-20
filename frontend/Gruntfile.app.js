@@ -118,19 +118,19 @@ module.exports = function (grunt) {
         ],
         dest: '<%= meta.public %>css/contact.css',
       },
-      our_thinking_css: {
+      addres_css: {
         src: [
-          './node_modules/slick-carousel/slick/slick-theme.css',
-          './node_modules/slick-carousel/slick/slick.css',
-          '<%= meta.public %>css/our-thinking.css',
+          './node_modules/leaflet/dist/leaflet.css',
+          './src/css/vendors/jquery.mCustomScrollbar.css',
+          '<%= meta.public %>css/wheretobuy.css',
         ],
-        dest: '<%= meta.public %>css/our-thinking.css',
+        dest: '<%= meta.public %>css/wheretobuy.css',
       },
       home_js: {
         src: [
           './node_modules/jquery/dist/jquery.js',
           './node_modules/slick-carousel/slick/slick.js',
-          './src/js/vendors/jquery.animateSprite.min.js', 
+          './src/js/vendors/jquery.animateSprite.min.js',
           '<%= meta.public %>js/home.js',
         ],
         dest: '<%= meta.public %>js/home.js',
@@ -144,13 +144,14 @@ module.exports = function (grunt) {
         ],
         dest: '<%= meta.public %>js/quiz.js',
       },
-      our_thinking_js: {
+      addres: {
         src: [
+          './node_modules/leaflet/dist/leaflet.js',
           './node_modules/jquery/dist/jquery.js',
-          './node_modules/slick-carousel/slick/slick.min.js',
-          '<%= meta.public %>js/our-thinking.js',
+          './src/js/vendors/jquery.mCustomScrollbar.min.js',  
+          '<%= meta.public %>js/addres.js',
         ],
-        dest: '<%= meta.public %>js/our-thinking.js',
+        dest: '<%= meta.public %>js/addres.js',
       },
       contact_js: {
         src: [
@@ -192,7 +193,7 @@ module.exports = function (grunt) {
         tasks: [
           'sass',
           'concat:contact_css',
-          'concat:our_thinking_css'
+          'concat:addres'
         ],
       },
       script: {
@@ -201,7 +202,7 @@ module.exports = function (grunt) {
           'browserify', 
           'concat:home_js', 
           'concat:quiz_js', 
-          'concat:our_thinking_js',
+          'concat:addres',
           'concat:contact_js'
         ],
       },
@@ -257,14 +258,14 @@ module.exports = function (grunt) {
     'clean:dev',
     'sass',
     'concat:contact_css',
-    'concat:our_thinking_css',
+    'concat:addres_css',
     // 'concat:quiz',
     'postcss',
     // 'pug',
     'browserify',
     'concat:home_js', 
     'concat:quiz_js', 
-    'concat:our_thinking_js',
+    'concat:addres',
     'concat:contact_js',
     'uglify',
   ]);

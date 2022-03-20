@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\ParentingTipsController;
+use App\Http\Controllers\Frontend\WhereToBuyController;
 
 
 /*
@@ -40,7 +41,7 @@ Route::prefix('parenting-tips')->group(function () {
         ->name('parenting-tips.details');
 });
 
-Route::get('/where-to-buy', [ProductController::class, 'index'])
+Route::get('/where-to-buy', [WhereToBuyController::class, 'index'])
     ->name('where-to-buy');
 
 Route::get('contact-us', [ContactController::class, 'index'])
