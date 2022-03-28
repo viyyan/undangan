@@ -35,7 +35,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Parenting Tips')
                 ->icon('book-open')
                 ->route('platform.post.list')
-                ->title('Post'),
+                ->list([
+                    Menu::make('All Posts')->route('platform.post.list'),
+                    Menu::make('Categories')->route('platform.category.list', ['type' => 'post']),
+                ]),
 
             Menu::make('Inquiries')
                 ->icon('envelope-letter')

@@ -96,6 +96,12 @@ class PostEditScreen extends Screen
                     ->help('Specify a short descriptive title for this post.')
                     ->required(),
 
+                Relation::make('post.category_id')
+                    ->title('Category')
+                    ->fromModel(Category::class, 'name')
+                    ->applyScope('post')
+                    ->required(),
+
                 Select::make('post.status')
                     ->title("Status")
                     ->empty('Publish', 1)
@@ -111,7 +117,7 @@ class PostEditScreen extends Screen
 
                 Cropper::make('post.hero_id')
                     ->targetId()
-                    ->title('Large web banner image, generally in the front and center')
+                    ->title('Large web banner image, generally in the front and center. 870x430px')
                     ->width(1000)
                     ->height(610),
 

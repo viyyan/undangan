@@ -19,11 +19,18 @@ class HomeController extends Controller
         $banners = Banner::where("status", 1)
                     ->orderBy("order", "asc")->get();
 
+        $posts = Post::where("status", 1)
+            ->orderBy("featured", "desc")
+            ->orderBy("created_at", "desc")
+            ->take(3)
+            ->get();
+
         $data = array(
             "cssFileName" => "home",
             "jsFileName" => "home",
             "cssBody" => "home",
-            "banners" => $banners
+            "banners" => $banners,
+            "posts" => $posts
         );
         return view('frontend.pages.home.main', $data);
     }
