@@ -27,10 +27,10 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
 
-            Menu::make('Banners')
+            Menu::make('News & Promo')
                 ->icon('book-open')
                 ->route('platform.banner.list')
-                ->title('Banner'),
+                ->title('News & Promo'),
 
             Menu::make('Parenting Tips')
                 ->icon('book-open')

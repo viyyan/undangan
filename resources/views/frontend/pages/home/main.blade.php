@@ -104,51 +104,27 @@
                         <div class="outer-wrapper">
                             <div class="home--section_news-slider_content">
                                 <div class="home--section_news-slider" id="promo">
+                                    @foreach($banners as $banner)
                                     <div class="home--section_news-wrapper">
                                         <div class="home--section_news-content">
                                             <div class="content-images">
-                                                <img src="{{ frontImages('home--news_ornament.png') }}">
+                                                <img src="{{ $banner->heroUrl() }}">
                                             </div>
                                             <div class="content-desc">
+                                                @if (!empty($banner->logoUrl()))
                                                 <div class="addon-logo">
-                                                    <img src="{{ frontImages('tokopedia.svg') }}">
+                                                    <img src="{{ $banner->logoUrl() }}">
                                                 </div>
-                                                <h2>Diskon hingga 30%</h2>
-                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
-                                                <a href="#" class="main-button">Beli sekarang</a>
+                                                @endif
+                                                <h2>{{ $banner->title }}</h2>
+                                                <p>{{ $banner->subtitle }}</p>
+                                                @if (isset($banner->url))
+                                                    <a href="{{ $banner->url }}" class="main-button">{{ isset($banner->button_title) ? $banner->button_title : "Klik di sini" }}</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="home--section_news-wrapper">
-                                        <div class="home--section_news-content">
-                                            <div class="content-images">
-                                                <img src="{{ frontImages('home--news_ornament.png') }}">
-                                            </div>
-                                            <div class="content-desc">
-                                                <div class="addon-logo">
-                                                    <img src="{{ frontImages('tokopedia.svg') }}">
-                                                </div>
-                                                <h2>Diskon hingga 30%</h2>
-                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
-                                                <a href="#" class="main-button">Beli sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="home--section_news-wrapper">
-                                        <div class="home--section_news-content">
-                                            <div class="content-images">
-                                                <img src="{{ frontImages('home--news_ornament.png') }}">
-                                            </div>
-                                            <div class="content-desc">
-                                                <div class="addon-logo">
-                                                    <img src="{{ frontImages('tokopedia.svg') }}">
-                                                </div>
-                                                <h2>Diskon hingga 30%</h2>
-                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
-                                                <a href="#" class="main-button">Beli sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

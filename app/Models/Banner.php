@@ -26,6 +26,8 @@ class Banner extends Model
         'title',
         'subtitle',
         'hero_id',
+        'logo_id',
+        'button_title',
         'status',
         'order',
         'url'
@@ -52,15 +54,33 @@ class Banner extends Model
         return $this->belongsTo(Attachment::class, 'hero_id');
     }
 
+
+    /**
+     * Get logo for the post.
+     */
+    public function logoImage()
+    {
+        return $this->belongsTo(Attachment::class, 'logo_id');
+    }
+
     /**
      * Get hero imageUrl for the post.
      */
-    public function heroUrl($size = '1280x740')
+    public function heroUrl($size = '456x400')
     {
         $image = $this->heroImage()->first();
         return !empty($image) ? $image->url() : "https://via.placeholder.com/${size}.png?text=taisho.co.id";
     }
 
+
+    /**
+     * Get hero imageUrl for the post.
+     */
+    public function logoUrl()
+    {
+        $image = $this->logoImage()->first();
+        return !empty($image) ? $image->url() : null;
+    }
 
     /**
      * Get hero translation for the baner.
