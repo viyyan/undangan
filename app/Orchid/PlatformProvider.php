@@ -27,15 +27,18 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
 
-            Menu::make('Banners')
+            Menu::make('News & Promo')
                 ->icon('book-open')
                 ->route('platform.banner.list')
-                ->title('Banner'),
+                ->title('News & Promo'),
 
             Menu::make('Parenting Tips')
                 ->icon('book-open')
                 ->route('platform.post.list')
-                ->title('Post'),
+                ->list([
+                    Menu::make('All Posts')->route('platform.post.list'),
+                    Menu::make('Categories')->route('platform.category.list', ['type' => 'post']),
+                ]),
 
             Menu::make('Inquiries')
                 ->icon('envelope-letter')

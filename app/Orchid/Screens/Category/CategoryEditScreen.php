@@ -88,33 +88,6 @@ class CategoryEditScreen extends Screen
      */
     public function layout(): array
     {
-        $combination = array();
-        if ($this->type == 'research') {
-            $quizzes = Quiz::where('status', 1)
-                ->orderBy('order', 'asc')
-                ->with(['options', 'options.optionChilds'])->get();
-
-            foreach ($quizzes as $key=>$prev) {
-                $prevOpt = $prev->options;
-                $options = array();
-                foreach ($prevOpt as $opt) {
-                    if ($opt->has_children) {
-                        foreach($opt->optionChilds as $child) {
-                            $code = $opt->code.'-'.$child->code;
-                            $name = $opt->name.' - '.$child->name;
-                            $options[$code] = $name;
-                        }
-                    } else {
-                        $options[$opt->code] = $opt->name;
-                    }
-                }
-                $comb = Select::make('quiz_answers[]')
-                    ->empty('No select', 0)
-                    ->title('Q'.($key+1))
-                    ->options($options);
-                array_push($combination, $comb);
-            }
-        }
         $layout = [
             Layout::rows([
                 Input::make('category.name')
@@ -139,27 +112,17 @@ class CategoryEditScreen extends Screen
                     ->title("Order")
                     ->type("number")
                     ->min(1)
-                    ->canSee($this->type == 'member')
+                    ->canSee($this->type == 'member'),
+
+                Select::make('category.color')
+                    ->title("Color")
+                    ->options([
+                        "default blue" => 'Blue 🔵',
+                        "tumbuh-kembang orange"  => 'Orange 🟠',
+                        "tips-bunda green"  => 'Green 🟢'
+                    ])
             ]),
-            Layout::rows([
-                Group::make(
-                    $combination
-                ),
-                Button::make('Add')
-                    ->method('addQuizAnswer')
-                    ->class('btn btn-success')
-            ])->title('Quiz Answers')->canSee($this->type == 'research'),
         ];
-        if ($this->type == 'research') {
-            array_push($layout, SubOptionListLayout::class);
-            array_push($layout,
-                Layout::modal('detailsModal', [
-                ])
-                ->async('asyncGetAnswersDetails')
-                ->title('Answers Combination')
-                ->withoutApplyButton()
-            );
-        }
         return $layout;
     }
 

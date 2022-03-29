@@ -28,7 +28,8 @@ class Category extends Model
         'status',
         'type',
         'order',
-        'quiz_answers'
+        'quiz_answers',
+        'color'
     ];
 
 
@@ -70,42 +71,10 @@ class Category extends Model
      *
      * @return Builder
      */
-    public function scopeMember(Builder $query)
+    public function scopePost(Builder $query)
     {
-        return $query->where('type', 'member');
+        return $query->where('type', 'post');
     }
-
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeIndustry(Builder $query)
-    {
-        return $query->where('type', 'industry');
-    }
-
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeResearch(Builder $query)
-    {
-        return $query->where('type', 'research');
-    }
-
-     /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeCareer(Builder $query)
-    {
-        return $query->where('type', 'career');
-    }
-
-
 
     public function cases()
     {

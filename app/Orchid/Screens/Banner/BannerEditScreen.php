@@ -98,9 +98,17 @@ class BannerEditScreen extends Screen
                 Cropper::make('banner.hero_id')
                     ->targetId()
                     ->title('Large banner image 1280x740px')
-                    ->width(1280)
-                    ->height(740)
+                    ->width(456)
+                    ->height(400)
                     ->required(),
+
+                Cropper::make('banner.logo_id')
+                    ->targetId()
+                    ->title('Add on logo 300x50px *optional'),
+
+                Input::make('banner.button_title')
+                    ->title('Button Text')
+                    ->placeholder('Klik di sini'),
 
                 Input::make('banner.url')
                     ->title('URL')

@@ -104,51 +104,27 @@
                         <div class="outer-wrapper">
                             <div class="home--section_news-slider_content">
                                 <div class="home--section_news-slider" id="promo">
+                                    @foreach($banners as $banner)
                                     <div class="home--section_news-wrapper">
                                         <div class="home--section_news-content">
                                             <div class="content-images">
-                                                <img src="{{ frontImages('home--news_ornament.png') }}">
+                                                <img src="{{ $banner->heroUrl() }}">
                                             </div>
                                             <div class="content-desc">
+                                                @if (!empty($banner->logoUrl()))
                                                 <div class="addon-logo">
-                                                    <img src="{{ frontImages('tokopedia.svg') }}">
+                                                    <img src="{{ $banner->logoUrl() }}">
                                                 </div>
-                                                <h2>Diskon hingga 30%</h2>
-                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
-                                                <a href="#" class="main-button">Beli sekarang</a>
+                                                @endif
+                                                <h2>{{ $banner->title }}</h2>
+                                                <p>{{ $banner->subtitle }}</p>
+                                                @if (isset($banner->url))
+                                                    <a href="{{ $banner->url }}" class="main-button">{{ isset($banner->button_title) ? $banner->button_title : "Klik di sini" }}</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="home--section_news-wrapper">
-                                        <div class="home--section_news-content">
-                                            <div class="content-images">
-                                                <img src="{{ frontImages('home--news_ornament.png') }}">
-                                            </div>
-                                            <div class="content-desc">
-                                                <div class="addon-logo">
-                                                    <img src="{{ frontImages('tokopedia.svg') }}">
-                                                </div>
-                                                <h2>Diskon hingga 30%</h2>
-                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
-                                                <a href="#" class="main-button">Beli sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="home--section_news-wrapper">
-                                        <div class="home--section_news-content">
-                                            <div class="content-images">
-                                                <img src="{{ frontImages('home--news_ornament.png') }}">
-                                            </div>
-                                            <div class="content-desc">
-                                                <div class="addon-logo">
-                                                    <img src="{{ frontImages('tokopedia.svg') }}">
-                                                </div>
-                                                <h2>Diskon hingga 30%</h2>
-                                                <p>untuk setiap pembelanjaan Nipe Fever di Menarini Official Store</p>
-                                                <a href="#" class="main-button">Beli sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -165,58 +141,12 @@
                             <h2 class="main-title">Parenting tips</h2>
                         </div>
                         <div class="home--section_title-button">
-                            <a class="main-button">Lihat semua tips</a>
+                            <a class="main-button" href="{{ route('parenting-tips')}}">Lihat semua tips</a>
                         </div>
                     </div>
                     <div class="home--section_articles-block">
-                        <div class="article-blocks">
-                            <div class="article-blocks_images">
-                                <a href="">
-                                    <img src="{{ frontImages('home-dummy01.png') }}">
-                                </a>
-                            </div>
-                            <div class="article-blocks_desc">
-                                <div class="article-blocks_tag default">
-                                    <span class="tag">Demam & Penyakit</span>
-                                    <a class="link-button">Read more</a>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="article-blocks">
-                            <div class="article-blocks_images">
-                                <a href="">
-                                    <img src="{{ frontImages('home-dummy02.png') }}">
-                                </a>
-                            </div>
-                            <div class="article-blocks_desc">
-                                <div class="article-blocks_tag tumbuh-kembang">
-                                    <span class="tag">Tumbuh Kembang</span>
-                                    <a class="link-button">Read more</a>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="article-blocks">
-                            <div class="article-blocks_images">
-                                <a href="">
-                                    <img src="{{ frontImages('home-dummy03.png') }}">
-                                </a>
-                            </div>
-                            <div class="article-blocks_desc">
-                                <div class="article-blocks_tag tips-bunda">
-                                    <span class="tag">Tips Bunda Nippe</span>
-                                    <a class="link-button">Read more</a>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                                </p>
-                            </div>
-                        </div>
+                        <!-- posts items -->
+                        @include('frontend.vendor.posts')
                     </div>
                 </div>
             </div>
