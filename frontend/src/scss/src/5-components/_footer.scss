@@ -10,6 +10,9 @@
     width: 100%;
     background: url('../images/footer_ornament.png') no-repeat;
     height: 2.5rem;left: 0;top: -2.5rem;
+    @media (max-width: 768px) {
+      display: none;
+    }
 
   }
   &::after {
@@ -31,9 +34,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
   &--address {
     width: 50%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     p {
       width: 100%;
       font-weight: 400;
@@ -44,6 +53,13 @@
   &--social {
     width: 50%;
     text-align: right;
+    @media (max-width: 768px) {
+      width: 100%;
+      text-align: center;
+      ul {
+        padding-left: 0;
+      }
+    }
     ul {
       li {
         list-style: none;
@@ -91,6 +107,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      ul {
+        padding-left: 0;
+      }
+    }
     ul {
       li {
         display: inline-block;

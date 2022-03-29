@@ -24,6 +24,11 @@
         background-size: cover;
         right: 10%;
         top: 45%;
+        @media (max-width: 768px) {
+          top: 100px;
+          width: 120px;
+          height: 45px;
+        }
       }
       &::before {
         content: '';
@@ -35,6 +40,11 @@
         left: 5%;
         top: 85%;
         z-index: -1;
+        @media (max-width: 768px) {
+          top: 100px;
+          width: 120px;
+          height: 45px;
+        }
       }
     }
     &-content {
@@ -45,6 +55,9 @@
       justify-content: flex-start;
       flex-direction: row;
       padding-bottom: 3.125rem;
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
     }
   }
   &-wrapper_input {
@@ -130,6 +143,9 @@
       grid-gap: 30px;
       grid-template-columns: repeat(2, 1fr);
       margin-bottom: 1.875rem;
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
   }
   &-grid-1 {
     display: grid;

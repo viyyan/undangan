@@ -7,7 +7,7 @@ import General from './src/libs/general';
   'use strict';
   //
   // Run general scripts 
-  General(); 
+  General();  
 
   
 

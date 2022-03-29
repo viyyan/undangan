@@ -20,6 +20,9 @@
       p {
         width: 65%;
         margin: 0 auto;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
       }
       &::before {
         content: '';
@@ -30,6 +33,11 @@
         background-size: cover;
         left: 2%;
         top: 200px;
+        @media (max-width: 768px) {
+          top: 100px;
+          width: 120px;
+          height: 45px;
+        }
       }
       &::after {
         content: '';
@@ -40,10 +48,21 @@
         background-size: cover;
         right: 20%;
         top: 30%;
+        @media (max-width: 768px) {
+          top: 100px;
+          width: 120px;
+          height: 45px;
+          right: 5%;
+        }
       }
     }
     &_store {
       margin-top: 80px;
+      @media (max-width: 768px) {
+        ul {
+          padding-left: 0;
+        }
+      }
       li {
         display: inline-block;
         margin: 0 30px;
@@ -97,9 +116,16 @@
         height: 92px;
         display: flex;
         align-items: center;
+        @media (max-width: 768px) {
+          flex-direction: column;
+          height: auto;
+        }
         &-images {
           width: 17%;
           padding: 0 20px;
+          @media (max-width: 768px) {
+            width: 100%;
+          }
           img {
             width: 160px;
             margin: 0 auto;
@@ -110,6 +136,10 @@
         &-text {
           width: 64%;
           text-align: center;
+          @media (max-width: 768px) {
+            width: 90%;
+            margin: 10px auto;
+          }
           h3 {
             text-align: center;
             font-weight: 400;
@@ -120,6 +150,10 @@
         &-action {
           width: 17%;
           padding: 0 20px;
+          @media (max-width: 768px) {
+            width: 100%;
+            margin: 20px 0;
+          }
           .main-button {
             border: none;
             position: relative;
@@ -147,6 +181,10 @@
         align-items: flex-start;
         position: relative;
         overflow: hidden;
+        @media (max-width: 768px) {
+          flex-direction: column-reverse;
+          height: auto;
+        }
         &::after {
           content: '';
           position: absolute;
@@ -159,6 +197,10 @@
         &-map {
           width: 40%;
           position: relative;
+          @media (max-width: 768px) {
+            width: 100%;
+            height: 480px;
+          }
           #contact-map {
             width: 100%;
             height: 100%;
@@ -171,6 +213,12 @@
           padding-top: 20px;
           padding-bottom: 30px;
           border-radius: 0px 0px 20px 20px;
+          @media (max-width: 768px) {
+            width: 100%;
+            ul {
+              padding-left: 0;
+            }
+          }
           .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
             background: #169DCE;
             width: 7px;
@@ -246,12 +294,21 @@
                 .phone-number {
                   background: url('../images/address-phone.svg') no-repeat;
                   background-size: 20px; 
+                  @media (max-width: 768px) {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                  }
                 }
               }
               &_action {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                @media (max-width: 768px) {
+                  justify-content: flex-start;
+                  flex-direction: column;
+                  align-items: self-end;
+                }
                 .main-button {
                   background: linear-gradient(180deg, #1494D2 0%, #3382A8 100%);
                   color: #fff;

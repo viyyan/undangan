@@ -22,12 +22,20 @@
                     <div class="home--section_top-images-duck">
                         <img src="{{ frontImages('home-ornament/home-duck.svg') }}">
                     </div>
-                    <div class="home--section_top-images-product">
+                    <div class="home--section_top-images-product desktop-view">
                         <div class="home--section_top-images-product inside_left">
                             <img src="{{ frontImages('home-ornament/home-product_paracetamol-small.svg') }}">
                         </div>
                         <div class="home--section_top-images-product inside_right">
                             <img src="{{ frontImages('home-ornament/home-product_paracetamol.svg') }}">
+                        </div>
+                    </div>
+                    <div class="home--section_top-images-product mobile-view">
+                        <div class="home--section_top-images-product inside_left">
+                            <img src="{{ frontImages('mobile/home-mobile-nipe-fever-paracetamol.png') }}">
+                        </div>
+                        <div class="home--section_top-images-product inside_right">
+                            <img src="{{ frontImages('mobile/home-mobile-nipe-fever-syrup.png') }}">
                         </div>
                     </div>
                 </div>

@@ -215,6 +215,7 @@ module.exports = function (grunt) {
           'concat:home_js', 
           'concat:quiz_js', 
           'concat:addres',
+          'concat:general_js',
           'concat:contact_js'
         ],
       },

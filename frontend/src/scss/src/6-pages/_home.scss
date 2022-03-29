@@ -10,9 +10,10 @@
       position: relative;
       .general-ornament {
         position: absolute;
-        bottom: 0;
+        bottom: 65px;
         width: 100%; 
         @media (max-width: 768px) {
+          bottom: 15%;
           img {
             width: 100%;
           }
@@ -26,6 +27,9 @@
         justify-content: center;
         flex-direction: column;
         z-index: 10;
+        @media (max-width: 768px) {
+          height: 50%;
+        }
         h2 {
           color: #8AC825;
           font-size: 3.75rem;
@@ -41,6 +45,34 @@
             line-height: 48px;
           }
         }
+        &::after {
+          content: '';
+          position: absolute;
+          background: url('../images/parenting-cloud_right.svg') no-repeat;
+          width: 241px;
+          height: 91px;
+          background-size: cover;
+          right: 10%;
+          top: 30%;
+          -webkit-animation: animateCloudRight 20s linear infinite;
+          -moz-animation: animateCloudRight 20s linear infinite;
+          animation: animateCloudRight 20s linear infinite;
+          z-index: -1;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          background: url('../images/parenting-cloud_left.svg') no-repeat;
+          width: 167px;
+          height: 63px;
+          background-size: cover;
+          left: 10%;
+          top: 15%;
+          -webkit-animation: animateCloud 10s linear infinite;
+          -moz-animation: animateCloud 10s linear infinite;
+          animation: animateCloud 10s linear infinite;
+          z-index: -1;
+        }
       }
       &-images {
         width: 100%;
@@ -50,12 +82,12 @@
         z-index: 10;
         @media (max-width: 768px) {
           top: auto;
-          bottom: 20%;
+          bottom: 0%;
         }
         &-duck {
           position: absolute;
           right: 45%;
-          top: 15.625rem;
+          top: 200px;
           z-index: 11;
           animation-name: floatDeep;
           animation-duration: 4s;
@@ -72,6 +104,7 @@
           right: 0%;
           @media (max-width: 768px) {
             width: 100%;
+            text-align: center;
           }
           .inside_left {
             position: absolute;
@@ -85,6 +118,8 @@
             @media (max-width: 768px) {
               img {
                 width: 100%;
+                width: 90%;
+                margin: 0 auto;
               }
             }
           }
@@ -96,7 +131,8 @@
             // mobile view
             @media (max-width: 768px) {
               img {
-                width: 100%;
+                width: 90%;
+                margin: 0 auto;
               }
             }
           }
@@ -106,9 +142,27 @@
     /*product*/
     &_product {
       background: linear-gradient(180deg, #E7F584 0%, #C2CF63 100%);
-      padding-top: 5%;
+      padding-top: 0;
       position: relative;
       padding-bottom: 5%;
+      @media (max-width: 768px) {
+        margin-top: -20%;
+        padding-bottom: 40%;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 120px;
+        background: url('../images/home-vector_top.svg');
+        top: -120px;
+        left: 0;
+        @media (max-width: 768px) {
+          background-size: cover;
+          height: 100px;
+          top: -100px;
+        }
+      }
       &::after {
         content: '';
         position: absolute;
@@ -121,10 +175,17 @@
         position: relative;
         width: 100%;
         height: 100vh;
+        @media (max-width: 768px) {
+          height: auto;
+        }
         &-text {
           position: absolute;
           top: 0;
           width: 100%;
+          @media (max-width: 768px) {
+            position: relative;
+            text-align: center;
+          }
         }
       }
       &-center {
@@ -137,6 +198,11 @@
         img {
           z-index: 10;
           position: relative;
+          width: 60%;
+        }
+        @media (max-width: 768px) {
+          height: auto;
+          align-items: flex-start;
         }
       }
       &-box {
@@ -144,11 +210,18 @@
         font-size: 1rem;
         line-height: 1.5rem;
         letter-spacing: 0;
+        @media (max-width: 768px) {
+          font-size: 12px;
+          line-height: 18px;
+        }
         &.left {
           position: absolute;
           left: 0;
           text-align: left;
           vertical-align: middle;
+          @media (max-width: 768px) {
+            position: relative;
+          }
           &.top {
             background: url('../images/home-bublle-orange.png') no-repeat;
             width: 21.375rem;
@@ -156,6 +229,13 @@
             top: 9.375rem;
             left: 9.75rem;
             padding: 50px 40px 50px 50px;
+            @media (max-width: 768px) {
+              top: 0;
+              left: 0;
+              background: url('../images/home-bublle-orange.png') no-repeat;
+              background-size: contain;
+              width: 100%;
+            }
             
           }
           &.center {
@@ -166,6 +246,13 @@
             top: 320px;
             left: 80px;
             padding: 50px;
+            @media (max-width: 768px) {
+              background: url('../images/home-bublle-white_orange.png') no-repeat;
+              top: 0;
+              left: 0;
+              width: 100%;
+              background-size: contain;
+            }
           }
           &.bottom {
             background: url('../images/home-bublle-white_small.png') no-repeat;
@@ -176,6 +263,13 @@
             top: 470px;
             left: 270px;
             z-index: 10;
+            @media (max-width: 768px) {
+              top: 0;
+              left: 0;
+              margin: 0 auto;
+              background: url('../images/home-bublle-white_small.png') no-repeat;
+              background-size: contain;
+            }
           }
         }
         &.right {
@@ -183,6 +277,9 @@
           right: 0;
           text-align: left;
           vertical-align: middle;
+          @media (max-width: 768px) {
+            position: relative;
+          }
           &.top {
             background: url('../images/home-bublle-white_blue.png') no-repeat;
             top: -20px;
@@ -195,6 +292,16 @@
             padding-bottom: 1.875rem;
             padding-left: 3.75rem;
             padding-right: 5rem;
+            @media (max-width: 768px) {
+              top: 0;
+              right: 0;
+              width: 100%;
+              background: url('../images/home-bublle-white_blue.png') no-repeat;
+              background-size: contain;
+              padding: 50px 40px;
+              height: 170px; 
+
+            }
           }
           &.center {
             background: url('../images/home-bublle-blue.png') no-repeat;
@@ -204,6 +311,13 @@
             height: 9.3125rem;
             color: #fff;
             padding: 50px;
+            @media (max-width: 768px) {
+              background: url('../images/home-bublle-blue.png') no-repeat;
+              top: 0;
+              right: 0;
+              width: 100%;
+              background-size: contain;
+            }
           }
           &.bottom {
             background: url('../images/home-bublle-white-small_blue.png') no-repeat;
@@ -213,6 +327,13 @@
             height: 9.375rem;
             color: #169DCE;
             padding: 50px;
+            @media (max-width: 768px) {
+              background: url('../images/home-bublle-white-small_blue.png') no-repeat;
+              top: 0;
+              left: 0;
+              width: 100%;
+              background-size: contain;
+            }
           }
         }
       }
@@ -226,9 +347,20 @@
       &.flat {
         display: block; 
       }
+      @media (max-width: 768px) {
+        display: block;
+        &-button {
+          text-align: left;
+          margin-top: 30px;
+        }
+      }
     }
     &_promotions {
       background: linear-gradient(180deg, #FFFFFF -11.21%, #96D9FF 100%);
+      padding-bottom: 15%;
+      @media (max-width: 768px) {
+        padding-bottom: 30%;
+      }
     }
     &_news {
       .home--section_title {
@@ -243,11 +375,17 @@
       }
       &-slider_content {
         width: 80%;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
       }
       .outer-wrapper {
         margin-left: 7%;
         overflow: hidden;
         margin-top: 1.875rem;
+        @media (max-width: 768px) {
+          margin-left: 0;
+        }
       }
       .slick-list {
         overflow: unset;
@@ -306,17 +444,33 @@
         align-items: center;
         border-radius: 2rem;
         overflow: hidden;
+        @media (max-width: 768px) {
+          flex-direction: column;
+          padding-bottom: 50px;
+        }
         .content-images {
           width: 35%;
+          @media (max-width: 768px) {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
         }
         .content-desc {
           width: 65%;
           font-family: 'Gotham Rounded';
+          @media (max-width: 768px) {
+            width: 90%;
+          }
           h2 {
             color: #fff;
             font-family: 'Gotham Rounded';
             font-size: 3.75rem;
             margin: 1.875rem 0 0 0;
+            @media (max-width: 768px) {
+              font-size: 32px;
+            }
           }
           p {
             font-size: 18px;
@@ -335,6 +489,9 @@
         display: grid;
         grid-gap: 30px;
         grid-template-columns: repeat(3, 1fr);
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(1, 1fr);
+        }
       }
     }
   }
@@ -344,18 +501,31 @@
   width: 40px;
   height: 140px;
   background-image: url('../images/home-ornament/daun.png');
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .leaf.leaf-height {
   width: 288px;
   height: 308px;
   background-image: url('../images/home-ornament/daun_bac.png');
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .leaf.leaf-medium {
-  width: 70px;
+  width: 224px;
   height: 240px;
   background-image: url('../images/home-ornament/daun_medium.png');
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.general--section_ornament {
+  margin-top: -15%;
 }
 
 
