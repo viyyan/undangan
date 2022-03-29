@@ -216,11 +216,17 @@
       position: absolute;
       left: 0;
       bottom: 40%; 
+      @media (max-width: 768px) {
+          bottom: 15%;
+      }
     }
     &_gunung-right {
       position: absolute;
       right: 0;
       bottom: 40%;
+      @media (max-width: 768px) {
+        bottom: 15%;
+      }
     }
     &_daun-left {
       position: absolute;
@@ -232,8 +238,9 @@
     }
     &_daun-right {
       position: absolute;
-      right: 5%;
+      right: 0;
       bottom: 0;
+      z-index: 30;
     }
     &_daun-center {
       position: absolute;
@@ -259,6 +266,31 @@
 .gaegu {
     font-family: 'Gaegu', cursive;
     color: #68BB45;
+}
+
+.mobile-view {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+.desktop-view {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+ 
+// < 768px
+@media (max-width: 768px) {
+    .desktop-view {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .mobile-view {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 

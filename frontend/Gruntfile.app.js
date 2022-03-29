@@ -131,6 +131,7 @@ module.exports = function (grunt) {
           './node_modules/jquery/dist/jquery.js',
           './node_modules/slick-carousel/slick/slick.js',
           './src/js/vendors/jquery.animateSprite.min.js',
+          './src/js/vendors/pushy.js',
           '<%= meta.public %>js/home.js',
         ],
         dest: '<%= meta.public %>js/home.js',
@@ -149,6 +150,7 @@ module.exports = function (grunt) {
           './node_modules/leaflet/dist/leaflet.js',
           './node_modules/jquery/dist/jquery.js',
           './src/js/vendors/jquery.mCustomScrollbar.min.js',  
+          './src/js/vendors/pushy.js',
           '<%= meta.public %>js/addres.js',
         ],
         dest: '<%= meta.public %>js/addres.js',
@@ -156,9 +158,19 @@ module.exports = function (grunt) {
       contact_js: {
         src: [
           // './node_modules/leaflet/dist/leaflet.js',
+          './node_modules/jquery/dist/jquery.js',
+          './src/js/vendors/pushy.js',
           '<%= meta.public %>js/contact.js',
         ],
         dest: '<%= meta.public %>js/contact.js',
+      },
+      general_js: {
+        src: [
+          './node_modules/jquery/dist/jquery.js',
+          './src/js/vendors/pushy.js',
+          '<%= meta.public %>js/general.js',
+        ],
+        dest: '<%= meta.public %>js/general.js',
       },
     },
 
@@ -267,6 +279,7 @@ module.exports = function (grunt) {
     'concat:quiz_js', 
     'concat:addres',
     'concat:contact_js',
+    'concat:general_js',
     'uglify',
   ]);
   grunt.registerTask('serve', ['connect:server', 'watch']);

@@ -29,7 +29,7 @@
   <body class="{{ !empty($classBody) ? $classBody : '' }}">
     <div class="site">
     @include('frontend.includes.header')
-      <main class="main">
+      <main class="main" >
           @yield('content')
       </main>
     @include('frontend.includes.footer')

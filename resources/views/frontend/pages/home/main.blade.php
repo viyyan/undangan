@@ -52,10 +52,10 @@
                     <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
                 </div>
                 <div class="general-ornament_daun-right">
-                    <img src="{{ frontImages('parenting-ornament/daun-small.svg') }}">
+                    <div class="leaf leaf-height"></div>
                 </div>
                 <div class="general-ornament_daun-left">
-                    <img src="{{ frontImages('parenting-ornament/daun-medium.svg') }}">
+                    <div class="leaf leaf-medium"></div>
                 </div>
             </div>
         </div>

@@ -30,6 +30,7 @@ import General from './src/libs/general';
         alert("animation End");
     }
 });
+
   
 })();
     
