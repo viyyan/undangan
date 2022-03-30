@@ -290,7 +290,7 @@
                 </ul>
             </div>
             <div class="product--section_content-button">
-                <a href="">Download infografis (JPG)</a>
+                <a href="{{ frontImages('infographic/INFOGRAFIS-NIPE-DROP.jpg') }}" download="infografis_nipe_fever_drop.jpeg">Download infografis (JPG)</a>
             </div>
         </div>
         <!--  -->
