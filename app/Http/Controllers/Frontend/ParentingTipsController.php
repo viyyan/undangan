@@ -50,10 +50,22 @@ class ParentingTipsController extends Controller
      */
     public function show(string $slug,  Request $request)
     {
+        $post = Post::where("slug", $slug)
+            ->where('status', 1)
+            ->firstOrFail();
+
+        $posts = Post::where("status", 1)
+            ->where("id", '!=', $post->id)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
         $data = array(
             "cssFileName" => "parenting",
             // "jsFileName" => "home",
             // "cssBody" => "home",
+            "post" => $post,
+            "posts" => $posts
         );
         return view('frontend.pages.parenting.details', $data);
     }

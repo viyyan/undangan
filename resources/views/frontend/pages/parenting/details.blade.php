@@ -37,10 +37,10 @@
                             <rect width="48" height="48" fill="white"/>
                             </clipPath>
                             </defs>
-                        </svg>    
+                        </svg>
                     </a>
                     <div class="tag">
-                        <span>Demam & Penyakit</span>
+                        <span class="{{ $post->category->color }}" >{{ $post->category->name }}</span>
                         <svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.240066 9.24997C0.561784 -0.494637 6.54038 -0.657046 9.48946 0.479824C11.0981 0.891253 40.4548 -0.494678 42.4655 0.479824C44.4763 1.45433 86.2996 0.479897 94.7447 0.479824H148.23H175.979C182.413 0.479824 179.196 11.1988 179.196 21.918C179.196 29.2264 180 38.4838 179.196 42.8689C178.391 47.254 174.37 47.254 170.348 47.254C166.327 47.254 109.222 44.8177 84.2889 47.254C64.8447 49.1539 23.1625 46.7667 12.7066 47.254C2.25079 47.7412 -0.966387 45.7922 0.240066 38.4838C1.15983 32.9121 -0.162082 21.4307 0.240066 9.24997Z" fill="white"/>
                         </svg>
@@ -49,81 +49,30 @@
             </div>
             <div class="section_parenting-tips_detail_content">
                 <h2>
-                    Kenali Tahapan Mengoptimalkan Tumbuh Kembang Anak Sejak Dini
+                    {{ $post->title }}
                 </h2>
                 <div class="excerpt">
-                    <p>
-                        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel congue nisi, at pulvinar enim.
-                    </p>
+                    {!! $post->excerpt !!}
                 </div>
                 <div class="content">
-                    <h3>
-                        Lorem ipsum dolor sit amet.
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel congue nisi, at pulvinar enim. Sed quis erat sagittis risus sagittis pulvinar vitae viverra urna. Sed risus urna, vehicula nec dolor non, ultrices facilisis massa. Vestibulum pharetra venenatis ligula, vel accumsan lacus accumsan porta. Pellentesque placerat nisi quis iaculis pellentesque. Donec tempor orci vel mauris aliquet mattis. In eget nulla a sapien tincidunt iaculis. Nullam sed ipsum dignissim, pharetra dolor sit amet, faucibus felis. Cras pretium, velit quis semper ultricies, dui urna dapibus nunc, quis imperdiet purus ipsum non metus.
-                    </p>
-                    <p>    
-                        Ut porttitor blandit erat, vitae tempus urna porttitor et. Praesent facilisis arcu id leo rhoncus, et lacinia tellus tristique. Sed id nunc eget elit tristique sagittis sit amet eget nunc. In finibus risus sit amet mauris dictum viverra. Proin sed lacus pulvinar, mollis est a, dapibus libero. Ut vestibulum sapien ante, vel maximus arcu congue fermentum. Phasellus pretium congue nibh id bibendum. Fusce porta elit et eros laoreet ultrices. Sed placerat, diam et tincidunt sodales, quam ex elementum nulla, congue sodales elit nulla quis sem. Ut purus ligula, convallis id orci non, imperdiet rhoncus enim. Vivamus sit amet ultricies purus, eu tempus purus. Pellentesque in euismod nibh. In pharetra maximus sollicitudin. Donec lobortis feugiat felis, vitae luctus odio luctus et. Cras in posuere urna.
-                    </p>
-                </div>
-                <div class="content">
-                    <h3>
-                        Lorem ipsum dolor sit amet.
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel congue nisi, at pulvinar enim. Sed quis erat sagittis risus sagittis pulvinar vitae viverra urna. Sed risus urna, vehicula nec dolor non, ultrices facilisis massa. Vestibulum pharetra venenatis ligula, vel accumsan lacus accumsan porta. Pellentesque placerat nisi quis iaculis pellentesque. Donec tempor orci vel mauris aliquet mattis. In eget nulla a sapien tincidunt iaculis. Nullam sed ipsum dignissim, pharetra dolor sit amet, faucibus felis. Cras pretium, velit quis semper ultricies, dui urna dapibus nunc, quis imperdiet purus ipsum non metus.
-                    </p>
-                    <p>    
-                        Ut porttitor blandit erat, vitae tempus urna porttitor et. Praesent facilisis arcu id leo rhoncus, et lacinia tellus tristique. Sed id nunc eget elit tristique sagittis sit amet eget nunc. In finibus risus sit amet mauris dictum viverra. Proin sed lacus pulvinar, mollis est a, dapibus libero. Ut vestibulum sapien ante, vel maximus arcu congue fermentum. Phasellus pretium congue nibh id bibendum. Fusce porta elit et eros laoreet ultrices. Sed placerat, diam et tincidunt sodales, quam ex elementum nulla, congue sodales elit nulla quis sem. Ut purus ligula, convallis id orci non, imperdiet rhoncus enim. Vivamus sit amet ultricies purus, eu tempus purus. Pellentesque in euismod nibh. In pharetra maximus sollicitudin. Donec lobortis feugiat felis, vitae luctus odio luctus et. Cras in posuere urna.
-                    </p>
+                    {!! $post->body !!}
                 </div>
             </div>
             <div class="section_parenting-tips_detail_social">
                 <ul>
                     <li class="fb">
-                        <a href="#" target="_blank">Facebook</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('parenting-tips.details', $post->slug) }}" target="_blank">Facebook</a>
                     </li>
                     <li class="ig">
-                        <a href="#" target="_blank">Instagram</a>
+                        <a href="http://twitter.com/share?text={{ $post->title }}&url={{ route('parenting-tips.details', $post->slug) }}" target="_blank">Instagram</a>
                     </li>
                 </ul>
             </div>
             <div class="section_parenting-tips_detail_related">
                 <h2>Artikel terkait</h2>
                 <div class="section_parenting-tips_detail_related-wrapper">
-                    <div class="article-blocks">
-                        <div class="article-blocks_images">
-                            <a href="{{ route('parenting-tips.details', 'dummy-slug') }}">
-                                <img src="{{ frontImages('home-dummy01.png') }}">
-                            </a>
-                        </div>
-                        <div class="article-blocks_desc">
-                            <div class="article-blocks_tag default">
-                                <span class="tag">Demam & Penyakit</span>
-                                <a class="link-button">Read more</a>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="article-blocks">
-                        <div class="article-blocks_images">
-                            <a href="{{ route('parenting-tips.details', 'dummy-slug') }}">
-                                <img src="{{ frontImages('home-dummy01.png') }}">
-                            </a>
-                        </div>
-                        <div class="article-blocks_desc">
-                            <div class="article-blocks_tag tumbuh-kembang">
-                                <span class="tag">Demam & Penyakit</span>
-                                <a class="link-button">Read more</a>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                            </p>
-                        </div>
-                    </div>
+                    <!-- post items -->
+                    @include('frontend.vendor.posts')
                 </div>
             </div>
         </div>
