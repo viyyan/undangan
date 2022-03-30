@@ -165,5 +165,12 @@
                 <img src="{{ frontImages('home--bottom_ornament.png') }}">
             </div>
         </div>
+        <div class="scroll-icon">
+            <div class="mouse">
+                <span class="scroll-icon__wheel-outer">
+                    <span class="scroll-icon__wheel-inner"></span>
+                </span>
+            </div>
+        </div>
     </section>
 @endsection

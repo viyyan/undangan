@@ -84,8 +84,8 @@
                     <li class="fb">
                         <a href="#" target="_blank">Facebook</a>
                     </li>
-                    <li class="ig">
-                        <a href="#" target="_blank">Instagram</a>
+                    <li class="tw">
+                        <a href="#" target="_blank">Twitter</a>
                     </li>
                 </ul>
             </div>
