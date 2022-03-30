@@ -31,13 +31,17 @@
     font-family: 'Gotham Rounded'; 
     font-size: 14px;
     line-height: 17px;
-    color: #23678D;
+    color: #23678D!important;
     text-shadow: none;
+    text-decoration: none;
     background: linear-gradient(180deg, #FFFFFF 0%, #E6F6FF 100%);
     box-shadow: 5px 13px 17px -6px rgba(35, 103, 141, 0.2);
     border-radius: 20px;
     padding: 15.5px 20px;
     cursor: pointer;
+    &:hover {
+        color: #a81c1b!important;
+    }
   }
   &-title {
       margin: 0;

@@ -357,9 +357,12 @@
         }
       }
     }
+    &_articles{
+      padding-bottom: 20%;
+    }
     &_promotions {
       background: linear-gradient(180deg, #FFFFFF -11.21%, #96D9FF 100%);
-      padding-bottom: 15%;
+      padding-bottom: 0;
       @media (max-width: 768px) {
         padding-bottom: 30%;
       }
@@ -530,6 +533,42 @@
   margin-top: -15%;
 }
 
+.scroll-icon {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  z-index: 20;
+  .mouse {
+    background: url('../images/mouse.png') no-repeat;
+    width: 42px;
+    height: 93px;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
+    .scroll-icon__wheel-outer {
+      display: block;
+      position: absolute;
+      left: 20.5px;
+      top: 30px;
+      height: 1em;
+      width: 5px;
+      margin-left: -.2em;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .scroll-icon__wheel-inner {
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: inherit;
+      background: #fff;
+      animation: scroll_1 2.75s ease-in-out infinite;
+    }
+  }
+}
+
+
 
 
 
@@ -555,4 +594,12 @@
 	100% {
 		transform: translatey(0px);
 	}
+}
+
+@keyframes scroll_1 {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-0.6em); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(0.6em); }
+  100% { transform: translateY(0); }
 }

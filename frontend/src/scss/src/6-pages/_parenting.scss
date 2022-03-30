@@ -308,6 +308,7 @@
           text-align: center;
           padding-top: 15px;
           margin: 0 10px 0 0px;
+          vertical-align: top;
           a {
             display: block;
             text-indent: -624.9375rem;
@@ -332,6 +333,17 @@
               height: 30px;
               cursor: pointer;
               background: url('../images/ig-icon.svg') no-repeat;
+              background-size: cover;
+              margin: 0 auto;
+            }
+          }
+          &.tw {
+            padding-top: 0;
+            a {
+              width: 64px;
+              height: 64px;
+              cursor: pointer;
+              background: url('../images/twitter.svg') no-repeat;
               background-size: cover;
               margin: 0 auto;
             }
