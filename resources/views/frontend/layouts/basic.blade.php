@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Sriracha&display=swap" rel="stylesheet">
     @if (isset($cssFileName))
-        <link rel="stylesheet" href="{{ frontAssets('css/'.$cssFileName.'.css', 12) }}">
+        <link rel="stylesheet" href="{{ frontAssets('css/'.$cssFileName.'.css', 13) }}">
     @else
         <link rel="stylesheet" href="{{ frontAssets('css/home.css') }}">
     @endif
@@ -37,7 +37,7 @@
 
     @include('frontend.includes.loader')
     @if (isset($jsFileName))
-      <script src="{{ frontAssets('js/'.$jsFileName.'.js', 12) }}"></script>
+      <script src="{{ frontAssets('js/'.$jsFileName.'.js', 13) }}"></script>
     @else
       <script src="{{ frontAssets('js/general.js') }}"></script>
     @endif
