@@ -9,7 +9,7 @@
     <div class="container">
         <div class="section_parenting-tips_detail">
             <div class="section_parenting-tips_detail_banner">
-                <img src="{{ frontImages('parenting-dummy.png') }}">
+                <img src="{{ $post->heroUrl('870x430') }}">
                 <!--============-->
                 <!--please changes the class color based on the filter default is orange other green and blue-->
                 <!--============-->

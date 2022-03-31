@@ -49,3 +49,6 @@ Route::get('contact-us', [ContactController::class, 'index'])
 
 Route::post('contact-us', [ContactController::class, 'submitInquiry'])
     ->name('contact-us.submit');
+
+Route::view('privacy-policy', 'frontend.pages.privacy-policy.main', ["cssFileName" => "parenting"])
+    ->name('privacy-policy');

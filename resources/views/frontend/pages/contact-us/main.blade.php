@@ -15,40 +15,55 @@
             <img src="{{ frontImages('contact-ornament.svg') }}" />
         </div>
         <div class="contact-form">
-            <form>
+            @if(session()->has('success'))
+            <div class="form__alert success">
+                <span style="color: green;">
+                    {{ session()->get('success') }}
+                <span>
+            </div>
+            @endif
+            @if(session()->has('message'))
+                <div class="form__alert success">
+                    <span>
+                        {{ session()->get('message') }}
+                    <span>
+                </div>
+            @endif
+            <form method="post" action="{{ route('contact-us.submit') }}" >
+                @csrf
                 <div class="contact-grid-2">
                     <div class="contact-wrapper_input">
                         <i class="person-icon"></i>
-                        <input type="text" placeholder="Nama Depan">
+                        <input type="text" name="name" placeholder="Nama Depan">
                         <span><sup>*</sup></span>
                     </div>
                     <div class="contact-wrapper_input">
                         <i class="person-icon"></i>
-                        <input type="text" placeholder="Nama Belakang">
+                        <input type="text" name="last_name" placeholder="Nama Belakang">
                         <span><sup>*</sup></span>
                     </div>
                 </div>
                 <div class="contact-grid-2">
                     <div class="contact-wrapper_input">
                         <i class="email-icon"></i>
-                        <input type="Email" placeholder="Email">
+                        <input type="Email" name="email" placeholder="Email">
                         <span><sup>*</sup></span>
                     </div>
                     <div class="contact-wrapper_input">
                         <i class="phone-icon"></i>
-                        <input type="Number" placeholder="No. Handphone">
+                        <input type="Number" name="phone" placeholder="No. Handphone">
                     </div>
                 </div>
                 <div class="contact-grid-1">
                     <div class="contact-wrapper_input">
                         <i class="subject-icon"></i>
-                        <input type="text" placeholder="Subject">
+                        <input type="text" name="subject" placeholder="Subject">
                         <span><sup>*</sup></span>
                     </div>
                 </div>
                 <div class="contact-grid-1">
                     <div class="contact-wrapper_input textarea-field">
-                        <textarea placeholder="Tuliskan isi disini (maks. 1.000 karakter"></textarea>
+                        <textarea name="message" placeholder="Tuliskan isi disini (maks. 1.000 karakter"></textarea>
                         <span style="position: relative;top: 15px;"><sup>*</sup></span>
                     </div>
                 </div>

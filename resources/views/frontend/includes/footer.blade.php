@@ -27,7 +27,7 @@
                         <a href="#" target="_blank">Instagram</a>
                     </li>
                 </ul>
-            </div>    
+            </div>
         </div>
         <div class="footer--bottom">
             <div class="footer--copyright">
@@ -36,16 +36,10 @@
             <div class="footer--nav">
                 <ul>
                     <li>
-                        <a href="">Sitemap</a>
-                    </li>
-                    <li>
-                        <a href="">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="">Terms & Condition</a>
+                        <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
                     </li>
                 </ul>
-            </div>  
-        </div>              
+            </div>
+        </div>
     </div>
  </footer>

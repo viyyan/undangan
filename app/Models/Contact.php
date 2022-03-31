@@ -19,7 +19,9 @@ class Contact extends Model
         'name',
         'email',
         'message',
-        'file',
+        'last_name',
+        'phone',
+        'subject'
     ];
 
     /**
@@ -35,15 +37,5 @@ class Contact extends Model
     protected $allowedFilters = [
         'name',
     ];
-
-    public function getAttachedFile()
-    {
-        if ($this->file != null) {
-            return frontAssets("contact_attachment/".$this->file);
-        } else {
-            return null;
-        }
-    }
-
 
 }
