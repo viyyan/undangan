@@ -13,8 +13,8 @@
                 <!--============-->
                 <!--please changes the class color based on the filter default is orange other green and blue-->
                 <!--============-->
-                <div class="section_parenting-tips_detail_tag">
-                    <a href="{{ URL::previous() }}" class="{{ $post->category->color }}">
+                <div class="section_parenting-tips_detail_tag {{ $post->category->color }}">
+                    <a href="{{ URL::previous() }}">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_167_7531)">
                             <path class="bg" d="M22.4819 5.57061e-05C14.4308 -0.149944 5.97022 3.71256 2.18344 11.5126C-0.750467 17.5126 -0.716352 25.1626 2.28578 31.1626C5.39026 37.3876 10.951 41.1376 16.1706 44.9626C18.6269 46.7626 21.3561 47.7376 24.1877 47.9251C34.8999 48.7501 46.5331 39.0376 47.9318 26.8876C48.5459 21.3751 46.5672 15.8251 43.4628 11.4751C38.4478 4.50006 30.5331 0.150056 22.4819 5.57061e-05Z" fill="#EA9F1B"/>
@@ -40,7 +40,7 @@
                         </svg>
                     </a>
                     <div class="tag">
-                        <a href="{{ route('parenting-tips', [ 'category' => $post->category->slug]) }}" class="{{ $post->category->color }}">
+                        <a href="{{ route('parenting-tips', [ 'category' => $post->category->slug]) }}">
                             <span>{{ $post->category->name }}</span>
                         </a>
                         <svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
