@@ -31,13 +31,15 @@ class Inquiry extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS', 'contact@clove-Research.com'), '[Clove] - Contact Us')
+        return $this->from(env('MAIL_FROM_ADDRESS', 'kontak@nipefever.co.id'), '['.env('APP_NAME').'] - Contact Us')
                 ->subject("New message from: ".excerptLimit($this->contact->name , 15))
                 ->view('mail.inquiry')
                 ->with([
-                    'name' => $this->contact->name,
+                    'name' => $this->contact->name ." ".$this->contact->last_name ,
                     'email' => $this->contact->email,
+                    'phone' => $this->contact->phone,
                     'message_str' => $this->contact->message,
+                    'subject_str' => $this->contact->subject,
                 ]);
     }
 }

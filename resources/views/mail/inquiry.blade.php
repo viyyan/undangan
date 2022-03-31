@@ -19,6 +19,12 @@
                     {{ $name }} (<a href="mailto:{{ $email }}?subject=Nipe Fever - Contact Us">{{ $email }}</a>)
                 </p>
                 <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
+                   Phone: {{ $phone }}
+                </p>
+                <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
+                   Subject: {{ $subject_str }}
+                </p>
+                <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
                     Message: {{ $message_str }}
                 </p>
                 <small>For direct reply please click:
