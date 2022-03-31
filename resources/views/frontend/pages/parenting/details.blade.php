@@ -40,7 +40,9 @@
                         </svg>
                     </a>
                     <div class="tag">
-                        <span><a href="{{ route('parenting-tips', [ 'category' => $post->category->slug]) }}" class="{{ $post->category->color }}">{{ $post->category->name }}</a></span>
+                        <a href="{{ route('parenting-tips', [ 'category' => $post->category->slug]) }}" class="{{ $post->category->color }}">
+                            <span>{{ $post->category->name }}</span>
+                        </a>
                         <svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.240066 9.24997C0.561784 -0.494637 6.54038 -0.657046 9.48946 0.479824C11.0981 0.891253 40.4548 -0.494678 42.4655 0.479824C44.4763 1.45433 86.2996 0.479897 94.7447 0.479824H148.23H175.979C182.413 0.479824 179.196 11.1988 179.196 21.918C179.196 29.2264 180 38.4838 179.196 42.8689C178.391 47.254 174.37 47.254 170.348 47.254C166.327 47.254 109.222 44.8177 84.2889 47.254C64.8447 49.1539 23.1625 46.7667 12.7066 47.254C2.25079 47.7412 -0.966387 45.7922 0.240066 38.4838C1.15983 32.9121 -0.162082 21.4307 0.240066 9.24997Z" fill="white"/>
                         </svg>
