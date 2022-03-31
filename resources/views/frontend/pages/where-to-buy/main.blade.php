@@ -40,7 +40,7 @@
                     </li>
                     <li>
                         <div class="wheretobuy--section_store-images">
-                            <img src="{{ frontImages('where-to-buy_bukalapak.svg') }}" />
+                            <img src="{{ frontImages('where-to-buy_bukalapak.png') }}" />
                         </div>
                         <div class="wheretobuy--section_store-name">
                             <p>Menarini Official Store</p>
@@ -198,7 +198,7 @@
                                     </div>
                                 </div>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>

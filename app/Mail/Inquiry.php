@@ -38,7 +38,6 @@ class Inquiry extends Mailable
                     'name' => $this->contact->name,
                     'email' => $this->contact->email,
                     'message_str' => $this->contact->message,
-                    'attach' => $this->contact->getAttachedFile()
                 ]);
     }
 }

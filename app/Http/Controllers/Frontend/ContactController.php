@@ -33,22 +33,15 @@ class ContactController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'message' => 'required|max:255',
-            'file' => 'mimes:pdf,doc,docx,ppt,pptx|max:2000',
         ]);
-
-        $filename = null;
-        if ($request->file('file') != null) {
-            $file = $request->file('file');
-            $filename = time()."_".$file->getClientOriginalName();
-            $dir = 'assets/frontend/contact_attachment';
-            $file->move($dir, $filename);
-        }
 
         $contact = Contact::create([
             'name' => $request->name,
             'email' => $request->email,
-			'file' => $filename,
 			'message' => $request->message,
+			'last_name' => $request->last_name,
+			'phone' => $request->phone,
+			'subject' => $request->subject,
 		]);
 
         $emails = explode(',', env('MAIL_TO_ADDRESS'));

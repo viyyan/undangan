@@ -13,24 +13,16 @@
             <td width="200" align="left">
                 <h2 style="font-size:18px;font-weight:bold;color:#333333;margin:0 0 30px;">A new message!</h2>
                 <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
-                    <b>Clove got new message from:</b>
+                    <b>Nipe Fever got new message from:</b>
                 </p>
                 <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
-                    {{ $name }} (<a href="mailto:{{ $email }}?subject=Clove - Contact Us">{{ $email }}</a>)
+                    {{ $name }} (<a href="mailto:{{ $email }}?subject=Nipe Fever - Contact Us">{{ $email }}</a>)
                 </p>
                 <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
                     Message: {{ $message_str }}
                 </p>
-                <p style="font-size:13px;line-height:20px;color:#444444;margin:0 0 15px;">
-                    Briefs Attachment:
-                    @if ($attach != null)
-                        <a href="{{ $attach }}" target="_blank">download</a>
-                    @else
-                        -
-                    @endif
-                </p>
                 <small>For direct reply please click:
-                <a href="mailto:{{ $email }}?subject=Clove - Contact Us">here</a></small>
+                <a href="mailto:{{ $email }}?subject=Nipe Fever - Contact Us">here</a></small>
             </td>
         </tr>
       </tbody>

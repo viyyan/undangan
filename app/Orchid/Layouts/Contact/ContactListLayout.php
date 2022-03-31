@@ -35,20 +35,24 @@ class ContactListLayout extends Table
                     return $contact->email;
                 }),
 
+            TD::make('phone', 'Phone')
+                ->render(function (Contact $contact) {
+
+                    return $contact->phone;
+                }),
+
+            TD::make('subject', 'Subject')
+                ->render(function (Contact $contact) {
+
+                    return $contact->subject;
+                }),
+
             TD::make('message', 'Message')
                 ->render(function (Contact $contact) {
 
                     return $contact->message;
                 }),
 
-            TD::make('file', 'Briefs')
-                ->render(function (Contact $contact) {
-                    if ($contact->getAttachedFile() != null) {
-                        return '<a href="'.$contact->getAttachedFile().'" target="_blank">download</a>';
-                    } else {
-                        return '-';
-                    }
-                }),
             TD::make('created_at', 'Date')
                 ->render(function (Contact $contact) {
                     return $contact->created_at->format('d F Y');
