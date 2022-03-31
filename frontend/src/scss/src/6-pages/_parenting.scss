@@ -64,6 +64,51 @@
               transition: all 0.5s ease;
             }
           }
+          &.blue {
+            span {
+              color: #23678D;
+            }
+            &:hover, &.active {
+              span {
+                color: #fff;
+              }
+              svg {
+                path {
+                  fill: #23678D;
+                }
+              }
+            }
+          }
+          &.orange {
+            span {
+              color: #EA9F1B;
+            }
+            &:hover, &.active {
+              span {
+                color: #fff;
+              }
+              svg {
+                path {
+                  fill: #EA9F1B;
+                }
+              }
+            }
+          }
+          &.green {
+            span {
+              color: #68BB45;
+            }
+            &:hover, &.active {
+              span {
+                color: #fff;
+              }
+              svg {
+                path {
+                  fill: #68BB45;
+                }
+              }
+            }
+          }
           span {
             position: absolute;
             padding-top: .75rem;
