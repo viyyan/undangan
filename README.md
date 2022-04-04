@@ -3,7 +3,7 @@
 ## Start on local
 - run `git clone {repo-url}`
 - install dependencies run `php composer install`
-- create the .env file (setup the db connection)
+- create the .env file (change to your local db connection)
 - run `php artisan migrate`
 - link orchid resources run `php artisan orchid:link`
 - link storage to public run `php artisan storage:link`
