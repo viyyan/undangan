@@ -129,8 +129,9 @@ module.exports = function (grunt) {
       home_js: {
         src: [
           './node_modules/jquery/dist/jquery.js',
+          './node_modules/leaflet/dist/leaflet.js',
           './node_modules/slick-carousel/slick/slick.js',
-          './src/js/vendors/jquery.animateSprite.min.js',
+          './src/js/vendors/jquery.mCustomScrollbar.min.js',
           './src/js/vendors/pushy.js',
           '<%= meta.public %>js/home.js',
         ],
