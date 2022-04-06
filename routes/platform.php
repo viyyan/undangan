@@ -14,6 +14,8 @@ use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Banner\BannerListScreen;
 use App\Orchid\Screens\Banner\BannerEditScreen;
+use App\Orchid\Screens\Store\StoreListScreen;
+use App\Orchid\Screens\Store\StoreEditScreen;
 use App\Orchid\Screens\Contact\ContactListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -82,6 +84,22 @@ Route::screen('category/{category?}', CategoryEditScreen::class)
             ->push(__('Category'));
     })
     ;
+
+// Platform > Store
+Route::screen('stores', StoreListScreen::class)
+    ->name('platform.store.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Locations'), route('platform.store.list'));
+    });
+
+Route::screen('store/{store?}', StoreEditScreen::class)
+    ->name('platform.store.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.store.list')
+            ->push(__('Location'));
+    });
 
 // Platform > Contact
 Route::screen('contacts', ContactListScreen::class)
