@@ -5,172 +5,133 @@
 ?>
 @extends('frontend.layouts.basic')
 @section('content')
-    <section>
-        <!--===============-->
-        <!--Banner Section-->
-        <!--===============-->
-        <div class="home--section_top">
-            <div class="container relative">
-                <div class="home--section_top-text">
-                    <h2>
-                        Hilang Demamnya<br>
-                        <font>Gembira Harinya!</font>
-                    </h2>
-                    <a class="main-button">Lihat produk kami</a>
-                </div>
-                <div class="home--section_top-images">
-                    <div class="home--section_top-images-duck">
-                        <img src="{{ frontImages('home-ornament/home-duck.svg') }}">
-                    </div>
-                    <div class="home--section_top-images-product desktop-view">
-                        <div class="home--section_top-images-product inside_left">
-                            <img src="{{ frontImages('home-ornament/home-product_paracetamol-small.svg') }}">
-                        </div>
-                        <div class="home--section_top-images-product inside_right">
-                            <img src="{{ frontImages('home-ornament/home-product_paracetamol.svg') }}">
-                        </div>
-                    </div>
-                    <div class="home--section_top-images-product mobile-view">
-                        <div class="home--section_top-images-product inside_left">
-                            <img src="{{ frontImages('mobile/home-mobile-nipe-fever-paracetamol.png') }}">
-                        </div>
-                        <div class="home--section_top-images-product inside_right">
-                            <img src="{{ frontImages('mobile/home-mobile-nipe-fever-syrup.png') }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="general-ornament">
-                <div class="general-ornament_gunung-left">
-                    <img src="{{ frontImages('parenting-ornament/gunung_bg.svg') }}">
-                </div>
-                <div class="general-ornament_gunung-right">
-                    <img src="{{ frontImages('parenting-ornament/gunung.svg') }}">
-                </div>
-                <div class="general-ornament_daun-center">
-                    <div class="leaf"></div>
-                </div>
-                <div class="general-ornament_field-left">
-                    <img src="{{ frontImages('parenting-ornament/field-left.svg') }}">
-                </div>
-                <div class="general-ornament_field-right">
-                    <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
-                </div>
-                <div class="general-ornament_field-right">
-                    <img src="{{ frontImages('parenting-ornament/field-right.svg') }}">
-                </div>
-                <div class="general-ornament_daun-right">
-                    <div class="leaf leaf-height"></div>
-                </div>
-                <div class="general-ornament_daun-left">
-                    <div class="leaf leaf-medium"></div>
-                </div>
-            </div>
+    <!--===============-->
+    <!--start: fixed Banner Section-->
+    <!--===============-->
+    <section class="banner--section">
+        <img src="{{ frontImages('background.jpeg') }}">
+    </section>
+    <!--===============-->
+    <!--start: title Section-->
+    <!--===============-->
+    <section class="title--section">
+        <div class="container">
+            <h2>
+                YOUR<br>E-LIFESTYLE
+            </h2>
+            <h3>
+                Bring future lifestyle into your today’s living.
+            </h3>
         </div>
-        <!--===============-->
-        <!--Product Section-->
-        <!--===============-->
-        <div class="home--section_product">
-            <div class="container relative">
-                <div class="home--section_product-desc">
-                    <div class="home--section_product-center">
-                        <img src="{{ frontImages('Bottle.png') }}">
+    </section>
+    <!--===============-->
+    <!--start: why-elektron Section-->
+    <!--===============-->
+    <section class="why-section">
+        <div class="container">
+            <div class="why-section_top">
+                <div class="why-section_top-images">
+                    <img src="{{ frontImages('why-gesit.jpeg') }}">
+                </div>
+                <div class="why-section_top-content">
+                    <h3>Why Elektron?</h3>
+                    <p>
+                        A FUTURE LIFESTYLE company with mission in changing current habit of Indonesian mobility and lifestyle, from conventional to electrification. By being simple, innovative, clear, accessible and fast.
+                    </p>
+                </div>
+            </div>
+            <div class="why-section_bottom">
+                <div class="product-advantages">
+                    <div class="product-advantages_box">
+                        <div class="product-advantages_box-number">
+                            01
+                        </div>
+                        <div class="product-advantages_box-content">
+                            <h4>Future way of mobility</h4>
+                            <p>Kendaraan listrik</p>
+                        </div>
                     </div>
-                    <div class="home--section_product-desc-text">
-                        <div class="home--section_product-box right top">
-                            <span>Nipe<sup>&reg;</sup> Fever Drop & Nipe<sup>&reg;</sup> Fever Sirup berguna untuk menurunkan demam yang menyertai flu serta meredakan rasa sakit seperti sakit kepala dan sakit gigi.</span>
+                    <div class="product-advantages_box">
+                        <div class="product-advantages_box-number">
+                            02
                         </div>
-                        <div class="home--section_product-box right center">
-                            <span>Nipe<sup>&reg;</sup> Fever Drop cocok untuk Si Kecil usia 3-36 bulan</span>
+                        <div class="product-advantages_box-content">
+                            <h4>Lifestyle products with edgy/futuristic touch</h4>
+                            <p>Gadget dan mobility apparels</p>
                         </div>
-                        <div class="home--section_product-box right bottom">
-                            <span>1ml Nipe® Fever Drop mengandung 100mg Paracetamol*</span>
+                    </div>
+                    <div class="product-advantages_box">
+                        <div class="product-advantages_box-number">
+                            03
                         </div>
-                        <div class="home--section_product-box left top">
-                            <span>Nipe® Fever Sirup cocok untuk Si Kecil usia 1-6 tahun</span>
+                        <div class="product-advantages_box-content">
+                            <h4>Future way of after sales service</h4>
+                            <p>Service center dengan konsep baru</p>
                         </div>
-                        <div class="home--section_product-box left center">
-                            <span>5ml Nipe® Fever Sirup mengandung 160mg Paracetamol*</span>
+                    </div>
+                    <div class="product-advantages_box m-30">
+                        <div class="product-advantages_box-number">
+                            04
                         </div>
-                        <div class="home--section_product-box left bottom">
-                            <span>*baca aturan pakai</span>
+                        <div class="product-advantages_box-content p-30">
+                            <h4>Future way of maintenance</h4>
+                            <p>Sistem dan teknologi khas Elektron</p>
+                        </div>
+                    </div>
+                    <div class="product-advantages_box w-40">
+                        <div class="product-advantages_box-number">
+                            05
+                        </div>
+                        <div class="product-advantages_box-content">
+                            <h4>Future way of product interaction</h4>
+                            <p>Dealership online</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="home--section_promotions">
-            <!--===============-->
-            <!--Berita Section-->
-            <!--===============-->
-            <div class="home--section_news">
-                <div class="home--section_title flat">
-                    <div class="home--section_title-text">
-                        <div class="container">
-                            <h2 class="main-title">Berita & Promo</h2>
-                        </div>
-                        <div class="outer-wrapper">
-                            <div class="home--section_news-slider_content">
-                                <div class="home--section_news-slider" id="promo">
-                                    @foreach($banners as $banner)
-                                    <div class="home--section_news-wrapper">
-                                        <div class="home--section_news-content">
-                                            <div class="content-images">
-                                                <img src="{{ $banner->heroUrl() }}">
-                                            </div>
-                                            <div class="content-desc">
-                                                @if (!empty($banner->logoUrl()))
-                                                <div class="addon-logo">
-                                                    <img src="{{ $banner->logoUrl() }}">
-                                                </div>
-                                                @endif
-                                                <h2>{{ $banner->title }}</h2>
-                                                <p>{{ $banner->subtitle }}</p>
-                                                @if (isset($banner->url))
-                                                    <a href="{{ $banner->url }}" class="main-button">{{ isset($banner->button_title) ? $banner->button_title : "Klik di sini" }}</a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--===============-->
-            <!--Article Section-->
-            <!--===============-->
-            <div class="home--section_articles">
-                <div class="container">
-                    <div class="home--section_title">
-                        <div class="home--section_title-text">
-                            <h2 class="main-title">Parenting tips</h2>
-                        </div>
-                        <div class="home--section_title-button">
-                            <a class="main-button" href="{{ route('parenting-tips')}}">Lihat semua tips</a>
-                        </div>
-                    </div>
-                    <div class="home--section_articles-block">
-                        <!-- posts items -->
-                        @include('frontend.vendor.posts')
-                    </div>
-                </div>
-            </div>
-            <!--===============-->
-            <!--Bottom Ornament Section-->
-            <!--===============-->
-            <div class="general--section_ornament">
-                <img src="{{ frontImages('home--bottom_ornament.png') }}">
-            </div>
-        </div>
-        <div class="scroll-icon">
-            <div class="mouse">
-                <span class="scroll-icon__wheel-outer">
-                    <span class="scroll-icon__wheel-inner"></span>
-                </span>
             </div>
         </div>
     </section>
+    <!--==========================-->
+    <!--=====start: location======-->
+    <!--==========================-->
+    <section class="section--location">
+        <div class="container">
+            <div class="section--location_wrapper">
+                <div class="section--location_left">
+                    <div class="section--location_title">
+                        <h2>Our locations</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Congue tellus tellus senectus purus urna, aliquam neque. Interdum maecenas.
+                        </p>
+                    </div>
+                    <div class="section--location_point" id="scrollbar">
+                        <a href="#" class="active">
+                            <div class="section--location_point-block">
+                                <h3>Elektron Official Store</h3>
+                                <p>Ruko Tol Boulevard, Blok F10, Jl. Pahlawan Seribu, Kelurahan Rawa Buntu, Kecamatan Serpong, Kota Tangerang Selatan, Provinsi Banten</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="section--location_point-block">
+                                <h3>Elektron Gramedia Matraman</h3>
+                                <p>Coming Soon</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="section--location_point-block">
+                                <h3>Elektron Gramedia Bintaro Emerald</h3>
+                                <p>Coming Soon</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="section--location_right">
+                    <div id='contact-map'></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--==========================-->
+    <!--=====end: location======-->
+    <!--==========================-->
 @endsection
