@@ -104,23 +104,11 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Congue tellus tellus senectus purus urna, aliquam neque. Interdum maecenas.
                         </p>
                     </div>
-                    <div class="section--location_point" id="scrollbar">
-                        <a href="#" class="active">
+                    <div class="section--location_point store-list" id="scrollbar">
+                        <a href="#" class="store-box">
                             <div class="section--location_point-block">
-                                <h3>Elektron Official Store</h3>
-                                <p>Ruko Tol Boulevard, Blok F10, Jl. Pahlawan Seribu, Kelurahan Rawa Buntu, Kecamatan Serpong, Kota Tangerang Selatan, Provinsi Banten</p>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="section--location_point-block">
-                                <h3>Elektron Gramedia Matraman</h3>
-                                <p>Coming Soon</p>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="section--location_point-block">
-                                <h3>Elektron Gramedia Bintaro Emerald</h3>
-                                <p>Coming Soon</p>
+                                <h3 class="store-name" >-</h3>
+                                <p class="store-address">-</p>
                             </div>
                         </a>
                     </div>
