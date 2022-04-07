@@ -4,42 +4,35 @@
  */
 ?>
 <header class="header desktop-view">
-    <nav>
-        <ul>
-            <li>
-                <a href="">
-                    <span>HOME</span>
+    <div class="container">
+        <div class="header--wraper">
+            <div class="logo">
+                <a href="#">
+                    <img src="{{ frontImages('logo.svg') }}">
                 </a>
-            </li>
-            <li>
-        </ul>
-    </nav>
-</header>
-
-<header class="header mobile-view">
-    <div class="logo-mobile">
-
-    </div>
-    <nav class="mobile pushy pushy-right">
-        <div class="pushy-content">
-            <ul>
-                <li class="pushy-link">
-                    <a href="">
-                        <span>PRODUCTS</span>
-                    </a>
-                </li>
-            </ul>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Product</a>
+                    </li>
+                    <li>
+                        <a href="#">Locations</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </nav>
-    <!-- Menu Button -->
-    <div class="menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
     </div>
 </header>
 
-<!-- Site Overlay -->
-<div class="site-overlay"></div>
 
 

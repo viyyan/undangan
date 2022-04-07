@@ -16,32 +16,13 @@ class HomeController extends Controller
     {
 
         $data = array(
-            // "cssFileName" => "home",
-            // "jsFileName" => "home",
+            //"figmaUrl" => "https://www.figma.com/proto/6xS0JoS93lS6Fkcxxi1JQj/Elektron"
+            "cssFileName" => "home",
+            "jsFileName" => "home",
             // "cssBody" => "home",
             // "banners" => $banners,
             // "posts" => $posts
         );
         return view('frontend.pages.home.main', $data);
-    }
-
-
-    /**
-     * Home page
-     *
-     * @return void
-     */
-    public function figma(Request $request)
-    {
-
-        $data = array(
-            "figmaUrl" => "https://www.figma.com/proto/6xS0JoS93lS6Fkcxxi1JQj/Elektron"
-            // "cssFileName" => "home",
-            // "jsFileName" => "home",
-            // "cssBody" => "home",
-            // "banners" => $banners,
-            // "posts" => $posts
-        );
-        return view('frontend.pages.figma.main', $data);
     }
 }
