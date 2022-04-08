@@ -4,5 +4,4 @@
  */
 ?>
 <footer class="footer">
-
  </footer>
