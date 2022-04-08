@@ -227,16 +227,27 @@
   background: url('../images/gesit.png') no-repeat left top #221B1B;
   background-size: 60%;
   min-height: 690px;
-  padding: 50px 0 0 0;
+  padding: 0;
   width: 100%;
   position: relative;
   z-index: 10;
   .hotspot-show {
     position: relative;
-    top: -40px;
+  }
+  &_block {
+    &.gallery-show {
+      height: 100%;
+    }
   }
   &_wrapper{
     overflow: hidden;
+    .tab-control_wrap {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      z-index: 10;
+      top: 50px;
+    }
     .control-wrapper {
       display: flex;
       align-items: center;
@@ -286,7 +297,6 @@
     }
     .tabs {
       padding-top: 50px;
-      position: relative;
       -webkit-transition: all .9s ease-in-out; 
       -moz-transition: all .9s ease-in-out; 
       -ms-transition: all .9s ease-in-out; 
@@ -295,18 +305,21 @@
     }
     .wrapper-inside {
       width: 90%;
+      height: 100%;
       margin: 0 auto;
       display: flex;
       align-items: center;
       flex-direction: row;
       flex-wrap: nowrap;
-      &.view-360 {
-        margin-top: -80px;
-      }
     }
     .desc-product {
       width: 30%;
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
       &.view {
         width: 25%;
         p {
@@ -319,6 +332,9 @@
     }
     .images-product {
       width: 70%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
     }
     .active {
       color:blue;
@@ -353,6 +369,65 @@
         vertical-align: top;
         word-spacing: normal;
         white-space: normal;
+    }
+  }
+
+  .gallery-wrapper {
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    .bg-slide {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .control-gallery {
+    position: absolute;
+    bottom: 100px;
+    z-index: 10;
+    width: 100%;
+    &_wrapper {
+      width: 400px;
+      margin: 0 auto;
+      .box-nav {
+        padding: 0 10px;
+        cursor: pointer;
+        &_image {
+          object-fit: cover;
+          width: 100%;
+          height: 64px;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .slick-prev.slick-arrow {
+      position: absolute;
+      top: 0px;
+      left: -90px;
+      text-indent: -9999px;
+      background: url('../images/arrow_right.svg');
+      border: none;
+      outline: none;
+      cursor: pointer;
+      width: 64px;
+      height: 64px;
+    }
+    .slick-next.slick-arrow {
+      position: absolute;
+      top: 0px;
+      right: -90px;
+      text-indent: -9999px;
+      background: url('../images/arrow_left.svg');
+      width: 64px;
+      height: 64px;
+      border: none;
+      outline: none;
+      cursor: pointer;
     }
   }
 }

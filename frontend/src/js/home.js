@@ -12,7 +12,7 @@ import Store from './src/components/Store';
   General();
 
   $(window).on("load",function(){
-    $("#scrollbar").mCustomScrollbar(); 
+    $("#scrollbar").mCustomScrollbar();
 
     //hotspot plugin
     $('#hotspotImg').hotSpot({
@@ -36,9 +36,25 @@ import Store from './src/components/Store';
   )
 
     //rotate plugin
-		$("#rotate").tikslus360({imageDir:'assets/frontend/images/products',imageCount:18,imageExt:'png',canvasID:'canvas1',canvasWidth:800,canvasHeight:533,autoRotate:false});
+    $("#rotate").tikslus360({imageDir:'assets/frontend/images/products',imageCount:18,imageExt:'png',canvasID:'canvas1',canvasWidth:800,canvasHeight:533,autoRotate:false});
 
-    
+    //slick carousel
+    $('.slider-for').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      asNavFor: '.slider-for',
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true
+    });
+
 
     let storeMap = L.map('contact-map').setView([-6.182671, 106.867989], 14);
 
