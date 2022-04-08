@@ -12,7 +12,6 @@ import Store from './src/components/Store';
   General();
 
   $(window).on("load",function(){
-<<<<<<< HEAD
     $("#scrollbar").mCustomScrollbar(); 
 
     //hotspot plugin
@@ -23,9 +22,6 @@ import Store from './src/components/Store';
       tooltipselector: '.tooltip',
       bindselector: 'hover'
     });
-=======
-    $("#scrollbar").mCustomScrollbar();
->>>>>>> d9bac2c31dec26679bb27fafa767ee0e10b4aa96
   });
 
   //tab
@@ -41,16 +37,8 @@ import Store from './src/components/Store';
 
     //rotate plugin
 		$("#rotate").tikslus360({imageDir:'assets/frontend/images/products',imageCount:18,imageExt:'png',canvasID:'canvas1',canvasWidth:800,canvasHeight:533,autoRotate:false});
-<<<<<<< HEAD
 
     
-=======
-	});
-
-
-
-
->>>>>>> d9bac2c31dec26679bb27fafa767ee0e10b4aa96
 
     let storeMap = L.map('contact-map').setView([-6.182671, 106.867989], 14);
 
@@ -119,8 +107,4 @@ import Store from './src/components/Store';
 
     fetchStore()
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d9bac2c31dec26679bb27fafa767ee0e10b4aa96
 })();

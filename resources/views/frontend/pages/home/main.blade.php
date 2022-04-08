@@ -108,6 +108,39 @@
                 </div>
             </div>
             <div id="tab" class="tabs inliner">
+                
+                <!--start: main section-->
+                <div class="section-showcase_block main-show">
+                    <div class="wrapper-inside">
+                        <div class="desc-product">
+                            <h4>
+                                <img src="{{ frontImages('logo-gesit.svg') }}" alt="logo gesit">
+                            </h4>
+                            <p>
+                                GESITS Electric Motorcycle is a work by Indonesian people. Initiated as a research project from Sepuluh November Technology Institute (ITS) and supported by Ministry of Research and Higher Education. Manufactured in PT WIKA Industri Manufaktur at Cileungsi Plant, Bogor, West Java.
+                            </p>
+                        </div>
+                        <div class="images-product">
+                            <img src="{{ frontImages('gesit-motor.png') }}" alt="gesit">
+                        </div>
+                    </div>
+                </div>
+                <!--start: rotate gallery section-->
+                <div class="section-showcase_block rotate-show">
+                    <div class="wrapper-inside view-360">
+                        <div class="desc-product view">
+                            <p>
+                                <span><img src="{{ frontImages('move-icon.svg') }}" alt="icon"></span>
+                                Hover your mouse left and<br>right to the products to start<br>viewing in 360.
+                            </p>
+                        </div>
+                        <div class="rotate--wrapper">
+                            <div id="rotate">
+                                <a href="#" class="autorotate">Auto rotate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!--start: hotspot section-->
                 <div class="section-showcase_block hotspot-show">
                     <div id="hotspotImg" class="responsive-hotspot-wrap">
@@ -199,42 +232,6 @@
                         </div>
                     </div>
                 </div> 
-                 <!--start: main section-->
-                <div class="section-showcase_block main-show">
-                    <div class="wrapper-inside">
-                        <div class="desc-product">
-                            <h4>
-                                <img src="{{ frontImages('logo-gesit.svg') }}" alt="logo gesit">
-                            </h4>
-                            <p>
-                                GESITS Electric Motorcycle is a work by Indonesian people. Initiated as a research project from Sepuluh November Technology Institute (ITS) and supported by Ministry of Research and Higher Education. Manufactured in PT WIKA Industri Manufaktur at Cileungsi Plant, Bogor, West Java.
-                            </p>
-                        </div>
-                        <div class="images-product">
-                            <img src="{{ frontImages('gesit-motor.png') }}" alt="gesit">
-                        </div>
-                    </div>
-                </div>
-                <!--start: rotate gallery section-->
-                <div class="section-showcase_block rotate-show">
-                    <div class="wrapper-inside view-360">
-                        <div class="desc-product view">
-                            <p>
-                                <span><img src="{{ frontImages('move-icon.svg') }}" alt="icon"></span>
-                                Hover your mouse left and<br>right to the products to start<br>viewing in 360.
-                            </p>
-                        </div>
-                        <div class="rotate--wrapper">
-                            <div id="rotate">
-                                <a href="#" class="autorotate">Auto rotate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--start: gallery section-->
-                <div class="section-showcase_block gallery-show">
-
-                </div>
             </div>
         </div>
     </section>
