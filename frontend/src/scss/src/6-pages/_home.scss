@@ -100,6 +100,7 @@
   z-index: 10;
   position: relative;
   margin-bottom: -20px;
+  padding-bottom: 80px;
   &_top {
     display: flex;
     align-items: center;
@@ -224,7 +225,7 @@
 //-
 .section--showcase {
   background: url('../images/gesit.png') no-repeat left top #221B1B;
-  background-size: 50%;
+  background-size: 60%;
   min-height: 690px;
   padding: 50px 0 0 0;
   width: 100%;
@@ -254,10 +255,29 @@
           border-radius: 20px;
           color: #fff;
           margin-left: 50px;
-          &:hover {
+          &:hover, &.active {
             background: #ED1B41;
           }
         }
+      }
+    }
+    .images-product {
+      img {
+        width: 100%;
+      }
+    }
+    .rotate--wrapper {
+      width: 75%;
+      .autorotate {
+       background: #F5F4F4;
+       border-radius: 20px;
+       padding: 16px 23px!important;
+       font-size: 20px;
+       display: block;
+       font-weight: 700;
+       color: #ED1B41; 
+       right: -20%!important;
+       bottom: 40%!important;
       }
     }
     .tabs {
@@ -276,10 +296,22 @@
       align-items: center;
       flex-direction: row;
       flex-wrap: nowrap;
+      &.view-360 {
+        margin-top: -80px;
+      }
     }
     .desc-product {
       width: 30%;
       color: #fff;
+      &.view {
+        width: 25%;
+        p {
+          font-size: 18px;
+        }
+        span {
+          display: block;
+        }
+      }
     }
     .images-product {
       width: 70%;
@@ -331,6 +363,7 @@
   z-index: 10;
   position: relative;
   margin-bottom: -20px;
+  padding-bottom: 100px;
   &_wrapper {
     width: 100%;
     display: flex;
@@ -398,6 +431,74 @@
         line-height: 32px;
         color: #181818!important;
         text-decoration: none!important;
+      }
+    }
+  }
+}
+
+.section--contact {
+  background: url('../images/contact-bg.png') no-repeat left center #EDB61A;
+  background-size: 450px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  flex-wrap: nowrap;
+  .wrapper-contact {
+    width: 100%;
+    text-align: center;
+    h4 {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 112.52%;
+      color: #fff;
+    }
+    a {
+      display: inline-block;
+      background: #F5F4F4;
+      border-radius: 20px;
+      padding: 20px 17px;
+      color: #1C75BC;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      vertical-align: middle;
+      position: relative;
+      margin-left: 20px;
+      i.whatsap-icon {
+        background: url('../images/whatsapp.svg') no-repeat;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+footer {
+  background: #1C75BC;
+  position: relative;
+  z-index: 10;
+  .footer--wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: center;
+    .copyright {
+      color: #fff;
+      font-size: 18px;
+    }
+    .social-media {
+      ul {
+        li{
+          display: inline-block;
+          margin: 0 10px;
+        }
       }
     }
   }

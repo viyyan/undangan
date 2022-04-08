@@ -100,7 +100,7 @@
                 <div class="control-wrapper">
                     <h3>Our Products</h3>
                     <div class="tab-control tabLinks">
-                        <button> Introduction</button>
+                        <button class="active"> Introduction</button>
                         <button> Featured</button>
                         <button> View in 360</button>
                         <button> Gallery</button>
@@ -108,6 +108,10 @@
                 </div>
             </div>
             <div id="tab" class="tabs inliner">
+                <!--start: hotspot section-->
+                <div class="section-showcase_block hotspot-show">
+                    
+                </div> 
                  <!--start: main section-->
                 <div class="section-showcase_block main-show">
                     <div class="wrapper-inside">
@@ -120,21 +124,29 @@
                             </p>
                         </div>
                         <div class="images-product">
-                            
+                            <img src="{{ frontImages('gesit-motor.png') }}" alt="gesit">
                         </div>
                     </div>
                 </div> 
-                <!--start: hotspot section-->
-                <div class="section-showcase_block hotspot-show">
-                    content 2
-                </div> 
                 <!--start: rotate gallery section-->
                 <div class="section-showcase_block rotate-show">
-                    content 3
+                    <div class="wrapper-inside view-360">
+                        <div class="desc-product view">
+                            <p>
+                                <span><img src="{{ frontImages('move-icon.svg') }}" alt="icon"></span>
+                                Hover your mouse left and<br>right to the products to start<br>viewing in 360.
+                            </p>
+                        </div>
+                        <div class="rotate--wrapper">
+                            <div id="rotate">
+                                <a href="#" class="autorotate">Auto rotate</a>
+                            </div>
+                        </div>
+                    </div>
                 </div> 
                 <!--start: gallery section-->
                 <div class="section-showcase_block gallery-show">
-                    content 4
+                    
                 </div> 
             </div>
         </div>
@@ -180,6 +192,46 @@
         </div>
     </section>
     <!--==========================-->
-    <!--=====end: location======-->
+    <!--=====start: contact======-->
     <!--==========================-->
+    <section class="section--contact">
+        <div class="container">
+            <div class="wrapper-contact">
+                <h4>Contact us for more information</h4>
+                <a href="">
+                    <i class="whatsap-icon"></i>
+                    Contact via Whatsapp
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--==========================-->
+    <!--=====start: footer======-->
+    <!--==========================-->
+    <footer>
+        <div class="container">
+            <div class="footer--wrapper">
+                <div class="footer-logo">
+                    <img src="{{ frontImages('footer-logo.svg') }}" alt="footer logo">
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2022 PT. Electron Indonesia | All Rights Reserved</p>
+                </div>
+                <div class="social-media">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="{{ frontImages('footer-ig.svg') }}" alt="instagram">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{{ frontImages('footer-fb.svg') }}" alt="instagram">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 @endsection

@@ -13,6 +13,21 @@ import General from './src/libs/general';
     $("#scrollbar").mCustomScrollbar(); 
   });
 
+  //tab
+    const btn = [].slice.call(document.getElementsByTagName('button'))
+    btn.forEach((item, index) => {
+    item.addEventListener('click',function(){
+      btn.forEach((item) => {item.classList.remove('active')})
+      item.classList.add('active')
+      document.getElementById('tab').setAttribute('data-tab', index)
+    })
+    }  
+  )
+
+  $(document).ready(function(){
+		$("#rotate").tikslus360({imageDir:'assets/frontend/images/products',imageCount:18,imageExt:'png',canvasID:'canvas1',canvasWidth:800,canvasHeight:533,autoRotate:false});
+	});
+
   
 
   var locations = [
@@ -45,16 +60,7 @@ import General from './src/libs/general';
   }).addTo(contactMap);;
 
 
-  //tab
-  const btn = [].slice.call(document.getElementsByTagName('button'))
-    btn.forEach((item, index) => {
-    item.addEventListener('click',function(){
-      btn.forEach((item) => {item.classList.remove('active')})
-      item.classList.add('active')
-      document.getElementById('tab').setAttribute('data-tab', index)
-    })
-    }  
-  )
+
   
   
 
