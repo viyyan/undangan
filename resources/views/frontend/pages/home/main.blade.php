@@ -31,7 +31,7 @@
         <div class="container">
             <div class="why-section_top">
                 <div class="why-section_top-images">
-                    <img src="{{ frontImages('why-gesit.jpeg') }}">
+                    <img src="{{ frontImages('why-gesit.jpeg') }}" alt="why Gesit">
                 </div>
                 <div class="why-section_top-content">
                     <h3>Why Elektron?</h3>
@@ -88,6 +88,54 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <!--===============-->
+    <!--start: showcase section-->
+    <!--===============-->
+    <section class="section--showcase">
+        <div class="section--showcase_wrapper">
+            <div class="container">
+                <div class="control-wrapper">
+                    <h3>Our Products</h3>
+                    <div class="tab-control tabLinks">
+                        <button> Introduction</button>
+                        <button> Featured</button>
+                        <button> View in 360</button>
+                        <button> Gallery</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tab" class="tabs inliner">
+                 <!--start: main section-->
+                <div class="section-showcase_block main-show">
+                    <div class="wrapper-inside">
+                        <div class="desc-product">
+                            <h4>
+                                <img src="{{ frontImages('logo-gesit.svg') }}" alt="logo gesit">
+                            </h4>
+                            <p>
+                                GESITS Electric Motorcycle is a work by Indonesian people. Initiated as a research project from Sepuluh November Technology Institute (ITS) and supported by Ministry of Research and Higher Education. Manufactured in PT WIKA Industri Manufaktur at Cileungsi Plant, Bogor, West Java.
+                            </p>
+                        </div>
+                        <div class="images-product">
+                            
+                        </div>
+                    </div>
+                </div> 
+                <!--start: hotspot section-->
+                <div class="section-showcase_block hotspot-show">
+                    content 2
+                </div> 
+                <!--start: rotate gallery section-->
+                <div class="section-showcase_block rotate-show">
+                    content 3
+                </div> 
+                <!--start: gallery section-->
+                <div class="section-showcase_block gallery-show">
+                    content 4
+                </div> 
             </div>
         </div>
     </section>

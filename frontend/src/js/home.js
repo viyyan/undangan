@@ -13,6 +13,8 @@ import General from './src/libs/general';
     $("#scrollbar").mCustomScrollbar(); 
   });
 
+  
+
   var locations = [
     ["LOCATION_1", -6.175110,106.865036],
     ["LOCATION_2", -6.182671, 106.867989],
@@ -41,6 +43,18 @@ import General from './src/libs/general';
     iconUrl: pointerUrl,
     iconSize: [75, 100], // size of the icon
   }).addTo(contactMap);;
+
+
+  //tab
+  const btn = [].slice.call(document.getElementsByTagName('button'))
+    btn.forEach((item, index) => {
+    item.addEventListener('click',function(){
+      btn.forEach((item) => {item.classList.remove('active')})
+      item.classList.add('active')
+      document.getElementById('tab').setAttribute('data-tab', index)
+    })
+    }  
+  )
   
   
 
