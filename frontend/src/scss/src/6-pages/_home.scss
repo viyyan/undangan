@@ -231,6 +231,10 @@
   width: 100%;
   position: relative;
   z-index: 10;
+  .hotspot-show {
+    position: relative;
+    top: -40px;
+  }
   &_wrapper{
     overflow: hidden;
     .control-wrapper {

@@ -133,6 +133,7 @@ module.exports = function (grunt) {
           './node_modules/slick-carousel/slick/slick.js',
           './src/js/vendors/jquery.mCustomScrollbar.min.js',
           './src/js/vendors/tikslus360.js',
+          './src/js/vendors/jquery.hotspot.js',
           './src/js/vendors/pushy.js',
           '<%= meta.public %>js/home.js',
         ],

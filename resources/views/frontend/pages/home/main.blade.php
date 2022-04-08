@@ -110,7 +110,94 @@
             <div id="tab" class="tabs inliner">
                 <!--start: hotspot section-->
                 <div class="section-showcase_block hotspot-show">
-                    
+                    <div id="hotspotImg" class="responsive-hotspot-wrap">
+                         <!--main images-->
+                         <img src="{{ frontImages('product-gesit_merah.png') }}" alt="why Gesit" class="img-responsive">
+                        <!--tooltip feature breake-->
+                        <div class="hot-spot" x="300" y="800">
+                            <div class="circle"></div>
+                            <div class="tooltip">
+                              <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_6.png') }}" alt="Double Disc Brake" class="img-responsive">
+                              </div>
+                              <div class="text-row">
+                                <p>Double Disc Brake</p>
+                              </div>
+                            </div>
+                          </div>
+                         <!--tooltip feature-->
+                        <div class="hot-spot" x="575" y="340">
+                          <div class="circle"></div>
+                          <div class="tooltip">
+                            <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_1.png') }}" alt="dashboard display" class="img-responsive">
+                            </div>
+                            <div class="text-row">
+                              <p>Futuristic digital dashboard display</p>
+                            </div>
+                          </div>
+                        </div>
+                         <!--tooltip feature-->
+                        <div class="hot-spot" x="800" y="450">
+                          <div class="circle"></div>
+                          <div class="tooltip">
+                            <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_7.png') }}" alt="Dynamo motor" class="img-responsive">
+                            </div>
+                            <div class="text-row">
+                              <p>BLDC (Bruchless Direct Current) Dynamo Motor with 2000 watt Rated Power and 5000 watt peak power.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!--tooltip feature-->
+                        <div class="hot-spot" x="730" y="574">
+                            <div class="circle"></div>
+                            <div class="tooltip">
+                              <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_3.png') }}" alt="charging port" class="img-responsive">
+                              </div>
+                              <div class="text-row">
+                                <p>Easy to access charging port</p>
+                              </div>
+                            </div>
+                        </div>
+                        <!--tooltip feature tailgate-->
+                        <div class="hot-spot" x="970" y="642">
+                            <div class="circle"></div>
+                            <div class="tooltip">
+                              <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_2.png') }}" alt="shock" class="img-responsive">
+                              </div>
+                              <div class="text-row">
+                                <p>Shock Absorber - Swing Arm with Monoshock</p>
+                              </div>
+                            </div>
+                        </div>
+                        <!--tooltip feature swing arm-->
+                        <div class="hot-spot" x="1170" y="780">
+                            <div class="circle"></div>
+                            <div class="tooltip">
+                              <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_4.png') }}" alt="Belt driving System" class="img-responsive">
+                              </div>
+                              <div class="text-row">
+                                <p>Belt driving system</p>
+                              </div>
+                            </div>
+                        </div>
+                        <!--tooltip feature tailgate-->
+                        <div class="hot-spot" x="1200" y="450">
+                            <div class="circle"></div>
+                            <div class="tooltip">
+                              <div class="img-row">
+                                <img src="{{ frontImages('detail/detail_5.png') }}" alt="tail light" class="img-responsive">
+                              </div>
+                              <div class="text-row">
+                                <p>Horizon Tailight with<br>LED & Integrated Rear Position Light</p>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> 
                  <!--start: main section-->
                 <div class="section-showcase_block main-show">
