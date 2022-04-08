@@ -110,8 +110,8 @@
             <div id="tab" class="tabs inliner">
                 <!--start: hotspot section-->
                 <div class="section-showcase_block hotspot-show">
-                    
-                </div> 
+
+                </div>
                  <!--start: main section-->
                 <div class="section-showcase_block main-show">
                     <div class="wrapper-inside">
@@ -127,7 +127,7 @@
                             <img src="{{ frontImages('gesit-motor.png') }}" alt="gesit">
                         </div>
                     </div>
-                </div> 
+                </div>
                 <!--start: rotate gallery section-->
                 <div class="section-showcase_block rotate-show">
                     <div class="wrapper-inside view-360">
@@ -143,11 +143,11 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <!--start: gallery section-->
                 <div class="section-showcase_block gallery-show">
-                    
-                </div> 
+
+                </div>
             </div>
         </div>
     </section>
@@ -186,7 +186,7 @@
         <div class="container">
             <div class="wrapper-contact">
                 <h4>Contact us for more information</h4>
-                <a href="">
+                <a href="https://wa.me/62881080556055" target="_blank">
                     <i class="whatsap-icon"></i>
                     Contact via Whatsapp
                 </a>
