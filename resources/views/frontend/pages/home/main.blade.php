@@ -102,7 +102,7 @@
                         <h3>Our Products</h3>
                         <div class="tab-control tabLinks">
                             <button class="active"> Introduction</button>
-                            <button> Featured</button>
+                            <button> Features</button>
                             <button> View in 360</button>
                             <button> Gallery</button>
                         </div>
@@ -218,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <!--start: rotate gallery section-->
                 <div class="section--showcase_block rotate-show">
                     <div class="wrapper-inside view-360">
@@ -280,7 +280,7 @@
                                             <img src="{{ frontImages('gallery/gesit_showchase03.jpg') }}" alt="why Gesit">
                                         </div>
                                     </div>
-        
+
                                 </div>
                             </div>
                         </div>
