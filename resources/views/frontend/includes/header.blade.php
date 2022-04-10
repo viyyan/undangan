@@ -11,22 +11,23 @@
                     <img src="{{ frontImages('logo.svg') }}">
                 </a>
             </div>
-            <nav>
+            <nav class="navigation">
                 <ul>
-                    <li>
-                        <a href="#">Home</a>
+                    <li class="active">
+                <a href="">
+                        <a href="#home">Home</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="#about">About</a>
                     </li>
                     <li>
-                        <a href="#">Product</a>
+                        <a href="#product">Product</a>
                     </li>
                     <li>
-                        <a href="#">Locations</a>
+                        <a href="#location">Locations</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
             </nav>

@@ -14,7 +14,7 @@
     <!--===============-->
     <!--start: title Section-->
     <!--===============-->
-    <section class="title--section">
+    <section class="title--section" id="home">
         <div class="container">
             <h2>
                 YOUR<br>E-LIFESTYLE
@@ -27,7 +27,7 @@
     <!--===============-->
     <!--start: why-elektron Section-->
     <!--===============-->
-    <section class="why-section">
+    <section class="why-section" id="about">
         <div class="container">
             <div class="why-section_top">
                 <div class="why-section_top-images">
@@ -94,7 +94,7 @@
     <!--===============-->
     <!--start: showcase section-->
     <!--===============-->
-    <section class="section--showcase">
+    <section class="section--showcase" id="product">
         <div class="section--showcase_wrapper">
             <div class="tab-control_wrap">
                 <div class="container">
@@ -292,7 +292,7 @@
     <!--==========================-->
     <!--=====start: location======-->
     <!--==========================-->
-    <section class="section--location">
+    <section class="section--location" id="location">
         <div class="container">
             <div class="section--location_wrapper">
                 <div class="section--location_left">
@@ -320,7 +320,7 @@
     <!--==========================-->
     <!--=====start: contact======-->
     <!--==========================-->
-    <section class="section--contact">
+    <section class="section--contact" id="contact">
         <div class="container">
             <div class="wrapper-contact">
                 <h4>Contact us for more information</h4>
