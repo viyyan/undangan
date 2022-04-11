@@ -3,7 +3,7 @@
  * Header view
  */
 ?>
-<header class="header desktop-view">
+<header class="header">
     <div class="container">
         <div class="header--wraper">
             <div class="logo">
@@ -12,9 +12,12 @@
                 </a>
             </div>
             <nav class="navigation">
-                <ul>
+                <input id="menu-toggle" type="checkbox" />
+                <label class='menu-button-container' for="menu-toggle">
+                    <div class='menu-button'></div>
+                </label>
+                <ul class="menu">
                     <li class="active">
-                <a href="">
                         <a href="#home">Home</a>
                     </li>
                     <li>

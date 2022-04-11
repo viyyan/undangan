@@ -11,6 +11,9 @@
     <section class="banner--section">
         <img src="{{ frontImages('background.jpeg') }}">
     </section>
+    <section class="banner--section mobile-section">
+        <img src="{{ frontImages('background_mobile.jpg') }}">
+    </section>
     <!--===============-->
     <!--start: title Section-->
     <!--===============-->
