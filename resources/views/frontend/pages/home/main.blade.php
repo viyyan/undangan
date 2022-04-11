@@ -302,7 +302,7 @@
                     <div class="section--location_title">
                         <h2>Our locations</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Congue tellus tellus senectus purus urna, aliquam neque. Interdum maecenas.
+                            Find our closest store location here.
                         </p>
                     </div>
                     <div class="section--location_point store-list" id="scrollbar">
