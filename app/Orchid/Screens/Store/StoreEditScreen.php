@@ -101,10 +101,12 @@ class StoreEditScreen extends Screen
 
                 Input::make('store.lat')
                     ->title('Lattitude')
+                    ->readonly()
                     ->placeholder('0,000'),
 
                 Input::make('store.lng')
                     ->title('Longitude')
+                    ->readonly()
                     ->placeholder('0,000'),
 
                 Input::make('store.phone')
@@ -134,6 +136,20 @@ class StoreEditScreen extends Screen
         if (isset($store->url) && filter_var($store->url, FILTER_VALIDATE_URL) === FALSE) {
             $store->url = "https://".$store->url;
         }
+
+        if ($store->address != null) {
+            try {
+                $loc = $this->getLatLng($store->address);
+                $store->lat = $loc[0];
+                $store->lng = $loc[1];
+            } catch (Exception $e) {
+                Alert::error('Location not found');
+            }
+        } else {
+            $store->lat = null;
+            $store->lng = null;
+        }
+
         $store->save();
 
         Alert::info('You have successfully created an store.');
@@ -154,5 +170,15 @@ class StoreEditScreen extends Screen
         Alert::info('You have successfully deleted the store.');
 
         return redirect()->route('platform.store.list');
+    }
+
+    private function getLatLng($address) {
+        $prepAddr = str_replace(' ','+',$address);
+        $key = "c72d681fa9639e58326dbd35db48e7a6";
+        $geocode = file_get_contents('http://api.positionstack.com/v1/forward?access_key='.$key.'&query='.$prepAddr);
+        $output = json_decode($geocode);
+        $latitude = $output->data[0]->latitude;
+        $longitude = $output->data[0]->longitude;
+        return [$latitude, $longitude];
     }
 }

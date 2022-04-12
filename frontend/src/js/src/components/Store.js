@@ -25,7 +25,10 @@ class Store {
         let addressEl = elemStore.querySelector(".store-address");
 
         nameEl.innerHTML = store.name;
-        addressEl.innerHTML = store.address;
+        if (store.address != null)
+             addressEl.innerHTML =store.address;
+        else
+            addressEl.innerHTML = 'coming soon...';
 
         this.stores.push(elemStore);
         elemStore.addEventListener('click', this.onStoreClick.bind(null, [store.lat, store.lng, this.stores]), true);

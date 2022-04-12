@@ -6,6 +6,7 @@ use App\Models\Store;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
+use App\Helpers\Template;
 
 class StoreListLayout extends Table
 {
@@ -30,12 +31,7 @@ class StoreListLayout extends Table
 
             TD::make('address', 'Address')
                 ->render(function (Store $store) {
-                    return $store->address;
-                }),
-
-            TD::make('status', 'Location')
-                ->render(function (Store $store) {
-                    return "<a href='https://maps.google.com/?q=".$store->name." ".$store->address."' target='_blank'>📌 Location</a>";
+                    return excerptLimit($store->address, 50);
                 }),
 
             TD::make('created_at', 'Date')
