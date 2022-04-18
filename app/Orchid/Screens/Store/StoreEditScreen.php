@@ -93,6 +93,15 @@ class StoreEditScreen extends Screen
                     ->placeholder('Store Name')
                     ->required(),
 
+                Select::make('store.status')
+                    ->title("Status")
+                    ->empty('Publish', 1)
+                    ->options([
+                        1 => 'Publish',
+                        0  => 'Coming Soon'
+                    ])
+                    ->required(),
+
                 TextArea::make('store.address')
                     ->title('Address')
                     ->rows(2)

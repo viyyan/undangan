@@ -34,6 +34,11 @@ class StoreListLayout extends Table
                     return excerptLimit($store->address, 50);
                 }),
 
+            TD::make('status', 'Status')
+                ->render(function (Store $store) {
+                    return ($store->status == 1) ? "Publish" : "Coming Soon";
+                }),
+
             TD::make('created_at', 'Date')
                 ->render(function (Store $store) {
                     return $store->created_at->format('d F Y');

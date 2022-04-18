@@ -24,7 +24,8 @@ class Store extends Model
         'phone',
         'order',
         'lat',
-        'lng'
+        'lng',
+        'status'
     ];
 
 
