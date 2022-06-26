@@ -8,14 +8,10 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
-use App\Orchid\Screens\Post\PostListScreen;
-use App\Orchid\Screens\Post\PostEditScreen;
+use App\Orchid\Screens\Event\EventListScreen;
+use App\Orchid\Screens\Event\EventEditScreen;
 use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
-use App\Orchid\Screens\Banner\BannerListScreen;
-use App\Orchid\Screens\Banner\BannerEditScreen;
-use App\Orchid\Screens\Store\StoreListScreen;
-use App\Orchid\Screens\Store\StoreEditScreen;
 use App\Orchid\Screens\Contact\ContactListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -37,36 +33,20 @@ use App\Http\Controllers\Backend\ExporterController;
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
 
-// Platform > Banners
-Route::screen('banners', BannerListScreen::class)
-    ->name('platform.banner.list')
+// Platform > Event
+Route::screen('events', EventListScreen::class)
+    ->name('platform.event.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->push(__('Banners'), route('platform.banner.list'));
+            ->push(__('Events'), route('platform.event.list'));
     });
 
-Route::screen('banner/{banner?}', BannerEditScreen::class)
-    ->name('platform.banner.edit')
+Route::screen('event/{event?}', EventEditScreen::class)
+    ->name('platform.event.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.banner.list')
-            ->push(__('Banner'));
-    });
-
-// Platform > Post
-Route::screen('posts', PostListScreen::class)
-    ->name('platform.post.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Posts'), route('platform.post.list'));
-    });
-
-Route::screen('post/{post?}', PostEditScreen::class)
-    ->name('platform.post.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.post.list')
-            ->push(__('Post'));
+            ->parent('platform.event.list')
+            ->push(__('Event'));
     });
 
 // Platform > Category
@@ -84,22 +64,6 @@ Route::screen('category/{category?}', CategoryEditScreen::class)
             ->push(__('Category'));
     })
     ;
-
-// Platform > Store
-Route::screen('stores', StoreListScreen::class)
-    ->name('platform.store.list')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->push(__('Locations'), route('platform.store.list'));
-    });
-
-Route::screen('store/{store?}', StoreEditScreen::class)
-    ->name('platform.store.edit')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.store.list')
-            ->push(__('Location'));
-    });
 
 // Platform > Contact
 Route::screen('contacts', ContactListScreen::class)

@@ -17,6 +17,13 @@ function frontImages($image, $v = null) {
 }
 
 /**
+ * backendImages
+ */
+function backendImages($image, $v = null) {
+    return asset('assets/backend/images/' . $image . (isset($v) ? '?v='.$v : ''));
+}
+
+/**
  * isCurrent menu
  */
 function isCurrent($name, $path = NULL) {

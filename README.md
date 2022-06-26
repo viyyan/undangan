@@ -1,4 +1,4 @@
-### Taisho Project
+### Undangan Project
 
 ## Start on local
 - run `git clone {repo-url}`

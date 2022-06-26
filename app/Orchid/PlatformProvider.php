@@ -26,27 +26,14 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
+            Menu::make('Events')
+                ->icon('direction')
+                ->route('platform.event.list')
+                ->list([
+                    Menu::make('All Events')->route('platform.event.list'),
+                    // Menu::make('Categories')->route('platform.category.list', ['type' => 'post']),
+                ]),
 
-            // Menu::make('News & Promo')
-            //     ->icon('book-open')
-            //     ->route('platform.banner.list')
-            //     ->title('News & Promo'),
-
-            // Menu::make('Parenting Tips')
-            //     ->icon('book-open')
-            //     ->route('platform.post.list')
-            //     ->list([
-            //         Menu::make('All Posts')->route('platform.post.list'),
-            //         Menu::make('Categories')->route('platform.category.list', ['type' => 'post']),
-            //     ]),
-
-            // Menu::make('Inquiries')
-                // ->icon('envelope-letter')
-                // ->route('platform.contact.list')
-                // ->title('Contact'),
-            Menu::make('Our Locations')
-                ->icon('basket-loaded')
-                ->route('platform.store.list'),
 
             Menu::make(__('Users'))
                 ->icon('user')

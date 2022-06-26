@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Orchid\Screens\Store;
+namespace App\Orchid\Screens\Event;
 
 use Orchid\Screen\Screen;
-use App\Orchid\Layouts\Store\StoreListLayout;
-use App\Models\Store;
+use App\Orchid\Layouts\Event\EventListLayout;
+use App\Models\Event;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
 
 
-class StoreListScreen extends Screen
+class EventListScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Stores';
+    public $name = 'Events';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'All stores';
+    public $description = 'All events';
 
     /**
      * Query data.
@@ -33,7 +33,7 @@ class StoreListScreen extends Screen
     public function query(): array
     {
         return [
-            'stores' => Store::filters()->defaultSort('id')->paginate()
+            'events' => Event::filters()->defaultSort('id')->paginate()
         ];
     }
 
@@ -47,7 +47,7 @@ class StoreListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('pencil')
-                ->route('platform.store.edit')
+                ->route('platform.event.edit')
                 ->class('btn btn-primary')
         ];
     }
@@ -60,7 +60,7 @@ class StoreListScreen extends Screen
     public function layout(): array
     {
         return [
-            StoreListLayout::class
+            EventListLayout::class
         ];
     }
 }
