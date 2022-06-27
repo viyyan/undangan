@@ -10,6 +10,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Event\EventListScreen;
 use App\Orchid\Screens\Event\EventEditScreen;
+use App\Orchid\Screens\Guest\GuestListScreen;
+use App\Orchid\Screens\Guest\GuestEditScreen;
 use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Contact\ContactListScreen;
@@ -47,6 +49,23 @@ Route::screen('event/{event?}', EventEditScreen::class)
         return $trail
             ->parent('platform.event.list')
             ->push(__('Event'));
+    });
+
+
+// Platform > Guest
+Route::screen('guests', GuestListScreen::class)
+    ->name('platform.guest.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Guests'), route('platform.guest.list'));
+    });
+
+Route::screen('guest/{guest?}', GuestEditScreen::class)
+    ->name('platform.guest.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.guest.list')
+            ->push(__('Guest'));
     });
 
 // Platform > Category

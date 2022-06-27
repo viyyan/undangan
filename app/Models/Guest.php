@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
@@ -11,15 +12,6 @@ class Guest extends Model
 {
     use Sluggable, SluggableScopeHelpers, Filterable;
 
-
-    $table->bigInteger('event_id');
-    $table->string('name');
-    $table->string('slug');
-    $table->string('phone')->nullable();
-    $table->string('email')->nullable();
-    $table->boolean('confirmed')->nullable();
-    $table->bigInteger('total_guests')->nullable();
-    $table->bigInteger('type');
     /**
      * The attributes that are mass assignable.
      *
@@ -32,7 +24,10 @@ class Guest extends Model
         'phone',
         'email',
         'confirmed',
-        'type'
+        'type',
+        'address',
+        'city',
+        'total_guests'
     ];
 
 
@@ -48,5 +43,14 @@ class Guest extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+
+       /**
+     * Get category for the post.
+     */
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'event_id');
     }
 }
