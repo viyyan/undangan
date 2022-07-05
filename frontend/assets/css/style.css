@@ -111,22 +111,24 @@ body {
     font-family: "Luthon Southard Script";
     margin: 0px;
     font-size: 48px;
+    font-weight: 400;
 }
 
 .header-cover .name h1:first-child {
     position: relative;
+    left: -5px;
 }
 
 .header-cover .name h1:nth-child(2) {
     position: relative;
-    right: -30px;
-    top: -30px;
+    right: -35px;
+    top: -20px;
 }
 
 .header-cover .name h1:last-child {
     position: relative;
-    right: -80px;
-    top: -80px;
+    right: -100px;
+    top: -60px;
 }
 
 
