@@ -1,6 +1,0 @@
-public/
-node_modules/
-package-lock.json
-yarn.lock
-package.json
-js/dist

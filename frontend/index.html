@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weeding</title>
+    <link rel="stylesheet" href="./assets/css/style.css?v=7">
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css?v=2">
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick-theme.css?v=4">
+    <link rel="stylesheet" type="text/css" href="./assets/css/image-viewer.css?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/image/favicon.ico?v=1">
+</head>
+
+<body>
+    <div class="main">
+        <section class="header-cover">
+            <div class="title">
+                <img src="./assets/image/title.png" alt="title">
+            </div>
+            <div class="name">
+                <img src="./assets/image/name.png" alt="name">
+            </div>
+            <div class="scroll">
+                <a href="#akad"><img src="./assets/image/scroll.png" alt="scroll"></a>
+            </div>
+        </section>
+
+        <section class="akad" id="akad">
+            <div class="akad-info">
+                <h1 class="color-brown ls-1px fs-36 fw-400">Akad Nikah</h1>
+                <p>Minggu, 24 JULI 2022</p>
+                <p>08:30 WIB</p>
+                <p>Lembur Kuring, Parung, Bogor Google</p>
+                <div class="gmaps">
+                    <img src="./assets/image/map.png" alt="map">
+                    <a class="color-light-brown" href="#"> Google Map</a>
+                </div>
+            </div>
+            <div class="akad-konfirmasi">
+                <h2 class="color-brown ls-1px fs-36 fw-400">Konfirmasi</h2>
+                <div class="form-konfirmasi">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Nama">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="alamat" rows="10" placeholder="Alamat"></textarea>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kehadiran" id="hadir" value="yes" checked>
+                            <span class="checkmark"></span>
+                            <label class="form-check-label" for="hadir">
+                                ya, saya akan  hadir
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="no">
+                            <span class="checkmark"></span>
+                            <label class="form-check-label" for="tidakHadir">
+                                maaf, saya tidak bisa
+                            </label>
+                        </div>
+                        <div class="form-group row-center">
+                            <label for="jumlahTamu">Jumlah Tamu : </label>
+                            <input type="number" id="jumlahTamu" class="form-control tamu" name="name">
+                        </div>
+                        <div class="submit-content">
+                            <button type="submit" class="btn btn-primary mb-2">Kirim</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="scroll">
+                    <a href="#gallery"><img src="./assets/image/scroll.png" alt="scroll"></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2 class="fs-36 ls-1px">Gallery</h2>
+            <div class="gallery-carousal">
+                <div class="your-class">
+                    <div class="image-crsl">
+                        <img src="./assets/image/gallery/g1.png">
+                    </div>
+                    <div class="image-crsl">
+                        <img src="./assets/image/gallery/g2.png">
+                    </div>
+                    <div class="image-crsl">
+                        <img src="./assets/image/gallery/g3.png">
+                    </div>
+                    <div class="image-crsl">
+                        <img src="./assets/image/gallery/g1.png">
+                    </div>
+                    <div class="image-crsl">
+                        <img src="./assets/image/gallery/g2.png">
+                    </div>
+                    <div class="image-crsl">
+                        <img src="./assets/image/gallery/g3.png">
+                    </div>
+                </div>
+                <img class="prev-bg" src="./assets/image/prev-bg.png" alt="pbg">
+                <img class="next-bg" src="./assets/image/next-bg.png" alt="pbg">
+                <a href="#" class="prev"><img src="./assets/image/l-arrow.png" alt="p"></a>
+                <a href="#" class="next"><img src="./assets/image/r-arrow.png" alt="n"></a>
+            </div>
+            <div class="gallery-caption text-center fs-12">
+                <p>Terimakasih telah menjadi bagian <br> di hari bahagia kami</p>
+                <p class="color-brown">Fian & Tyas</p>
+            </div>
+        </section>
+
+        <section class="footer">
+            <div class="row">
+                <div class="image-logo">
+                    <img src="./assets/image/logo.png" alt="logo">
+                </div>
+                <div class="footer-group">
+                    <div class="footer-link">
+                        <img src="./assets/image/email.png" alt="#">
+                        <a href="#">invitoo (undangan digital)</a>
+                    </div>
+                    <div class="footer-link">
+                        <img src="./assets/image/camera.png" alt="#">
+                        <a href="#">@xo.photoworks</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="image-viewer">
+            <div class="full-center">
+                <div class="group-img">
+                    <img class="modal-content" id="full-image">
+                    <span class="close">&times;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./assets/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.your-class').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true,
+                variableWidth: true,
+                prevArrow: $('.prev'),
+                nextArrow: $('.next'),
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+
+        let imgGallery = document.querySelectorAll(".your-class .image-crsl img");
+        let imgViewer = document.querySelector("#image-viewer");
+        let imgViewerClose = document.querySelector("#image-viewer .close");
+        let imgValue = document.querySelector("#image-viewer img");
+
+        for (let i = 0; i < imgGallery.length; i++) {
+            imgGallery[i].addEventListener("click", (e) => {
+                imgValue.src = imgGallery[i].src;
+                imgViewer.style.display = "block";
+            });
+        }
+
+        imgViewerClose.addEventListener("click", () => {
+            imgViewer.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

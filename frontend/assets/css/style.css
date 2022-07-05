@@ -1,0 +1,297 @@
+@font-face {
+    font-family: "amiko";
+    src: url(../font/Amiko-Regular.ttf);
+}
+
+* {
+    font-family: "amiko";
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #061816;
+    margin: 0px;
+    padding: 0px;
+}
+
+.color-brown {
+    color: #B2886B;
+}
+
+.color-light-brown {
+    color: #BCAFAA;
+}
+
+.ls-1px {
+    letter-spacing: 1px;
+}
+
+.fs-36 {
+    font-size: 36px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.main {
+    max-width: 500px;
+    min-width: 320px;
+    background-color: #0D332F;
+    margin: 0 auto;
+}
+
+
+/* header  */
+
+.header-cover {
+    min-height: 100vh;
+    background-image: url(../image/header-cover.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-cover .title {
+    padding: 2em;
+}
+
+.header-cover .name {
+    display: flex;
+    justify-content: center;
+}
+
+.header-cover .name img {
+    margin-left: 60px;
+}
+
+.header-cover .scroll {
+    padding: 1em;
+}
+
+
+/* akad  */
+
+.akad {
+    padding: 2em;
+    color: white;
+}
+
+.akad-info {
+    margin-bottom: 40px;
+}
+
+.gmaps {
+    display: flex;
+    align-items: center;
+}
+
+.gmaps a {
+    margin-left: 15px;
+}
+
+.akad .form-group textarea,
+.akad .form-group input::placeholder {
+    font-size: 20px;
+    padding: 0px;
+}
+
+.akad .form-group input,
+.akad .form-group textarea {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #D9D9D9;
+    font-size: 20px;
+    box-shadow: inset 0px 15px 5px -10px #838383;
+    border: 0px;
+}
+
+.form-check {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-check label {
+    margin-left: 12px;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 100px;
+    background-color: #D9D9D9;
+}
+
+.form-check input:checked~.checkmark::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    background-color: #B2886B;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+
+.row-center {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-group.row-center input,
+.form-group.row-center label {
+    flex: 1;
+}
+
+.form-group .tamu {
+    text-align: center;
+    padding: 13px !important;
+}
+
+.btn {
+    padding: 13px 50px;
+    border-radius: 15px;
+    border: 0px;
+    background-color: #B2886B;
+    color: white;
+    font-size: 20px;
+}
+
+.submit-content {
+    display: flex;
+    justify-content: end;
+    margin: 35px 0;
+}
+
+.scroll {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+/* galery  */
+
+.gallery {
+    background-color: #D9D9D9;
+    padding: 2em;
+}
+
+.gallery-caption {
+    margin-top: 70px;
+}
+
+.gallery-carousal {
+    position: relative;
+}
+
+.gallery-carousal .bg-nav {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.gallery-carousal .bg-nav img:first-child {
+    margin-left: -5px;
+}
+
+.gallery-carousal .bg-nav img:last-child {
+    margin-right: -5px;
+}
+
+.prev-bg {
+    position: absolute;
+    left: -5px;
+    top: 0px;
+}
+
+.next-bg {
+    position: absolute;
+    right: -5px;
+    top: 0px;
+}
+
+.gallery-carousal .nav {
+    position: absolute;
+    top: 75px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-carousal .prev {
+    position: absolute;
+    top: 75px;
+    left: -10px;
+}
+
+.gallery-carousal .next {
+    position: absolute;
+    top: 75px;
+    right: -10px;
+}
+
+.image-crsl {
+    margin: 10px;
+}
+
+.image-crsl img {
+    border-radius: 20px;
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+}
+
+
+/* footer  */
+
+.footer {
+    padding: 1.5em;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-link a {
+    color: white;
+    font-size: 8px;
+    margin-left: 10px;
+}
