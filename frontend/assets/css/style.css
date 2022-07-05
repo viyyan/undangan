@@ -90,6 +90,7 @@ body {
     color: white;
     font-size: 64px;
     position: relative;
+    font-weight: 400;
     top: 8px;
     margin: 0px 0px 0px 10px;
 }
