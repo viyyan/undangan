@@ -230,9 +230,16 @@ body {
     flex: 1;
 }
 
+.form-group p {
+    flex: 1;
+    margin: 0px;
+    padding: 0px;
+}
+
 .form-group .tamu {
     text-align: center;
     padding: 13px !important;
+    margin: 0px !important;
 }
 
 .btn {
@@ -351,6 +358,10 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+}
+
+.footer-link:first-child img {
+    margin-left: 1px;
 }
 
 .footer-link a {
