@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Weeding of Fian & Tyas</title>
-    <link rel="stylesheet" href="./assets/css/style.css?v=7">
-    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css?v=2">
-    <link rel="stylesheet" type="text/css" href="./assets/slick/slick-theme.css?v=4">
-    <link rel="stylesheet" type="text/css" href="./assets/css/image-viewer.css?v=5">
+    <link rel="stylesheet" href="./assets/css/style.css?v=10">
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css?v=3">
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick-theme.css?v=5">
+    <link rel="stylesheet" type="text/css" href="./assets/css/image-viewer.css?v=6">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/image/favicon.ico?v=1">
 </head>
 
 <body>
     <div class="main">
-        <section class="header-cover">
+        <section class="header-cover" id="home">
             <div class="title">
                 <h1>The Weeding</h1>
                 <p>Bogor, 24 Juli 2022 </p>
@@ -75,9 +75,9 @@
                         </div>
                     </form>
                 </div>
-                <div class="scroll">
+                <!-- <div class="scroll">
                     <a href="#gallery"><img src="./assets/image/scroll.svg" alt="scroll"></a>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -137,9 +137,10 @@
             <div class="full-center">
                 <div class="group-img">
                     <img class="modal-content" id="full-image">
-                    <span class="close"><img src="./assets/image/close.svg" alt="close"></span>
+                    <span class="close"><img style="border-radius:0px;" src="./assets/image/close.svg"
+                            alt="close"></span>
                     <a class="share" href="#">
-                        <img src="./assets/image/share.svg" alt="share">
+                        <img style="border-radius:0px;" src="./assets/image/share.svg" alt="share">
                         <p>Bagikan</p>
                     </a>
                 </div>
@@ -185,6 +186,34 @@
         document.querySelector(".share").addEventListener("click", (e) => {
             e.preventDefault();
             console.log("share");
+        });
+
+
+        let targetPos = document.querySelector(".scroll a");
+        let galleryPos = document.querySelector("#gallery");
+
+        window.addEventListener("scroll", function () {
+            let height = $(window).scrollTop();
+
+
+            if (height > targetPos.offsetTop) {
+                targetPos.style.position = "fixed";
+                targetPos.style.bottom = "20px";
+                targetPos.setAttribute("href", "#gallery");
+                targetPos.style.transform = "rotate(0deg)";
+            }
+
+            if (height < targetPos.offsetTop / 2) {
+                targetPos.style.position = "relative";
+                targetPos.setAttribute("href", "#akad");
+                targetPos.style.transform = "rotate(0deg)";
+            }
+
+            if (targetPos.offsetTop + height > galleryPos.offsetTop + (galleryPos.offsetHeight / 1.1)) {
+                targetPos.style.transform = "rotate(180deg)";
+                targetPos.setAttribute("href", "#akad");
+            }
+
         });
     </script>
 </body>
