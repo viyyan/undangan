@@ -23,6 +23,7 @@ use Carbon\Carbon;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use App\Helpers\Template;
 
 
 
@@ -35,6 +36,12 @@ class GuestEditScreen extends Screen
      */
     public $name = 'Create Guest';
 
+    // construct
+    public function __construct(Request $request) {
+        $this->event_id = $request->get('event_id');
+        $this->name = $request->get('name') . " $this->name";
+    }
+
     /**
      * Query data.
      *
@@ -46,8 +53,9 @@ class GuestEditScreen extends Screen
 
         if($this->exists){
             $this->name = 'Edit Guest';
+        } else {
+            $guest->event_id = $this->event_id;
         }
-
         return [
             'guest' => $guest
         ];
@@ -89,29 +97,10 @@ class GuestEditScreen extends Screen
         return [
             Layout::rows([
 
-                Relation::make('guest.event_id')
-                    ->title('Event')
-                    ->fromModel(Event::class, 'name')
-                    ->required(),
-
                 Input::make('guest.name')
                     ->title('Name')
                     ->placeholder('Name')
                     ->required(),
-
-                Input::make('guest.phone')
-                    ->title('Phone'),
-
-                Input::make('guest.email')
-                    ->title('email'),
-
-                Input::make('guest.total_guests')
-                    ->type('number')
-                    ->title('Total Guests'),
-
-                CheckBox::make('guest.confirmed')
-                    ->title("Confirmed")
-                    ->sendTrueOrFalse(),
 
                 Select::make('guest.type')
                     ->title("Type")
@@ -119,9 +108,29 @@ class GuestEditScreen extends Screen
                     ->options([
                         1 => 'Invitees',
                         2 => 'Friends Gift',
-                        3 => 'colleague'
+                        3 => 'Colleague'
                     ])
                     ->required(),
+
+                Select::make('guest.from')
+                    ->title("Guest From")
+                    ->empty('Tyas', 'Tyas')
+                    ->options([
+                        'Tyas' => 'Tyas',
+                        'Fian' => 'Fian',
+                    ])
+                    ->required(),
+
+
+                Input::make('guest.phone')
+                    ->title('Phone'),
+
+                // Input::make('guest.email')
+                //     ->title('Email'),
+
+                Input::make('guest.total_guests')
+                    ->type('number')
+                    ->title('Total Guests'),
 
 
                 TextArea::make('guest.address')
@@ -129,9 +138,30 @@ class GuestEditScreen extends Screen
                     ->rows(3)
                     ->maxlength(300),
 
-                Input::make('guest.city')
-                    ->title('City')
-                    ->placeholder('City'),
+                // Input::make('guest.city')
+                //     ->title('City')
+                //     ->placeholder('City'),
+
+
+                CheckBox::make('guest.confirmed')
+                    ->title("Confirmed")
+                    ->sendTrueOrFalse(),
+
+                Select::make('guest.status')
+                    ->title("Status")
+                    ->empty('Created', 1 )
+                    ->options([
+                        1 => 'Created',
+                        2 => 'Sent',
+                        3 => 'Submited',
+                    ])
+                    ->required(),
+
+                Relation::make('guest.event_id')
+                    ->title('Event')
+                    ->fromModel(Event::class, 'name')
+                    ->required()
+                    ->readOnly(),
 
             ])
         ];
@@ -149,11 +179,10 @@ class GuestEditScreen extends Screen
         if (empty($guest->created_at)) $guest->created_at = Carbon::now();
         $guest->save();
 
-        // $this->_makeThumbnail($guest);
 
-        Alert::info('You have successfully created an guest.');
+        Alert::info('You have successfully created a guest.');
 
-        return redirect()->route('platform.guest.list');
+        return redirect()->route('platform.guest.list', getEventParams($guest->event));
     }
 
     /**
@@ -165,19 +194,10 @@ class GuestEditScreen extends Screen
     public function remove(Guest $guest)
     {
         $guest->delete();
-        File::delete($guest->heroThumbPath());
 
         Alert::info('You have successfully deleted the guest.');
 
-        return redirect()->route('platform.guest.list');
+        return redirect()->route('platform.guest.list', getEventParams($guest->event));
     }
 
-    private function _makeThumbnail(Guest $guest)
-    {
-        if ($image = $guest->heroImage()->first()) {
-            $thumbPath = $guest->heroThumbPath();
-            $file = Image::make($image->url())->crop(530, 610)->encode($image->extension);
-            Storage::put($thumbPath, $file);
-        }
-    }
 }

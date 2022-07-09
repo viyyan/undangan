@@ -96,20 +96,13 @@ class EventEditScreen extends Screen
                     ->help('Specify a short descriptive name for this event.')
                     ->required(),
 
-                // Relation::make('event.category_id')
-                //     ->title('Category')
-                //     ->fromModel(Category::class, 'name')
-                //     ->applyScope('event')
-                //     ->required(),
+                // Cropper::make('event.hero_id')
+                //     ->targetId()
+                //     ->title('Large web banner image, generally in the front and center'),
 
-
-                Cropper::make('event.hero_id')
-                    ->targetId()
-                    ->title('Large web banner image, generally in the front and center'),
-
-                Cropper::make('event.sub_hero_id')
-                    ->targetId()
-                    ->title('Large web banner image, generally in the front and center'),
+                // Cropper::make('event.sub_hero_id')
+                //     ->targetId()
+                //     ->title('Large web banner image, generally in the front and center'),
 
                 Relation::make('event.user_id')
                     ->title('Author')
@@ -121,22 +114,22 @@ class EventEditScreen extends Screen
                     ->placeholder('Bride Name')
                     ->required(),
 
-                TextArea::make('event.bride_desc')
-                    ->title('Bride Desc')
-                    ->rows(2)
-                    ->maxlength(200)
-                    ->placeholder('Putri dari Bapak & Ibu...'),
+                // TextArea::make('event.bride_desc')
+                //     ->title('Bride Desc')
+                //     ->rows(2)
+                //     ->maxlength(200)
+                //     ->placeholder('Putri dari Bapak & Ibu...'),
 
                 Input::make('event.groom')
                     ->title('Groom Name')
                     ->placeholder('Groom Name')
                     ->required(),
 
-                TextArea::make('event.bride_desc')
-                    ->title('Groom Desc')
-                    ->rows(2)
-                    ->maxlength(200)
-                    ->placeholder('Putra dari Bapak & Ibu...'),
+                // TextArea::make('event.bride_desc')
+                //     ->title('Groom Desc')
+                //     ->rows(2)
+                //     ->maxlength(200)
+                //     ->placeholder('Putra dari Bapak & Ibu...'),
 
                 DateTimer::make('event.event_date')
                     ->title('Event Date')

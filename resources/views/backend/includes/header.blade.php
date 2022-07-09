@@ -7,5 +7,5 @@
 @endpush
 
 <p class="h2 n-m font-thin v-center">
-    <img src="{{ backendImages('logo.png') }}" width="120">
+    <img src="{{ backendImages('logo.png') }}" width="50">
 </p>

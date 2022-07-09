@@ -33,12 +33,12 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('All Events')->route('platform.event.list'),
                 ]),
 
-            Menu::make('Guests')
-                ->icon('people')
-                ->route('platform.guest.list')
-                ->list([
-                    Menu::make('All Events')->route('platform.guest.list'),
-                ]),
+            // Menu::make('Guests')
+            //     ->icon('people')
+            //     ->route('platform.guest.list')
+            //     ->list([
+            //         Menu::make('All Events')->route('platform.guest.list'),
+            //     ]),
 
 
             Menu::make(__('Users'))

@@ -16,3 +16,9 @@ use App\Http\Controllers\Frontend\HomeController;
 */
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
+
+Route::get('/{slug}', [HomeController::class, 'guest'])
+    ->name('guest');
+
+Route::post('/guest-submit', [HomeController::class, 'guestSubmit'])
+    ->name('guest-submit');

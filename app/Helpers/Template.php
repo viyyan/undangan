@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Event;
+
 
 /**
  * frontAssets
@@ -52,4 +54,21 @@ function validateUrl($url) {
         $url = "https://".$url;
     }
     return $url;
+}
+
+
+/**
+ * validate & complete url
+ */
+function getEventParams(Event $event) {
+    return ["event_id" => $event->id, "event_name" => $event->name];
+}
+
+function getPhotos($counts) {
+    $photos = [];
+    for ($i = 0; $i < $counts; $i++) {
+        $img = $i + 1 .".jpg";
+        $photos[$i] = frontImages("gallery/$img");
+    }
+    return $photos;
 }

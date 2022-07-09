@@ -26,32 +26,65 @@ class GuestListLayout extends Table
     {
         return [
             TD::make('name', 'Name')
+                ->sort()
                 ->render(function (Guest $guest) {
                     return Link::make($guest->name)
-                        ->route('platform.guest.edit', $guest);
+                        ->route('platform.guest.edit', [$guest, "event_id" => $guest->event_id]);
                 }),
 
-            TD::make('event_id', 'Event Name')
+            TD::make('status', 'Status')
+                ->sort()
                 ->render(function (Guest $guest) {
-                    return $guest->event->name;
-                }),
-
-            TD::make('confirmed', 'Confirmed')
-                ->render(function (Guest $guest) {
-                    return $guest->confirmed ? "confirmed" : "waiting";
-                }),
-
-            TD::make('updated_at', 'Updated')
-                ->render(function (Guest $guest) {
-                    return $guest->created_at->format('h:i, d F Y');
+                    return $guest->statusText();
                 }),
 
             TD::make('phone', 'Send')
+                ->sort()
                 ->render(function (Guest $guest) {
-                    $msg = $this->composeMessage($guest);
-                    return "<div class=\"form-group mb-0\"><a href='{$msg}' class='btn btn-success' target='_blank'> Send </a></div>";
+                    return $this->getButtonSend($guest);
+                }),
+
+            TD::make('type', 'Type')
+                ->sort()
+                ->render(function (Guest $guest) {
+                    return $guest->typeText();
+                }),
+
+            TD::make('from', 'Guest From')
+                ->sort()
+                ->render(function (Guest $guest) {
+                    return $guest->from;
+                }),
+
+            TD::make('confirmed', 'Confirmed to Attend')
+                ->sort()
+                ->render(function (Guest $guest) {
+                    return $guest->confirmedText();
+                }),
+
+
+            TD::make('total_guests', 'Total Guests')
+                ->sort()
+                ->render(function (Guest $guest) {
+                    return ($guest->type == 1) ? $guest->total_guests : "-";
+                }),
+
+            TD::make('updated_at', 'Updated')
+                ->sort()
+                ->render(function (Guest $guest) {
+                    return $guest->created_at->format('h:i, d F Y');
                 }),
         ];
+    }
+
+
+    public function getButtonSend(Guest $guest) {
+        if ($guest->status == 1) {
+           $msg = $this->composeMessage($guest);
+           return "<div class=\"form-group mb-0\"><a href='{$msg}' class='btn btn-success' target='_blank'> Send </a></div>";
+        } else {
+           return "sent";
+        }
     }
 
     /**

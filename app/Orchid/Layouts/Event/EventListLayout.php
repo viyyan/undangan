@@ -6,6 +6,7 @@ use App\Models\Event;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
+use App\Helpers\Template;
 
 class EventListLayout extends Table
 {
@@ -26,6 +27,12 @@ class EventListLayout extends Table
                 ->render(function (Event $event) {
                     return Link::make($event->name)
                         ->route('platform.event.edit', $event);
+                }),
+
+            TD::make('id', 'Guests')
+                ->render(function (Event $event) {
+                    return Link::make("Guest List")
+                        ->route('platform.guest.list', getEventParams($event));
                 }),
 
             TD::make('user_id', 'Client')

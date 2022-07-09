@@ -12,31 +12,35 @@ $(document).ready(function () {
         autoplaySpeed: 2000,
     });
 
-let imgGallery = document.querySelectorAll(".your-class .image-crsl img");
-let imgViewer = document.querySelector("#image-viewer");
-let imgViewerClose = document.querySelector("#image-viewer .close");
-let imgValue = document.querySelector("#image-viewer img");
+    let imgGallery = document.querySelectorAll(".your-class .image-crsl img");
+    let imgViewer = document.querySelector("#image-viewer");
+    let imgViewerClose = document.querySelector("#image-viewer .close");
+    let imgValue = document.querySelector("#image-viewer img");
 
-for (let i = 0; i < imgGallery.length; i++) {
-    imgGallery[i].addEventListener("click", (e) => {
-        imgValue.src = imgGallery[i].src;
-        imgViewer.style.display = "block";
+    for (let i = 0; i < imgGallery.length; i++) {
+        imgGallery[i].addEventListener("click", (e) => {
+            imgValue.src = imgGallery[i].src;
+            imgViewer.style.display = "block";
+        });
+    }
+
+    imgViewerClose.addEventListener("click", () => {
+        imgViewer.style.display = "none";
     });
-}
 
-imgViewerClose.addEventListener("click", () => {
-    imgViewer.style.display = "none";
-});
+    document.querySelector(".share").addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("share");
+    });
 
-document.querySelector(".share").addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("share");
+
+
+
 });
 
 
 let targetPos = document.querySelector(".scroll a");
 let galleryPos = document.querySelector("#gallery");
-
 window.addEventListener("scroll", function () {
     let height = $(window).scrollTop();
 
@@ -60,6 +64,3 @@ window.addEventListener("scroll", function () {
     }
 
 });
-});
-
-

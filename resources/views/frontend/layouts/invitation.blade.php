@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="{{ frontAssets('slick/slick.css') }}?v=3">
     <link rel="stylesheet" type="text/css" href="{{ frontAssets('slick/slick-theme.css') }}?v=5">
     <link rel="stylesheet" type="text/css" href="{{ frontAssets('css/image-viewer.css') }}?v=6">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ frontImages('favicon.ico') }}?v=1">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ frontImages('favicon.ico') }}?v=1">
+    <meta property="og:image" content="{{ frontImages('og_image.png') }}" />
 </head>
 
 <body>
