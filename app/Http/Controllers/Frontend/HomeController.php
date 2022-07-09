@@ -17,12 +17,12 @@ class HomeController extends Controller
 
         $data = array(
             //"figmaUrl" => "https://www.figma.com/proto/6xS0JoS93lS6Fkcxxi1JQj/Elektron"
-            "cssFileName" => "home",
-            "jsFileName" => "home",
+            // "cssFileName" => "home",
+            // "jsFileName" => "home",
             // "cssBody" => "home",
             // "banners" => $banners,
             // "posts" => $posts
         );
-        return view('frontend.pages.home.main', $data);
+        return view('frontend.pages.index', $data);
     }
 }

@@ -16,7 +16,3 @@ use App\Http\Controllers\Frontend\HomeController;
 */
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
-
-
-Route::get('/figma', [HomeController::class, 'figma'])
-    ->name('figma');
