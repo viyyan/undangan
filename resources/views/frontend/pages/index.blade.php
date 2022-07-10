@@ -40,7 +40,7 @@
                             @if ($guest->type == 1)
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="confirmed" id="hadir" value="1"
-                                    {{ $guest->confirmed || $guest->status == 1 ? 'checked' : '' }}>
+                                    {{ $guest->confirmed || ($guest->status == 1 ||  $guest->status == 2)? 'checked' : '' }}>
                                 <span class="checkmark"></span>
                                 <label class="form-check-label" for="hadir">
                                     ya, saya akan hadir
@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="confirmed" id="tidakHadir" value="0"
-                                {{ !$guest->confirmed && $guest->status != 1 ? 'checked' : '' }}>
+                                {{ $guest->status == 3 && !$guest->confirmed ? 'checked' : '' }}>
                                 <span class="checkmark"></span>
                                 <label class="form-check-label" for="tidakHadir">
                                     maaf, saya tidak bisa

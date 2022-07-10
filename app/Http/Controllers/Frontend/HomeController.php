@@ -44,6 +44,6 @@ class HomeController extends Controller
         $guest->confirmed = $request->confirmed;
         $guest->status = 3;
         $guest->save();
-        return redirect()->route('guest', [$guest->slug,  '#gallery'] )->with('message', '~ Terkirim 📨 ~');;
+        return redirect()->route('guest', [ "to" => $guest->slug,  '#gallery'] )->with('message', '~ Terkirim 📨 ~');;
     }
 }

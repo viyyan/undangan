@@ -49,14 +49,12 @@ window.addEventListener("scroll", function () {
 
 
     if (height > targetPos.offsetTop) {
-        targetPos.style.position = "fixed";
         targetPos.style.bottom = "20px";
         targetPos.setAttribute("href", "#gallery");
         targetPos.style.transform = "rotate(0deg)";
     }
 
     if (height < targetPos.offsetTop / 2) {
-        targetPos.style.position = "relative";
         targetPos.setAttribute("href", "#akad");
         targetPos.style.transform = "rotate(0deg)";
     }

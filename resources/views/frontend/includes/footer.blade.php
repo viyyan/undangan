@@ -16,3 +16,8 @@
     </div>
 </section>
 
+
+<div class="scroll float">
+    <a href="#akad"><img src="{{ frontImages('scroll.svg') }}" alt="scroll"></a>
+</div>
+

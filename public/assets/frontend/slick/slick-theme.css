@@ -181,3 +181,15 @@
     opacity: 1;
     color: #B2886B;
 }
+
+@media only screen and (max-width: 360px) {
+    .slick-dots li {
+        position: relative;
+        display: inline-block;
+        width: 10px !important;
+        height: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+    }
+}
