@@ -37,7 +37,7 @@ class EventListLayout extends Table
 
             TD::make('user_id', 'Client')
                 ->render(function (Event $event) {
-                    return $event->client->name;
+                    return isset($event->client->name) ? $event->client->name : "-";
                 }),
 
             TD::make('status', 'Status')

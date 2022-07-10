@@ -7,7 +7,7 @@
         <section class="akad" id="akad">
             <div class="akad-info">
                 <h2 class="color-brown ls-1px fs-36 fw-400">Akad Nikah</h2>
-                <p>Minggu, 24 JULI 2022 </p>
+                <p>Minggu, 24 Juli 2022 </p>
                 <p>08:30 WIB </p>
                 @if ($guest->type == 1)
                 <p>Lembur Kuring, Parung, Bogor</p>
@@ -25,6 +25,11 @@
                     @else
                     <h2 class="color-brown ls-1px fs-36 fw-400">Kirim Souvenir</h2>
                     @endif
+                    @if(session()->has('message'))
+                        <p class="color-light-brown" style="text-align: center;">
+                            {{ session()->get('message') }}
+                        </p>
+                    @else
                     <div class="form-konfirmasi">
                         <form action="{{ route('guest-submit') }}" method="post">
                             {{ csrf_field() }}
@@ -35,7 +40,7 @@
                             @if ($guest->type == 1)
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="confirmed" id="hadir" value="1"
-                                    {{ $guest->confirmed ? 'checked' : '' }}>
+                                    {{ $guest->confirmed || $guest->status == 1 ? 'checked' : '' }}>
                                 <span class="checkmark"></span>
                                 <label class="form-check-label" for="hadir">
                                     ya, saya akan hadir
@@ -43,14 +48,14 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="confirmed" id="tidakHadir" value="0"
-                                {{ !$guest->confirmed ? 'checked' : '' }}>
+                                {{ !$guest->confirmed && $guest->status != 1 ? 'checked' : '' }}>
                                 <span class="checkmark"></span>
                                 <label class="form-check-label" for="tidakHadir">
                                     maaf, saya tidak bisa
                                 </label>
                             </div>
                             <div class="form-group row-center">
-                                <p>Jumlah Tamu :</p>
+                                <p>Jumlah tamu :</p>
                                 <input type="number" id="jumlahTamu" class="form-control tamu" name="total_guests" value="{{ $guest->total_guests }}">
                             </div>
                             @else
@@ -63,6 +68,7 @@
                             </div>
                         </form>
                     </div>
+                    @endif
                 @endif
                 @if ($guest->type > 1)
                     <p class="color-light-brown center"> <br>

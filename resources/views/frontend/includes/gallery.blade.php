@@ -16,7 +16,7 @@
     <div class="gallery-caption text-center fs-12">
         <p>Semoga doa restu dan cinta yang Bapak/Ibu/Saudara/i sekalian kirimkan,
             dapat menjadi keberkahan dan kekuatan bagi kami dalam mengarungi kehidupan baru.</p>
-        <p >Terimakasih,</p>
+        <p >Terima kasih,</p>
         <p class="color-brown">Fian & Tyas</p>
     </div>
 </section>

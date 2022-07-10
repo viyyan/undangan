@@ -12,32 +12,35 @@ $(document).ready(function () {
         autoplaySpeed: 2000,
     });
 
-    let imgGallery = document.querySelectorAll(".your-class .image-crsl img");
-    let imgViewer = document.querySelector("#image-viewer");
-    let imgViewerClose = document.querySelector("#image-viewer .close");
-    let imgValue = document.querySelector("#image-viewer img");
-
-    for (let i = 0; i < imgGallery.length; i++) {
-        imgGallery[i].addEventListener("click", (e) => {
-            imgValue.src = imgGallery[i].src;
-            imgViewer.style.display = "block";
-        });
-    }
-
-    imgViewerClose.addEventListener("click", () => {
-        imgViewer.style.display = "none";
-    });
-
-    document.querySelector(".share").addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log("share");
-    });
-
-
-
-
 });
 
+let imgGallery = document.querySelectorAll(".your-class .image-crsl img");
+let imgViewerClose = document.querySelector("#image-viewer .close");
+let imgValue = document.querySelector("#image-viewer img");
+let imgViewer = document.querySelector("#image-viewer");
+
+for (let i = 0; i < imgGallery.length; i++) {
+    imgGallery[i].addEventListener("click", (e) => {
+        imgValue.src = imgGallery[i].src;
+        imgViewer.style.display = "block";
+    });
+}
+
+let btnShare = document.querySelector(".share")
+imgViewerClose.addEventListener("click", () => {
+    imgViewer.style.display = "none";
+});
+btnShare.addEventListener("click", (e) => {
+    e.preventDefault();
+    let a = document.createElement('a');
+    let imgValue = document.querySelector("#image-viewer img");
+    a.href = imgValue.src;
+    a.download = "fian_tyas.jpg";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    console.log("share");
+});
 
 let targetPos = document.querySelector(".scroll a");
 let galleryPos = document.querySelector("#gallery");

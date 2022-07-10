@@ -10,19 +10,19 @@ use Orchid\Screen\Fields\Input;
 use Illuminate\Http\Request;
 
 
-class GuestFromFilter extends Filter
+class GuestSearchFilter extends Filter
 {
     /**
      * @var array
      */
-    public $parameters = ['from', 'search'];
+    public $parameters = ['search'];
 
     /**
      * @return string
      */
     public function name(): string
     {
-        return 'From';
+        return 'Search';
     }
 
     /**
@@ -35,9 +35,7 @@ class GuestFromFilter extends Filter
         // hardcoded
         return $builder
         ->where('event_id', 1)
-        ->where('name', 'like', '%'.$this->request->get('search').'%')
-        ->where('from', $this->request->get('from'));
-
+        ->where('name', 'like', '%'.$this->request->get('search').'%');
     }
 
     /**
@@ -48,15 +46,7 @@ class GuestFromFilter extends Filter
         return [
             Input::make('search')
                 ->title("Search")
-                ->value($this->request->get('search')),
-            Select::make('from')
-                ->title("Guest From")
-                ->empty()
-                ->value($this->request->get('from'))
-                ->options([
-                    'Tyas' => 'Tyas',
-                    'Fian' => 'Fian',
-                ])
+                ->value($this->request->get('search'))
         ];
     }
 }

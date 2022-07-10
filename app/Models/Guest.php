@@ -33,24 +33,20 @@ class Guest extends Model
     ];
 
     protected $allowedFilters = [
-        'confirmed',
-        'type',
-        'address',
-        'city',
-        'total_guests',
-        'from',
+        'name',
         'status',
+        'type',
+        'from',
+        'confirmed',
         'updated_at'
     ];
 
     protected $allowedSorts = [
-        'confirmed',
-        'type',
-        'address',
-        'city',
-        'total_guests',
-        'from',
+        'name',
         'status',
+        'type',
+        'from',
+        'confirmed',
         'updated_at'
     ];
 
@@ -87,10 +83,10 @@ class Guest extends Model
             case 1:
                 $txt = 'Invitees';
                 break;
-            case 1:
+            case 2:
                 $txt = "Friends Gift";
                 break;
-            case 2:
+            case 3:
                 $txt = "Colleague";
                 break;
         }

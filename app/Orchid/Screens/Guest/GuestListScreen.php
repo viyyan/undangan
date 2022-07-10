@@ -43,7 +43,8 @@ class GuestListScreen extends Screen
     {
         return [
             'guests' => Guest::filtersApply([GuestFromFilter::class])
-            ->where('event_id', $this->event_id )
+            // ->where('event_id', $this->event_id )
+            ->where('event_id', 1)
             ->defaultSort('created_at', 'desc')->paginate()
         ];
     }
@@ -60,6 +61,7 @@ class GuestListScreen extends Screen
                 ->icon('pencil')
                 ->route('platform.guest.edit', ["event_id" => $this->event_id ])
                 ->class('btn btn-primary')
+                ,
         ];
     }
 
@@ -71,6 +73,7 @@ class GuestListScreen extends Screen
     public function layout(): array
     {
         return [
+            GuestSelection::class,
             GuestListLayout::class
         ];
     }

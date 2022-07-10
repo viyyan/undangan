@@ -17,7 +17,7 @@ use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Contact\ContactListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
-use App\Http\Controllers\Backend\ExporterController;
+use App\Http\Controllers\Backend\WaSenderController;
 
 
 /*
@@ -53,7 +53,7 @@ Route::screen('event/{event?}', EventEditScreen::class)
 
 
 // Platform > Guest
-Route::screen('guests', GuestListScreen::class)
+Route::screen('/guests', GuestListScreen::class)
     ->name('platform.guest.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
@@ -147,5 +147,5 @@ Route::screen('roles', RoleListScreen::class)
             ->push(__('Roles'), route('platform.systems.roles'));
     });
 
-Route::get('admin/contact-export', [ExporterController::class, 'exportContact'])
-    ->name('contact-export');
+Route::get('k837hdg28j/{guestId}', [WaSenderController::class, 'send'])
+    ->name('wa-send');

@@ -7,7 +7,7 @@
         <section class="akad" id="akad">
             <div class="akad-konfirmasi">
                 <h2 class="color-brown ls-1px fs-36 fw-400">Akad Nikah</h2>
-                <p>Minggu, 24 JULI 2022 </p>
+                <p>Minggu, 24 Juli 2022 </p>
                 <p>08:30 WIB </p>
                 <p>Bogor</p>
                 <p class="color-light-brown center">
@@ -22,5 +22,9 @@
 
         <!-- footer -->
         @include('frontend.includes.footer')
+
+
+        <!-- gallery details -->
+        @include('frontend.includes.gallery-details')
     </div>
 @endsection

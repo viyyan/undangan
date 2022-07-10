@@ -67,7 +67,7 @@ function getEventParams(Event $event) {
 function getPhotos($counts) {
     $photos = [];
     for ($i = 0; $i < $counts; $i++) {
-        $img = $i + 1 .".jpg";
+        $img = $i + 1 .".JPG";
         $photos[$i] = frontImages("gallery/$img");
     }
     return $photos;

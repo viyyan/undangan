@@ -1,6 +1,6 @@
 <section class="header-cover" id="home">
     <div class="title">
-        <h1>The Weeding of</h1>
+        <h1>The Wedding of</h1>
         <!-- <p>Bogor, 24 Juli 2022 </p> -->
     </div>
     <div class="name">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Backend\WaSenderController;
 
 
 /*
@@ -22,3 +23,4 @@ Route::get('/{slug}', [HomeController::class, 'guest'])
 
 Route::post('/guest-submit', [HomeController::class, 'guestSubmit'])
     ->name('guest-submit');
+
