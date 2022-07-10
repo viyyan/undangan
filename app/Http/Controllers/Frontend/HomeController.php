@@ -20,9 +20,9 @@ class HomeController extends Controller
     }
 
 
-    public function guest(Request $request, $guest)
+    public function guest(Request $request)
     {
-        $guest = Guest::where("slug", $guest)->first();
+        $guest = Guest::where("slug", $request->to)->first();
 
         if ($guest == null) {
             abort(404);

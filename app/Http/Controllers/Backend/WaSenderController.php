@@ -83,7 +83,7 @@ Google Map: https://g.page/lemburkuringprg?share";
 
 
     private function getContentByType($guest) {
-        $url = route('guest', $guest->slug);
+        $url = route('guest', [ 'to' => $guest->slug ]);
         $nonInvitee = "Tanpa mengurangi rasa hormat, belum memungkinkan bagi kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami secara langsung.";
         switch ($guest->type) {
             case 1:

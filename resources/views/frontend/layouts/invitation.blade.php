@@ -14,11 +14,11 @@
     <link rel="stylesheet" type="text/css" href="{{ frontAssets('slick/slick-theme.css') }}?v=5">
     <link rel="stylesheet" type="text/css" href="{{ frontAssets('css/image-viewer.css') }}?v=6">
     <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ frontImages('favicon.ico') }}?v=1">
-s    <meta property="og:image" content="{{ frontImages('og_image_new.png') }}?v=2" />
+    <meta property="og:image" content="{{ frontImages('og_image_new.png') }}?v=2" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1000" />
     <meta property="og:image:height" content="525" />
-    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami memohon maaf sebesar-besarnya karena belum dapat mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami secara langsung." />
+    <meta property="og:description" content="Semoga doa restu dan cinta yang Bapak/Ibu/Saudara/i sekalian kirimkan, dapat menjadi keberkahan dan kekuatan besar bagi kami dalam mengarungi kehidupan baru." />
 </head>
 
 <body>
