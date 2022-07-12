@@ -6,11 +6,11 @@
         <div class="footer-group">
             <div class="footer-link">
                 <img src="{{ frontImages('email.svg') }}" alt="#">
-                <a href="https://wa.me/6281389043330?text=Hi%20mau%20tanya%20pembuatan%20undangan%20digital%20dong">Invitoo (undangan digital)</a>
+                <a href="https://wa.me/6281389043330?text=Hi%20Invitoo,%20mau%20tanya%20pembuatan%20undangan%20digital%20dong" target="_blank">Invitoo (undangan digital)</a>
             </div>
             <div class="footer-link">
                 <img src="{{ frontImages('camera.svg') }}" alt="#">
-                <a href="https://www.instagram.com/xo.photoworks/">@xo.photoworks</a>
+                <a href="https://www.instagram.com/xo.photoworks/" target="_blank">@xo.photoworks</a>
             </div>
         </div>
     </div>

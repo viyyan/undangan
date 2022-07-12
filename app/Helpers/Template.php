@@ -70,5 +70,6 @@ function getPhotos($counts) {
         $img = $i + 1 .".JPG";
         $photos[$i] = frontImages("gallery/$img");
     }
+    shuffle($photos);
     return $photos;
 }

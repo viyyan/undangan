@@ -25,8 +25,7 @@ class HomeController extends Controller
         $guest = Guest::where("slug", $request->to)->first();
 
         if ($guest == null) {
-            abort(404);
-            return;
+            return view('errors.404');
         }
 
         $data = array(

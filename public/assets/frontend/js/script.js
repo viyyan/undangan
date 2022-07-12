@@ -30,6 +30,8 @@ let btnShare = document.querySelector(".share")
 imgViewerClose.addEventListener("click", () => {
     imgViewer.style.display = "none";
 });
+
+
 btnShare.addEventListener("click", (e) => {
     e.preventDefault();
     let a = document.createElement('a');

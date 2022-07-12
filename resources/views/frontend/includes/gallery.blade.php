@@ -2,7 +2,7 @@
     <h2 class="fs-36 ls-1px color-green fw-400">Gallery</h2>
     <div class="gallery-carousal">
         <div class="your-class">
-            @foreach (getPhotos(10) as $photo)
+            @foreach (getPhotos(11) as $photo)
             <div class="image-crsl">
                 <img src="{{ $photo }}">
             </div>

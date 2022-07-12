@@ -71,8 +71,8 @@
                     @endif
                 @endif
                 @if ($guest->type > 1)
-                    <p class="color-light-brown center"> <br>
-                        Tanpa mengurangi rasa hormat, kami memohon maaf sebesar-besarnya karena belum dapat mengundang Bapak/Ibu/Saudara/i
+                    <p class="color-light-brown message"> <br>
+                        Tanpa mengurangi rasa hormat, kami memohon maaf sebesar-besarnya karena belum dapat mengundang Bapak/Ibu/Saudara/i <span class="color-brown ">{{ $guest->name }}</span>
                         untuk menghadiri acara pernikahan kami secara langsung.
                     <p>
                 @endif

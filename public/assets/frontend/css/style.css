@@ -381,9 +381,9 @@ p {
     margin-bottom: 8px;
 }
 
-p.center {
-  text-align: justify;
+p.message {
   text-justify: inter-word;
+  line-height: 24px;
 }
 
 

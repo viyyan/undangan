@@ -39,13 +39,11 @@ class WaSenderController extends Controller
         $tempat = ($guest->type == 1)
         ? "Lembur Kuring, Parung, Bogor"
         : "Bogor";
-        $msg = "
-بِسْــــــــمِ اٌللَّهِ اٌلرَّحْمَنِ اٌلرَّحِيْـــــــــمِ
+        $msg = "Bismillahirrahmanirrahim
+Assalamualaikum Warahmatullahi Wabarakatuh.
 
 Kepada Yth,
 Bapak/Ibu/Saudara/i $guest->name,
-
-Assalamualaikum Warahmatullahi Wabarakatuh
 
 Bersama dengan pesan ini kami ingin menyampaikan kabar bahagia atas pernikahan kami, yang akan dilangsungkan pada:
 
@@ -66,7 +64,7 @@ Tyas & Fian";
 Google Map: https://g.page/lemburkuringprg?share";
         if ($guest->type == 3) $msg = $msg . "
 
-".route('guest', $guest->slug);
+".$url = route('guest', [ 'to' => $guest->slug ]);
         $msgEncode = urlencode($msg);
         $url = "https://wa.me/".$this->cleanPhone($guest->phone)."?text=$msgEncode";
         return $url;
@@ -87,13 +85,13 @@ Google Map: https://g.page/lemburkuringprg?share";
         $nonInvitee = "Tanpa mengurangi rasa hormat, belum memungkinkan bagi kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami secara langsung.";
         switch ($guest->type) {
             case 1:
-                $txt = "Mohon kesediaannya untuk mengisi form konfirmasi kedatangannya di bawah ini.
+                $txt = "Mohon kesediaannya untuk mengisi form konfirmasi kedatangannya di bawah ini:
 $url#akad";
                 break;
             case 2:
                 $txt = "$nonInvitee
 
-Oleh karena itu, kami ingin mengirimkan bingkisan sederhana untuk teman-teman. Mohon isi alamat lengkap teman-teman melalui form berikut ini.
+Oleh karena itu, kami ingin mengirimkan bingkisan sederhana untuk teman-teman. Mohon isi alamat lengkap teman-teman melalui form berikut ini paling lambat tanggal 16 Juli 2022:
 $url#akad";
                 break;
             case 3:

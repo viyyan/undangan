@@ -15,8 +15,8 @@ use App\Http\Controllers\Backend\WaSenderController;
 | contains the "web" middleware group. Now create something great!
 |
 // */
-// Route::get('/', [HomeController::class, 'index'])
-//     ->name('home');
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
 
 Route::get('/', [HomeController::class, 'guest'])
     ->name('guest');
